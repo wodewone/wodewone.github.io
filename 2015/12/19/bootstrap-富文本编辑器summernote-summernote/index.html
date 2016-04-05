@@ -1,0 +1,812 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="bootstrap,summernote," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="SummernoteSuper simple WYSIWYG Editor.
+
+
+SummernoteSummernote is a JavaScript library that helps you create WYSIWYG editors online.
+Home page: http://summernote.org
+Why Summernote?Summernote has a few">
+<meta property="og:type" content="article">
+<meta property="og:title" content="bootstrap 富文本编辑器summernote/summernote">
+<meta property="og:url" content="http://wodewone.com/2015/12/19/bootstrap-富文本编辑器summernote-summernote/index.html">
+<meta property="og:site_name" content="wodewone">
+<meta property="og:description" content="SummernoteSuper simple WYSIWYG Editor.
+
+
+SummernoteSummernote is a JavaScript library that helps you create WYSIWYG editors online.
+Home page: http://summernote.org
+Why Summernote?Summernote has a few">
+<meta property="og:image" content="https://secure.travis-ci.org/summernote/summernote.svg">
+<meta property="og:image" content="https://badge.fury.io/js/summernote.svg">
+<meta property="og:image" content="https://gemnasium.com/summernote/summernote.svg">
+<meta property="og:image" content="https://coveralls.io/repos/summernote/summernote/badge.svg?branch=develop&service=github">
+<meta property="og:image" content="https://saucelabs.com/browser-matrix/summernoteis.svg">
+<meta property="og:image" content="https://badges.gitter.im/Join%20Chat.svg">
+<meta property="og:updated_time" content="2016-04-05T07:32:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="bootstrap 富文本编辑器summernote/summernote">
+<meta name="twitter:description" content="SummernoteSuper simple WYSIWYG Editor.
+
+
+SummernoteSummernote is a JavaScript library that helps you create WYSIWYG editors online.
+Home page: http://summernote.org
+Why Summernote?Summernote has a few">
+<meta name="twitter:image" content="https://secure.travis-ci.org/summernote/summernote.svg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6269890100566427000,
+      author: 'Coco'
+    }
+  };
+</script>
+
+  <title> bootstrap 富文本编辑器summernote/summernote | wodewone </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?4691d35db2be0afe7a932e6f4f7e68af";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">wodewone</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                bootstrap 富文本编辑器summernote/summernote
+              
+            
+          </h1>
+        
+
+        
+          <div class="post-tags">
+            
+              <a href="/tags/bootstrap/" rel="tag">#bootstrap</a>
+            
+              <a href="/tags/summernote/" rel="tag">#summernote</a>
+            
+          </div>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-12-19T16:20:10+08:00" content="2015-12-19">
+              2015-12-19
+            </time>
+          </span>
+
+          
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/bootstrap/" itemprop="url" rel="index">
+                    <span itemprop="name">bootstrap</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/12/19/bootstrap-富文本编辑器summernote-summernote/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/19/bootstrap-富文本编辑器summernote-summernote/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2015/12/19/bootstrap-富文本编辑器summernote-summernote/" class="leancloud_visitors" data-flag-title="bootstrap 富文本编辑器summernote/summernote">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Summernote"><a href="#Summernote" class="headerlink" title="Summernote"></a>Summernote</h2><p>Super simple WYSIWYG Editor.</p>
+<p><a href="http://travis-ci.org/summernote/summernote" target="_blank" rel="external"><img src="https://secure.travis-ci.org/summernote/summernote.svg" alt="Build Status"></a><br><a href="http://badge.fury.io/js/summernote" target="_blank" rel="external"><img src="https://badge.fury.io/js/summernote.svg" alt="npm version"></a><br><a href="https://gemnasium.com/summernote/summernote" target="_blank" rel="external"><img src="https://gemnasium.com/summernote/summernote.svg" alt="Dependency Status"></a><br><a href="https://coveralls.io/github/summernote/summernote?branch=develop" target="_blank" rel="external"><img src="https://coveralls.io/repos/summernote/summernote/badge.svg?branch=develop&amp;service=github" alt="Coverage Status"></a></p>
+<p><a href="https://saucelabs.com/u/summernoteis" target="_blank" rel="external"><img src="https://saucelabs.com/browser-matrix/summernoteis.svg" alt="Sauce Test Status"></a></p>
+<h3 id="Summernote-1"><a href="#Summernote-1" class="headerlink" title="Summernote"></a>Summernote</h3><p>Summernote is a JavaScript library that helps you create WYSIWYG editors online.</p>
+<p>Home page: <a href="http://summernote.org" target="_blank" rel="external">http://summernote.org</a></p>
+<h3 id="Why-Summernote"><a href="#Why-Summernote" class="headerlink" title="Why Summernote?"></a>Why Summernote?</h3><p>Summernote has a few special features:</p>
+<ul>
+<li>Paste images from clipboard</li>
+<li>Saves images directly in the content of the field using base64 encoding, so you don’t need to implement image handling at all</li>
+<li>Simple UI</li>
+<li>Interactive WYSIWYG editing</li>
+<li>Handy integration with server</li>
+</ul>
+<h3 id="Installation-and-dependencies"><a href="#Installation-and-dependencies" class="headerlink" title="Installation and dependencies"></a>Installation and dependencies</h3><p>Summernote uses opensource libraries: <a href="http://jquery.com/" target="_blank" rel="external">jQuery</a>, <a href="http://getbootstrap.com" target="_blank" rel="external">Bootstrap</a>.</p>
+<p>For <a href="http://github.com/meteor/meteor" target="_blank" rel="external">Meteor</a>, just run <code>meteor add summernote:summernote</code>. More info in the <a href="meteor/README.md">Meteor README</a>.</p>
+<p>For other/no frameworks:</p>
+<h4 id="1-include-JS-CSS"><a href="#1-include-JS-CSS" class="headerlink" title="1. include JS/CSS"></a>1. include JS/CSS</h4><p>Include the following code in the <code>&lt;head&gt;</code> tag of your HTML:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- include libraries(jQuery, bootstrap) --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- include summernote css/js--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"summernote.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"summernote.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-target-a-element"><a href="#2-target-a-element" class="headerlink" title="2. target a element"></a>2. target a element</h4><p>Then place a <code>div</code> tag somewhere in the <code>body</code> tag. This element will be replaced with the summernote editor.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"summernote"</span>&gt;</span>Hello Summernote<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="3-summernote"><a href="#3-summernote" class="headerlink" title="3. summernote"></a>3. summernote</h4><p>Finally, run this script after the DOM is ready:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  $(<span class="string">'#summernote'</span>).summernote();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>For more examples, please visit to <a href="http://summernote.org/examples" target="_blank" rel="external">homepage</a>.</p>
+<h3 id="API"><a href="#API" class="headerlink" title="API"></a>API</h3><p><code>code</code> - get the HTML source code underlying the text in the editor:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> html = $(<span class="string">'#summernote'</span>).summernote(<span class="string">'code'</span>);</span><br></pre></td></tr></table></figure>
+<p>For more detail about API, please refer to <a href="http://summernote.org/getting-started/#basic-api" target="_blank" rel="external">document</a>.</p>
+<h4 id="Warning-code-injection"><a href="#Warning-code-injection" class="headerlink" title="Warning - code injection"></a>Warning - code injection</h4><p>The code view allows the user to enter script contents. Make sure to filter/<a href="https://github.com/search?l=JavaScript&amp;q=sanitize+html" target="_blank" rel="external">sanitize the HTML on the server</a>. Otherwise, an attacker can inject arbitrary JavaScript code into clients.</p>
+<h4 id="document-structure"><a href="#document-structure" class="headerlink" title="document structure"></a>document structure</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- body container: &lt;div class=&quot;note-editable&quot;&gt;, &lt;td&gt;, &lt;blockquote&gt;, &lt;ul&gt;</span><br><span class="line">- block node: &lt;div&gt;, &lt;p&gt;, &lt;li&gt;, &lt;h1&gt;, &lt;table&gt;</span><br><span class="line">- void block node: &lt;hr&gt;</span><br><span class="line">- inline node: &lt;span&gt;, &lt;b&gt;, &lt;font&gt;, &lt;a&gt;, ...</span><br><span class="line">- void inline node: &lt;img&gt;</span><br><span class="line">- text node: #text</span><br></pre></td></tr></table></figure>
+<ol>
+<li>A body container has block node, but <code>&lt;ul&gt;</code> has only <code>&lt;li&gt;</code> nodes.</li>
+<li>A body container also has inline nodes sometimes. This inline nodes will be wraped with <code>&lt;p&gt;</code> when enter key pressed.</li>
+<li>A block node only has inline nodes.</li>
+<li>A inline nodes has another inline nodes</li>
+<li><code>#text</code> and void inline node doesn’t have children.</li>
+</ol>
+<h4 id="build-summernote"><a href="#build-summernote" class="headerlink" title="build summernote"></a>build summernote</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># grunt-cli is need by grunt; you might have this installed already</span></span><br><span class="line">npm install -g grunt-cli</span><br><span class="line">npm install</span><br><span class="line"></span><br><span class="line"><span class="comment"># build full version of summernote: dist/summernote.js</span></span><br><span class="line">grunt build</span><br><span class="line"></span><br><span class="line"><span class="comment"># generate minified copy: dist/summernote.min.js, dist/summernote.css</span></span><br><span class="line">grunt dist</span><br></pre></td></tr></table></figure>
+<p>At this point, you should now have a <code>build/</code> directory populated with everything you need to use summernote.</p>
+<h4 id="test-summernote"><a href="#test-summernote" class="headerlink" title="test summernote"></a>test summernote</h4><p>run tests with Karma and PhantomJS<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grunt <span class="built_in">test</span></span><br></pre></td></tr></table></figure></p>
+<p>If you want run tests on other browser,<br>change the values for <code>broswers</code> properties in <code>Gruntfile.js</code>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">karma: &#123;</span><br><span class="line">  all: &#123;</span><br><span class="line">    browsers: [&apos;PhantomJS&apos;],</span><br><span class="line">    reporters: [&apos;progress&apos;]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>You can use <code>Chrome</code>, <code>ChromeCanary</code>, <code>Firefox</code>, <code>Opera</code>, <code>Safari</code>, <code>PhantomJS</code> and <code>IE</code> beside <code>PhantomJS</code>.<br>Once you run <code>grunt test</code>, it will watch all javascript file. Therefore karma run tests every time you chage code.</p>
+<h4 id="start-local-server-for-developing-summernote"><a href="#start-local-server-for-developing-summernote" class="headerlink" title="start local server for developing summernote."></a>start local server for developing summernote.</h4><p>run local server with connect and watch.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">grunt server</span><br><span class="line"><span class="comment"># Open a browser on http://localhost:3000.</span></span><br><span class="line"><span class="comment"># If you change source code, automatically reload your page.</span></span><br></pre></td></tr></table></figure>
+<h4 id="Coding-convention"><a href="#Coding-convention" class="headerlink" title="Coding convention"></a>Coding convention</h4><ul>
+<li>JSHint: <a href="http://www.jshint.com/about/" target="_blank" rel="external">http://www.jshint.com/about/</a></li>
+<li>JSHint rule: <a href="https://github.com/summernote/summernote/blob/master/.jshintrc" target="_blank" rel="external">https://github.com/summernote/summernote/blob/master/.jshintrc</a></li>
+</ul>
+<h4 id="Contribution-guide"><a href="#Contribution-guide" class="headerlink" title="Contribution guide"></a>Contribution guide</h4><ul>
+<li>Please read <a href="https://github.com/summernote/summernote/blob/develop/CONTRIBUTING.md" target="_blank" rel="external">CONTRIBUTING.md</a> before sending pull requests.</li>
+</ul>
+<h3 id="Contacts"><a href="#Contacts" class="headerlink" title="Contacts"></a>Contacts</h3><ul>
+<li>Email: susukang98@gmail.com</li>
+<li>Twitter: <a href="http://twitter.com/hackerwins" target="_blank" rel="external">http://twitter.com/hackerwins</a></li>
+<li>Chat with us:<br><a href="https://gitter.im/summernote/summernote?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge" target="_blank" rel="external"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Join the chat at https://gitter.im/summernote/summernote"></a></li>
+</ul>
+<h3 id="License"><a href="#License" class="headerlink" title="License"></a>License</h3><p>summernote may be freely distributed under the MIT license.</p>
+<p><strong><a href="https://github.com/summernote/summernote" target="_blank" rel="external">摘自 summernote</a></strong></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/12/19/JavaScript浏览器对象/" rel="next" title="JavaScript浏览器对象">
+                <i class="fa fa-chevron-left"></i> JavaScript浏览器对象
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/01/15/js-运算符/" rel="prev" title="js 运算符">
+                js 运算符 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/12/19/bootstrap-富文本编辑器summernote-summernote/"
+           data-title="bootstrap 富文本编辑器summernote/summernote" data-url="http://wodewone.com/2015/12/19/bootstrap-富文本编辑器summernote-summernote/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="switch-box">
+      <input id="enableAnimate" class="switch-btn-cb" type="checkbox" checked="">
+      <label for="enableAnimate" class="switch-btn small shadow" title="动画开关"></label>
+    </div>
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/author.png"
+               alt="Coco" />
+          <p class="site-author-name" itemprop="name">Coco</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wodewone" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  wodewone-github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/wodewone" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Summernote"><span class="nav-number">1.</span> <span class="nav-text">Summernote</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Summernote-1"><span class="nav-number">1.1.</span> <span class="nav-text">Summernote</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Why-Summernote"><span class="nav-number">1.2.</span> <span class="nav-text">Why Summernote?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Installation-and-dependencies"><span class="nav-number">1.3.</span> <span class="nav-text">Installation and dependencies</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-include-JS-CSS"><span class="nav-number">1.3.1.</span> <span class="nav-text">1. include JS/CSS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-target-a-element"><span class="nav-number">1.3.2.</span> <span class="nav-text">2. target a element</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-summernote"><span class="nav-number">1.3.3.</span> <span class="nav-text">3. summernote</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#API"><span class="nav-number">1.4.</span> <span class="nav-text">API</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Warning-code-injection"><span class="nav-number">1.4.1.</span> <span class="nav-text">Warning - code injection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#document-structure"><span class="nav-number">1.4.2.</span> <span class="nav-text">document structure</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#build-summernote"><span class="nav-number">1.4.3.</span> <span class="nav-text">build summernote</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#test-summernote"><span class="nav-number">1.4.4.</span> <span class="nav-text">test summernote</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#start-local-server-for-developing-summernote"><span class="nav-number">1.4.5.</span> <span class="nav-text">start local server for developing summernote.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Coding-convention"><span class="nav-number">1.4.6.</span> <span class="nav-text">Coding convention</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Contribution-guide"><span class="nav-number">1.4.7.</span> <span class="nav-text">Contribution guide</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Contacts"><span class="nav-number">1.5.</span> <span class="nav-text">Contacts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#License"><span class="nav-number">1.6.</span> <span class="nav-text">License</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Coco</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wodewone"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("FkaAa7JkTVnjEWwTzitYNqdD-gzGzoHsz", "EQB15sUPijE0qCOJGBaoqxWN");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>

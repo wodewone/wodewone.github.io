@@ -1,0 +1,769 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="javascript,jquery," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="介绍Velocity.js是一款jquery动画引擎插件，它拥有与jquery中的$.animate()相同的API，还打包了颜色动画，转换，循环，easing效果，类动画、滚动等功能，因此大家可以像使用$.animate()方法一样使用velocity，您可以快速的上手velocity.js。简单点说：Velocity就是实现页面元素中的飞入，飞出，旋转、颜色变换，esaing效果的jquer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="最佳jquery动画切换引擎插件Velocity.js">
+<meta property="og:url" content="http://wodewone.com/2015/12/18/最佳jquery动画切换引擎插件Velocity-js/index.html">
+<meta property="og:site_name" content="wodewone">
+<meta property="og:description" content="介绍Velocity.js是一款jquery动画引擎插件，它拥有与jquery中的$.animate()相同的API，还打包了颜色动画，转换，循环，easing效果，类动画、滚动等功能，因此大家可以像使用$.animate()方法一样使用velocity，您可以快速的上手velocity.js。简单点说：Velocity就是实现页面元素中的飞入，飞出，旋转、颜色变换，esaing效果的jquer">
+<meta property="og:image" content="http://www.jqcool.net/wp-content/uploads/2015/03/2015-03-3072.gif">
+<meta property="og:updated_time" content="2016-04-05T07:34:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="最佳jquery动画切换引擎插件Velocity.js">
+<meta name="twitter:description" content="介绍Velocity.js是一款jquery动画引擎插件，它拥有与jquery中的$.animate()相同的API，还打包了颜色动画，转换，循环，easing效果，类动画、滚动等功能，因此大家可以像使用$.animate()方法一样使用velocity，您可以快速的上手velocity.js。简单点说：Velocity就是实现页面元素中的飞入，飞出，旋转、颜色变换，esaing效果的jquer">
+<meta name="twitter:image" content="http://www.jqcool.net/wp-content/uploads/2015/03/2015-03-3072.gif">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6269890100566427000,
+      author: 'Coco'
+    }
+  };
+</script>
+
+  <title> 最佳jquery动画切换引擎插件Velocity.js | wodewone </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?4691d35db2be0afe7a932e6f4f7e68af";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">wodewone</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                最佳jquery动画切换引擎插件Velocity.js
+              
+            
+          </h1>
+        
+
+        
+          <div class="post-tags">
+            
+              <a href="/tags/javascript/" rel="tag">#javascript</a>
+            
+              <a href="/tags/jquery/" rel="tag">#jquery</a>
+            
+          </div>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-12-18T12:25:56+08:00" content="2015-12-18">
+              2015-12-18
+            </time>
+          </span>
+
+          
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/jquery/" itemprop="url" rel="index">
+                    <span itemprop="name">jquery</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/12/18/最佳jquery动画切换引擎插件Velocity-js/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/18/最佳jquery动画切换引擎插件Velocity-js/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2015/12/18/最佳jquery动画切换引擎插件Velocity-js/" class="leancloud_visitors" data-flag-title="最佳jquery动画切换引擎插件Velocity.js">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://www.jqcool.net/wp-content/uploads/2015/03/2015-03-3072.gif" alt="Velocity.js"></p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>Velocity.js是一款jquery动画引擎插件，它拥有与jquery中的$.animate()相同的API，还打包了颜色动画，转换，循环，easing效果，类动画、滚动等功能，因此大家可以像使用$.animate()方法一样使用velocity，您可以快速的上手velocity.js。简单点说：Velocity就是实现页面元素中的飞入，飞出，旋转、颜色变换，esaing效果的jquery动画插件</p>
+<p>jquery实例：Velocity动画插件的使用方法</p>
+<blockquote>
+<p>引入核心文件</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;http://libs.useso.com/js/jquery/1.11.1/jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;script src=&quot;velocity.min.js&quot; id=&quot;library&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>写入html</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;welcome&quot;&gt;</span><br><span class="line">    &lt;p id=&quot;browserWidthNotice&quot;&gt;</span><br><span class="line">        嘿嘿，jQ酷整理</span><br><span class="line">    &lt;/p&gt;</span><br><span class="line">    &lt;p&gt;</span><br><span class="line">        没有 WebGL. 没有 Canvas. 仅仅操作了 DOM.</span><br><span class="line">    &lt;/p&gt;</span><br><span class="line">    &lt;p&gt;</span><br><span class="line">        &lt;span id=&quot;count&quot;&gt;175个&lt;/span&gt; 圆角带阴影的div</span><br><span class="line">    &lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;a id=&quot;logo&quot; href=&quot;index.html&quot;&gt;Velocity&lt;span id=&quot;logoDot&quot;&gt;.&lt;/span&gt;js&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">&lt;div id=&quot;container&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>写入CSS，此处的CSS可根椐自己的需求定义，还有不了解CSS3的朋友，请先学习下CSS3，在这就不一一的解释了</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">    padding: 0;</span><br><span class="line">    margin: 0;</span><br><span class="line">    pointer-events: none;</span><br><span class="line">&#125;</span><br><span class="line">body &#123;</span><br><span class="line">    background: #060b14;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">    font-family: &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;;</span><br><span class="line">    font-weight: 100;</span><br><span class="line">&#125;</span><br><span class="line">a &#123;</span><br><span class="line">    color: #4bc2f1;</span><br><span class="line">    text-decoration: none;</span><br><span class="line">&#125;</span><br><span class="line">a:hover &#123;</span><br><span class="line">    text-decoration: underline;</span><br><span class="line">&#125;</span><br><span class="line">#container &#123;</span><br><span class="line">    perspective: 50px;</span><br><span class="line">    -webkit-perspective: 50px;</span><br><span class="line">    -moz-perspective: 50px;</span><br><span class="line">    -ms-perspective: 50px;</span><br><span class="line">    transform-origin: 50% 100%;</span><br><span class="line">    -webkit-transform-origin: 50% 100%;</span><br><span class="line">    -moz-transform-origin: 50% 100%;</span><br><span class="line">    -ms-transform-origin: 50% 100%;</span><br><span class="line">    opacity: 0.55;</span><br><span class="line">&#125;</span><br><span class="line">#welcome &#123;</span><br><span class="line">    position: fixed;</span><br><span class="line">    width: 22rem;</span><br><span class="line">    left: 50%;</span><br><span class="line">    top: 45%;</span><br><span class="line">    margin-top: -1rem;</span><br><span class="line">    margin-left: -11rem;</span><br><span class="line">    font-weight: 200;</span><br><span class="line">    color: #fff;</span><br><span class="line">    opacity: 0.65;</span><br><span class="line">    text-align: center;</span><br><span class="line">    font-size: 0.775rem;</span><br><span class="line">    line-height: 1.05rem;</span><br><span class="line">    letter-spacing: 0.135em;</span><br><span class="line">    word-spacing: -0.075rem;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@media screen and (max-width: 400px) &#123;</span><br><span class="line">#welcome &#123;</span><br><span class="line">    font-size: 0.45rem !important;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">#browserWidthNotice &#123;</span><br><span class="line">    font-style: italic;</span><br><span class="line">    display: none;</span><br><span class="line">&#125;</span><br><span class="line">#logo &#123;</span><br><span class="line">    position: fixed;</span><br><span class="line">    right: 0.75rem;</span><br><span class="line">    bottom: 0.65rem;</span><br><span class="line">    cursor: pointer;</span><br><span class="line">    text-decoration: none;</span><br><span class="line">    color: #d6d6d6;</span><br><span class="line">    font-size: 2rem;</span><br><span class="line">    letter-spacing: 0.025em;</span><br><span class="line">&#125;</span><br><span class="line">#logoDot &#123;</span><br><span class="line">    color: #d74580;</span><br><span class="line">&#125;</span><br><span class="line">.dot &#123;</span><br><span class="line">    position: fixed;</span><br><span class="line">    width: 30px;</span><br><span class="line">    height: 30px;</span><br><span class="line">    border-radius: 30px;</span><br><span class="line">    background-color: #4bc2f1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>写入JS，实现效果</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br></pre></td><td class="code"><pre><span class="line">/*****************</span><br><span class="line">        Summary</span><br><span class="line">    *****************/</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    /* Watch the codecast to learn how this demo was made: https://www.youtube.com/watch?v=MDLiVB6g2NY&amp;hd=1 */</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    /* This demo serves two purposes:</span><br><span class="line">        1) Act as Velocity&apos;s primary visual test (in addition to the unit and load tests).</span><br><span class="line">        2) Demonstrate all of Velocity&apos;s features.</span><br><span class="line">        3) Demonstrate the performance capabilties of the DOM; WebGL and Canvas are not used in this demo.</span><br><span class="line">    */</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    /* Intended demo behavior:</span><br><span class="line">        1) A message box fades out.</span><br><span class="line">        2) Dots are randomly assigned coordinates and opacities then translated and increased in opacity. This animation is then reversed.</span><br><span class="line">        3) Meanwhile, the dots&apos; container has its perspective, rotateZ, and opacity animated in a loop with a delay.</span><br><span class="line">        4) Once the dot animation is complete, the message box fades back in.</span><br><span class="line">    */</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    /*********************</span><br><span class="line">      设备类型</span><br><span class="line">    *********************/</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    var isWebkit = /Webkit/i.test(navigator.userAgent),</span><br><span class="line">        isChrome = /Chrome/i.test(navigator.userAgent),</span><br><span class="line">        isMobile = !!(&quot;ontouchstart&quot; in window),</span><br><span class="line">        isAndroid = /Android/i.test(navigator.userAgent),</span><br><span class="line">        isIE = document.documentMode;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    /******************</span><br><span class="line">        重定向</span><br><span class="line">    ******************/</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    if (isMobile &amp;&amp; isAndroid &amp;&amp; !isChrome) &#123;</span><br><span class="line">        alert(&quot;虽然 Velocity.js 可在所有的手机浏览器上使用, 但本3D实例只在IOS和安卓系统上的谷歌浏览器运行，确定后返回jQ酷首页&quot;);</span><br><span class="line">        window.location = &quot;http://www.jqcool.net&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    /***************</span><br><span class="line">        Helpers</span><br><span class="line">    ***************/</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    /* 取得两个整数间的随机数 */</span><br><span class="line">    function r (min, max) &#123;</span><br><span class="line">        return Math.floor(Math.random() * (max - min + 1)) + min;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    /* 重写essing的默认类型. */</span><br><span class="line">    $.Velocity.defaults.easing = &quot;easeInOutsine&quot;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    /*******************</span><br><span class="line">        创建圆点</span><br><span class="line">    *******************/</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    /* Differentiate dot counts based on roughly-guestimated device and browser capabilities.</span><br><span class="line">        基于设备和浏览器创建不同的圆点</span><br><span class="line">    */</span><br><span class="line">    var dotsCount,</span><br><span class="line">        dotsHtml = &quot;&quot;,</span><br><span class="line">        $count = $(&quot;#count&quot;),</span><br><span class="line">        $dots;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    if (window.location.hash) &#123;</span><br><span class="line">        dotsCount = window.location.hash.slice(1);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        dotsCount = isMobile ? (isAndroid ? 40 : 60) : (isChrome ? 175 : 125);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    for (var i = 0; i &lt; dotsCount; i++) &#123;</span><br><span class="line">        dotsHtml += &quot;&lt;div class=&apos;dot&apos;&gt;&lt;/div&gt;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    $dots = $(dotsHtml);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    $count.html(dotsCount);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    /*************</span><br><span class="line">        Setup</span><br><span class="line">    *************/</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    var $container = $(&quot;#container&quot;),</span><br><span class="line">        $browserWidthNotice = $(&quot;#browserWidthNotice&quot;),</span><br><span class="line">        $welcome = $(&quot;#welcome&quot;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    var screenWidth = window.screen.availWidth,</span><br><span class="line">        screenHeight = window.screen.availHeight,</span><br><span class="line">        chromeHeight = screenHeight - (document.documentElement.clientHeight || screenHeight);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    var translateZMin = -725,</span><br><span class="line">        translateZMax = 600;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    var containerAnimationMap = &#123;</span><br><span class="line">            perspective: [ 215, 50 ],</span><br><span class="line">            opacity: [ 0.90, 0.55 ]</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    /* IE10+ produce odd glitching issues when you rotateZ on a parent element subjected to 3D transforms.</span><br><span class="line">        当在一个父级元素使用3D变型旋转Z轴时IE10+会出现莫名的错误</span><br><span class="line">    */</span><br><span class="line">    if (!isIE) &#123;</span><br><span class="line">        containerAnimationMap.rotateZ = [ 5, 0 ];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    /* Ensure the user is full-screened; this demo&apos;s translations are relative to screen width, not window width.</span><br><span class="line">        确保用户使用的是全屏；本实例变形相对于整个屏幕，而不是窗口；</span><br><span class="line">    */</span><br><span class="line">    if ((document.documentElement.clientWidth / screenWidth) &lt; 0.80) &#123;</span><br><span class="line">        $browserWidthNotice.show();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    /*****************</span><br><span class="line">        Animation</span><br><span class="line">    *****************/</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    /* Fade out the welcome message.</span><br><span class="line">        淡淡显示欢迎信息</span><br><span class="line">    */</span><br><span class="line">    $welcome.velocity(&#123; opacity: [ 0, 0.65 ] &#125;, &#123; display: &quot;none&quot;, delay: 3500, duration: 1100 &#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    /* Animate the dots&apos; container.</span><br><span class="line">        动画出现圆点的容器</span><br><span class="line">    */</span><br><span class="line">    $container</span><br><span class="line">        .css(&quot;perspective-origin&quot;, screenWidth/2 + &quot;px &quot; + ((screenHeight * 0.45) - chromeHeight) + &quot;px&quot;)</span><br><span class="line">        .velocity(containerAnimationMap, &#123; duration: 800, loop: 1, delay: 3250 &#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    /* Special visual enhancement for WebKit browsers, which are faster at box-shadow manipulation.</span><br><span class="line">        特别改善webkit浏览器的视觉效果，因为阴影得到更快的控制</span><br><span class="line">    */</span><br><span class="line">    if (isWebkit) &#123;</span><br><span class="line">        $dots.css(&quot;boxShadow&quot;, &quot;0px 0px 4px 0px #4bc2f1&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    /* Animate the dots.</span><br><span class="line">        圆点动画</span><br><span class="line">    */</span><br><span class="line">    $dots</span><br><span class="line">        .velocity(&#123;</span><br><span class="line">            translateX: [</span><br><span class="line">                function() &#123; return &quot;+=&quot; + r(-screenWidth/2.5, screenWidth/2.5) &#125;,</span><br><span class="line">                function() &#123; return r(0, screenWidth) &#125;</span><br><span class="line">            ],</span><br><span class="line">            translateY: [</span><br><span class="line">                function() &#123; return &quot;+=&quot; + r(-screenHeight/2.75, screenHeight/2.75) &#125;,</span><br><span class="line">                function() &#123; return r(0, screenHeight) &#125;</span><br><span class="line">            ],</span><br><span class="line">            translateZ: [</span><br><span class="line">                function() &#123; return &quot;+=&quot; + r(translateZMin, translateZMax) &#125;,</span><br><span class="line">                function() &#123; return r(translateZMin, translateZMax) &#125;</span><br><span class="line">            ],</span><br><span class="line">            opacity: [</span><br><span class="line">                function() &#123; return Math.random() &#125;,</span><br><span class="line">                function() &#123; return Math.random() + 0.1 &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;, &#123; duration: 6000 &#125;)</span><br><span class="line">        .velocity(&quot;reverse&quot;, &#123; easing: &quot;easeOutQuad&quot; &#125;)</span><br><span class="line">        .velocity(&#123; opacity: 0 &#125;, &#123; duration: 2000, complete: function() &#123;</span><br><span class="line">            $welcome</span><br><span class="line">                .html(&quot;&lt;a href=&apos;http://www.jqcool.net&apos;&gt;返回jQ酷首页.&lt;/a&gt;&quot;)</span><br><span class="line">                .velocity(&#123; opacity: 0.75 &#125;, &#123; duration: 3500, display: &quot;block&quot; &#125;)</span><br><span class="line">                .find(&quot;*&quot;).add($welcome).css(&quot;pointer-events&quot;, &quot;auto&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">        .appendTo($container);</span><br></pre></td></tr></table></figure>
+<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><blockquote>
+<p>velocity可以传两个参数，第一个可以像css参数一样传输属性和值，而对象的选项则可以通过第二个参数传递，代码如下：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">$element.velocity(&#123;</span><br><span class="line">    width: &quot;500px&quot;,</span><br><span class="line">    property2: value2</span><br><span class="line">&#125;, &#123;</span><br><span class="line">    /* Velocity&apos;s default options */</span><br><span class="line">    duration: 400,</span><br><span class="line">    easing: &quot;swing&quot;,</span><br><span class="line">    queue: &quot;&quot;,</span><br><span class="line">    begin: undefined,</span><br><span class="line">    progress: undefined,</span><br><span class="line">    complete: undefined,</span><br><span class="line">    display: undefined,</span><br><span class="line">    visibility: undefined,</span><br><span class="line">    loop: false,</span><br><span class="line">    delay: false,</span><br><span class="line">    mobileHA: true</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>单一对象</p>
+<p>Velocity支持单一个参数模式</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$element.velocity(&#123;</span><br><span class="line">    properties: &#123; opacity: 1 &#125;,</span><br><span class="line">    options: &#123; duration: 500 &#125;</span><br><span class="line">&#125;);</span><br><span class="line">//或者</span><br><span class="line">$element.velocity(&#123;</span><br><span class="line">    p: &#123; opacity: 1 &#125;,</span><br><span class="line">    o: &#123; duration: 500 &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>逗号分隔</p>
+<p>代替对象选项的参数输入，还可以使用像jquery中的逗号分隔模式，但仅限于duration, easing, andcomplete属性；代码如下</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$element.velocity(&#123; top: 50 &#125;, 1000);</span><br><span class="line">$element.velocity(&#123; top: 50 &#125;, 1000, &quot;swing&quot;);</span><br><span class="line">$element.velocity(&#123; top: 50 &#125;, &quot;swing&quot;);</span><br><span class="line">$element.velocity(&#123; top: 50 &#125;, 1000, function() &#123; console.info(&quot;Hi&quot;); &#125;);</span><br></pre></td></tr></table></figure>
+<p><a href="http://www.jqcool.net/jquery-velocity.html" target="_blank" rel="external">摘自 jqcool</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/12/17/移动端1px的边框/" rel="next" title="移动端1px的边框">
+                <i class="fa fa-chevron-left"></i> 移动端1px的边框
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/12/19/JavaScript浏览器对象/" rel="prev" title="JavaScript浏览器对象">
+                JavaScript浏览器对象 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/12/18/最佳jquery动画切换引擎插件Velocity-js/"
+           data-title="最佳jquery动画切换引擎插件Velocity.js" data-url="http://wodewone.com/2015/12/18/最佳jquery动画切换引擎插件Velocity-js/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="switch-box">
+      <input id="enableAnimate" class="switch-btn-cb" type="checkbox" checked="">
+      <label for="enableAnimate" class="switch-btn small shadow" title="动画开关"></label>
+    </div>
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/author.png"
+               alt="Coco" />
+          <p class="site-author-name" itemprop="name">Coco</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wodewone" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  wodewone-github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/wodewone" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参数"><span class="nav-number">1.1.</span> <span class="nav-text">参数</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Coco</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wodewone"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("FkaAa7JkTVnjEWwTzitYNqdD-gzGzoHsz", "EQB15sUPijE0qCOJGBaoqxWN");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>

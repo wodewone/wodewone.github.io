@@ -1,0 +1,888 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="javascript,dom," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="介绍浏览器对象
+浏览器对象主要有：
+History历史对象、
+Location地址对象、
+document文档对象、
+window对象浏览器对象、
+Navigator对象(客户机浏览器的信息)、
+Screen对象（客户机屏幕的信息）等。
+history历史对象
+History对象是由浏览器中的脚本引擎自动创建的，由一系列的 URL 组成。这些 URL 是用户在一个浏览器窗口内已访问的 URL 。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript浏览器对象">
+<meta property="og:url" content="http://wodewone.com/2015/12/19/JavaScript浏览器对象/index.html">
+<meta property="og:site_name" content="wodewone">
+<meta property="og:description" content="介绍浏览器对象
+浏览器对象主要有：
+History历史对象、
+Location地址对象、
+document文档对象、
+window对象浏览器对象、
+Navigator对象(客户机浏览器的信息)、
+Screen对象（客户机屏幕的信息）等。
+history历史对象
+History对象是由浏览器中的脚本引擎自动创建的，由一系列的 URL 组成。这些 URL 是用户在一个浏览器窗口内已访问的 URL 。">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/5dfed263jw1f2lv3ycmjqj20ri060js9.jpg">
+<meta property="og:updated_time" content="2016-04-05T08:51:47.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript浏览器对象">
+<meta name="twitter:description" content="介绍浏览器对象
+浏览器对象主要有：
+History历史对象、
+Location地址对象、
+document文档对象、
+window对象浏览器对象、
+Navigator对象(客户机浏览器的信息)、
+Screen对象（客户机屏幕的信息）等。
+history历史对象
+History对象是由浏览器中的脚本引擎自动创建的，由一系列的 URL 组成。这些 URL 是用户在一个浏览器窗口内已访问的 URL 。">
+<meta name="twitter:image" content="http://ww3.sinaimg.cn/large/5dfed263jw1f2lv3ycmjqj20ri060js9.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6269890100566427000,
+      author: 'Coco'
+    }
+  };
+</script>
+
+  <title> JavaScript浏览器对象 | wodewone </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?4691d35db2be0afe7a932e6f4f7e68af";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">wodewone</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JavaScript浏览器对象
+              
+            
+          </h1>
+        
+
+        
+          <div class="post-tags">
+            
+              <a href="/tags/javascript/" rel="tag">#javascript</a>
+            
+              <a href="/tags/dom/" rel="tag">#dom</a>
+            
+          </div>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-12-19T10:43:29+08:00" content="2015-12-19">
+              2015-12-19
+            </time>
+          </span>
+
+          
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/12/19/JavaScript浏览器对象/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/19/JavaScript浏览器对象/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2015/12/19/JavaScript浏览器对象/" class="leancloud_visitors" data-flag-title="JavaScript浏览器对象">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://ww3.sinaimg.cn/large/5dfed263jw1f2lv3ycmjqj20ri060js9.jpg" alt="Dom"></p>
+<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p><strong>浏览器对象</strong></p>
+<p>浏览器对象主要有：</p>
+<p>History历史对象、</p>
+<p>Location地址对象、</p>
+<p>document文档对象、</p>
+<p>window对象浏览器对象、</p>
+<p>Navigator对象(客户机浏览器的信息)、</p>
+<p>Screen对象（客户机屏幕的信息）等。</p>
+<h3 id="history历史对象"><a href="#history历史对象" class="headerlink" title="history历史对象"></a>history历史对象</h3><blockquote>
+<p>History对象是由浏览器中的脚本引擎自动创建的，由一系列的 URL 组成。这些 URL 是用户在一个浏览器窗口内已访问的 URL 。</p>
+<p>History 对象最初设计来表示窗口的浏览历史。但出于隐私方面的原因，History 对象不再允许脚本访问已经访问过的实际URL。</p>
+</blockquote>
+<p><strong>History对象的属性</strong></p>
+<p>length 返回浏览器历史列表中的 URL 数量</p>
+<p><strong>History对象的方法</strong></p>
+<p>back() 加载 history 列表中的前一个 URL</p>
+<p>back()方法可加载历史列表中的前一个 URL（如果存在）。调用该方法的效果等价于点击后退按钮 。</p>
+<p>history.back()</p>
+<p>forward() 加载 history 列表中的下一个 URL</p>
+<p>forward()方法可加载历史列表中的下一个 URL。调用该方法的效果等价于点击前进按钮 。</p>
+<p>history.forward()</p>
+<p>void go(any url) 加载 history 列表中的某个具体页面</p>
+<p>go()方法可加载历史列表中的某个具体的页面。</p>
+<p>history.go(number|url)</p>
+<blockquote>
+<p><strong>说明：</strong>URL 参数使用的是要访问的 URL，或 URL 的子串。而 number 参数使用的是要访问的 URL 在 History 的 URL 列表中的相对位置。</p>
+</blockquote>
+<h3 id="location地址对象"><a href="#location地址对象" class="headerlink" title="location地址对象"></a>location地址对象</h3><blockquote>
+<p><strong>Location对象</strong>存储在 Window 对象的 Location 属性中，表示那个窗口中当前显示的文档的 Web 地址。它的 href 属性存放的是文档的完整 URL，其他属性则分别描述了 URL 的各个部分</p>
+</blockquote>
+<p><strong>Location对象</strong></p>
+<p>protocol 设置或返回当前 URL 的协议。<br>hostname 设置或返回当前 URL 的主机名。<br>port 设置或返回当前 URL 的端口号。<br>host 设置或返回主机名和当前 URL 的端口号。<br>pathname 设置或返回当前 URL 的路径部分。<br>hash 设置或返回从井号 (#) 开始的 URL（锚）。<br>search 设置或返回从问号 (?) 开始的 URL（查询部分）。<br>href 设置或返回完整的 URL。</p>
+<p><strong>Location对象的方法</strong></p>
+<p>void assign(String url) 加载新的文档。</p>
+<p>void reload(Boolean flag) 重新加载当前文档。true重新加载，false不重新加载</p>
+<p>location.reload(force)</p>
+<blockquote>
+<p><strong>说明：</strong>如果该方法没有规定参数，或者参数是 false，浏览器就会检测服务器上的文档是否已改变。如果文档已改变，reload() 会再次下载该文档。如果文档未改变，则该方法将从缓存中装载文档</p>
+</blockquote>
+<h3 id="document文档对象"><a href="#document文档对象" class="headerlink" title="document文档对象"></a>document文档对象</h3><h3 id="window浏览器对象"><a href="#window浏览器对象" class="headerlink" title="window浏览器对象"></a>window浏览器对象</h3><p><strong>window对象</strong></p>
+<p>window对象是BOM层级中的顶层对象。它代表一个浏览器窗口或一个框架</p>
+<p>window对象是全局对象，要引用当前窗口根本不需要特殊的语法，可以把窗口对象的属性作为全局变量来使用，可以把窗口对象的方法当作函数来使用。</p>
+<p><strong>window对象的方法</strong></p>
+<p>alert(<em>String message</em>) 弹出一个警告对话框。参数内容为警告提示语。</p>
+<p>confirm(<em>String message</em>) 弹出一个确认对话框。参数内容为提示语。返回值是一个Boolean值，true表示按确定选项，false表示按取消选项。</p>
+<p>prompt(<em>String message</em>,<em>String value</em>)弹出一个输入对话框。message参数提示信息，value是输入对话框中的默认值，可以通过输入值进行改变。返回值是String输入对话框的内容。</p>
+<p>setInterval()方法可按照指定的周期（以毫秒计）来调用函数或计算表达式，直到 clearInterval() 被调用或窗口被关闭。</p>
+<p>setInterval(<em>code</em>,<em>millisec</em>)</p>
+<p><em>code</em>必须。要调用的函数或要执行的代码串。<br><em>millisec</em>必须。周期性执行或调用code之间的时间间隔，以毫秒计。</p>
+<p>返回值：一个可以传递给 <code>window.clearInterval()</code> 从而取消对 code 的周期性执行的值</p>
+<p>clearInterval()方法可取消由 <code>setInterval()</code> 设置的 timeout。clearInterval() 方法的参数必须是由 <code>setInterval()</code> 返回的 ID 值。</p>
+<p>clearInterval(id_of_setinterval)</p>
+<p>参数id_of_setinterval是由<code>setInterval()</code>返回的ID值</p>
+<p>setTimeout()方法用于在指定的毫秒数后调用函数或计算表达式。</p>
+<p>setTimeout(<em>code</em>,<em>millisec</em>)</p>
+<p>code必需。要调用的函数后要执行的JavaScript代码串。<br><em>millisec</em>必需。在执行代码前需等待的毫秒数。</p>
+<p>返回值：一个可以传递给 window.clearTimeout() 从而取消对 code 的延时执行的值。</p>
+<p>clearTimeout()方法可取消由 <code>setTimeout()</code> 方法设置的 timeout。</p>
+<p>clearTimeout(id_of_settimeout)</p>
+<p>参数id_of_settimeout是由<code>setTimeout()</code>返回的ID值。<br>该值标识要取消的延迟执行代码块。</p>
+<p>open()方法用于打开一个新的浏览器窗口或查找一个已命名的窗口。</p>
+<p>window.open(<em>String URL</em>,<em>String name</em>,<em>String features</em>,<em>Boolean replace</em>)</p>
+<p><em>URL</em> 一个可选的字符串，声明了要在新窗口中显示的文档的 URL。如果省略了这个参数，或者它的值是空字符串，那么新窗口就不会显示任何文档。</p>
+<p><em>name</em> 一个可选的字符串，该字符串是一个由逗号分隔的特征列表，其中包括数字、字母和下划线，该字符声明了新窗口的名称。这个名称可以用作标记 <code>&lt;a&gt;</code> 和 <code>&lt;form&gt;</code>的属性 target 的值。如果该参数指定了一个已经存在的窗口，那么 <code>open()</code> 方法就不再创建一个新窗口，而只是返回对指定窗口的引用。在这种情况下，features 将被忽略。</p>
+<p>features 一个可选的字符串，声明了新窗口要显示的标准浏览器的特征。如果省略该参数，新窗口将具有所有标准特征。</p>
+<p>replace 一个可选的布尔值。规定了装载到窗口的 URL 是在窗口的浏览历史中创建一个新条目，还是替换浏览历史中的当前条目。支持下面的值：<code>true - URL</code> 替换浏览历史中的当前条目。 <code>false - URL</code> 在浏览历史中创建新的条目。</p>
+<p>窗口特征的参数features</p>
+<blockquote>
+<p>width=pixels 窗口的文档显示区的宽度。以像素计。<br>height=pixels 窗口的文档显示区的高度。以像素计。<br>left=pixels 窗口的 x 坐标。以像素计。<br>top=pixels 窗口的 y 坐标。<br>directories=yes|no|1|0 是否添加目录按钮。默认为 yes。<br>location=yes|no|1|0 是否显示地址字段。默认是 yes。<br>menubar=yes|no|1|0 是否显示菜单栏。默认是 yes。<br>scrollbars=yes|no|1|0 是否显示滚动条。默认是 yes。<br>status=yes|no|1|0 是否添加状态栏。默认是 yes。<br>titlebar=yes|no|1|0 是否显示标题栏。默认是 yes。<br>toolbar=yes|no|1|0 是否显示浏览器的工具栏。默认是 yes。<br>resizable=yes|no|1|0 窗口是否可调节尺寸。默认是 yes。<br>fullscreen=yes|no|1|0 是否使用全屏模式显示浏览器。默认是 no。<br>channelmode=yes|no|1|0 是否使用剧院模式显示窗口。默认为 no。</p>
+</blockquote>
+<p>close()方法用于关闭浏览器窗口。</p>
+<p>window.close()</p>
+<p>moveBy()方法可相对窗口的当前坐标把它移动指定的像素。</p>
+<p>void window.moveBy(Number x,Number y);<br>x：要把窗口右移的像素数；<br>y：要把窗口下移的像素数。</p>
+<p>moveTo()方法可把窗口的左上角移动到一个指定的坐标。</p>
+<p>window.moveTo(Number x,Number y) ;</p>
+<p>x：窗口新位置的x坐标；<br>y：窗口新位置的y坐标。</p>
+<p>resizeBy()方法用于根据指定的像素来调整窗口的大小。</p>
+<p>void resizeBy(<em>Number width</em>, <em>Number height</em>);</p>
+<p>width必需。要使窗口宽度增加的像素数。可以是正、负数值。<br>height可选。要使窗口高度增加的像素数。可以是正、负数值。</p>
+<p>resizeTo()方法用于把窗口大小调整为指定的宽度和高度。</p>
+<p>void resizeTo(<em>Number width</em>,<em>Number height</em>);</p>
+<p>width必需。想要调整到的窗口的宽度。以像素计。<br>height可选。想要调整到的窗口的高度。以像素计。</p>
+<p>scrollBy()方法可把页面内容滚动指定的像素数。</p>
+<p>void scrollBy(<em>Number xnum</em>,<em>Number ynum</em>);</p>
+<p><em>xnum</em> 必需。把文档向右滚动的像素数。<br><em>ynum</em> 必需。把文档向下滚动的像素数。</p>
+<p>scrollTo()方法可把内容滚动到指定的坐标。</p>
+<p>void scrollTo(<em>Number xpos</em>,<em>Number ypos</em>);</p>
+<p><em>xpos</em> 必需。要在窗口文档显示区左上角显示的文档的x坐标。<br><em>ypos</em> 必需。要在窗口文档显示区左上角显示的文档的y坐标。</p>
+<p><strong>window对象的属性；</strong></p>
+<p><code>Boolean window.closed</code> 窗口是否被关闭。</p>
+<p>closed 属性可返回一个布尔值，该值声明了窗口是否已经关闭。该属性为只读。</p>
+<p>当浏览器窗口关闭时，表示该窗口的 Windows 对象并不会消失，它将继续存在，不过它的 closed 属性将设置为 true。<br><code>String window.name</code> 设置或返回窗口名称</p>
+<p>name属性可设置或返回存放窗口的名称的一个字符串。该名称是在 <code>open()</code> 方法创建窗口时指定的或者使用一个 <code>&lt;frame&gt;</code> 标记的 name 属性指定的。窗口的名称可以用作一个 <code>&lt;a&gt;</code> 或者 <code>&lt;form&gt;</code> 标记的 target 属性的值。以这种方式使用 target 属性声明了超链接文档或表单提交结果应该显示于指定的窗口或框架中。</p>
+<p>Window <code>window.opener</code> 返回对创建此窗口的窗口的引用。</p>
+<p>opener属性是一个可读可写的属性，可返回对创建该窗口的 Window 对象的引用。</p>
+<p>注意：只有表示顶层窗口的 Window 对象的 operner 属性才有效，表示框架的 Window 对象的 operner 属性无效。</p>
+<p>Window <code>window.parent</code> 返回父窗口</p>
+<p>Window <code>window.self</code> 返回对当前窗口的引用。等价于 window 属性。</p>
+<p>Window <code>window.top</code> 返回最顶层的先辈窗口。</p>
+<p>该属性返回对一个顶级窗口的只读引用。如果窗口本身就是一个顶级窗口，top 属性存放对窗口自身的引用。如果窗口是一个框架，那么 top 属性引用包含框架的顶层窗口。</p>
+<p><code>Number window.screenLeft</code> 窗口的左上角在屏幕上的的 x 坐标<br><code>Number window.screenX</code> 窗口的左上角在屏幕上的的 x 坐标</p>
+<p><code>Number window.screenTop</code> 窗口的左上角在屏幕上的的 y 坐标<br><code>Number window.screenY</code> 窗口的左上角在屏幕上的的 y 坐标</p>
+<p>HTMLDocument <code>window.document</code> 对 Document 对象的只读引用</p>
+<p>History <code>window.history</code> 对History对象的只读引用</p>
+<p>Location <code>window.location</code> 用于窗口或框架的 Location 对象。</p>
+<p>Navigator <code>window.navigator</code> 对Navigator对象的只读引用</p>
+<p>Screen <code>window.screen</code> 对Screen对象的只读引用</p>
+<p>Array <code>window.frames</code> 返回窗口中所有命名的框架的集合。</p>
+<h3 id="Navigator对象"><a href="#Navigator对象" class="headerlink" title="Navigator对象"></a>Navigator对象</h3><p><strong>Navigator 对象</strong>是由 浏览器中的脚本运行时引擎自动创建的，包含有关客户机浏览器的信息。</p>
+<p>appCodeName 返回浏览器的代码名。<br><br>appName 返回浏览器的名称。<br><br>appVersion 返回浏览器的平台和版本信息。<br><br>cookieEnabled 返回指明浏览器中是否启用 cookie 的布尔值。<br><br>platform 返回运行浏览器的操作系统平台。<br><br>userAgent 返回由客户机发送服务器的 user-agent 头部的值。<br></p>
+<p><strong>测试Navigator的属性值</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">document.write(&quot;navigator.appCodeName浏览器代码名:&quot; + navigator.appCodeName);</span><br><span class="line">document.write(&apos;&lt;hr&gt;&apos;);</span><br><span class="line">document.write(&quot;navigator.appName浏览器名:&quot; + navigator.appName);</span><br><span class="line">document.write(&apos;&lt;hr&gt;&apos;);</span><br><span class="line">document.write(&quot;navigator.appVersion返回浏览器平台和版本信息:&quot; + navigator.appVersion);</span><br><span class="line">document.write(&apos;&lt;hr&gt;&apos;);</span><br><span class="line">document.write(&quot;navigator.cookieEnabled  Cookie是否启用:&quot; + navigator.cookieEnabled);</span><br><span class="line">document.write(&apos;&lt;hr&gt;&apos;);</span><br><span class="line">document.write(&quot;navigator.platform 返回运行浏览器的操作平台:&quot; + navigator.platform);</span><br><span class="line">document.write(&apos;&lt;hr&gt;&apos;);</span><br><span class="line">document.write(&quot;navigator.userAgent 返回由客户机发送服务器的 user-agent 头部的值:&quot; + navigator.userAgent);</span><br><span class="line">document.write(&apos;&lt;hr&gt;&apos;);</span><br></pre></td></tr></table></figure>
+<p>使用userAgent判断使用的是什么浏览器(假设使用的是IE8浏览器),代码如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function validB()&#123;</span><br><span class="line">  var u_agent = navigator.userAgent;</span><br><span class="line">  var B_name=&quot;Failed to identify the browser&quot;;</span><br><span class="line">  if(u_agent.indexOf(&quot;Firefox&quot;)&gt;-1)&#123;</span><br><span class="line">      B_name=&quot;Firefox&quot;;</span><br><span class="line">  &#125;else if(u_agent.indexOf(&quot;Chrome&quot;)&gt;-1)&#123;</span><br><span class="line">      B_name=&quot;Chrome&quot;;</span><br><span class="line">  &#125;else if(u_agent.indexOf(&quot;MSIE&quot;)&gt;-1&amp;&amp;u_agent.indexOf(&quot;Trident&quot;)&gt;-1)&#123;</span><br><span class="line">      B_name=&quot;IE(8-10)&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">    document.write(&quot;B_name:&quot;+B_name+&quot;&lt;br&gt;&quot;);</span><br><span class="line">    document.write(&quot;u_agent:&quot;+u_agent+&quot;&lt;br&gt;&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Screen对象"><a href="#Screen对象" class="headerlink" title="Screen对象"></a>Screen对象</h3><p><strong>Screen对象</strong> 是由浏览器中的脚本运行时引擎自动创建的，包含有关客户机显示屏幕的信息。每个 Window 对象的 screen 属性都引用一个 Screen 对象。Screen 对象中存放着有关显示浏览器屏幕的信息。</p>
+<p><strong>Screen对象的属性</strong></p>
+<p>availHeight 返回显示屏幕的高度 (除 Windows 任务栏之外)。<br><br>availWidth 返回显示屏幕的宽度 (除 Windows 任务栏之外)。<br><br>colorDepth 返回目标设备或缓冲器上的调色板的比特深度。<br><br>height 返回显示屏幕的高度。<br><br>width 返回显示器屏幕的宽度。<br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">document.write(&quot;Screen resolution: &quot;);</span><br><span class="line">document.write(screen.width + &quot;*&quot; + screen.height);</span><br><span class="line">document.write(&quot;&lt;br /&gt;&quot;);</span><br><span class="line">document.write(&quot;Available view area: &quot;);</span><br><span class="line">document.write(screen.availWidth + &quot;*&quot; + screen.availHeight);</span><br><span class="line">document.write(&quot;&lt;br /&gt;&quot;);</span><br><span class="line">document.write(&quot;Color depth: &quot;);</span><br><span class="line">document.write(screen.colorDepth);</span><br></pre></td></tr></table></figure>
+<p>浏览器对象模型是指脚本的运行环境即浏览器为脚本提供的一组对象以及这组对象之间的组织关系。</p>
+<p>Window对象实现有关浏览器窗口的操作及对框架的访问。</p>
+<p>Location对象提供有关页面地址的信息和对地址的操作方法。</p>
+<p>History对象用于表示浏览器窗口曾经访问过的页面的地址的集合，包含一些方法实现在这一系列的地址内前进后退或跳转。</p>
+<p>Navigator对象用于获取浏览器所在的客户端的信息。</p>
+<p>Screen对象用于获取客户机屏幕的信息。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/12/18/最佳jquery动画切换引擎插件Velocity-js/" rel="next" title="最佳jquery动画切换引擎插件Velocity.js">
+                <i class="fa fa-chevron-left"></i> 最佳jquery动画切换引擎插件Velocity.js
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/12/19/bootstrap-富文本编辑器summernote-summernote/" rel="prev" title="bootstrap 富文本编辑器summernote/summernote">
+                bootstrap 富文本编辑器summernote/summernote <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/12/19/JavaScript浏览器对象/"
+           data-title="JavaScript浏览器对象" data-url="http://wodewone.com/2015/12/19/JavaScript浏览器对象/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="switch-box">
+      <input id="enableAnimate" class="switch-btn-cb" type="checkbox" checked="">
+      <label for="enableAnimate" class="switch-btn small shadow" title="动画开关"></label>
+    </div>
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/author.png"
+               alt="Coco" />
+          <p class="site-author-name" itemprop="name">Coco</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wodewone" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  wodewone-github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/wodewone" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#history历史对象"><span class="nav-number">2.</span> <span class="nav-text">history历史对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#location地址对象"><span class="nav-number">3.</span> <span class="nav-text">location地址对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#document文档对象"><span class="nav-number">4.</span> <span class="nav-text">document文档对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#window浏览器对象"><span class="nav-number">5.</span> <span class="nav-text">window浏览器对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Navigator对象"><span class="nav-number">6.</span> <span class="nav-text">Navigator对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Screen对象"><span class="nav-number">7.</span> <span class="nav-text">Screen对象</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Coco</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wodewone"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("FkaAa7JkTVnjEWwTzitYNqdD-gzGzoHsz", "EQB15sUPijE0qCOJGBaoqxWN");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>
