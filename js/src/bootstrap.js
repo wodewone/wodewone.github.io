@@ -52,12 +52,24 @@ $(document).ready(function () {
   //  $slideObj.addClass('stop');
   //}
   $animateBtn.on('click',function(){
+    var defaultPoint = [];
+    var _slideCss = $slideObj.css("background-position"); //这里是对IE的修复，IE中无法获得background-position， //只能获得background-position-x和background-position-y
+    if (typeof (_slideCss) === "undefined") {
+      defaultPoint[0] = $slideObj.css("background-position-x");
+      defaultPoint[1] = $slideObj.css("background-position-y");
+    } else {
+      defaultPoint = _slideCss.split(" ");
+    }
+
     if($animateBtn.is(':checked')){
       $slideObj.removeClass('stop');
+      $slideObj.css("background-position",defaultPoint[0]?defaultPoint[0]:100% + '' +defaultPoint[1]?defaultPoint[1]:0);
       //$.cookie(animateCookie,true);
     }else{
       $slideObj.addClass('stop');
+      $slideObj.css("background-position",defaultPoint[0]?defaultPoint[0]:100% + '' +defaultPoint[1]?defaultPoint[1]:0);
       //$.cookie(animateCookie,'');
     }
   });
+
 });
