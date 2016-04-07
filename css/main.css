@@ -1517,7 +1517,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffffa6;
+  background: #ff12ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2151,7 +2151,7 @@ a.search-result {
   overflow: hidden;
 }
 .sidebar.sidebar-active {
-  background: url("../../images/slide-bg.jpg") right/cover;
+  background: url("../../images/slide-bg.jpg") #555 right/cover;
   -webkit-animation: ani-slide 80s infinite linear;
   -o-animation: ani-slide 80s infinite linear;
   animation: ani-slide 80s infinite linear;
@@ -2161,7 +2161,7 @@ a.search-result {
 }
 .sidebar-inner {
   padding: 6% 3%;
-  height: 93%;
+  height: 99%;
   background: url("../../images/pattern.png") rgba(50,120,150,0.2);
 }
 .sidebar-nav li {
