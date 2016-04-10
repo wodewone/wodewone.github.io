@@ -63,7 +63,6 @@ $(document).ready(function () {
 
     if($animateBtn.is(':checked')){
       $slideObj.removeClass('stop');
-      $slideObj.css("background-position",defaultPoint[0]?defaultPoint[0]:100% + '' +defaultPoint[1]?defaultPoint[1]:0);
       //$.cookie(animateCookie,true);
     }else{
       $slideObj.addClass('stop');
