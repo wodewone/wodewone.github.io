@@ -1517,7 +1517,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #21ffcf;
+  background: #f7f;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2147,6 +2147,9 @@ a.search-result {
 .site-search form {
   display: none;
 }
+.header {
+  background: none;
+}
 .sidebar {
   overflow: hidden;
 }
@@ -2210,6 +2213,9 @@ img.site-author-image {
 }
 .sidebar a {
   color: #fff;
+}
+body {
+  background: url("http://ww2.sinaimg.cn/large/5dfed263jw1f2rlpz6sidg204102wa9z.gif") fixed;
 }
 img.site-author-image:hover {
   -webkit-transform: scale(1.12);
@@ -2285,6 +2291,10 @@ img.site-author-image:hover {
   100% {
     background-position: 100%;
   }
+}
+#ds-thread #ds-reset .ds-comments,
+.theme-next #ds-thread #ds-reset .ds-textarea-wrapper {
+  background: #fff;
 }
 @-moz-keyframes ani-slide {
   0% {
