@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, hexo, NexT, next, wodewone, css, 前端, js, javascript, jquery" />
+  <meta name="keywords" content="css,html,IE兼容," />
 
 
 
@@ -57,15 +57,46 @@
 
 
 
-<meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="wodewone's blog">
-<meta property="og:url" content="http://wodewone.com/tags/html/index.html">
+<meta name="description" content="png24位的图片在iE6浏览器上出现背景
+
+解决方案：做成PNG8，也可以引用一段脚本处理.
+
+
+浏览器默认的 margin 和 padding 不同
+
+解决方案：加一个全局的 *{margin:0;padding:0;} （但不推荐这种方式）来统一。
+
+
+IE6双边距bug：在IE6下，如果对元素设置了浮动，同时又设置了margin-left 或 margin-right，margin 值会">
+<meta property="og:type" content="article">
+<meta property="og:title" content="html 常见兼容性">
+<meta property="og:url" content="http://wodewone.com/2016/04/01/html-常见兼容性/index.html">
 <meta property="og:site_name" content="wodewone's blog">
-<meta property="og:description">
+<meta property="og:description" content="png24位的图片在iE6浏览器上出现背景
+
+解决方案：做成PNG8，也可以引用一段脚本处理.
+
+
+浏览器默认的 margin 和 padding 不同
+
+解决方案：加一个全局的 *{margin:0;padding:0;} （但不推荐这种方式）来统一。
+
+
+IE6双边距bug：在IE6下，如果对元素设置了浮动，同时又设置了margin-left 或 margin-right，margin 值会">
+<meta property="og:updated_time" content="2016-04-11T17:42:17.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wodewone's blog">
-<meta name="twitter:description">
+<meta name="twitter:title" content="html 常见兼容性">
+<meta name="twitter:description" content="png24位的图片在iE6浏览器上出现背景
+
+解决方案：做成PNG8，也可以引用一段脚本处理.
+
+
+浏览器默认的 margin 和 padding 不同
+
+解决方案：加一个全局的 *{margin:0;padding:0;} （但不推荐这种方式）来统一。
+
+
+IE6双边距bug：在IE6下，如果对元素设置了浮动，同时又设置了margin-left 或 margin-right，margin 值会">
 
 
 
@@ -83,7 +114,7 @@
   };
 </script>
 
-  <title> 标签: html | wodewone's blog </title>
+  <title> html 常见兼容性 | wodewone's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -114,7 +145,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -212,46 +243,215 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        html
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                html 常见兼容性
+              
+            
+          </h1>
+        
+
+        
+          <div class="post-tags">
+            
+              <a href="/tags/css/" rel="tag">#css</a>
+            
+              <a href="/tags/html/" rel="tag">#html</a>
+            
+              <a href="/tags/IE兼容/" rel="tag">#IE兼容</a>
+            
+          </div>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-01T00:00:21+08:00" content="2016-04-01">
+              2016-04-01
+            </time>
+          </span>
+
+          
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/html/" itemprop="url" rel="index">
+                    <span itemprop="name">html</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/01/html-常见兼容性/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/01/html-常见兼容性/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/04/01/html-常见兼容性/" class="leancloud_visitors" data-flag-title="html 常见兼容性">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <ol>
+<li><p>png24位的图片在iE6浏览器上出现背景</p>
+<blockquote>
+<p><strong>解决方案：</strong>做成PNG8，也可以引用一段脚本处理.</p>
+</blockquote>
+</li>
+<li><p>浏览器默认的 <code>margin</code> 和 <code>padding</code> 不同</p>
+<blockquote>
+<p><strong>解决方案：</strong>加一个全局的 <code>*{margin:0;padding:0;}</code> （但不推荐这种方式）来统一。</p>
+</blockquote>
+</li>
+<li><p>IE6双边距bug：在IE6下，如果对元素设置了浮动，同时又设置了<code>margin-left</code> 或 <code>margin-right</code>，<code>margin</code> 值会加倍。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#box&#123; float:left; width:10px; margin:0 0 0 10px;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<pre><code>&gt;这种情况之下IE会产生20px的距离
+&gt;**解决方案：**在float的标签样式控制中加入 _display:inline; 将其转
+&gt;化为行内属性。( _ 这个符号只有ie6会识别)
+</code></pre><ol>
+<li><p>渐进识别的方式，从总体中逐渐排除局部。<br>首先，巧妙的使用“\9”这一标记，将IE游览器从所有情况中分离出来。<br>接着，再次使用 “+” 将IE8和IE7、IE6分离开来，这样IE8已经独立识别。</p>
+ <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.bb&#123;</span><br><span class="line">    background-color:#f1ee18; /*所有识别*/</span><br><span class="line">    .background-color:#00deff\9; /*IE6、7、8识别*/</span><br><span class="line">    +background-color:#a200ff; /*IE6、7识别*/</span><br><span class="line">    _background-color:#1e0bd1; /*IE6识别*/ </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>IE下，可以使用获取常规属性的方法来获取自定义属性，也可以使用 <code>getAttribute()</code> 获取自定义属性；Firefox下,只能使用<code>getAttribute()</code> 获取自定义属性</p>
+<blockquote>
+<p><strong>解决方法：</strong>统一通过 <code>getAttribute()</code> 获取自定义属性</p>
+</blockquote>
+</li>
+<li><p>IE下，event对象有 x、y 属性，但是没有 <code>pageX</code>、<code>pageY</code>属性; Firefox下，<code>event</code>对象有 <code>pageX</code>、<code>pageY</code> 属性，但是没有 x、y 属性</p>
+<blockquote>
+<p><strong>解决方法：</strong>（条件注释）缺点是在IE浏览器下可能会增加额外的HTTP请求数。</p>
+</blockquote>
+</li>
+<li><p>Chrome 中文界面下默认会将小于 12px 的文本强制按照 12px 显示</p>
+<blockquote>
+<p><strong>解决方法：</strong>可通过加入 CSS 属性 <code>-webkit-text-size-adjust: none;</code> 解决</p>
+</blockquote>
+</li>
+<li><p>超链接访问过后 hover 样式就不出现了，被点击访问过的超链接样式不在具有 <code>hover</code> 和 <code>active</code> 了</p>
+<blockquote>
+<p><strong>解决方法：</strong>改变CSS属性的排列顺序 <strong>L-V-H-A</strong></p>
+</blockquote>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:link</span> &#123;&#125;</span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:visited</span> &#123;&#125;</span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;&#125;</span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:active</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>怪异模式问题：漏写 DTD 声明，Firefox 仍然会按照标准模式来解析网页，但在 IE 中会触发怪异模式。为避免怪异模式给我们带来不必要的麻烦，最好养成书写 DTD 声明的好习惯。现在可以使用<a href="http://www.w3.org/TR/html5/single-page.html" target="_blank" rel="external">html5</a> 推荐的写法：<code>&lt;!DOCTYPE html&gt;</code></p>
+</li>
+<li><p>上下margin重合问题：ie和ff都存在，相邻的两个div的 <code>margin-left</code> 和 <code>margin-right</code> 不会重合，但是<code>margin-top</code> 和<code>margin-bottom</code> 却会发生重合。</p>
+<blockquote>
+<p><strong>解决方法：</strong>养成良好的代码编写习惯，同时采用<code>margin-top</code>或者同时采用<code>margin-bottom</code>。</p>
+</blockquote>
+</li>
+<li><p>ie6对png图片格式支持不好</p>
+<blockquote>
+<p><strong>解决方案：</strong>引用一段脚本处理</p>
+</blockquote>
+</li>
+</ol>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/04/01/html-常见兼容性/" itemprop="url">
-              
-                <span itemprop="name">html 常见兼容性</span>
-              
-            </a>
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
+      
+    </div>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-04-01T00:00:21+08:00"
-              content="2016-04-01" >
-          04-01
-        </time>
-      </div>
+    <footer class="post-footer">
 
-    </header>
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/05/LArea-纯js移动端城市选择控件/" rel="next" title="LArea 纯js移动端城市选择控件">
+                <i class="fa fa-chevron-left"></i> LArea 纯js移动端城市选择控件
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -259,6 +459,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/04/01/html-常见兼容性/"
+           data-title="html 常见兼容性" data-url="http://wodewone.com/2016/04/01/html-常见兼容性/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -282,8 +490,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/author.png"
@@ -355,6 +572,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -439,6 +667,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
 
   
 
