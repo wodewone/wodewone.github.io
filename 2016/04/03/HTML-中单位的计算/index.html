@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, hexo, NexT, next, wodewone, css, 前端, js, javascript, jquery" />
+  <meta name="keywords" content="css,html,IE兼容," />
 
 
 
@@ -57,15 +57,28 @@
 
 
 
-<meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="wodewone's blog">
-<meta property="og:url" content="http://wodewone.com/tags/dom/index.html">
+<meta name="description" content="px：绝对单位，页面按精确像素展示
+em：相对单位，基准点为父节点字体的大小，如果自身定义了font-size按自身来计算（浏览器默认字体是16px），整个页面内1em不是一个固定的值。
+rem：相对单位，可理解为”root em”, 相对根节点html的字体大小来计算，CSS3新加属性，chrome/firefox/IE9+支持。
+
+(另外需注意chrome强制最小字体为12号，即使设置成 1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML 中单位的计算">
+<meta property="og:url" content="http://wodewone.com/2016/04/03/HTML-中单位的计算/index.html">
 <meta property="og:site_name" content="wodewone's blog">
-<meta property="og:description">
+<meta property="og:description" content="px：绝对单位，页面按精确像素展示
+em：相对单位，基准点为父节点字体的大小，如果自身定义了font-size按自身来计算（浏览器默认字体是16px），整个页面内1em不是一个固定的值。
+rem：相对单位，可理解为”root em”, 相对根节点html的字体大小来计算，CSS3新加属性，chrome/firefox/IE9+支持。
+
+(另外需注意chrome强制最小字体为12号，即使设置成 1">
+<meta property="og:updated_time" content="2016-04-17T14:21:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wodewone's blog">
-<meta name="twitter:description">
+<meta name="twitter:title" content="HTML 中单位的计算">
+<meta name="twitter:description" content="px：绝对单位，页面按精确像素展示
+em：相对单位，基准点为父节点字体的大小，如果自身定义了font-size按自身来计算（浏览器默认字体是16px），整个页面内1em不是一个固定的值。
+rem：相对单位，可理解为”root em”, 相对根节点html的字体大小来计算，CSS3新加属性，chrome/firefox/IE9+支持。
+
+(另外需注意chrome强制最小字体为12号，即使设置成 1">
 
 
 
@@ -83,7 +96,7 @@
   };
 </script>
 
-  <title> 标签: dom | wodewone's blog </title>
+  <title> HTML 中单位的计算 | wodewone's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -114,7 +127,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -222,46 +235,176 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        dom
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                HTML 中单位的计算
+              
+            
+          </h1>
+        
+
+        
+          <div class="post-tags">
+            
+              <a href="/tags/css/" rel="tag">#css</a>
+            
+              <a href="/tags/html/" rel="tag">#html</a>
+            
+              <a href="/tags/IE兼容/" rel="tag">#IE兼容</a>
+            
+          </div>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-03T22:07:49+08:00" content="2016-04-03">
+              2016-04-03
+            </time>
+          </span>
+
+          
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/html/" itemprop="url" rel="index">
+                    <span itemprop="name">html</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/03/HTML-中单位的计算/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/03/HTML-中单位的计算/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/04/03/HTML-中单位的计算/" class="leancloud_visitors" data-flag-title="HTML 中单位的计算">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <blockquote>
+<p><strong>px：</strong>绝对单位，页面按精确像素展示</p>
+<p><strong>em：</strong>相对单位，基准点为父节点字体的大小，如果自身定义了font-size按自身来计算（浏览器默认字体是16px），整个页面内1em不是一个固定的值。</p>
+<p><strong>rem：</strong>相对单位，可理解为”root em”, 相对根节点html的字体大小来计算，CSS3新加属性，chrome/firefox/IE9+支持。</p>
+</blockquote>
+<p style="color:#E24E4E;">(另外需注意chrome强制最小字体为12号，即使设置成 10px 最终都会显示成 12px，当把html的font-size设置成10px,子节点rem的计算还是以12px为基准，所以网上很多文章提到的将html的font-size设为10方便计算不是那么可取)。</p>
 
-      <h1 class="post-title">
+
+<p>页面基准320px(20px),html font-size值的计算：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ele=<span class="built_in">document</span>.getElementsByTagName(<span class="string">"html"</span>)[<span class="number">0</span>],</span><br><span class="line">   size=<span class="built_in">document</span>.body.clientWidth/<span class="number">320</span>*<span class="number">20</span>;</span><br><span class="line">	ele.style.fontSize=size+<span class="string">"px"</span></span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p><strong>vw：</strong>viewpoint width，视窗宽度，1vw等于视窗宽度的1%。<br><strong>vh：</strong>viewpoint height，视窗高度，1vh等于视窗高度的1%。<br><strong>vmin：</strong>vw和vh中较小的那个。<br><strong>vmax：</strong>vw和vh中较大的那个。</p>
+</blockquote>
+<p><small>vw, vh, vmin, vmax：IE9+局部支持，chrome/firefox/safari/opera支持，ios safari 8+支持，android browser4.4+支持，chrome for android39支持</small></p>
+<p>其它的单位还有：</p>
+<blockquote>
+<p><strong>%：</strong>百分比<br><strong>in：</strong>寸<br><strong>cm：</strong>厘米<br><strong>mm：</strong>毫米<br><strong>pt：</strong>point，大约1/72寸<br><strong>pc：</strong>pica，大约6pt，1/6寸<br><strong>ex：</strong>取当前作用效果的字体的x的高度，在无法确定x高度的情况下以0.5em计算(IE11及以下均不支持，firefox/chrome/safari/opera/ios safari/android browser4.4+等均需属性加么有前缀)<br><strong>ch：</strong>以节点所使用字体中的“0”字符为基准，找不到时为0.5em(ie10+,chrome31+,safair7.1+,opera26+,ios safari 7.1+,android browser4.4+支持)</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2015/12/19/JavaScript浏览器对象/" itemprop="url">
-              
-                <span itemprop="name">JavaScript浏览器对象</span>
-              
-            </a>
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
+      
+    </div>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2015-12-19T10:43:29+08:00"
-              content="2015-12-19" >
-          12-19
-        </time>
-      </div>
+    <footer class="post-footer">
 
-    </header>
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/01/html-常见兼容性/" rel="next" title="html 常见兼容性">
+                <i class="fa fa-chevron-left"></i> html 常见兼容性
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -269,6 +412,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/04/03/HTML-中单位的计算/"
+           data-title="HTML 中单位的计算" data-url="http://wodewone.com/2016/04/03/HTML-中单位的计算/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -292,8 +443,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/author.png"
@@ -365,6 +525,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -449,6 +620,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
 
   
 
