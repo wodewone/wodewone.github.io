@@ -69,7 +69,7 @@
 现在的浏览器都支持text-overflow:ellipsis属性，用来实现单行文本的溢出显示省略号，但是这个属性并不支持多行文本。
 
 -webkit-line-clampWebkit支持一个名为-webkit-line-clamp的属性，他其实是一个WebKit-Specific Unsupported Property，也就是说这个属性并不是标准的一部分，可能是Webkit">
-<meta property="og:updated_time" content="2016-05-04T16:55:28.000Z">
+<meta property="og:updated_time" content="2016-05-04T16:57:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="多行文本溢出显示省略号">
 <meta name="twitter:description" content="文本溢出显示省略号
@@ -356,6 +356,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;.figcaption&quot;).each(function(i)&#123;</span><br><span class="line">    var divH = $(this).height();</span><br><span class="line">    var $p = $(&quot;p&quot;, $(this)).eq(0);</span><br><span class="line">    while ($p.outerHeight() &gt; divH) &#123;</span><br><span class="line">        $p.text($p.text().replace(/(\s)*([a-zA-Z0-9]+|\W)(\.\.\.)?$/, &quot;...&quot;));</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p><a href="http://jsfiddle.net/Cople/DrML4/5/" target="_blank" rel="external">Demo</a></p>
 <h4 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h4><p>除此之外还有很多 jquery 的插件也可以做到类似效果，请大家自行百度谷歌~~~</p>
+<p><a href="http://c7sky.com/text-overflow-ellipsis-on-multiline-text.html" target="_blank" rel="external">本文摘自</a></p>
 
       
     </div>
