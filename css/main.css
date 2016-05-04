@@ -1517,7 +1517,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #7dffa3;
+  background: #36ff7a;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2150,6 +2150,12 @@ a.search-result {
 .header {
   background: none;
 }
+.brand {
+  border-radius: 18px;
+}
+.menu .menu-item.menu-item-active a {
+  border-bottom-color: #222;
+}
 .sidebar {
   overflow: hidden;
 }
@@ -2295,6 +2301,9 @@ img.site-author-image:hover {
 #ds-thread #ds-reset .ds-comments,
 .theme-next #ds-thread #ds-reset .ds-textarea-wrapper {
   background: #fff;
+}
+.text-center {
+  text-align: center;
 }
 @-moz-keyframes ani-slide {
   0% {

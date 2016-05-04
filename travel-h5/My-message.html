@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#eb6542">
+    <meta name="theme-color" content="#eb6542">
+    <title>私信列表</title>
+    <link rel="stylesheet" href="css/sm.min.css">
+    <link rel="stylesheet" href="css/sm-extend.min.css">
+
+    <link rel="stylesheet" href="style/base.css"/>
+    <link rel="stylesheet" href="style/base-icon.css"/>
+    <style>
+        .msg-tip{
+            position: relative;
+        }
+        .msg-tip:before{
+            content: '';
+            position: absolute;
+            top: .6rem;
+            right: 0;
+            width: .45rem;
+            height: .45rem;
+            background: #eb6542;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <header class="bar bar-nav m-bg">
+        <h1 class="title">My Messages</h1>
+    </header>
+    <nav class="bar bar-tab footer-menu d-before">
+        <div class="pl5 pr5">
+            <div class="sub-bar text-center pb5 m-color">
+                <a class="tab-item" href="#"><i class="base-icon icon-m1"></i><span class="name">Trips</span></a>
+                <a class="tab-item" href="#"><i class="base-icon icon-m2"></i><span class="name">Places</span></a>
+                <a class="tab-item" href="#"><i class="base-icon icon-m3"></i><span class="name">Q&A</span></a>
+                <a class="tab-item" href="#"><i class="base-icon icon-m4"></i><span class="name">Blog</span></a>
+                <a class="tab-item active" href="#"><i class="base-icon icon-m5"></i><span class="name">Me</span></a>
+            </div>
+        </div>
+    </nav>
+    <div class="content">
+        <div class="main-content">
+            <div class="searchbar pad5 por dividing d-after">
+                <div class="search-input por">
+                    <a class="search-btn" href="javascript:;"><i class="iconfont icon-search"></i></a>
+                    <input type="search" placeholder="search through your mail here">
+                </div>
+            </div>
+            <div class="list-block media-list">
+                <div class="none-data">
+                    <div class="item-content">
+                        <div class="item-media">
+                            <img src="images/none-msg.png" alt=""/>
+                        </div>
+                        <div class="item-inner text-left fz4 txt-gray no-dividing">
+                            You have friends here, <br/>talk to them!
+                        </div>
+                    </div>
+                </div>
+                <ul>
+                    <li class="por dividing d-after">
+                        <a href="javascript:;" class="item-content">
+                            <div class="item-media"><span class="border-radio white-color m-bg text-center" style="width:50px;height:50px;line-height: 50px;"><i class="iconfont icon-mail fz2"></i></span></div>
+                            <div class="item-inner">
+                                <div class="item-title pt5 txt-black">New Message</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="por dividing d-after">
+                        <a href="javascript:;" class="item-content">
+                            <div class="item-media"><span class="border-radio white-color bg-blue text-center" style="width:50px;height:50px;line-height: 50px;"><i class="iconfont icon-mail fz2"></i></span></div>
+                            <div class="item-inner">
+                                <div class="item-title pt5 txt-black">New Message to MTP</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="por dividing d-after">
+                        <a class="item-content" href="javascript:;">
+                            <div class="item-media msg-tip"><img class="border-radio" width="50" height="50" src="images/demo/m-1.jpg" alt=""/></div>
+                            <div class="item-inner no-dividing">
+                                <div class="item-title-row">
+                                    <div class="item-title" href="javascript:;">Mary</div>
+                                    <div class="item-after fz4 txt-gray">2015-02-20 10:18</div>
+                                </div>
+                                <div class="item-subtitle txt-gray"><span class="fz3">My Questions My Questions</span></div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="por dividing d-after">
+                        <a class="item-content" href="javascript:;">
+                            <div class="item-media"><img class="border-radio" width="50" height="50" src="images/demo/m-1.jpg" alt=""/></div>
+                            <div class="item-inner no-dividing">
+                                <div class="item-title-row">
+                                    <div class="item-title" href="javascript:;">Mary</div>
+                                    <div class="item-after fz4 txt-gray">2015-02-20 10:18</div>
+                                </div>
+                                <div class="item-subtitle txt-gray"><span class="fz3">My Questions My Questions</span></div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="por dividing d-after">
+                        <a class="item-content" href="javascript:;">
+                            <div class="item-media"><img class="border-radio" width="50" height="50" src="images/demo/m-1.jpg" alt=""/></div>
+                            <div class="item-inner no-dividing">
+                                <div class="item-title-row">
+                                    <div class="item-title" href="javascript:;">Mary</div>
+                                    <div class="item-after fz4 txt-gray">2015-02-20 10:18</div>
+                                </div>
+                                <div class="item-subtitle txt-gray"><span class="fz3">My Questions My Questions</span></div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="por dividing d-after">
+                        <a class="item-content" href="javascript:;">
+                            <div class="item-media"><img class="border-radio" width="50" height="50" src="images/demo/m-1.jpg" alt=""/></div>
+                            <div class="item-inner no-dividing">
+                                <div class="item-title-row">
+                                    <div class="item-title" href="javascript:;">Mary</div>
+                                    <div class="item-after fz4 txt-gray">2015-02-20 10:18</div>
+                                </div>
+                                <div class="item-subtitle txt-gray"><span class="fz3">My Questions My Questions</span></div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script type='text/javascript' src='js/zepto.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='js/sm.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='js/sm-extend.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='js/base.js' charset='utf-8'></script>
+</body>
+</html>

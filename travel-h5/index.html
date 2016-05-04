@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#eb6542">
+    <meta name="theme-color" content="#eb6542">
+    <title>首页</title>
+    <link rel="stylesheet" href="css/sm.min.css">
+    <link rel="stylesheet" href="css/sm-extend.min.css">
+
+    <link rel="stylesheet" href="style/base.css"/>
+    <link rel="stylesheet" href="style/base-icon.css"/>
+    <style>
+        .popup-filter{
+            padding-top: 2.2rem;
+        }
+        .close-popup-filter{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .filter-inner{
+            position: relative;
+            z-index: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <header class="bar bar-nav m-bg">
+        <a class="button button-link button-nav pull-left open-popup" data-popup=".popup-filter" href="#"><i class="iconfont icon-filter"></i></a>
+        <a class="button button-link button-nav pull-right open-popup" data-popup=".popup-search" href="#"><i class="iconfont icon-search"></i></a>
+        <label class="title" for="m-select">
+            woca <i class="i-arrow"></i>
+            <select id="m-select" class="m-select">
+                <option value="">1</option>
+                <option value="">2</option>
+                <option value="">3</option>
+                <option value="">4</option>
+            </select>
+        </label>
+    </header>
+    <nav class="bar bar-tab footer-menu d-before">
+        <div class="pl5 pr5">
+            <div class="sub-bar text-center pb5 m-color">
+                <a class="tab-item active" href="#"><i class="base-icon icon-m1"></i><span class="name">Trips</span></a>
+                <a class="tab-item" href="#"><i class="base-icon icon-m2"></i><span class="name">Places</span></a>
+                <a class="tab-item" href="#"><i class="base-icon icon-m3"></i><span class="name">Q&A</span></a>
+                <a class="tab-item" href="#"><i class="base-icon icon-m4"></i><span class="name">Blog</span></a>
+                <a class="tab-item" href="#"><i class="base-icon icon-m5"></i><span class="name">Me</span></a>
+            </div>
+        </div>
+    </nav>
+    <div class="content">
+        <div class="main-content">
+            <ul>
+                <li class="mb5">
+                    <a class="por block" href="javascript:;">
+                        <img height="175" src="images/demo/m-1.jpg" alt=""/>
+                        <p class="white-color block-title text-hidden title-rgb pad5">This is the title  This is the title</p>
+                    </a>
+                </li>
+                <li class="mb5">
+                    <a class="por block" href="javascript:;">
+                        <img height="175" src="images/demo/m-2.jpg" alt=""/>
+                        <p class="white-color block-title text-hidden title-rgb pad5">This is the title  This is the title</p>
+                    </a>
+                </li>
+                <li class="mb5">
+                    <a class="por block" href="javascript:;">
+                        <img height="175" src="images/demo/m-3.jpg" alt=""/>
+                        <p class="white-color block-title text-hidden title-rgb pad5">This is the title  This is the title</p>
+                    </a>
+                </li>
+            </ul>
+            <div class="text-center">
+                <a class="m-bg white-color m-border-color btn small-radius mb5" href="javascript:;">show more</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="popup popup-search">
+    <div class="pad5">
+        <div class="searchbar row">
+            <div class="search-input col-85">
+                <label for="search" class="icon iconfont icon-search"></label>
+                <input type="search" placeholder="search" id="search">
+            </div>
+            <a class="block small-pt m-color col-15 close-popup">取消</a>
+        </div>
+        <div class="search-complete">
+            <ul id="dropdown-menu">
+                <li class="complete-item"><a class="complete-link text-hidden" href="javascript:;">title</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="popup popup-filter">
+    <a class="close-popup close-popup-filter" href="javascript:;"></a>
+    <div class="pad5 filter-inner">
+        <div class="row">
+            <div class="col-33"><a class="filter-btn active" href="javascript:;">disaodaoi</a></div>
+            <div class="col-33"><a class="filter-btn" href="javascript:;">disaodaoi</a></div>
+            <div class="col-33"><a class="filter-btn" href="javascript:;">disaodaoidisaodaoidisaodaoi</a></div>
+            <div class="col-33"><a class="filter-btn" href="javascript:;">disaodaoi</a></div>
+            <div class="col-33"><a class="filter-btn" href="javascript:;">disaodaoi</a></div>
+            <div class="col-33"><a class="filter-btn" href="javascript:;">disaodaoi</a></div>
+        </div>
+    </div>
+</div>
+<script type='text/javascript' src='js/zepto.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='js/sm.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='js/sm-extend.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='js/base.js' charset='utf-8'></script>
+<script>
+    $(function(){
+        $(document).on('click', '.filter-btn',function(){
+            $(this).toggleClass('active');
+        });
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#eb6542">
+    <meta name="theme-color" content="#eb6542">
+    <title>添加我的分享</title>
+    <link rel="stylesheet" href="css/sm.min.css">
+    <link rel="stylesheet" href="css/sm-extend.min.css">
+
+    <link rel="stylesheet" href="style/base.css"/>
+    <link rel="stylesheet" href="style/base-icon.css"/>
+    <style>
+        .cover-box.active .cover-title{
+            color: #eb6542;
+            border: 1px solid #eb6542;
+        }
+        .cover-box.active:before{
+            content: '';
+            background: rgba(255,255,255,0.75);
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <header class="bar bar-nav m-bg">
+        <a class="button button-link button-nav pull-right" href="javascript:;">OK</a>
+        <h1 class="title">Popular Places</h1>
+    </header>
+    <nav class="bar bar-tab footer-menu d-before">
+        <div class="pl5 pr5">
+            <div class="sub-bar text-center pb5 m-color">
+                <a class="tab-item" href="#"><i class="base-icon icon-m1"></i><span class="name">Trips</span></a>
+                <a class="tab-item" href="#"><i class="base-icon icon-m2"></i><span class="name">Places</span></a>
+                <a class="tab-item" href="#"><i class="base-icon icon-m3"></i><span class="name">Q&A</span></a>
+                <a class="tab-item" href="#"><i class="base-icon icon-m4"></i><span class="name">Blog</span></a>
+                <a class="tab-item active" href="#"><i class="base-icon icon-m5"></i><span class="name">Me</span></a>
+            </div>
+        </div>
+    </nav>
+    <div class="content">
+        <div class="main-content">
+            <div class="searchbar pad5">
+                <div class="search-input por">
+                    <a class="search-btn" href="javascript:;"><i class="iconfont icon-search"></i></a>
+                    <input type="search" placeholder="Look for your destination here">
+                </div>
+            </div>
+            <div class="bg-white pad5 row">
+                <div class="col-33 mb5 por cover-box">
+                    <img width="100%" height="100" src="images/demo/m-1.jpg" alt=""/>
+                    <div class="cover-title text-center fz3 pad5"><p class="text-hidden">Li Jiang</p><p class="text-hidden">丽江</p></div>
+                </div>
+                <div class="col-33 mb5 por cover-box">
+                    <img width="100%" height="100" src="images/demo/m-1.jpg" alt=""/>
+                    <div class="cover-title text-center fz3 pad5"><p class="text-hidden">Li Jiang</p><p class="text-hidden">丽江</p></div>
+                </div>
+                <div class="col-33 mb5 por cover-box">
+                    <img width="100%" height="100" src="images/demo/m-1.jpg" alt=""/>
+                    <div class="cover-title text-center fz3 pad5"><p class="text-hidden">Li Jiang</p><p class="text-hidden">丽江</p></div>
+                </div>
+                <div class="col-33 mb5 por cover-box">
+                    <img width="100%" height="100" src="images/demo/m-1.jpg" alt=""/>
+                    <div class="cover-title text-center fz3 pad5"><p class="text-hidden">Li Jiang</p><p class="text-hidden">丽江</p></div>
+                </div>
+                <div class="col-33 mb5 por cover-box">
+                    <img width="100%" height="100" src="images/demo/m-1.jpg" alt=""/>
+                    <div class="cover-title text-center fz3 pad5"><p class="text-hidden">Li Jiang</p><p class="text-hidden">丽江</p></div>
+                </div>
+                <div class="col-33 mb5 por cover-box">
+                    <img width="100%" height="100" src="images/demo/m-1.jpg" alt=""/>
+                    <div class="cover-title text-center fz3 pad5"><p class="text-hidden">Li Jiang</p><p class="text-hidden">丽江</p></div>
+                </div>
+                <div class="col-33 mb5 por cover-box">
+                    <img width="100%" height="100" src="images/demo/m-1.jpg" alt=""/>
+                    <div class="cover-title text-center fz3 pad5"><p class="text-hidden">Li Jiang</p><p class="text-hidden">丽江</p></div>
+                </div>
+                <div class="col-33 mb5 por cover-box">
+                    <img width="100%" height="100" src="images/demo/m-1.jpg" alt=""/>
+                    <div class="cover-title text-center fz3 pad5"><p class="text-hidden">Li Jiang</p><p class="text-hidden">丽江</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type='text/javascript' src='js/zepto.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='js/sm.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='js/sm-extend.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='js/base.js' charset='utf-8'></script>
+<script>
+    $(function () {
+        $('.cover-box').on('click',function(){
+            $(this).toggleClass('active').siblings().removeClass('active');
+        });
+    })
+</script>
+</body>
+</html>

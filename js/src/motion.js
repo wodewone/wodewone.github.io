@@ -85,6 +85,7 @@ $(document).ready(function () {
     sidebarEl: $('.sidebar'),
     isSidebarVisible: false,
     init: function () {
+      console.info(this);
       this.toggleEl.on('click', this.clickHandler.bind(this));
       this.toggleEl.on('mouseenter', this.mouseEnterHandler.bind(this));
       this.toggleEl.on('mouseleave', this.mouseLeaveHandler.bind(this));

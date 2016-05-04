@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#eb6542">
+    <meta name="theme-color" content="#eb6542">
+    <title>编辑个人资料</title>
+    <link rel="stylesheet" href="css/sm.min.css">
+    <link rel="stylesheet" href="css/sm-extend.min.css">
+
+    <link rel="stylesheet" href="style/base.css"/>
+    <link rel="stylesheet" href="style/base-icon.css"/>
+</head>
+<body>
+<div class="page">
+    <header class="bar bar-nav m-bg">
+        <a class="button button-link button-nav pull-right" href="javascript:;">Save</a>
+        <h1 class="title">My Profile</h1>
+    </header>
+    <nav class="bar bar-tab footer-menu d-before">
+        <div class="pl5 pr5">
+            <div class="sub-bar text-center pb5 m-color">
+                <a class="tab-item" href="#"><i class="base-icon icon-m1"></i><span class="name">Trips</span></a>
+                <a class="tab-item" href="#"><i class="base-icon icon-m2"></i><span class="name">Places</span></a>
+                <a class="tab-item" href="#"><i class="base-icon icon-m3"></i><span class="name">Q&A</span></a>
+                <a class="tab-item" href="#"><i class="base-icon icon-m4"></i><span class="name">Blog</span></a>
+                <a class="tab-item active" href="#"><i class="base-icon icon-m5"></i><span class="name">Me</span></a>
+            </div>
+        </div>
+    </nav>
+    <div class="content">
+        <div class="main-content">
+            <div class="por dividing d-after bg-white mb5">
+                <div class="list-block">
+                    <div class="item-content no-pad pl5 overflow-hidden">
+                        <div class="item-media"><img width="110" height="110" src="images/demo/m-1.jpg" alt=""/></div>
+                        <div class="pad5 no-dividing">
+                            <label for="uploadIcon" class="button m-border-color m-bg small-radius white-color mb5" href="javascript:;">Upload Profile Image
+                                <input class="file" id="uploadIcon" type="file"/></label>
+                            <div class="fz5 bg-gray txt-gray pad5">Our support format for avatar is jpg, png and jpeg. We apologize that pictures above 5MB cannot be accepted.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="list-block txt-gray mb5 por dividing d-before">
+                <ul>
+                    <li class="item-content no-pad">
+                        <div class="item-inner pl5">
+                            <div class="item-title">Username：</div>
+                            <div class="item-after"><input class="text-right" type="text" placeholder="Null"/></div>
+                        </div>
+                    </li>
+                    <li class="item-content no-pad">
+                        <div class="item-inner pl5">
+                            <div class="item-title">Gender：</div>
+                            <div class="item-after">
+                                <label class="ml5 label-cb">
+                                    <input type="radio" checked name="gender"/>
+                                    <span class="radio-btn"><i class="iconfont icon-radio"></i>Male</span>
+                                </label>
+                                <label class="ml5 label-cb">
+                                    <input type="radio" name="gender"/>
+                                    <span class="radio-btn"><i class="iconfont icon-radio"></i>Female</span>
+                                </label>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item-content no-pad">
+                        <div class="item-inner pl5">
+                            <label class="por i-arrow label-select">
+                                <div class="item-title">Please Select Your Age Group：</div>
+                                <div class="item-after">
+                                    <select class="m-select">
+                                        <option value="">1</option>
+                                        <option value="">2</option>
+                                        <option value="">3</option>
+                                        <option value="">4</option>
+                                        <option value="">5</option>
+                                    </select>
+                                </div>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="item-content no-pad">
+                        <div class="item-inner pl5">
+                            <label class="por i-arrow label-select">
+                                <div class="item-title">Where You Live：</div>
+                                <div class="item-after">
+                                    <select class="m-select">
+                                        <option value="">1</option>
+                                        <option value="">2</option>
+                                        <option value="">3</option>
+                                        <option value="">4</option>
+                                        <option value="">5</option>
+                                    </select>
+                                </div>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="item-content no-pad">
+                        <div class="item-inner pl5">
+                            <div class="item-title">Personal Website：</div>
+                            <div class="item-after"><input class="text-right" type="text" placeholder="Null"/></div>
+                        </div>
+                    </li>
+                    <li class="item-content no-pad">
+                        <div class="item-inner pl5">
+                            <div class="item-title">Describe Yourself：</div>
+                        </div>
+                    </li>
+                    <textarea class="info" placeholder="Null"></textarea>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script type='text/javascript' src='js/zepto.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='js/sm.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='js/sm-extend.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='js/base.js' charset='utf-8'></script>
+</body>
+</html>

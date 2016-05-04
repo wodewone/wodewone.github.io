@@ -1,0 +1,781 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="html,javascript,html5,css3," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="Modernizr介绍  Modernizr是一个开源的JS库，它使得那些基于访客浏览器的不同（指对新标准支持性的差异）而开发不同级别体验的设计师的工作变得更为简单。它使得设计师可以在支持HTML5和CSS3的浏览器中充分利用HTML5和CSS3的特性进行开发，同时又不会牺牲其他不支持这些新技术的浏览器的控制。
+  当你在网页中嵌入Modernizr的脚本时，它会检测当前浏览器是否支持CSS3的特">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Modernizr 专为HTML5 and CSS3">
+<meta property="og:url" content="http://wodewone.com/2016/04/16/Modernizr-专为HTML5-and-CSS3/index.html">
+<meta property="og:site_name" content="wodewone's blog">
+<meta property="og:description" content="Modernizr介绍  Modernizr是一个开源的JS库，它使得那些基于访客浏览器的不同（指对新标准支持性的差异）而开发不同级别体验的设计师的工作变得更为简单。它使得设计师可以在支持HTML5和CSS3的浏览器中充分利用HTML5和CSS3的特性进行开发，同时又不会牺牲其他不支持这些新技术的浏览器的控制。
+  当你在网页中嵌入Modernizr的脚本时，它会检测当前浏览器是否支持CSS3的特">
+<meta property="og:updated_time" content="2016-04-28T13:26:29.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Modernizr 专为HTML5 and CSS3">
+<meta name="twitter:description" content="Modernizr介绍  Modernizr是一个开源的JS库，它使得那些基于访客浏览器的不同（指对新标准支持性的差异）而开发不同级别体验的设计师的工作变得更为简单。它使得设计师可以在支持HTML5和CSS3的浏览器中充分利用HTML5和CSS3的特性进行开发，同时又不会牺牲其他不支持这些新技术的浏览器的控制。
+  当你在网页中嵌入Modernizr的脚本时，它会检测当前浏览器是否支持CSS3的特">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6269890100566427000,
+      author: 'Coco'
+    }
+  };
+</script>
+
+  <title> Modernizr 专为HTML5 and CSS3 | wodewone's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?4691d35db2be0afe7a932e6f4f7e68af";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">wodewone's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">梦想是主题，生活才是题主</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-favourites">
+          <a href="/favourites" rel="section">
+            
+              <i class="menu-item-icon fa fa-question-circle fa-fw"></i> <br />
+            
+            收藏
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Modernizr 专为HTML5 and CSS3
+              
+            
+          </h1>
+        
+
+        
+          <div class="post-tags">
+            
+              <a href="/tags/html/" rel="tag">#html</a>
+            
+              <a href="/tags/javascript/" rel="tag">#javascript</a>
+            
+              <a href="/tags/html5/" rel="tag">#html5</a>
+            
+              <a href="/tags/css3/" rel="tag">#css3</a>
+            
+          </div>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-16T20:50:35+08:00" content="2016-04-16">
+              2016-04-16
+            </time>
+          </span>
+
+          
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/16/Modernizr-专为HTML5-and-CSS3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/16/Modernizr-专为HTML5-and-CSS3/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/04/16/Modernizr-专为HTML5-and-CSS3/" class="leancloud_visitors" data-flag-title="Modernizr 专为HTML5 and CSS3">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Modernizr介绍"><a href="#Modernizr介绍" class="headerlink" title="Modernizr介绍"></a>Modernizr介绍</h3><p>  Modernizr是一个开源的JS库，它使得那些基于访客浏览器的不同（指对新标准支持性的差异）而开发不同级别体验的设计师的工作变得更为简单。它使得设计师可以在支持HTML5和CSS3的浏览器中充分利用HTML5和CSS3的特性进行开发，同时又不会牺牲其他不支持这些新技术的浏览器的控制。</p>
+<p>  当你在网页中嵌入Modernizr的脚本时，它会检测当前浏览器是否支持CSS3的特性，比如 <code>@font-face</code>、<code>border-radius</code>、 <code>border-image</code>、<code>box-shadow</code>、<code>rgba()</code> 等，同时也会检测是否支持HTML5的特性——比如<code>audio</code>、<code>video</code>、本地储存、和新的 <code>&lt;input&gt;</code> 标签的类型和属性等。在获取到这些信息的基础上，你可以在那些支持这些功能的浏览器上使用它们，来决定是否创建一个基于JS的fallback，或者对那些不支持的浏览器进行简单的优雅降级。另外，Modernizr还可以令IE支持对HTML5的元素应用CSS样式，这样开发者就可以立即使用这些更富有语义化的标签了。</p>
+<h3 id="应用Modernizr"><a href="#应用Modernizr" class="headerlink" title="应用Modernizr"></a>应用Modernizr</h3><p>  首先从www.modernizr.com下载Modernizr的最新的稳定版（目前国内封了Modernizr的官网，我们可以从github上下载。或者更简单点，可以从堂主这里下载最新的1.7版的脚本文件），在官网上你还可以看到它支持检测的所有特性的清单（本文末位会给出这些清单，以便翻不了墙的童鞋可以知道都支持哪些）。下载完最新版本以后（作者写这篇文章的时候用的是1.5版），把它加入页面的<head>区域：</head></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span>  	</span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span>  	</span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>My Beautiful Sample Page<span class="tag">&lt;/<span class="name">title</span>&gt;</span>  	</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"modernizr-1.5.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span> </span><br><span class="line">…</span><br></pre></td></tr></table></figure>
+<p>然后，向<html>元素添加“no-js”的类。</html></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">class</span>=<span class="string">"no-js"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>当Modernizr运行的时候，它会把这个“no-js”的类变为“js”来使你知道它已经运行。Modernizr并不仅仅只做这一件事情，它还会为所有它检测过的特性添加class类，如果浏览器不支持某个特性，它就为该特性对应的类名加上“no-”的前缀。所以，你的<html>元素可能会变得看起来像下面这个样子：</html></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">class</span>=<span class="string">"js canvas canvastext no-geolocation rgba  hsla multiplebgs borderimage borderradius boxshadow opacity cssanimations csscolumns   </span><br><span class="line">cssgradients cssreflections csstransforms csstransforms3d csstransitions video   </span><br><span class="line">audio localstorage sessionstorage webworkers applicationcache fontface"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Modernizr同时还会创建一个JS对象，被命名为“Modernizr”，其内容是为每一个检测完的特性给出的布尔值结果组成的列表。如果浏览器支持新的canvas元素，那么“Modernizr.canvas”的值就是true；如果浏览器不支持这个新元素，那它对应的值就是false。这个JS对象针对某些功能还会包含更为详细的信息，如“Modernizr.video.h264”会告诉你浏览器是否支持这个特殊的编解码器。“Modernizr.inputtypes.search”会告诉你当前浏览器是否支持新的search input类型，等等。</p>
+<p>我们的未加工的简单小页面看起来有点像一个准测试系统了，但它具备更好的语义性和可访问性。让我们为它添加一点基本的样式：一点文字格式、颜色和布局以使它更好看。目前位置，没什么新东西，只是为一个语义化结构的HTML页面添加表现样式，看看添加了样式后的页面。</p>
+<p>下面，我们要增强这个页面使得它更有意思。我想为头部的h1应用一个奇特的文字效果，把关于检测特性的列表分为两栏，然后将带有一张照片的关于Modernizr的部分的一切都弄到右边去。我还要把围绕页面内容的边框变美点。现在，更给力的CSS3使你可以对一条规则添加更多的属性，如果浏览器不支持这些属性，它会忽略它们。配合使用CSS的层叠（继承），你可以不必依赖Modernizr而使用像“border-radius”这样的新属性。不过，使用Modernizr可以为你提供一些既有手段提供不了的功能：根据浏览器对新东西支持的差异动态修改的<html>的类名。我会通过对我们的页面添加2条新的规则来说明这点：</html></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.borderradius</span> <span class="selector-id">#content</span> &#123;</span><br><span class="line">  	<span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#141414</span>;</span><br><span class="line">  	<span class="attribute">-webkit-border-radius</span>: <span class="number">12px</span>;</span><br><span class="line">  	<span class="attribute">-moz-border-radius</span>: <span class="number">12px</span>;</span><br><span class="line">  	<span class="attribute">border-radius</span>: <span class="number">12px</span>;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="selector-class">.boxshadow</span> <span class="selector-id">#content</span> &#123;</span><br><span class="line">  	<span class="attribute">border</span>: none;</span><br><span class="line">  	<span class="attribute">-webkit-box-shadow</span>: <span class="built_in">rgba</span>(0,0,0, .5) <span class="number">3px</span> <span class="number">3px</span> <span class="number">6px</span>;</span><br><span class="line">  	<span class="attribute">-moz-box-shadow</span>: <span class="built_in">rgba</span>(0,0,0, .5) <span class="number">3px</span> <span class="number">3px</span> <span class="number">6px</span>;</span><br><span class="line">  	<span class="attribute">box-shadow</span>: <span class="built_in">rgba</span>(0,0,0, .5) <span class="number">3px</span> <span class="number">3px</span> <span class="number">6px</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第一条规则为“#content ”元素添加了一个12像素的圆角。但在既有的页面里我们已经为“#content ”元素设置了一个属性值为“2px outset #666”的边框，这在box是直角的时候是蛮好看的，但在圆角情况下就不是了。感谢Modernizr，我可以在浏览器支持“border-radius”的情况下给box设置一个1px的实边。</p>
+<p>第二条规则更进步了一点，我们为“#content ”元素添加了一个阴影，并且针对支持“box-shadow”属性的浏览器一并移除了border属性。为什么呢？因为大部分浏览器并不为“边框附带边角”的组合外加阴影这样的效果提供一个好的表现（这是一个应该被注意的浏览器的瑕疵，但我们现在却必须忍受它）。同不使用阴影只使用边框相比，我宁可只使用阴影包围元素。采用这种方式，我可以拥有全世界最好的，准确点的，最好的一种CSS表现：在支持“box-shadow”属性的浏览器里将会呈现一个美妙的阴影；只支持“border-radius”属性的浏览器将会呈现一个好看的圆角薄边框；对于那些这2者都不支持的破烂浏览器，我们会看到一个2像素的直角边框。</p>
+<p>下面我们要为header应用一个自定义的特殊字体，下面的是我们目前针对h1的声明，没改动版的：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> &#123;</span><br><span class="line">  	<span class="attribute">color</span>: <span class="number">#e33a89</span>;</span><br><span class="line">  	<span class="attribute">font</span>: <span class="number">27px</span>/<span class="number">27px</span> Baskerville, Palatino, <span class="string">"Palatino Linotype"</span>,</span><br><span class="line">  	<span class="string">"Book Antiqua"</span>, Georgia, serif;</span><br><span class="line">  	<span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  	<span class="attribute">text-shadow</span>: <span class="number">#aaa</span> <span class="number">5px</span> <span class="number">5px</span> <span class="number">5px</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这些声明在我们的基础网页里工作良好，27像素的文字大小也很适合我们为h1设置的那些字体的展示。但对于我要用的名叫“Beautiful”的字体来说，27像素就太小了。下面我们要添加其他的规则来使用这个自定义字体：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">font-face</span> &#123;</span><br><span class="line">  	<span class="attribute">src</span>: <span class="built_in">url</span>(Beautiful-ES.ttf);</span><br><span class="line">  	<span class="attribute">font-family</span>: <span class="string">"Beautiful"</span>;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="selector-class">.fontface</span> <span class="selector-tag">h1</span> &#123;</span><br><span class="line">  	<span class="attribute">font</span>: <span class="number">42px</span>/<span class="number">50px</span> Beautiful;</span><br><span class="line">  	<span class="attribute">text-shadow</span>: none;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>首先，我们添加“@font-face”声明，并在其中为我们的自定义字体指定路径、文件名和字体名。之后我们用一条CSS语句为我们的h1选择字体样式。你会看到，我这里选择了一个很大的字号，那是因为“Beautiful”字体本身就比其他字体的文字要小很多，所以我们必须要指示浏览器在展示我们自定义字体的时候，给予h1一个很大的字号。</p>
+<p>此外，我们漂亮的手写体文字在文字阴影方面存在一些渲染问题，所以我们要在浏览器决定使用自定义文字时取消文字的阴影。另外，关于检测特征部分的列表还需要被分为两栏。为了达到目的，我要使用牛叉的CSS columns 属性，这一属性会使浏览器把列表智能分栏而不会打乱它的顺序，而我们的列表，虽然没有数字序号，却也是按照字母顺序排列的。当然，不是所有的浏览器都支持这一属性，对于那些不支持的浏览器，我们使用浮动来达到2栏的目的——使用了浮动后列表在视觉上不会再按照字母顺序排列，但那也好过什么都没有。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.csscolumns</span> <span class="selector-tag">ol</span><span class="selector-class">.features</span> &#123;</span><br><span class="line">  	<span class="attribute">-moz-column-count</span>: <span class="number">2</span>;</span><br><span class="line">  	<span class="attribute">-webkit-columns</span>: <span class="number">2</span>;</span><br><span class="line">  	<span class="attribute">-o-columns</span>: <span class="number">2</span>;</span><br><span class="line">  	<span class="attribute">columns</span>: <span class="number">2</span>;</span><br><span class="line">  &#125;  </span><br><span class="line"></span><br><span class="line"><span class="selector-class">.no-csscolumns</span> <span class="selector-tag">ol</span><span class="selector-class">.features</span> &#123;</span><br><span class="line">  	<span class="attribute">float</span>: left;</span><br><span class="line">  	<span class="attribute">margin</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">20px</span>;</span><br><span class="line">  &#125;  </span><br><span class="line"></span><br><span class="line"><span class="selector-class">.no-csscolumns</span> <span class="selector-tag">ol</span><span class="selector-class">.features</span> <span class="selector-tag">li</span> &#123;</span><br><span class="line">  	<span class="attribute">float</span>: left;</span><br><span class="line">  	<span class="attribute">width</span>: <span class="number">180px</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我又一次使用了Modernizr来针对不同的情况设置不同的属性。如果浏览器支持CSS columns，它就会把列表完美的分为2栏，如果不支持，通过Modernizr为<html>添加的“no-csscolumns”类我们也可以用浮动的方式使得列表变为两栏，虽然不那么完美，但也比直接来一个长串的单栏列表强。</html></p>
+<p>这里您可能注意到了我为属性添加了不同的前缀（-moz-、-webkit-、-o-），这是因为不同的浏览器厂商对该功能的实现有不同的定义，所以要实现该功能需要针对不同的浏览器加上它们对应的前缀。</p>
+<p>我们将为我们的页面添加进更多的渐进式增强效果来结束这篇教程。基于WebKit的浏览器支持一些更牛叉的特效，如CSS变换、动画和三维转换等。并且我想在最后一个阶段的页面中应用一些这类特效。再一次的，这些属性会被添加进我们既有的CSS中并在不支持它们的浏览器中给忽视。所以，针对这种一方面是渐进增强一方面是不被支持的情况，使用Modernizr是恰当的。</p>
+<p>首先设置的：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">-webkit-keyframes</span> spin &#123;</span><br><span class="line">  	  0% &#123; <span class="attribute">-webkit-transform</span>: <span class="built_in">rotateY</span>(0); &#125;</span><br><span class="line">  	100% &#123; <span class="attribute">-webkit-transform</span>: <span class="built_in">rotateY</span>(360deg); &#125;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="selector-class">.csstransforms3d</span><span class="selector-class">.cssanimations</span> <span class="selector-tag">section</span> &#123;</span><br><span class="line">  	<span class="attribute">-webkit-perspective</span>: <span class="number">1000</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>@keyframes规则是新的CSS animations规范中的一部分，目前只有WebKit支持。它容许你针对任何属性声明一个完整的动画路径，并在你喜欢的任何阶段改变它们。想知道关于animations的更多知识，请阅读 <a href="http://www.w3.org/TR/css3-animations/" target="_blank" rel="external">W3C Working Draft specification</a>。</p>
+<p>下面我们添加使得我们一个元素在三维空间里旋转的代码：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.csstransforms3d</span><span class="selector-class">.cssanimations</span> <span class="selector-tag">section</span> <span class="selector-tag">h2</span> &#123;</span><br><span class="line">  	<span class="attribute">background-image</span>: <span class="built_in">url</span>(modernizr-logo.png);</span><br><span class="line">  	<span class="attribute">overflow</span>: hidden;</span><br><span class="line">  	<span class="attribute">-webkit-animation</span>: spin <span class="number">2s</span> linear infinite;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>因为logo要转动，且又希望它转的时候和背景相处的融洽些，于是这里用了一个png格式的文件。我还采用了一个“overflow:hidden”属性来隐藏设置了缩进-9999像素的header里的文字。使元素以3D的形式旋转虽然有趣却并不太美观。最终，我们选择使用animation规则，设置它的旋转周期为2秒钟，沿着自身的中轴线旋转，永不停止。</p>
+<p>最终的页面看起来很给力，甚至还针对WebKit浏览器设置了好玩的动画。我希望到现在你能明白使用Modernizr可以使你对网站控制的手腕变得多么牛叉，以及它可以令真正的渐进增强变得多么简单。这还不仅仅是Modernizr的全部好处，它还可以帮你建立基于JS的fallbacks以及可以帮你应用html5那些牛掰的新特性。</p>
+<h3 id="附，Modernizr检测清单："><a href="#附，Modernizr检测清单：" class="headerlink" title="附，Modernizr检测清单："></a>附，Modernizr检测清单：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">@font-face</span><br><span class="line">Canvas</span><br><span class="line">Canvas Text</span><br><span class="line">WebGL</span><br><span class="line">HTML5 Audio</span><br><span class="line">HTML5 Audio formats</span><br><span class="line">HTML5 Video</span><br><span class="line">HTML5 Video formats</span><br><span class="line">rgba()</span><br><span class="line">hsla()</span><br><span class="line">border-image</span><br><span class="line">border-radius</span><br><span class="line">box-shadow</span><br><span class="line">text-shadow</span><br><span class="line">Multiple backgrounds</span><br><span class="line">background-size</span><br><span class="line">opacity</span><br><span class="line">CSS Animations</span><br><span class="line">CSS Columns</span><br><span class="line">CSS Gradients</span><br><span class="line">CSS Reflections</span><br><span class="line">CSS 2D Transforms</span><br><span class="line">CSS 3D Transforms</span><br><span class="line">Flexible Box Model</span><br><span class="line">CSS Transitions</span><br><span class="line">Geolocation API</span><br><span class="line">Input Types</span><br><span class="line">Input Attributes</span><br><span class="line">localStorage</span><br><span class="line">sessionStorage</span><br><span class="line">Web Workers</span><br><span class="line">applicationCache</span><br><span class="line">SVG</span><br><span class="line">Inline SVG</span><br><span class="line">SVG Clip paths</span><br><span class="line">SMIL</span><br><span class="line">Web SQL Database</span><br><span class="line">IndexedDB</span><br><span class="line">Web Sockets</span><br><span class="line">hashchange Event</span><br><span class="line">History Management</span><br><span class="line">Drag and Drop</span><br><span class="line">Cross-window Messaging</span><br><span class="line">Touch Events</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/03/HTML-中单位的计算/" rel="next" title="HTML 中单位的计算">
+                <i class="fa fa-chevron-left"></i> HTML 中单位的计算
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/04/20/多行文本溢出显示省略号/" rel="prev" title="多行文本溢出显示省略号">
+                多行文本溢出显示省略号 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/04/16/Modernizr-专为HTML5-and-CSS3/"
+           data-title="Modernizr 专为HTML5 and CSS3" data-url="http://wodewone.com/2016/04/16/Modernizr-专为HTML5-and-CSS3/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="switch-box">
+      <input id="enableAnimate" class="switch-btn-cb" type="checkbox" checked="">
+      <label for="enableAnimate" class="switch-btn small shadow" title="动画开关"></label>
+    </div>
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/author.png"
+               alt="Coco" />
+          <p class="site-author-name" itemprop="name">Coco</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wodewone" target="_blank">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/1576981091" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Modernizr介绍"><span class="nav-number">1.</span> <span class="nav-text">Modernizr介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用Modernizr"><span class="nav-number">2.</span> <span class="nav-text">应用Modernizr</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#附，Modernizr检测清单："><span class="nav-number">3.</span> <span class="nav-text">附，Modernizr检测清单：</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Coco</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wodewone"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("FkaAa7JkTVnjEWwTzitYNqdD-gzGzoHsz", "EQB15sUPijE0qCOJGBaoqxWN");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>
