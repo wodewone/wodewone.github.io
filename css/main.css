@@ -1517,7 +1517,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #e8adf0;
+  background: #730aff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2162,10 +2162,14 @@ a.search-result {
 .sidebar.sidebar-active {
   background: url("../../images/slide-bg.jpg") #555 right/cover;
   -webkit-animation: ani-slide 80s infinite linear;
+  -moz-animation: ani-slide 80s infinite linear;
   -o-animation: ani-slide 80s infinite linear;
   animation: ani-slide 80s infinite linear;
 }
 .sidebar.stop {
+  -webkit-animation: none;
+  -moz-animation: none;
+  -o-animation: none;
   animation: none;
 }
 .sidebar-inner {
@@ -2287,10 +2291,23 @@ img.site-author-image:hover {
 :checked + .small.switch-btn:before {
   margin-left: 9px;
 }
-@-webkit-keyframes ani-slide {
-  0% {
+@-moz-keyframes ani-slide {
+  50% {
+    background-position: 0%;
+  }
+  100% {
     background-position: 100%;
   }
+}
+@-webkit-keyframes ani-slide {
+  50% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+@-o-keyframes ani-slide {
   50% {
     background-position: 0%;
   }
@@ -2306,9 +2323,6 @@ img.site-author-image:hover {
   text-align: center;
 }
 @-moz-keyframes ani-slide {
-  0% {
-    background-position: 100%;
-  }
   50% {
     background-position: 0%;
   }
@@ -2317,9 +2331,6 @@ img.site-author-image:hover {
   }
 }
 @-webkit-keyframes ani-slide {
-  0% {
-    background-position: 100%;
-  }
   50% {
     background-position: 0%;
   }
@@ -2328,9 +2339,6 @@ img.site-author-image:hover {
   }
 }
 @-o-keyframes ani-slide {
-  0% {
-    background-position: 100%;
-  }
   50% {
     background-position: 0%;
   }
@@ -2339,9 +2347,6 @@ img.site-author-image:hover {
   }
 }
 @keyframes ani-slide {
-  0% {
-    background-position: 100%;
-  }
   50% {
     background-position: 0%;
   }
