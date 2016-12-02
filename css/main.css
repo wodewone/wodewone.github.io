@@ -1517,7 +1517,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #c72eb3;
+  background: #c6da03;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2175,7 +2175,7 @@ a.search-result {
 .sidebar-inner {
   padding: 6% 3%;
   height: 99%;
-  background: url("../../images/pattern.png") rgba(50,120,150,0.2);
+  background: url("../../images/pattern.png") rgba(50,50,50,0.5);
 }
 .sidebar-nav li {
   color: #222;
