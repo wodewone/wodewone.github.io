@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas 弹幕</title>
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+	<style>
+	.cap-wrap{
+		width: 100%;
+		height: 500px;
+		position: relative;
+		margin-top: 10px;
+	}
+	#commentCanvas{
+		background: #eee;
+		border: 1px solid #ddd;
+		border-radius: 5px;
+		width: 100%;
+		height: 500px;
+	}
+	.commment-play-btn{
+		width: 50px;
+		height: 50px;
+		line-height: 49px;
+		outline: none;
+		text-align: center;
+		position: absolute;
+		bottom: 15px;
+		right: 15px;
+		background: #fff;
+		border-radius: 50%;
+		color: #444;
+		font-size: 24px;
+		text-indent: 1px;
+		border: 1px solid #ddd;
+		box-shadow: 0 0 15px rgba(0,0,0,0.75);
+		overflow: hidden;
+		transition: all .25s;
+	}
+	.commment-play-btn:hover{
+		color: #fff;
+		background: #999;
+	}
+	.commment-play-btn.active .glyphicon-play{
+		display: none;
+	}
+	.commment-play-btn:active{
+		box-shadow: 0 0 8px rgba(0,0,0,0.5);
+		background: #222;
+	}
+	.commment-play-btn:active .glyphicon{
+		transition: all .15s;
+		transform: scale(.8);
+	}
+	</style>
+</head>
+<body>
+<div class="container">
+	<h2>Canvas 弹幕 <small>直接输入内容或者点击右下方按钮开始弹幕</small></h2>
+	<div class="row">
+		<div class="col-md-3">
+			<div class="input-group">
+		      <input type="text" class="form-control comment-input">
+		      <span class="input-group-btn">
+		        <button class="btn btn-success sendBtn" type="button">发送</button>
+		      </span>
+		    </div>
+		</div>
+	</div>
+	<div class="cap-wrap">
+		<canvas id="commentCanvas"></canvas>
+		<button class="commment-play-btn"><i class="glyphicon glyphicon-play"></i><i class="glyphicon glyphicon-pause"></i></a>
+	</div>
+</div>
+<script src="caption.js"></script>
+</body>
+</html>
