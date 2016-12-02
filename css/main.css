@@ -510,9 +510,10 @@ pre,
   margin: 20px 0;
   padding: 15px;
   font-size: 13px;
-  color: #eaeaea;
-  background: #000;
+  color: #20201d;
+  background: #fefbec;
   line-height: 1.6;
+  border: 1px solid #ccc;
 }
 pre,
 code {
@@ -547,7 +548,7 @@ pre code {
 }
 .highlight figcaption {
   font-size: 0.85em;
-  color: #969896;
+  color: #999580;
   line-height: 1em;
   margin-bottom: 1em;
 }
@@ -563,7 +564,7 @@ pre code {
   float: right;
 }
 .highlight .gutter pre {
-  color: #666;
+  color: #999580;
   text-align: right;
   padding-right: 20px;
 }
@@ -571,7 +572,7 @@ pre code {
   height: 20px;
 }
 pre .comment {
-  color: #969896;
+  color: #999580;
 }
 pre .variable,
 pre .attribute,
@@ -607,11 +608,11 @@ pre .xml .cdata,
 pre .special,
 pre .number,
 pre .formula {
-  color: #b9ca4a;
+  color: #60ac39;
 }
 pre .title,
 pre .css .hexcolor {
-  color: #70c0b1;
+  color: #1fad83;
 }
 pre .function,
 pre .python .decorator,
@@ -621,11 +622,11 @@ pre .ruby .title .keyword,
 pre .perl .sub,
 pre .javascript .title,
 pre .coffeescript .title {
-  color: #7aa6da;
+  color: #6684e1;
 }
 pre .keyword,
 pre .javascript .function {
-  color: #c397d8;
+  color: #b854d4;
 }
 .full-image.full-image.full-image {
   border: none;
@@ -1517,7 +1518,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #c72eb3;
+  background: #c6da03;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -1543,7 +1544,8 @@ pre .javascript .function {
   cursor: pointer;
   border-bottom: 1px solid transparent;
   font-size: 14px;
-  color: #555;
+  padding: 0 10px;
+  color: #f5f5f5;
 }
 .sidebar-nav li:hover {
   color: #f5f5f5;
@@ -1555,11 +1557,12 @@ pre .javascript .function {
   margin-left: 10px;
 }
 .sidebar-nav .sidebar-nav-active {
-  color: #87daff;
-  border-bottom-color: #87daff;
+  color: #fff;
+  border-radius: 30px;
+  border: 1px solid #f5f5f5;
 }
 .sidebar-nav .sidebar-nav-active:hover {
-  color: #87daff;
+  color: #cfff0d;
 }
 .sidebar-panel {
   display: none;
@@ -1605,6 +1608,10 @@ pre .javascript .function {
   white-space: nowrap;
   line-height: 1.8;
 }
+.post-toc .nav-item.active.active-current {
+  padding-left: 3px;
+  transition: padding 1s;
+}
 .post-toc .nav .nav-child {
   display: none;
 }
@@ -1618,14 +1625,14 @@ pre .javascript .function {
   display: block;
 }
 .post-toc .nav .active > a {
-  color: #87daff;
-  border-bottom-color: #87daff;
+  color: #cfff0d;
+  border-bottom-color: #cfff0d;
 }
 .post-toc .nav .active-current > a {
-  color: #87daff;
+  color: #cfff0d;
 }
 .post-toc .nav .active-current > a:hover {
-  color: #87daff;
+  color: #cfff0d;
 }
 .footer {
   font-size: 14px;
@@ -2075,7 +2082,7 @@ a.search-result {
   padding-left: 10px;
 }
 .page-post-detail .sidebar-toggle-line {
-  background: #87daff;
+  background: #cfff0d;
 }
 .page-post-detail .comments {
   overflow: hidden;
@@ -2175,14 +2182,7 @@ a.search-result {
 .sidebar-inner {
   padding: 6% 3%;
   height: 99%;
-  background: url("../../images/pattern.png") rgba(50,120,150,0.2);
-}
-.sidebar-nav li {
-  color: #222;
-}
-.sidebar-nav .sidebar-nav-active {
-  color: #fff;
-  border-bottom-color: #fff;
+  background: url("../../images/pattern.png") rgba(50,50,50,0.5);
 }
 .posts-expand .post-tags {
   margin-top: 0;
@@ -2225,7 +2225,8 @@ img.site-author-image {
   color: #fff;
 }
 body {
-  background: url("http://ww2.sinaimg.cn/large/5dfed263jw1f2rlpz6sidg204102wa9z.gif") fixed;
+/*background: url("http://ww2.sinaimg.cn/large/5dfed263jw1f2rlpz6sidg204102wa9z.gif") fixed;*/
+  background: url("../images/document-bg.png");
 }
 img.site-author-image:hover {
   -webkit-transform: scale(1.12);
