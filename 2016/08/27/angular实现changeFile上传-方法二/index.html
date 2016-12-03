@@ -57,16 +57,19 @@
 
 
 
-<meta name="description" content="angular&amp;#x5B9E;&amp;#x73B0;changeFile&amp;#x4E0A;&amp;#x4F20;[&amp;#x65B9;&amp;#x6CD5;&amp;#x4E8C;]html1&amp;lt;div ng-controller=&amp;quot;form-cntlr&amp;quot;&amp;gt; &amp;lt;form&amp;gt; &amp;lt;button ng-click=&amp;quot;selectFile()&amp;quot;&amp;gt;Upload You">
+<meta name="description" content="angular&amp;#x5B9E;&amp;#x73B0;changeFile&amp;#x4E0A;&amp;#x4F20;[&amp;#x65B9;&amp;#x6CD5;&amp;#x4E8C;]html
+1&amp;lt;div ng-controller=&amp;quot;form-cntlr&amp;quot;&amp;gt; &amp;lt;form&amp;gt; &amp;lt;button ng-click=&amp;quot;selectFile()&amp;quot;&amp;gt;Upload Yo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="angular实现changeFile上传[方法二]">
 <meta property="og:url" content="http://wodewone.com/2016/08/27/angular实现changeFile上传-方法二/index.html">
 <meta property="og:site_name" content="wodewone's blog">
-<meta property="og:description" content="angular&amp;#x5B9E;&amp;#x73B0;changeFile&amp;#x4E0A;&amp;#x4F20;[&amp;#x65B9;&amp;#x6CD5;&amp;#x4E8C;]html1&amp;lt;div ng-controller=&amp;quot;form-cntlr&amp;quot;&amp;gt; &amp;lt;form&amp;gt; &amp;lt;button ng-click=&amp;quot;selectFile()&amp;quot;&amp;gt;Upload You">
-<meta property="og:updated_time" content="2016-11-26T11:34:01.000Z">
+<meta property="og:description" content="angular&amp;#x5B9E;&amp;#x73B0;changeFile&amp;#x4E0A;&amp;#x4F20;[&amp;#x65B9;&amp;#x6CD5;&amp;#x4E8C;]html
+1&amp;lt;div ng-controller=&amp;quot;form-cntlr&amp;quot;&amp;gt; &amp;lt;form&amp;gt; &amp;lt;button ng-click=&amp;quot;selectFile()&amp;quot;&amp;gt;Upload Yo">
+<meta property="og:updated_time" content="2016-12-03T13:45:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="angular实现changeFile上传[方法二]">
-<meta name="twitter:description" content="angular&amp;#x5B9E;&amp;#x73B0;changeFile&amp;#x4E0A;&amp;#x4F20;[&amp;#x65B9;&amp;#x6CD5;&amp;#x4E8C;]html1&amp;lt;div ng-controller=&amp;quot;form-cntlr&amp;quot;&amp;gt; &amp;lt;form&amp;gt; &amp;lt;button ng-click=&amp;quot;selectFile()&amp;quot;&amp;gt;Upload You">
+<meta name="twitter:description" content="angular&amp;#x5B9E;&amp;#x73B0;changeFile&amp;#x4E0A;&amp;#x4F20;[&amp;#x65B9;&amp;#x6CD5;&amp;#x4E8C;]html
+1&amp;lt;div ng-controller=&amp;quot;form-cntlr&amp;quot;&amp;gt; &amp;lt;form&amp;gt; &amp;lt;button ng-click=&amp;quot;selectFile()&amp;quot;&amp;gt;Upload Yo">
 
 
 
@@ -329,12 +332,16 @@
       
 
       
-        <h3 id="angular&#x5B9E;&#x73B0;changeFile&#x4E0A;&#x4F20;-&#x65B9;&#x6CD5;&#x4E8C;"><a href="#angular&#x5B9E;&#x73B0;changeFile&#x4E0A;&#x4F20;-&#x65B9;&#x6CD5;&#x4E8C;" class="headerlink" title="angular&#x5B9E;&#x73B0;changeFile&#x4E0A;&#x4F20;[&#x65B9;&#x6CD5;&#x4E8C;]"></a>angular&#x5B9E;&#x73B0;changeFile&#x4E0A;&#x4F20;[&#x65B9;&#x6CD5;&#x4E8C;]</h3><p>html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div ng-controller=&quot;form-cntlr&quot;&gt; &lt;form&gt; &lt;button ng-click=&quot;selectFile()&quot;&gt;Upload Your File&lt;/button&gt; &lt;input type=&quot;file&quot; style=&quot;display:none&quot; id=&quot;file&quot; name=&apos;file&apos; onchange=&quot;angular.element(this).scope().fileNameChanged(this)&quot; /&gt; &lt;/form&gt; &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+        <h3 id="angular&#x5B9E;&#x73B0;changeFile&#x4E0A;&#x4F20;-&#x65B9;&#x6CD5;&#x4E8C;"><a href="#angular&#x5B9E;&#x73B0;changeFile&#x4E0A;&#x4F20;-&#x65B9;&#x6CD5;&#x4E8C;" class="headerlink" title="angular&#x5B9E;&#x73B0;changeFile&#x4E0A;&#x4F20;[&#x65B9;&#x6CD5;&#x4E8C;]"></a>angular&#x5B9E;&#x73B0;changeFile&#x4E0A;&#x4F20;[&#x65B9;&#x6CD5;&#x4E8C;]</h3><p>html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-controller</span>=<span class="string">&quot;form-cntlr&quot;</span>&gt;</span> <span class="tag">&lt;<span class="name">form</span>&gt;</span> <span class="tag">&lt;<span class="name">button</span> <span class="attr">ng-click</span>=<span class="string">&quot;selectFile()&quot;</span>&gt;</span>Upload Your File<span class="tag">&lt;/<span class="name">button</span>&gt;</span> <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">style</span>=<span class="string">&quot;display:none&quot;</span> <span class="attr">id</span>=<span class="string">&quot;file&quot;</span> <span class="attr">name</span>=<span class="string">&apos;file&apos;</span> <span class="attr">onchange</span>=<span class="string">&quot;angular.element(this).scope().fileNameChanged(this)&quot;</span> /&gt;</span> <span class="tag">&lt;/<span class="name">form</span>&gt;</span> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>instead of </p>
-<figure class="highlight plain"><figcaption><span>type=&quot;file&quot; style=&quot;display:none&quot; id=&quot;file&quot; name=&apos;file&apos; ng-Change=&quot;fileNameChanged()&quot;</span><a href="/&gt;">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line"></span><br><span class="line">can you try</span><br></pre></td></tr></table></figure>
-<p><input type="file" style="display:none" id="file" name="file" onchange="angular.element(this).scope().fileNameChanged()"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">and in your function changes instead of</span><br></pre></td></tr></table></figure></p>
-<p>$scope.fileNameChanged = function() { alert(&#x201C;select file&#x201D;); }<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">can you try</span><br></pre></td></tr></table></figure></p>
-<p>$scope.fileNameChanged = function() {<br>  console.log(&#x201C;select file&#x201D;);<br>}<br>```</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">style</span>=<span class="string">&quot;display:none&quot;</span> <span class="attr">id</span>=<span class="string">&quot;file&quot;</span> <span class="attr">name</span>=<span class="string">&apos;file&apos;</span> <span class="attr">ng-Change</span>=<span class="string">&quot;fileNameChanged()&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>can you try</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">style</span>=<span class="string">&quot;display:none&quot;</span> <span class="attr">id</span>=<span class="string">&quot;file&quot;</span> <span class="attr">name</span>=<span class="string">&apos;file&apos;</span> <span class="attr">onchange</span>=<span class="string">&quot;angular.element(this).scope().fileNameChanged()&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>and in your function changes instead of</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$scope.fileNameChanged = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{ alert(<span class="string">&quot;select file&quot;</span>); }</span><br></pre></td></tr></table></figure>
+<p>can you try</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$scope.fileNameChanged = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;select file&quot;</span>);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 <p><a href="http://stackoverflow.com/questions/17922557/angularjs-how-to-check-for-changes-in-file-input-fields" target="_blank" rel="external">&#x53C2;&#x8003;&#x51FA;&#x5904;1</a></p>
 <p><a href="https://github.com/angular/angular.js/issues/1375" target="_blank" rel="external">&#x53C2;&#x8003;&#x51FA;&#x5904;2</a></p>
 
