@@ -996,7 +996,6 @@ pre .javascript .function {
 }
 .menu .menu-item .fa {
   margin-right: 5px;
-  color: #e4c32d;
 }
 .use-motion .menu-item {
   opacity: 0;
@@ -1450,7 +1449,7 @@ pre .javascript .function {
 .site-description {
   margin-top: 5px;
   font-size: 14px;
-  color: #555;
+  color: #eee;
 }
 .site-state {
   overflow: hidden;
