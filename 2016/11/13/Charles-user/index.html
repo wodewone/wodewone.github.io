@@ -1,0 +1,867 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="charles,web,mac," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="wodewone's blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x4E3A;&amp;#x4E86;&amp;#x65B9;&amp;#x4FBF;&amp;#x5927;&amp;#x5BB6;&amp;#x4F7F;&amp;#x7528;&amp;#xFF0C;&amp;#x6211;&amp;#x5DF2;&amp;#x7ECF;&amp;#x5C06;&amp;#x6240;&amp;#x7528;&amp;#x7248;&amp;#x672C;&amp;#x4E0A;&amp;#x4F20;&amp;#x767E;&amp;#x5EA6;&amp;#x4E91;&amp;#x76D8;&amp;#xFF0C;&amp;#x8BF7">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Charles使用以及Charles Response显示乱码">
+<meta property="og:url" content="http://wodewone.com/2016/11/13/Charles-user/index.html">
+<meta property="og:site_name" content="wodewone's blog">
+<meta property="og:description" content="&amp;#x4E3A;&amp;#x4E86;&amp;#x65B9;&amp;#x4FBF;&amp;#x5927;&amp;#x5BB6;&amp;#x4F7F;&amp;#x7528;&amp;#xFF0C;&amp;#x6211;&amp;#x5DF2;&amp;#x7ECF;&amp;#x5C06;&amp;#x6240;&amp;#x7528;&amp;#x7248;&amp;#x672C;&amp;#x4E0A;&amp;#x4F20;&amp;#x767E;&amp;#x5EA6;&amp;#x4E91;&amp;#x76D8;&amp;#xFF0C;&amp;#x8BF7">
+<meta property="og:image" content="http://wodewone.com/2016/11/13/Charles-user/proxy-setting.png">
+<meta property="og:image" content="http://wodewone.com/http-proxy.png">
+<meta property="og:image" content="http://wodewone.com/2016/11/13/Charles-user/allow-connect.png">
+<meta property="og:image" content="http://7xikfc.com1.z0.glb.clouddn.com/tips-for-using-charles-01.png">
+<meta property="og:image" content="http://7xikfc.com1.z0.glb.clouddn.com/tips-for-using-charles-08.png">
+<meta property="og:image" content="http://7xikfc.com1.z0.glb.clouddn.com/tips-for-using-charles-09.jpg">
+<meta property="og:image" content="http://7xikfc.com1.z0.glb.clouddn.com/tips-for-using-charles-02.png">
+<meta property="og:image" content="http://7xikfc.com1.z0.glb.clouddn.com/tips-for-using-charles-03.jpg">
+<meta property="og:image" content="http://7xikfc.com1.z0.glb.clouddn.com/tips-for-using-charles-04.jpg">
+<meta property="og:image" content="http://7xikfc.com1.z0.glb.clouddn.com/tips-for-using-charles-07.png">
+<meta property="og:image" content="http://7xikfc.com1.z0.glb.clouddn.com/tips-for-using-charles-11.jpg">
+<meta property="og:image" content="http://7xikfc.com1.z0.glb.clouddn.com/tips-for-using-charles-05.png">
+<meta property="og:image" content="http://7xikfc.com1.z0.glb.clouddn.com/tips-for-using-charles-06.jpg">
+<meta property="og:updated_time" content="2016-12-04T08:11:51.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Charles使用以及Charles Response显示乱码">
+<meta name="twitter:description" content="&amp;#x4E3A;&amp;#x4E86;&amp;#x65B9;&amp;#x4FBF;&amp;#x5927;&amp;#x5BB6;&amp;#x4F7F;&amp;#x7528;&amp;#xFF0C;&amp;#x6211;&amp;#x5DF2;&amp;#x7ECF;&amp;#x5C06;&amp;#x6240;&amp;#x7528;&amp;#x7248;&amp;#x672C;&amp;#x4E0A;&amp;#x4F20;&amp;#x767E;&amp;#x5EA6;&amp;#x4E91;&amp;#x76D8;&amp;#xFF0C;&amp;#x8BF7">
+<meta name="twitter:image" content="http://wodewone.com/2016/11/13/Charles-user/proxy-setting.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6269890100566427000,
+      author: 'Coco'
+    }
+  };
+</script>
+
+  <title> Charles使用以及Charles Response显示乱码 | wodewone's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?4691d35db2be0afe7a932e6f4f7e68af";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">wodewone's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">梦想是主题，生活才是题主</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-favourites">
+          <a href="/favourites" rel="section">
+            
+              <i class="menu-item-icon fa fa-question-circle fa-fw"></i> <br />
+            
+            收藏
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Charles使用以及Charles Response显示乱码
+              
+            
+          </h1>
+        
+
+        
+          <div class="post-tags">
+            
+              <a href="/tags/charles/" rel="tag">#charles</a>
+            
+              <a href="/tags/web/" rel="tag">#web</a>
+            
+              <a href="/tags/mac/" rel="tag">#mac</a>
+            
+          </div>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-13T15:01:57+08:00" content="2016-11-13">
+              2016-11-13
+            </time>
+          </span>
+
+          
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/13/Charles-user/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/13/Charles-user/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/13/Charles-user/" class="leancloud_visitors" data-flag-title="Charles使用以及Charles Response显示乱码">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>&#x4E3A;&#x4E86;&#x65B9;&#x4FBF;&#x5927;&#x5BB6;&#x4F7F;&#x7528;&#xFF0C;&#x6211;&#x5DF2;&#x7ECF;&#x5C06;&#x6240;&#x7528;&#x7248;&#x672C;&#x4E0A;&#x4F20;&#x767E;&#x5EA6;&#x4E91;&#x76D8;&#xFF0C;&#x8BF7;&#x5927;&#x5BB6;&#x81EA;&#x884C;&#x4E0B;&#x8F7D;&#xFF0C;&#x4E0B;&#x8F7D;&#x89E3;&#x538B;&#x540E;&#x76F4;&#x63A5;&#x62D6;&#x8FDB;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x6587;&#x4EF6;&#x5939;&#x5373;&#x53EF;&#xFF08;&#x975E; DMG &#x5B89;&#x88C5;&#x5305;&#xFF09;<a href="https://pan.baidu.com/s/1pLlPlvt" target="_blank" rel="external">Charles-V3.11 for Mac</a> &#xFF0C;&#x5927;&#x5BB6;&#x4E5F;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x901A;&#x8FC7;&#x5176;&#x4ED6;&#x65B9;&#x5F0F;&#x4E0B;&#x8F7D;&#xFF1B;<br>&#x6CE8;&#xFF1A;&#x5982;&#x679C;&#x63D0;&#x793A;&#x6587;&#x4EF6;&#x5DF2;&#x635F;&#x574F;&#xFF0C;&#x8BF7;&#x5C1D;&#x8BD5;&#x66F4;&#x65B0;&#x7CFB;&#x7EDF;&#xFF08;&#x867D;&#x7136;&#x4E0D;&#x4E00;&#x5B9A;&#x6709;&#x7528;&#xFF0C;&#x54C8;&#x54C8;&#xFF09; or &#x901A;&#x8FC7;&#x5176;&#x4ED6;&#x65B9;&#x5F0F;&#x4E0B;&#x8F7D;&#xFF1B;<br>&#x5982;&#x679C;&#x4F60;&#x5DF2;&#x7ECF;&#x5B89;&#x88C5;&#x53EF;&#x5FFD;&#x7565;&#x6B64;&#x63D0;&#x793A;&#xFF1B;</p>
+</blockquote>
+<hr>
+<h2 id="&#x524D;&#x8A00;"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a>&#x524D;&#x8A00;</h2><p>&#x6211;&#x60F3;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x662F;&#x4E2A;&#x5584;&#x4E8E;&#x5229;&#x7528;&#x641C;&#x7D22;&#x5F15;&#x64CE;&#x7684;&#x4EBA;&#xFF0C;&#x90A3;&#x4E48;&#x5728; Google &#x4E2D;&#x8F93;&#x5165;&#x300C;Charles &#x4F7F;&#x7528;&#x300D;&#x7B49;&#x76F8;&#x5E94;&#x7684;&#x5173;&#x952E;&#x5B57;&#xFF0C;&#x4FBF;&#x4F1A;&#x51FA;&#x73B0;&#x4E00;&#x5927;&#x628A;&#x6587;&#x7AE0;&#x3002;<br>&#x4E0D;&#x8FC7;&#x5462;&#xFF0C;&#x4E4B;&#x6240;&#x4EE5;&#x4F1A;&#x6709;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#xFF0C;&#x5C31;&#x662F;&#x56E0;&#x4E3A;&#x4ECA;&#x5929;&#x5728;&#x5B89;&#x88C5;&#x548C;&#x521D;&#x6B65;&#x4F7F;&#x7528;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x9047;&#x5230;&#x4E86;&#x4E9B;&#x95EE;&#x9898;&#xFF0C;&#x800C;&#x76EE;&#x524D;&#x641C;&#x7D22;&#x51FA;&#x6765;&#x7684;&#x7EDD;&#x5927;&#x6570;&#x6587;&#x7AE0;&#x5E76;&#x6CA1;&#x6709;&#x63D0;&#x53CA;&#xFF08;&#x6216;&#x8005;&#x89E3;&#x51B3;&#x529E;&#x6CD5;&#x5DF2;&#x7ECF;&#x8FC7;&#x65F6;&#xFF09;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x6211;&#x5728;&#x6B64;&#x8BB0;&#x5F55;&#x4E0B;&#x6765;&#xFF0C;&#x5E0C;&#x671B;&#x80FD;&#x5E2E;&#x52A9;&#x5230;&#x901A;&#x8FC7;&#x641C;&#x7D22;&#x627E;&#x5230;&#x8FD9;&#x7684;&#x670B;&#x53CB;&#x4EEC;&#x3002;</p>
+<hr>
+<h2 id="&#x4ED8;&#x8D39;-amp-&#x6B63;&#x7248;"><a href="#&#x4ED8;&#x8D39;-amp-&#x6B63;&#x7248;" class="headerlink" title="&#x4ED8;&#x8D39; &amp; &#x6B63;&#x7248;"></a>&#x4ED8;&#x8D39; &amp; &#x6B63;&#x7248;</h2><blockquote>
+<p>Charles &#x662F;&#x6536;&#x8D39;&#x8F6F;&#x4EF6;&#xFF0C;&#x53EF;&#x4EE5;&#x514D;&#x8D39;&#x8BD5;&#x7528; 30 &#x5929;&#x3002;&#x8BD5;&#x7528;&#x671F;&#x8FC7;&#x540E;&#xFF0C;&#x672A;&#x4ED8;&#x8D39;&#x7684;&#x7528;&#x6237;&#x4ECD;&#x7136;&#x53EF;&#x4EE5;&#x7EE7;&#x7EED;&#x4F7F;&#x7528;&#xFF0C;&#x4F46;&#x662F;&#x6BCF;&#x6B21;&#x4F7F;&#x7528;&#x65F6;&#x95F4;&#x4E0D;&#x80FD;&#x8D85;&#x8FC7; 30 &#x5206;&#x949F;&#xFF0C;&#x4F7F;&#x7528;&#x8FC7;&#x7A0B;&#x4E2D;&#x4E0D;&#x5B9A;&#x65F6;&#x4F1A;&#x4E2D;&#x65AD; 5 &#x79D2;&#x949F;&#xFF0C;&#x5E76;&#x4E14;&#x542F;&#x52A8;&#x65F6;&#x5C06;&#x4F1A;&#x6709; 10 &#x79D2;&#x79CD;&#x7684;&#x5EF6;&#x65F6;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x8BE5;&#x4ED8;&#x8D39;&#x65B9;&#x6848;&#x5BF9;&#x5E7F;&#x5927;&#x7528;&#x6237;&#x8FD8;&#x662F;&#x76F8;&#x5F53;&#x53CB;&#x597D;&#x7684;&#xFF0C;&#x5373;&#x4F7F;&#x4F60;&#x957F;&#x671F;&#x4E0D;&#x4ED8;&#x8D39;&#xFF0C;&#x4E5F;&#x80FD;&#x4F7F;&#x7528;&#x5B8C;&#x6574;&#x7684;&#x8F6F;&#x4EF6;&#x529F;&#x80FD;&#x3002;&#x53EA;&#x662F;&#x5F53;&#x4F60;&#x9700;&#x8981;&#x957F;&#x65F6;&#x95F4;&#x8FDB;&#x884C;&#x5C01;&#x5305;&#x8C03;&#x8BD5;&#x65F6;&#xFF0C;&#x4F1A;&#x56E0;&#x4E3A; Charles &#x5F3A;&#x5236;&#x5173;&#x95ED;&#x800C;&#x9047;&#x5230;&#x5F71;&#x54CD;&#x3002;</p>
+</blockquote>
+<p>&#x5173;&#x4E8E;&#x4EF7;&#x683C;&#xFF0C;&#x89C1;&#x4E0B;&#x8868;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th>License</th>
+<th>Pricing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1-4 User Licenses</td>
+<td>US$50 / license</td>
+</tr>
+<tr>
+<td>5+ User Licenses</td>
+<td>US$40 / license (20% discount)</td>
+</tr>
+<tr>
+<td>10+ User Licenses</td>
+<td>US$30 / license (40% discount)</td>
+</tr>
+<tr>
+<td>Site License</td>
+<td>US$400</td>
+</tr>
+<tr>
+<td>Multi-Site License</td>
+<td>US$700</td>
+</tr>
+</tbody>
+</table>
+<p>50 &#x5200;&#x7684;&#x4EF7;&#x683C;&#x867D;&#x7136;&#x4E0D;&#x767D;&#x83DC;&#xFF0C;&#x4F46;&#x8BD5;&#x7528;&#x7248;&#x5E76;&#x672A;&#x9609;&#x5272;&#x529F;&#x80FD;&#xFF0C;&#x53EA;&#x662F;&#x5728;&#x4F7F;&#x7528;&#x4F53;&#x9A8C;&#x4E0A;&#x7A0D;&#x5DEE;&#xFF0C;&#x8FD9;&#x53EF;&#x79F0;&#x5F97;&#x4E0A;&#x826F;&#x5FC3;&#x554A;&#x3002;&#x867D;&#x7136;&#x6211;&#x6682;&#x65F6;&#x4E0D;&#x4F1A;&#x8D2D;&#x4E70;&#xFF0C;&#x4F46;&#x6211;&#x4F9D;&#x7136;&#x4F1A;&#x4F7F;&#x7528;&#x6B63;&#x7248;&#xFF0C;&#x5E0C;&#x671B;&#x4F60;&#x4E5F;&#x5982;&#x6B64;&#x3002;</p>
+<hr>
+<h2 id="&#x4F7F;&#x7528;"><a href="#&#x4F7F;&#x7528;" class="headerlink" title="&#x4F7F;&#x7528;"></a>&#x4F7F;&#x7528;</h2><p>&#x5B89;&#x88C5;&#x540E;&#x76F4;&#x63A5;&#x6253;&#x5F00; Charles &#x5373;&#x53EF;&#x4F7F;&#x7528;;<br>&#x4FDD;&#x8BC1;&#x7535;&#x8111;&#x548C;&#x624B;&#x673A;&#x5728;&#x540C;&#x4E00;&#x5C40;&#x57DF;&#x7F51;&#x5185;&#xFF08;&#x5C31;&#x662F;&#x7528;&#x7684;&#x540C;&#x4E00;&#x4E2A; wifi&#xFF0C;&#x54C8;&#x54C8;&#xFF09;&#xFF1B;<br>&#x7136;&#x540E;&#x770B;&#x56FE;&#x8BBE;&#x7F6E;&#xFF1A;<br><img src="/2016/11/13/Charles-user/proxy-setting.png" alt="proxy-setting"></p>
+<p>&#x63A5;&#x7740;<br><img src="http-proxy.png" alt="http-proxy"></p>
+<p>&#x7136;&#x540E;&#x624B;&#x673A;&#x8BBE;&#x7F6E;&#x4EE3;&#x7406;&#x4E3A;&#x624B;&#x52A8;&#xFF1A;<br>&#xFF08;&#x4E0D;&#x4F1A;&#x600E;&#x4E48;&#x529E;&#xFF1F;&#x5404;&#x5E73;&#x53F0;&#x4FEE;&#x6539;&#x4EE3;&#x7406;&#x65B9;&#x5F0F;&#x8BF7;&#x81EA;&#x884C;&#x767E;&#x5EA6;~ &#x54C8;&#x54C8;&#xFF09;<br>&#x670D;&#x52A1;&#x5668;&#x5730;&#x5740;&#x5C31;&#x5199;&#x81EA;&#x5DF1;&#x5F53;&#x524D;&#x7535;&#x8111;&#x7684;&#x5C40;&#x57DF;&#x7F51; ip&#xFF0C;&#x7AEF;&#x53E3;&#x5199;&#x4E0A;&#x56FE;&#x663E;&#x793A;&#x7684;&#x7AEF;&#x53E3;&#x53F7;&#xFF08;&#x4F8B;&#xFF1A;&#x4E0A;&#x56FE;&#x7AEF;&#x53E3;&#x53F7;&#x4E3A; 8888&#xFF09;<br>&#x67E5;&#x770B;&#x5C40;&#x57DF;&#x7F51;ip&#xFF1A;mac &#x4E0B;&#x6253;&#x5F00;&#x7EC8;&#x7AEF;&#x8F93;&#x5165;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig en0</span><br></pre></td></tr></table></figure>
+<p>&#x8F93;&#x5165;&#x4EE3;&#x7406;&#x540E;&#x4FDD;&#x5B58;&#x8FD4;&#x56DE;&#xFF08;ios &#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x5373;&#x53EF;&#xFF09;<br>&#x7A0D;&#x540E;&#x7535;&#x8111;&#x4E0A;charles&#x4F1A;&#x5F39;&#x51FA; &#x4E0B;&#x56FE;&#xFF1A;<br><img src="/2016/11/13/Charles-user/allow-connect.png" alt="allow-connect"></p>
+<p>&#x70B9;&#x51FB; <code>allow</code> &#x5373;&#x53EF;&#xFF08;&#x522B;&#x70B9;&#x9519;&#x4E86;&#xFF0C;&#x70B9;&#x9519;&#x4E86;&#x6211;&#x4E5F;&#x4E0D;&#x77E5;&#x9053;&#x4F1A;&#x548B;&#x6837;&#xFF0C;&#x54C8;&#x54C8;&#xFF01;&#x6709;&#x5174;&#x8DA3;&#x7684;&#x540C;&#x5B66;&#x53EF;&#x81EA;&#x884C;&#x5C1D;&#x8BD5;&#xFF0C;&#x543C;&#x543C;&#xFF09;</p>
+<p>&#x5230;&#x8FD9;&#x91CC;&#x5982;&#x679C;&#x4F60;&#x6CA1;&#x6709;&#x51FA;&#x73B0;&#x5176;&#x4ED6;&#x5F02;&#x5E38;&#x60C5;&#x51B5;&#xFF0C;&#x90A3;&#x4E48;&#x4F60;&#x5DF2;&#x7ECF;&#x53EF;&#x4EE5;&#x6B63;&#x5E38;&#x4F7F;&#x7528;&#x4E86;&#xFF08;&#x5982;&#x679C;&#x8FD8;&#x4E0D;&#x884C;&#x7684;&#x8BDD;&#xFF0C;&#x4F60;&#x5E94;&#x8BE5;&#x7838;&#x7535;&#x8111;&#x4E86;&#xFF0C;&#x54C8;&#x54C8;&#x54C8;&#xFF09;</p>
+<h2 id="&#x505C;&#x7528;VPN"><a href="#&#x505C;&#x7528;VPN" class="headerlink" title="&#x505C;&#x7528;VPN"></a>&#x505C;&#x7528;VPN</h2><p>&#x5F53;&#x6211;&#x6253;&#x5F00; Charles&#xFF08;Mac OS X Proxy &#x5DF2;&#x9009;&#x62E9;&#xFF09;&#xFF0C;&#x6309;&#x7406;&#x8BF4;&#xFF0C;&#x6211;&#x7ACB;&#x523B;&#x5C31;&#x80FD;&#x770B;&#x89C1;&#x6E90;&#x6E90;&#x4E0D;&#x65AD;&#x7684;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#x51FA;&#x73B0;&#x5728; Charles &#x7684;&#x754C;&#x9762;&#x4E2D;&#x5566;&#xFF0C;&#x53EF;&#x4E3A;&#x4EC0;&#x4E48;&#x59CB;&#x7EC8;&#x662F;&#x4E00;&#x7247;&#x7A7A;&#x767D;&#x5462;&#xFF1F;</p>
+<p>&#x4E00;&#x756A;&#x641C;&#x7D22;&#xFF0C;&#x7EC8;&#x4E8E;&#x5728;&#x8FD9;&#x91CC; <a href="http://stackoverflow.com/questions/25697849/charles-proxy-not-working-with-chrome" target="_blank" rel="external">Charles proxy not working with Chrome</a> &#x627E;&#x5230;&#x4E86;&#x7B54;&#x6848;&#xFF1A;</p>
+<blockquote>
+<p>For anyone else using VPN: Charles must be turned on before VPN. So quitting VPN after turning on Charles won&#x2019;t work either.</p>
+</blockquote>
+<p>&#x6CA1;&#x529E;&#x6CD5;&#xFF0C;&#x4E3A;&#x4E86;&#x6B63;&#x5E38;&#x4F7F;&#x7528; Charles&#xFF0C;&#x53EA;&#x80FD;&#x6682;&#x65F6;&#x628A;&#x68AF;&#x5B50;&#x64A4;&#x4E86;(&#x8BF7;&#x6682;&#x65F6;&#x5173;&#x95ED;vpn&#x94FE;&#x63A5;)&#xFF1A;</p>
+<p><a href="http://7xikfc.com1.z0.glb.clouddn.com/tips-for-using-charles-01.png" target="_blank" rel="external"><img src="http://7xikfc.com1.z0.glb.clouddn.com/tips-for-using-charles-01.png" alt=""></a></p>
+<hr>
+<h2 id="&#x4E71;&#x7801;"><a href="#&#x4E71;&#x7801;" class="headerlink" title="&#x4E71;&#x7801;"></a>&#x4E71;&#x7801;</h2><p>&#x521A;&#x5F00;&#x59CB;&#x7528;&#x7740;&#x633A;&#x597D;&#x7684;&#x554A;&#xFF0C;&#x600E;&#x4E48;&#x4E00;&#x8A00;&#x4E0D;&#x5408;&#xFF0C;&#x5C31;&#x6765;&#x4E2A;&#x4E71;&#x7801;&#x5462;&#xFF1F;</p>
+<p><a href="http://7xikfc.com1.z0.glb.clouddn.com/tips-for-using-charles-08.png" target="_blank" rel="external"><img src="http://7xikfc.com1.z0.glb.clouddn.com/tips-for-using-charles-08.png" alt=""></a></p>
+<p>&#x4E8E;&#x662F;&#xFF0C;&#x4FBF;&#x5728; Google &#x4E2D;&#x8F93;&#x5165;&#x300C;Charles &#x4E71;&#x7801;&#x300D;&#xFF0C;&#x6211;&#x4FDD;&#x8BC1;&#xFF0C;&#x4F60;&#x80FD;&#x641C;&#x5230;&#x7684;&#x7EDD;&#x5BF9;&#x662F;&#x8FD9;&#x6837;&#x7684;&#x7B54;&#x6848;&#xFF1A;</p>
+<p><a href="http://7xikfc.com1.z0.glb.clouddn.com/tips-for-using-charles-09.jpg" target="_blank" rel="external"><img src="http://7xikfc.com1.z0.glb.clouddn.com/tips-for-using-charles-09.jpg" alt=""></a></p>
+<p>&#x53EF;&#x6211;&#x544A;&#x8BC9;&#x4F60;&#xFF0C;&#x53CD;&#x6B63;&#x6211;&#x5C1D;&#x8BD5;&#x4E86;&#x5728;&#x5404;&#x79CD;&#x5730;&#x65B9;&#x8FDB;&#x884C;&#x6DFB;&#x52A0;&#xFF0C;&#x6700;&#x540E;&#x90FD;&#x6CA1;&#x6709;&#x6210;&#x529F;&#x3002;<br>&#x800C;&#x6211;&#x6700;&#x7EC8;&#x89E3;&#x51B3;&#x4E86;&#x4E71;&#x7801;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x4F46;&#x6839;&#x672C;&#x6CA1;&#x6709;&#x6D89;&#x53CA;&#x5230; <code>Info.plist</code>&#x3002;&#x4F60;&#x53EA;&#x8981;&#x786E;&#x4FDD;&#xFF0C;&#x6211;&#x63A5;&#x4E0B;&#x6765;&#x63D0;&#x53CA;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x4F60;&#x6709;&#x6B63;&#x786E;&#x8FDB;&#x884C;&#x8BBE;&#x7F6E;&#x3002;</p>
+<h3 id="&#x5B89;&#x88C5;-SSL-&#x8BC1;&#x4E66;"><a href="#&#x5B89;&#x88C5;-SSL-&#x8BC1;&#x4E66;" class="headerlink" title="&#x5B89;&#x88C5; SSL &#x8BC1;&#x4E66;"></a>&#x5B89;&#x88C5; SSL &#x8BC1;&#x4E66;</h3><h4 id="Mac-&#x7AEF;"><a href="#Mac-&#x7AEF;" class="headerlink" title="Mac &#x7AEF;"></a>Mac &#x7AEF;</h4><blockquote>
+<p>&#x9996;&#x5148;&#x53BB; <a href="http://www.charlesproxy.com/ssl.zip" target="_blank" rel="external">http://www.charlesproxy.com/ssl.zip</a> &#x4E0B;&#x8F7D; CA &#x8BC1;&#x4E66;&#x6587;&#x4EF6;&#xFF0C;&#x7136;&#x540E;&#x53CC;&#x51FB; .crt &#x6587;&#x4EF6;&#xFF0C;&#x9009;&#x62E9;&#x300C;&#x603B;&#x662F;&#x4FE1;&#x4EFB;&#x300D;&#x6309;&#x94AE;&#xFF0C;&#x5728;&#x94A5;&#x5319;&#x4E32;&#x8BBF;&#x95EE;&#x4E2D;&#x5373;&#x53EF;&#x770B;&#x5230;&#x6DFB;&#x52A0;&#x6210;&#x529F;&#x7684;&#x8BC1;&#x4E66;&#x3002;</p>
+</blockquote>
+<p>&#x770B;&#x770B;&#xFF0C;&#x4EBA;&#x5BB6;&#x8BF4;&#x7684;&#x591A;&#x4E48;&#x7B80;&#x5355;&#x554A;&#xFF0C;&#x53EF;&#x4E8B;&#x5B9E;&#x5462;&#xFF1F;&#x5F53;&#x6211;&#x8BBF;&#x95EE;&#x4E0A;&#x8FF0;&#x7F51;&#x5740;&#x65F6;&#xFF0C;&#x51FA;&#x73B0;&#x7684;&#x662F;&#x5982;&#x4E0B;&#x7684;&#x6587;&#x5B57;&#xFF1A;</p>
+<blockquote>
+<p>If you are running Charles v3.10 or later, please go to Charles and consult the SSL Proxying submenu in the Help menu, for instructions on installing your new Charles Root Certificate.</p>
+</blockquote>
+<p>&#x6211;&#x90A3;&#x8E69;&#x811A;&#x7684;&#x82F1;&#x6587;&#x544A;&#x8BC9;&#x6211;&#xFF1A;&#x5982;&#x679C;&#x4F60;&#x4F7F;&#x7528;&#x7684;&#x662F; v3.10 &#x53CA;&#x4E4B;&#x540E;&#x7684;&#x7248;&#x672C;&#xFF0C;&#x5B89;&#x88C5;&#x65B9;&#x6CD5;&#x5DF2;&#x7ECF;&#x53D8;&#x4E86;&#xFF0C;&#x6B63;&#x786E;&#x7684;&#x59FF;&#x52BF;&#xFF1A;&#x542F;&#x52A8; Charles &#x8F6F;&#x4EF6;&#xFF0C;&#x5728;&#x83DC;&#x5355;&#x4E2D;&#x627E;&#x5230; Help -&gt; SSL Proxying -&gt; Install Charles Root Certificate. &#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p>
+<p><a href="http://7xikfc.com1.z0.glb.clouddn.com/tips-for-using-charles-02.png" target="_blank" rel="external"><img src="http://7xikfc.com1.z0.glb.clouddn.com/tips-for-using-charles-02.png" alt=""></a><a href="http://blog.devtang.com/2015/11/14/charles-introduction/" target="_blank" rel="external">&#x56FE;&#x7247;&#x6765;&#x81EA;</a></p>
+<p>&#x968F;&#x540E;&#x662F;&#x8FD9;&#x6837;&#x7684;&#xFF1A;</p>
+<p><a href="http://7xikfc.com1.z0.glb.clouddn.com/tips-for-using-charles-03.jpg" target="_blank" rel="external"><img src="http://7xikfc.com1.z0.glb.clouddn.com/tips-for-using-charles-03.jpg" alt=""></a><br><a href="http://7xikfc.com1.z0.glb.clouddn.com/tips-for-using-charles-04.jpg" target="_blank" rel="external"><img src="http://7xikfc.com1.z0.glb.clouddn.com/tips-for-using-charles-04.jpg" alt=""></a><a href="https://gitsea.com/2015/11/11/charles-https-%E6%8A%93%E5%8C%85-mac/" target="_blank" rel="external">&#x56FE;&#x7247;&#x6765;&#x81EA;</a></p>
+<h4 id="&#x79FB;&#x52A8;&#x7AEF;"><a href="#&#x79FB;&#x52A8;&#x7AEF;" class="headerlink" title="&#x79FB;&#x52A8;&#x7AEF;"></a>&#x79FB;&#x52A8;&#x7AEF;</h4><p>&#x6B65;&#x9AA4;&#xFF1A;Help -&gt; SSL Proxying -&gt;Install Charles Root Certificate on a Mobile Device&#x2026;</p>
+<p><a href="http://7xikfc.com1.z0.glb.clouddn.com/tips-for-using-charles-07.png" target="_blank" rel="external"><img src="http://7xikfc.com1.z0.glb.clouddn.com/tips-for-using-charles-07.png" alt=""></a></p>
+<p>&#x6839;&#x636E;&#x8FD9;&#x4E2A;&#x63D0;&#x793A;&#x590D;&#x5236;&#x7F51;&#x5740; <code>http://charlesproxy.com/getssl</code> &#x7136;&#x540E;&#x5728;&#x624B;&#x673A;&#x6D4F;&#x89C8;&#x5668;&#x5185;&#x6253;&#x5F00;&#x5373;&#x53EF;&#xFF0C;&#x7136;&#x540E;&#x4F1A;&#x63D0;&#x793A;&#x8BC1;&#x4E66;&#x5B89;&#x88C5;&#xFF0C;&#x5927;&#x5BB6;&#x6839;&#x636E;&#x63D0;&#x793A;&#x5B89;&#x88C5;&#x5373;&#x53EF;~</p>
+<h3 id="Mac-&#x4E0A;&#x7684;&#x8BBE;&#x7F6E;"><a href="#Mac-&#x4E0A;&#x7684;&#x8BBE;&#x7F6E;" class="headerlink" title="Mac &#x4E0A;&#x7684;&#x8BBE;&#x7F6E;"></a>Mac &#x4E0A;&#x7684;&#x8BBE;&#x7F6E;</h3><ol>
+<li><p>&#x5728; Charles &#x7684;&#x5DE5;&#x5177;&#x680F;&#x4E0A;&#x70B9;&#x51FB;&#x8BBE;&#x7F6E;&#x6309;&#x94AE;&#xFF0C;&#x9009;&#x62E9; SSL Proxy Settings&#xFF0C;&#x9009;&#x4E2D; Enable SSL Proxying&#x3002;&#xFF08;&#x522B;&#x6025;&#xFF0C;&#x9009;&#x5B8C;&#x5148;&#x522B;&#x5173;&#x6389;&#xFF09;</p>
+</li>
+<li><p>SSL &#x9009;&#x9879;&#x5361;&#x7684; Locations &#x91CC;&#x586B;&#x5199;&#x8981;&#x6293;&#x5305;&#x7684;&#x57DF;&#x540D;&#x548C;&#x7AEF;&#x53E3;&#xFF0C;&#x70B9;&#x51FB; Add &#x6309;&#x94AE;&#xFF0C;&#x5728;&#x5F39;&#x51FA;&#x7684;&#x8868;&#x5355;&#x4E2D; Host &#x586B;&#x5199;&#x57DF;&#x540D;&#x3002;&#x6BD4;&#x5982;&#x586B;api.instagram.com&#xFF0C;Port &#x586B; 443</p>
+</li>
+</ol>
+<p><a href="http://7xikfc.com1.z0.glb.clouddn.com/tips-for-using-charles-11.jpg" target="_blank" rel="external"><img src="http://7xikfc.com1.z0.glb.clouddn.com/tips-for-using-charles-11.jpg" alt=""></a><a href="https://gitsea.com/2015/11/11/charles-https-%E6%8A%93%E5%8C%85-mac/" target="_blank" rel="external">&#x56FE;&#x7247;&#x6765;&#x81EA;</a></p>
+<p><strong>&#x5173;&#x4E8E;&#x4E71;&#x7801;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x505A;&#x8FD9;&#x9879;&#x64CD;&#x4F5C;&#xFF0C;&#x5219;&#x80AF;&#x5B9A;&#x4F1A;&#x51FA;&#x73B0;&#x4E71;&#x7801;&#x3002;&#x800C;&#x81F3;&#x4E8E;&#x5426;&#x662F;&#x5728; <code>Info.plist</code> &#x4E2D;&#x6DFB;&#x52A0; <code>UTF-8</code> &#x7684;&#x5B57;&#x6BB5;&#xFF0C;&#x53CD;&#x6B63;&#x6700;&#x540E;&#x6211;&#x6CA1;&#x52A0;&#xFF0C;&#x4F46;&#x4E00;&#x5207;&#x6B63;&#x5E38;&#x3002;</strong></p>
+<p>&#x6240;&#x4EE5;&#x8FD9;&#x4E2A;&#x5751;&#xFF0C;&#x6211;&#x4E5F;&#x662F;&#x65E0;&#x610F;&#x95F4;&#x89E3;&#x51B3;&#x7684;&#x3002;</p>
+<h3 id="iPhone-&#x4E0A;&#x7684;&#x8BBE;&#x7F6E;"><a href="#iPhone-&#x4E0A;&#x7684;&#x8BBE;&#x7F6E;" class="headerlink" title="iPhone &#x4E0A;&#x7684;&#x8BBE;&#x7F6E;"></a>iPhone &#x4E0A;&#x7684;&#x8BBE;&#x7F6E;</h3><blockquote>
+<p>&#x9996;&#x5148;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x83B7;&#x53D6; Charles &#x8FD0;&#x884C;&#x6240;&#x5728;&#x7535;&#x8111;&#x7684; IP &#x5730;&#x5740;&#xFF0C;Charles &#x7684;&#x9876;&#x90E8;&#x83DC;&#x5355;&#x7684; &#x201C;Help&#x201D;-&gt;&#x201D;Local IP Address&#x201D;&#xFF0C;&#x5373;&#x53EF;&#x5728;&#x5F39;&#x51FA;&#x7684;&#x5BF9;&#x8BDD;&#x6846;&#x4E2D;&#x770B;&#x5230; IP &#x5730;&#x5740;&#xFF0C;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p>
+</blockquote>
+<p><a href="http://7xikfc.com1.z0.glb.clouddn.com/tips-for-using-charles-05.png" target="_blank" rel="external"><img src="http://7xikfc.com1.z0.glb.clouddn.com/tips-for-using-charles-05.png" alt=""></a></p>
+<p>&#x7136;&#x540E;&#x5C31;&#x662F;&#x5728; iPhone &#x4E0A;&#x7684;&#x4E00;&#x7CFB;&#x5217;&#x64CD;&#x4F5C;&#xFF0C;&#x53C8;&#x662F;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x6709;&#x6728;&#x6709;&#xFF01;</p>
+<p>&#x53EF;&#x662F;&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48;&#x5C3C;&#x739B;&#x6211;&#x600E;&#x4E48;&#x8BD5;&#x90FD;&#x4E0D;&#x6210;&#x679C;&#x5462;&#xFF1F;&#xFF01;iPhone &#x4E0A;&#x6D4F;&#x89C8;&#x5668;&#x7F51;&#x5740;&#x90FD;&#x6253;&#x4E0D;&#x5F00;&#x4E86;&#x2026;.&#x4E8E;&#x662F;&#x53C8;&#x5C1D;&#x8BD5;&#x4E86;&#x53E6;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x5728;&#x7EC8;&#x7AEF;&#x6572;&#x5165; <code>ifconfig en0</code>&#xFF1A;</p>
+<p><img src="http://7xikfc.com1.z0.glb.clouddn.com/tips-for-using-charles-06.jpg" alt="ifconfig"></p>
+<p><a href="http://itangqi.me/2016/05/30/tips-for-using-charles/" target="_blank" rel="external">&#x672C;&#x6587;&#x6458;&#x6284;&#x81EA;</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/01/AngularJs开发——指令与控制器间的通信/" rel="next" title="AngularJs开发——指令与控制器间的通信">
+                <i class="fa fa-chevron-left"></i> AngularJs开发——指令与控制器间的通信
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/27/git批量删除文件夹和文件/" rel="prev" title="git批量删除文件夹和文件">
+                git批量删除文件夹和文件 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/13/Charles-user/"
+           data-title="Charles使用以及Charles Response显示乱码" data-url="http://wodewone.com/2016/11/13/Charles-user/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="switch-box">
+      <input id="enableAnimate" class="switch-btn-cb" type="checkbox" checked="">
+      <label for="enableAnimate" class="switch-btn small shadow" title="动画开关"></label>
+    </div>
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/author.png"
+               alt="Coco" />
+          <p class="site-author-name" itemprop="name">Coco</p>
+          <p class="site-description motion-element" itemprop="description">学了js，趟了jQuery，用上sass，改了angular，看完vue，学了react，变了cssModule，弃了gulp，从了webpack，发现cssInJs，始于Node，终了……</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">40</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wodewone" target="_blank">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/1576981091" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://book.douban.com/people/145249948/" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  豆瓣
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/wodewone/activities" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#付费-amp-正版"><span class="nav-number">2.</span> <span class="nav-text">付费 & 正版</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">3.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#停用VPN"><span class="nav-number">4.</span> <span class="nav-text">停用VPN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#乱码"><span class="nav-number">5.</span> <span class="nav-text">乱码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-SSL-证书"><span class="nav-number">5.1.</span> <span class="nav-text">安装 SSL 证书</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Mac-端"><span class="nav-number">5.1.1.</span> <span class="nav-text">Mac 端</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#移动端"><span class="nav-number">5.1.2.</span> <span class="nav-text">移动端</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mac-上的设置"><span class="nav-number">5.2.</span> <span class="nav-text">Mac 上的设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iPhone-上的设置"><span class="nav-number">5.3.</span> <span class="nav-text">iPhone 上的设置</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Coco</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wodewone"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("FkaAa7JkTVnjEWwTzitYNqdD-gzGzoHsz", "EQB15sUPijE0qCOJGBaoqxWN");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>
