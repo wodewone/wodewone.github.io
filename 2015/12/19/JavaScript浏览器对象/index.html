@@ -47,6 +47,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="wodewone's blog" type="application/atom+xml" />
+
 
 
 
@@ -70,7 +72,7 @@ Location&amp;#x5730;&amp;#x57">
 History&amp;#x5386;&amp;#x53F2;&amp;#x5BF9;&amp;#x8C61;&amp;#x3001;
 Location&amp;#x5730;&amp;#x57">
 <meta property="og:image" content="http://ww3.sinaimg.cn/large/5dfed263jw1f2lv3ycmjqj20ri060js9.jpg">
-<meta property="og:updated_time" content="2016-04-05T08:51:47.000Z">
+<meta property="og:updated_time" content="2016-12-03T13:57:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript浏览器对象">
 <meta name="twitter:description" content="&amp;#x4ECB;&amp;#x7ECD;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x5BF9;&amp;#x8C61;
@@ -453,13 +455,13 @@ Location&amp;#x5730;&amp;#x57">
 <h3 id="Navigator&#x5BF9;&#x8C61;"><a href="#Navigator&#x5BF9;&#x8C61;" class="headerlink" title="Navigator&#x5BF9;&#x8C61;"></a>Navigator&#x5BF9;&#x8C61;</h3><p><strong>Navigator &#x5BF9;&#x8C61;</strong>&#x662F;&#x7531; &#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x7684;&#x811A;&#x672C;&#x8FD0;&#x884C;&#x65F6;&#x5F15;&#x64CE;&#x81EA;&#x52A8;&#x521B;&#x5EFA;&#x7684;&#xFF0C;&#x5305;&#x542B;&#x6709;&#x5173;&#x5BA2;&#x6237;&#x673A;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x4FE1;&#x606F;&#x3002;</p>
 <p>appCodeName &#x8FD4;&#x56DE;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x4EE3;&#x7801;&#x540D;&#x3002;<br><br>appName &#x8FD4;&#x56DE;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x540D;&#x79F0;&#x3002;<br><br>appVersion &#x8FD4;&#x56DE;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x5E73;&#x53F0;&#x548C;&#x7248;&#x672C;&#x4FE1;&#x606F;&#x3002;<br><br>cookieEnabled &#x8FD4;&#x56DE;&#x6307;&#x660E;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x662F;&#x5426;&#x542F;&#x7528; cookie &#x7684;&#x5E03;&#x5C14;&#x503C;&#x3002;<br><br>platform &#x8FD4;&#x56DE;&#x8FD0;&#x884C;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x5E73;&#x53F0;&#x3002;<br><br>userAgent &#x8FD4;&#x56DE;&#x7531;&#x5BA2;&#x6237;&#x673A;&#x53D1;&#x9001;&#x670D;&#x52A1;&#x5668;&#x7684; user-agent &#x5934;&#x90E8;&#x7684;&#x503C;&#x3002;<br></p>
 <p><strong>&#x6D4B;&#x8BD5;Navigator&#x7684;&#x5C5E;&#x6027;&#x503C;</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">document.write(&quot;navigator.appCodeName&#x6D4F;&#x89C8;&#x5668;&#x4EE3;&#x7801;&#x540D;:&quot; + navigator.appCodeName);</span><br><span class="line">document.write(&apos;&lt;hr&gt;&apos;);</span><br><span class="line">document.write(&quot;navigator.appName&#x6D4F;&#x89C8;&#x5668;&#x540D;:&quot; + navigator.appName);</span><br><span class="line">document.write(&apos;&lt;hr&gt;&apos;);</span><br><span class="line">document.write(&quot;navigator.appVersion&#x8FD4;&#x56DE;&#x6D4F;&#x89C8;&#x5668;&#x5E73;&#x53F0;&#x548C;&#x7248;&#x672C;&#x4FE1;&#x606F;:&quot; + navigator.appVersion);</span><br><span class="line">document.write(&apos;&lt;hr&gt;&apos;);</span><br><span class="line">document.write(&quot;navigator.cookieEnabled  Cookie&#x662F;&#x5426;&#x542F;&#x7528;:&quot; + navigator.cookieEnabled);</span><br><span class="line">document.write(&apos;&lt;hr&gt;&apos;);</span><br><span class="line">document.write(&quot;navigator.platform &#x8FD4;&#x56DE;&#x8FD0;&#x884C;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x64CD;&#x4F5C;&#x5E73;&#x53F0;:&quot; + navigator.platform);</span><br><span class="line">document.write(&apos;&lt;hr&gt;&apos;);</span><br><span class="line">document.write(&quot;navigator.userAgent &#x8FD4;&#x56DE;&#x7531;&#x5BA2;&#x6237;&#x673A;&#x53D1;&#x9001;&#x670D;&#x52A1;&#x5668;&#x7684; user-agent &#x5934;&#x90E8;&#x7684;&#x503C;:&quot; + navigator.userAgent);</span><br><span class="line">document.write(&apos;&lt;hr&gt;&apos;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.write(<span class="string">&quot;navigator.appCodeName&#x6D4F;&#x89C8;&#x5668;&#x4EE3;&#x7801;&#x540D;:&quot;</span> + navigator.appCodeName);</span><br><span class="line"><span class="built_in">document</span>.write(<span class="string">&apos;&lt;hr&gt;&apos;</span>);</span><br><span class="line"><span class="built_in">document</span>.write(<span class="string">&quot;navigator.appName&#x6D4F;&#x89C8;&#x5668;&#x540D;:&quot;</span> + navigator.appName);</span><br><span class="line"><span class="built_in">document</span>.write(<span class="string">&apos;&lt;hr&gt;&apos;</span>);</span><br><span class="line"><span class="built_in">document</span>.write(<span class="string">&quot;navigator.appVersion&#x8FD4;&#x56DE;&#x6D4F;&#x89C8;&#x5668;&#x5E73;&#x53F0;&#x548C;&#x7248;&#x672C;&#x4FE1;&#x606F;:&quot;</span> + navigator.appVersion);</span><br><span class="line"><span class="built_in">document</span>.write(<span class="string">&apos;&lt;hr&gt;&apos;</span>);</span><br><span class="line"><span class="built_in">document</span>.write(<span class="string">&quot;navigator.cookieEnabled  Cookie&#x662F;&#x5426;&#x542F;&#x7528;:&quot;</span> + navigator.cookieEnabled);</span><br><span class="line"><span class="built_in">document</span>.write(<span class="string">&apos;&lt;hr&gt;&apos;</span>);</span><br><span class="line"><span class="built_in">document</span>.write(<span class="string">&quot;navigator.platform &#x8FD4;&#x56DE;&#x8FD0;&#x884C;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x64CD;&#x4F5C;&#x5E73;&#x53F0;:&quot;</span> + navigator.platform);</span><br><span class="line"><span class="built_in">document</span>.write(<span class="string">&apos;&lt;hr&gt;&apos;</span>);</span><br><span class="line"><span class="built_in">document</span>.write(<span class="string">&quot;navigator.userAgent &#x8FD4;&#x56DE;&#x7531;&#x5BA2;&#x6237;&#x673A;&#x53D1;&#x9001;&#x670D;&#x52A1;&#x5668;&#x7684; user-agent &#x5934;&#x90E8;&#x7684;&#x503C;:&quot;</span> + navigator.userAgent);</span><br><span class="line"><span class="built_in">document</span>.write(<span class="string">&apos;&lt;hr&gt;&apos;</span>);</span><br></pre></td></tr></table></figure>
 <p>&#x4F7F;&#x7528;userAgent&#x5224;&#x65AD;&#x4F7F;&#x7528;&#x7684;&#x662F;&#x4EC0;&#x4E48;&#x6D4F;&#x89C8;&#x5668;(&#x5047;&#x8BBE;&#x4F7F;&#x7528;&#x7684;&#x662F;IE8&#x6D4F;&#x89C8;&#x5668;),&#x4EE3;&#x7801;&#x5982;&#x4E0B;:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function validB(){</span><br><span class="line">  var u_agent = navigator.userAgent;</span><br><span class="line">  var B_name=&quot;Failed to identify the browser&quot;;</span><br><span class="line">  if(u_agent.indexOf(&quot;Firefox&quot;)&gt;-1){</span><br><span class="line">      B_name=&quot;Firefox&quot;;</span><br><span class="line">  }else if(u_agent.indexOf(&quot;Chrome&quot;)&gt;-1){</span><br><span class="line">      B_name=&quot;Chrome&quot;;</span><br><span class="line">  }else if(u_agent.indexOf(&quot;MSIE&quot;)&gt;-1&amp;&amp;u_agent.indexOf(&quot;Trident&quot;)&gt;-1){</span><br><span class="line">      B_name=&quot;IE(8-10)&quot;;</span><br><span class="line">  }</span><br><span class="line">    document.write(&quot;B_name:&quot;+B_name+&quot;&lt;br&gt;&quot;);</span><br><span class="line">    document.write(&quot;u_agent:&quot;+u_agent+&quot;&lt;br&gt;&quot;);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">validB</span>(<span class="params"></span>)</span>{</span><br><span class="line">  <span class="keyword">var</span> u_agent = navigator.userAgent;</span><br><span class="line">  <span class="keyword">var</span> B_name=<span class="string">&quot;Failed to identify the browser&quot;</span>;</span><br><span class="line">  <span class="keyword">if</span>(u_agent.indexOf(<span class="string">&quot;Firefox&quot;</span>)&gt;<span class="number">-1</span>){</span><br><span class="line">      B_name=<span class="string">&quot;Firefox&quot;</span>;</span><br><span class="line">  }<span class="keyword">else</span> <span class="keyword">if</span>(u_agent.indexOf(<span class="string">&quot;Chrome&quot;</span>)&gt;<span class="number">-1</span>){</span><br><span class="line">      B_name=<span class="string">&quot;Chrome&quot;</span>;</span><br><span class="line">  }<span class="keyword">else</span> <span class="keyword">if</span>(u_agent.indexOf(<span class="string">&quot;MSIE&quot;</span>)&gt;<span class="number">-1</span>&amp;&amp;u_agent.indexOf(<span class="string">&quot;Trident&quot;</span>)&gt;<span class="number">-1</span>){</span><br><span class="line">      B_name=<span class="string">&quot;IE(8-10)&quot;</span>;</span><br><span class="line">  }</span><br><span class="line">    <span class="built_in">document</span>.write(<span class="string">&quot;B_name:&quot;</span>+B_name+<span class="string">&quot;&lt;br&gt;&quot;</span>);</span><br><span class="line">    <span class="built_in">document</span>.write(<span class="string">&quot;u_agent:&quot;</span>+u_agent+<span class="string">&quot;&lt;br&gt;&quot;</span>);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 <h3 id="Screen&#x5BF9;&#x8C61;"><a href="#Screen&#x5BF9;&#x8C61;" class="headerlink" title="Screen&#x5BF9;&#x8C61;"></a>Screen&#x5BF9;&#x8C61;</h3><p><strong>Screen&#x5BF9;&#x8C61;</strong> &#x662F;&#x7531;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x7684;&#x811A;&#x672C;&#x8FD0;&#x884C;&#x65F6;&#x5F15;&#x64CE;&#x81EA;&#x52A8;&#x521B;&#x5EFA;&#x7684;&#xFF0C;&#x5305;&#x542B;&#x6709;&#x5173;&#x5BA2;&#x6237;&#x673A;&#x663E;&#x793A;&#x5C4F;&#x5E55;&#x7684;&#x4FE1;&#x606F;&#x3002;&#x6BCF;&#x4E2A; Window &#x5BF9;&#x8C61;&#x7684; screen &#x5C5E;&#x6027;&#x90FD;&#x5F15;&#x7528;&#x4E00;&#x4E2A; Screen &#x5BF9;&#x8C61;&#x3002;Screen &#x5BF9;&#x8C61;&#x4E2D;&#x5B58;&#x653E;&#x7740;&#x6709;&#x5173;&#x663E;&#x793A;&#x6D4F;&#x89C8;&#x5668;&#x5C4F;&#x5E55;&#x7684;&#x4FE1;&#x606F;&#x3002;</p>
 <p><strong>Screen&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;</strong></p>
 <p>availHeight &#x8FD4;&#x56DE;&#x663E;&#x793A;&#x5C4F;&#x5E55;&#x7684;&#x9AD8;&#x5EA6; (&#x9664; Windows &#x4EFB;&#x52A1;&#x680F;&#x4E4B;&#x5916;)&#x3002;<br><br>availWidth &#x8FD4;&#x56DE;&#x663E;&#x793A;&#x5C4F;&#x5E55;&#x7684;&#x5BBD;&#x5EA6; (&#x9664; Windows &#x4EFB;&#x52A1;&#x680F;&#x4E4B;&#x5916;)&#x3002;<br><br>colorDepth &#x8FD4;&#x56DE;&#x76EE;&#x6807;&#x8BBE;&#x5907;&#x6216;&#x7F13;&#x51B2;&#x5668;&#x4E0A;&#x7684;&#x8C03;&#x8272;&#x677F;&#x7684;&#x6BD4;&#x7279;&#x6DF1;&#x5EA6;&#x3002;<br><br>height &#x8FD4;&#x56DE;&#x663E;&#x793A;&#x5C4F;&#x5E55;&#x7684;&#x9AD8;&#x5EA6;&#x3002;<br><br>width &#x8FD4;&#x56DE;&#x663E;&#x793A;&#x5668;&#x5C4F;&#x5E55;&#x7684;&#x5BBD;&#x5EA6;&#x3002;<br></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">document.write(&quot;Screen resolution: &quot;);</span><br><span class="line">document.write(screen.width + &quot;*&quot; + screen.height);</span><br><span class="line">document.write(&quot;&lt;br /&gt;&quot;);</span><br><span class="line">document.write(&quot;Available view area: &quot;);</span><br><span class="line">document.write(screen.availWidth + &quot;*&quot; + screen.availHeight);</span><br><span class="line">document.write(&quot;&lt;br /&gt;&quot;);</span><br><span class="line">document.write(&quot;Color depth: &quot;);</span><br><span class="line">document.write(screen.colorDepth);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.write(<span class="string">&quot;Screen resolution: &quot;</span>);</span><br><span class="line"><span class="built_in">document</span>.write(screen.width + <span class="string">&quot;*&quot;</span> + screen.height);</span><br><span class="line"><span class="built_in">document</span>.write(<span class="string">&quot;&lt;br /&gt;&quot;</span>);</span><br><span class="line"><span class="built_in">document</span>.write(<span class="string">&quot;Available view area: &quot;</span>);</span><br><span class="line"><span class="built_in">document</span>.write(screen.availWidth + <span class="string">&quot;*&quot;</span> + screen.availHeight);</span><br><span class="line"><span class="built_in">document</span>.write(<span class="string">&quot;&lt;br /&gt;&quot;</span>);</span><br><span class="line"><span class="built_in">document</span>.write(<span class="string">&quot;Color depth: &quot;</span>);</span><br><span class="line"><span class="built_in">document</span>.write(screen.colorDepth);</span><br></pre></td></tr></table></figure>
 <p>&#x6D4F;&#x89C8;&#x5668;&#x5BF9;&#x8C61;&#x6A21;&#x578B;&#x662F;&#x6307;&#x811A;&#x672C;&#x7684;&#x8FD0;&#x884C;&#x73AF;&#x5883;&#x5373;&#x6D4F;&#x89C8;&#x5668;&#x4E3A;&#x811A;&#x672C;&#x63D0;&#x4F9B;&#x7684;&#x4E00;&#x7EC4;&#x5BF9;&#x8C61;&#x4EE5;&#x53CA;&#x8FD9;&#x7EC4;&#x5BF9;&#x8C61;&#x4E4B;&#x95F4;&#x7684;&#x7EC4;&#x7EC7;&#x5173;&#x7CFB;&#x3002;</p>
 <p>Window&#x5BF9;&#x8C61;&#x5B9E;&#x73B0;&#x6709;&#x5173;&#x6D4F;&#x89C8;&#x5668;&#x7A97;&#x53E3;&#x7684;&#x64CD;&#x4F5C;&#x53CA;&#x5BF9;&#x6846;&#x67B6;&#x7684;&#x8BBF;&#x95EE;&#x3002;</p>
 <p>Location&#x5BF9;&#x8C61;&#x63D0;&#x4F9B;&#x6709;&#x5173;&#x9875;&#x9762;&#x5730;&#x5740;&#x7684;&#x4FE1;&#x606F;&#x548C;&#x5BF9;&#x5730;&#x5740;&#x7684;&#x64CD;&#x4F5C;&#x65B9;&#x6CD5;&#x3002;</p>
@@ -569,12 +571,12 @@ Location&amp;#x5730;&amp;#x57">
                src="/images/author.png"
                alt="Coco" />
           <p class="site-author-name" itemprop="name">Coco</p>
-          <p class="site-description motion-element" itemprop="description"></p>
+          <p class="site-description motion-element" itemprop="description">学了js，趟了jQuery，用上sass，改了angular，看完vue，学了react，变了cssModule，弃了gulp，从了webpack，发现cssInJs，始于Node，终了……</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">38</span>
+              <span class="site-state-item-count">40</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -582,7 +584,7 @@ Location&amp;#x5730;&amp;#x57">
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -591,7 +593,7 @@ Location&amp;#x5730;&amp;#x57">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -599,6 +601,13 @@ Location&amp;#x5730;&amp;#x57">
 
         </nav>
 
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
         
 
         <div class="links-of-author motion-element">
@@ -622,10 +631,34 @@ Location&amp;#x5730;&amp;#x57">
                 </a>
               </span>
             
+              <span class="links-of-author-item">
+                <a href="https://book.douban.com/people/145249948/" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  豆瓣
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/wodewone/activities" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
           
         </div>
 
         
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
         
 
         
@@ -660,7 +693,7 @@ Location&amp;#x5730;&amp;#x57">
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
+  &copy;  2015 - 
   <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
