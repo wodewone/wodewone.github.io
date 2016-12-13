@@ -6,18 +6,22 @@
   <url>
     <loc>http://wodewone.com/2016/12/03/%E4%BD%BF%E7%94%A8js%E5%88%9B%E5%BB%BAmacOS%E5%BA%94%E7%94%A8/</loc>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <lastmod>2016-12-04T10:34:36.000Z</lastmod>
 =======
     <lastmod>2016-12-06T16:25:58.000Z</lastmod>
 >>>>>>> 46fff031d004fadb1a02953f1ef37b0399467256
+=======
+    <lastmod>2016-12-12T16:27:07.000Z</lastmod>
+>>>>>>> 146ea7ee746a10954bdbd6a9810bf1d1d8dda4fa
     <data>
         <display>
         <title>使用js创建macOS应用</title>
         <pubTime>2016-12-03T14:28:29.000Z</pubTime>
         
-        <tag>javascript</tag>
-         
         <tag>mac</tag>
+         
+        <tag>javascript</tag>
          
         <tag>css</tag>
          
@@ -276,9 +280,9 @@
         <title>angular touch 事件指令</title>
         <pubTime>2016-08-22T02:25:04.000Z</pubTime>
         
-        <tag>angular</tag>
-         
         <tag>javascript</tag>
+         
+        <tag>angular</tag>
          
          
            
@@ -340,9 +344,9 @@
         <title>angular实现changeFile上传[方法二]</title>
         <pubTime>2016-08-27T04:29:18.000Z</pubTime>
         
-        <tag>angular</tag>
-         
         <tag>javascript</tag>
+         
+        <tag>angular</tag>
          
          
            
@@ -362,9 +366,9 @@
         <title>angular实现changeFile上传[方法三]</title>
         <pubTime>2016-08-27T05:03:46.000Z</pubTime>
         
-        <tag>angular</tag>
-         
         <tag>javascript</tag>
+         
+        <tag>angular</tag>
          
          
            
@@ -384,9 +388,9 @@
         <title>Angular：指令/Controller数据共享</title>
         <pubTime>2016-09-06T08:29:40.000Z</pubTime>
         
-        <tag>angular</tag>
-         
         <tag>javascript</tag>
+         
+        <tag>angular</tag>
          
          
            
@@ -492,9 +496,9 @@
         <title>AngularJs开发——指令与控制器间的通信</title>
         <pubTime>2016-11-01T11:45:29.000Z</pubTime>
         
-        <tag>angular</tag>
-         
         <tag>javascript</tag>
+         
+        <tag>angular</tag>
          
          
            
@@ -698,9 +702,9 @@
         <title>ionic中数据双向绑定无效的问题，angularjs作用域的问题</title>
         <pubTime>2016-05-23T14:25:29.000Z</pubTime>
         
-        <tag>angular</tag>
-         
         <tag>javascript</tag>
+         
+        <tag>angular</tag>
          
         <tag>ionic</tag>
          
@@ -724,9 +728,9 @@
         <title>angular 实现异步加载</title>
         <pubTime>2016-05-10T14:25:29.000Z</pubTime>
         
-        <tag>angular</tag>
-         
         <tag>javascript</tag>
+         
+        <tag>angular</tag>
          
         <tag>async</tag>
          
