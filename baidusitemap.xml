@@ -4,38 +4,8 @@
 
     
   <url>
-    <loc>http://wodewone.com/2016/12/20/this-api-is-so-fetching/</loc>
-    <lastmod>2016-12-20T02:47:19.000Z</lastmod>
-    <data>
-        <display>
-        <title>Fetch (现代版 ajax ES6)</title>
-        <pubTime>2016-12-20T02:43:44.000Z</pubTime>
-        
-        <tag>javascript</tag>
-         
-        <tag>fetch</tag>
-         
-        <tag>ajax</tag>
-         
-        <tag>http</tag>
-         
-        <tag>es6</tag>
-         
-        <tag>promise</tag>
-         
-         
-           
-             
-              <breadCrumb title="javascript" url="http://wodewone.com/categories/javascript/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://wodewone.com/2016/12/03/%E4%BD%BF%E7%94%A8js%E5%88%9B%E5%BB%BAmacOS%E5%BA%94%E7%94%A8/</loc>
-    <lastmod>2016-12-18T07:40:12.000Z</lastmod>
+    <lastmod>2016-12-27T12:30:23.000Z</lastmod>
     <data>
         <display>
         <title>使用js创建macOS应用</title>
@@ -63,6 +33,36 @@
            
              
               <breadCrumb title="Mac" url="http://wodewone.com/categories/Mac/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://wodewone.com/2016/12/20/this-api-is-so-fetching/</loc>
+    <lastmod>2016-12-20T03:14:20.000Z</lastmod>
+    <data>
+        <display>
+        <title>Fetch (现代版 ajax ES6)</title>
+        <pubTime>2016-12-20T02:43:44.000Z</pubTime>
+        
+        <tag>javascript</tag>
+         
+        <tag>fetch</tag>
+         
+        <tag>ajax</tag>
+         
+        <tag>http</tag>
+         
+        <tag>es6</tag>
+         
+        <tag>promise</tag>
+         
+         
+           
+             
+              <breadCrumb title="javascript" url="http://wodewone.com/categories/javascript/"/>
           
         </display>
     </data>
