@@ -3,13 +3,106 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Keep For Mac</title>
+	<link rel="stylesheet" href="/app/keep/lib/normalize.css">
+	<link rel="stylesheet" href="/app/keep/lib/swiper-3.4.1.min.css">
 	<style>
-	
+		img{
+			max-width: 100%;
+		}
+		.container{
+			width: 100%;
+		}
+		.wrap{
+			width: 1000px;
+			margin: auto;
+		}
+		.mbg{
+			background: #3d3744;
+		}
+        .block-mod{
+            padding: 50px 0;
+        }
+        .header-content{
+            position: relative;
+            background: url("/app/keep/img/bg.jpg") center/cover no-repeat;
+        }
+        .header-content:before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #3d3744;
+            opacity: .6;
+        }
+		.keep-container{
+			overflow: hidden;
+		}
+        .keep-container .swiper-slide.swiper-slide-active{
+            box-shadow: 0 0 50px #000;
+        }
+		.header-title{
+            font-size: 50px;
+            color: #fff;
+            text-shadow: 0 0 10px #fff;
+			text-align: center;
+            margin: 100px 0;
+			padding-bottom: 10px;
+		}
+        .white-wrap{
+            background: #fff;
+            overflow: hidden;
+        }
 	</style>
 </head>
 <body>
+<div class="container mbg">
+	<div id="headerContent" class="header-content">
+		<div id="mContainer" class="keep-container">
+			<h1 class="header-title">Keep For Mac</h1>
+			<div class="swiper-wrapper">
+				<div class="swiper-slide"><img src="/app/keep/preview/preview-1.jpg" alt=""></div>
+				<div class="swiper-slide"><img src="/app/keep/preview/preview-2.jpg" alt=""></div>
+				<div class="swiper-slide"><img src="/app/keep/preview/preview-3.jpg" alt=""></div>
+				<div class="swiper-slide"><img src="/app/keep/preview/preview-4.jpg" alt=""></div>
+				<div class="swiper-slide"><img src="/app/keep/preview/preview-5.jpg" alt=""></div>
+				<div class="swiper-slide"><img src="/app/keep/preview/preview-6.jpg" alt=""></div>
+				<div class="swiper-slide"><img src="/app/keep/preview/preview-7.jpg" alt=""></div>
+				<div class="swiper-slide"><img src="/app/keep/preview/preview-8.jpg" alt=""></div>
+				<div class="swiper-slide"><img src="/app/keep/preview/preview-9.jpg" alt=""></div>
+			</div>
+			<div class="swiper-pagination"></div>
+		</div>
+	</div>
+    <!--<div class="white-wrap">-->
+        <!--<div class="wrap block-mod">-->
+            <!--<h4>视频 & 细节图 & 说明 同时显示，健身细节不用暂停及时查看</h4>-->
+        <!--</div>-->
+    <!--</div>-->
+</div>
 
-<div></div>
-	
+<script src="/app/keep/lib/jquery.min.js"></script>
+<script src="/app/keep/lib/swiper.jquery.min.js"></script>
+<script>
+	$('#headerContent').height($(window).height())
+	new Swiper('#mContainer', {
+		loop: true,
+		initialSlide: 1,
+		autoplay: 5000,
+		autoplayDisableOnInteraction: false,
+		pagination: '.swiper-pagination',
+		effect: 'coverflow',
+        slidesPerView: 2,
+        centeredSlides: true,
+        coverflow: {
+            rotate: 0,
+            stretch: 120,
+            depth: 400,
+            modifier: 1,
+            slideShadows: true
+        }
+	})
+</script>
 </body>
 </html>
