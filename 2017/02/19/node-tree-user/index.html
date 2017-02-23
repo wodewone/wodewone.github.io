@@ -1,0 +1,803 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Node,tree," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="wodewone's blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="Tree&amp;#x547D;&amp;#x4EE4;
+&amp;#x672C;&amp;#x6587;&amp;#x5199;&amp;#x7ED9;&amp;#x4E0D;&amp;#x77E5;&amp;#x6240;&amp;#x4E91;&amp;#x7684;&amp;#x5C0F;&amp;#x767D;&amp;#xFF0C;&amp;#x77E5;&amp;#x9053;&amp;#x7684;&amp;#x5C31;&amp;#x5F53;&amp;#x56DE;&amp;#x5FC6;&amp;#x4E00;&amp;#x4E0B;&amp;#x5566;&amp;#x">
+<meta property="og:type" content="article">
+<meta property="og:title" content="生成项目结构图 - Tree命令的使用">
+<meta property="og:url" content="http://wodewone.com/2017/02/19/node-tree-user/index.html">
+<meta property="og:site_name" content="wodewone's blog">
+<meta property="og:description" content="Tree&amp;#x547D;&amp;#x4EE4;
+&amp;#x672C;&amp;#x6587;&amp;#x5199;&amp;#x7ED9;&amp;#x4E0D;&amp;#x77E5;&amp;#x6240;&amp;#x4E91;&amp;#x7684;&amp;#x5C0F;&amp;#x767D;&amp;#xFF0C;&amp;#x77E5;&amp;#x9053;&amp;#x7684;&amp;#x5C31;&amp;#x5F53;&amp;#x56DE;&amp;#x5FC6;&amp;#x4E00;&amp;#x4E0B;&amp;#x5566;&amp;#x">
+<meta property="og:updated_time" content="2017-02-23T02:48:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="生成项目结构图 - Tree命令的使用">
+<meta name="twitter:description" content="Tree&amp;#x547D;&amp;#x4EE4;
+&amp;#x672C;&amp;#x6587;&amp;#x5199;&amp;#x7ED9;&amp;#x4E0D;&amp;#x77E5;&amp;#x6240;&amp;#x4E91;&amp;#x7684;&amp;#x5C0F;&amp;#x767D;&amp;#xFF0C;&amp;#x77E5;&amp;#x9053;&amp;#x7684;&amp;#x5C31;&amp;#x5F53;&amp;#x56DE;&amp;#x5FC6;&amp;#x4E00;&amp;#x4E0B;&amp;#x5566;&amp;#x">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6269890100566427000,
+      author: 'Coco'
+    }
+  };
+</script>
+
+  <title> 生成项目结构图 - Tree命令的使用 | wodewone's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?4691d35db2be0afe7a932e6f4f7e68af";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">wodewone's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">梦想是主题，生活才是题主</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-favourites">
+          <a href="/favourites" rel="section">
+            
+              <i class="menu-item-icon fa fa-question-circle fa-fw"></i> <br />
+            
+            收藏
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                生成项目结构图 - Tree命令的使用
+              
+            
+          </h1>
+        
+
+        
+          <div class="post-tags">
+            
+              <a href="/tags/Node/" rel="tag">#Node</a>
+            
+              <a href="/tags/tree/" rel="tag">#tree</a>
+            
+          </div>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-19T10:12:44+08:00" content="2017-02-19">
+              2017-02-19
+            </time>
+          </span>
+
+          
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Node/" itemprop="url" rel="index">
+                    <span itemprop="name">Node</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/02/19/node-tree-user/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/19/node-tree-user/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/02/19/node-tree-user/" class="leancloud_visitors" data-flag-title="生成项目结构图 - Tree命令的使用">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Tree&#x547D;&#x4EE4;"><a href="#Tree&#x547D;&#x4EE4;" class="headerlink" title="Tree&#x547D;&#x4EE4;"></a>Tree&#x547D;&#x4EE4;</h2><blockquote>
+<p>&#x672C;&#x6587;&#x5199;&#x7ED9;&#x4E0D;&#x77E5;&#x6240;&#x4E91;&#x7684;&#x5C0F;&#x767D;&#xFF0C;&#x77E5;&#x9053;&#x7684;&#x5C31;&#x5F53;&#x56DE;&#x5FC6;&#x4E00;&#x4E0B;&#x5566;&#xFF01;</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">&#x251C;&#x2500;&#x2500; ./app						# webapck &#x7F16;&#x8BD1;&#x6253;&#x5305;&#x538B;&#x7F29;&#x751F;&#x6210;&#x7684;&#x6587;&#x4EF6;</span><br><span class="line">&#x251C;&#x2500;&#x2500; ./build					# electron-builder&#x751F;&#x6210;&#x5B89;&#x88C5;&#x5305;&#x914D;&#x7F6E;&#x76EE;&#x5F55;</span><br><span class="line">&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; ./build/background.png   # (macOS DMG background)</span><br><span class="line">&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; ./build/icon.icns        # (macOS app icon)</span><br><span class="line">&#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; ./build/icon.ico         # (Windows app icon)</span><br><span class="line">&#x251C;&#x2500;&#x2500; ./dev-server.js</span><br><span class="line">&#x251C;&#x2500;&#x2500; ./json					# &#x90E8;&#x5206;Api&#x63A5;&#x53E3;&#x6570;&#x636E;</span><br><span class="line">&#x251C;&#x2500;&#x2500; ./main.js					# electron &#x521D;&#x59CB;&#x5316;&#x6587;&#x4EF6;</span><br><span class="line">&#x251C;&#x2500;&#x2500; ./package.json</span><br><span class="line">&#x251C;&#x2500;&#x2500; ./preview					# &#x9879;&#x76EE;&#x8FD0;&#x884C;&#x9884;&#x89C8;&#x56FE;</span><br><span class="line">&#x251C;&#x2500;&#x2500; ./src</span><br><span class="line">&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; ./src/assets		# &#x9759;&#x6001;&#x8D44;&#x6E90;&#x6587;&#x4EF6;</span><br><span class="line">&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; ./src/components	# &#x9879;&#x76EE;&#x7EC4;&#x4EF6;&#x6587;&#x4EF6;</span><br><span class="line">&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; ./src/js				# &#x4E3B;&#x6A21;&#x5757;&#x6587;&#x4EF6;</span><br><span class="line">&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; ./src/main.js		# render &#x8FDB;&#x7A0B;&#x5165;&#x53E3;&#x6587;&#x4EF6;</span><br><span class="line">&#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; ./src/sass			# &#x6837;&#x5F0F;&#x6587;&#x4EF6;</span><br><span class="line">&#x2514;&#x2500;&#x2500; ./webpack.config.js		# webpack &#x914D;&#x7F6E;&#x6587;&#x4EF6;</span><br></pre></td></tr></table></figure>
+<p>&#x4F60;&#x4E00;&#x5B9A;&#x89C1;&#x8FC7;&#x8FD9;&#x6837;&#x7684;&#x9879;&#x76EE;&#x7ED3;&#x6784;&#x56FE;&#x5427;&#xFF0C;&#x5176;&#x5B9E;&#x4ED6;&#x4E5F;&#x4E0D;&#x662F;&#x56FE;&#xFF0C;&#x662F;&#x4E00;&#x6BB5;&#x4EE3;&#x7801;&#xFF1B;<br>&#x5982;&#x679C;&#x4F60;&#x77E5;&#x9053;&#x5B83;&#x90A3;&#x5C31;&#x4E0D;&#x7528;&#x770B;&#x540E;&#x9762;&#x7684;&#x4E86;&#xFF0C;&#x6216;&#x8BB8;&#x4F60;&#x6709;&#x66F4;&#x597D;&#x7684;&#x65B9;&#x5F0F;&#x4E5F;&#x53EF;&#x4EE5;&#x548C;&#x5927;&#x5BB6;&#x5206;&#x4EAB;~~</p>
+<p>&#x4E5F;&#x8BB8;&#x4F60;&#x4EE5;&#x4E3A;&#x5B83;&#x662F;<code>makedown</code>&#x91CC;&#x9762;&#x7684;&#x8BED;&#x6CD5;&#xFF0C;&#x7136;&#x540E;&#x4F60;&#x6EE1;&#x5FC3;&#x6B22;&#x559C;&#x7684;&#x641C;&#x7D22;&#x5173;&#x4E8E;<code>makedown</code>&#x7684;&#x8BED;&#x6CD5;&#x6559;&#x7A0B;~</p>
+<p>&#x6700;&#x7EC8;&#x4F60;&#x4F1A;&#x53D1;&#x73B0;&#x6839;&#x672C;&#x7279;&#x4E48;&#x627E;&#x4E0D;&#x5230;~</p>
+<p>&#x54C8;&#x54C8;~</p>
+<p>&#x63A5;&#x7740;&#x4F60;&#x4F1A;&#x4EE5;&#x4E3A;&#x8FD9;&#x662F;&#x624B;&#x52A8;&#x6572;&#x51FA;&#x6765;&#x7684;&#xFF0C;&#x7136;&#x540E;&#x5F53;&#x4F60;&#x4E00;&#x4E2A;&#x4E2A;&#x5B57;&#x7B26;&#x6572;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53D1;&#x73B0;&#x597D;&#x9EBB;&#x70E6;&#xFF01;</p>
+<p>&#x76F4;&#x5230;&#x8FD9;&#x91CC;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x544A;&#x8BC9;&#x4F60;&#x8FD9;&#x662F;window&#x81EA;&#x5E26;&#x7684;&#x5DE5;&#x5177;&#xFF0C;&#x4F60;&#x4F1A;&#x4E0D;&#x4F1A;&#x75AF;~<br>&#x5176;&#x5B9E;windows&#x548C;linux&#x90FD;&#x6709;<code>tree</code>&#x547D;&#x4EE4;&#xFF0C;&#x4E3B;&#x8981;&#x529F;&#x80FD;&#x662F;&#x521B;&#x5EFA;&#x6587;&#x4EF6;&#x5217;&#x8868;&#xFF0C;&#x5C06;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x4EE5;&#x6811;&#x7684;&#x5F62;&#x5F0F;&#x5217;&#x51FA;&#x6765;</p>
+<p>&#x7136;&#x800C;</p>
+<h2 id="&#x5F00;&#x59CB;"><a href="#&#x5F00;&#x59CB;" class="headerlink" title="&#x5F00;&#x59CB;"></a>&#x5F00;&#x59CB;</h2><h3 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h3><p>windows&#x4E0B;&#x7684;<code>tree</code>&#x6BD4;&#x8F83;&#x8FA3;&#x9E21;&#xFF0C;&#x53EA;&#x6709;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;<code>/F</code>&#x662F;&#x9012;&#x5F52;&#x663E;&#x793A;&#x6BCF;&#x4E2A;&#x6587;&#x4EF6;&#x5939;&#x7684;&#x540D;&#x79F0;&#xFF1B;<code>/A</code> &#x662F;&#x4F7F;&#x7528;ASCII&#x5B57;&#x7B26;&#x800C;&#x4E0D;&#x662F;&#x6269;&#x5C55;&#x5B57;&#x7B26;&#xFF0C;&#x611F;&#x89C9;&#x8FD8;&#x4E0D;&#x5982;&#x4E0D;&#x52A0;<code>/A</code> &#x53C2;&#x6570;&#x597D;&#x3002;</p>
+<h3 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h3><p>linux&#x4E0B;&#x7684;<code>tree</code>&#x5C31;&#x6BD4;&#x8F83;&#x5F3A;&#x5927;&#x4E86;&#xFF0C;&#x4F46;&#x4E00;&#x822C;&#x7CFB;&#x7EDF;&#x5E76;&#x4E0D;&#x81EA;&#x5E26;&#x8FD9;&#x4E2A;&#x547D;&#x4EE4;&#xFF0C;&#x9700;&#x8981;&#x624B;&#x52A8;&#x4E0B;&#x8F7D;&#x5B89;&#x88C5;&#xFF1A;<code>sudo apt-get install tree</code> &#x3002;&#x6587;&#x4EF6;&#x5F88;&#x5C0F;&#xFF0C;&#x53EA;&#x6709;31K&#xFF0C;&#x4F46;&#x529F;&#x80FD;&#x53EF;&#x5F3A;&#x5927;&#x4E86;&#xFF01;</p>
+<h3 id="mac"><a href="#mac" class="headerlink" title="mac"></a>mac</h3><p>Mac &#x7684;&#x8BDD;&#x662F;&#x6CA1;&#x6709;&#x81EA;&#x5E26;<code>tree</code>&#x547D;&#x4EE4;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>homebrew</code>&#xFF08;&#x5982;&#x679C;&#x4F60;&#x4E0D;&#x77E5;&#x9053;&#x5B83;&#x7684;&#x8BDD;&#xFF0C;<a href="https://brew.sh/index_zh-cn.html" target="_blank" rel="external">&#x8FD9;&#x662F;&#x5B98;&#x7F51;</a>&#xFF09;&#x5B89;&#x88C5;&#xFF1A;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install tree</span><br></pre></td></tr></table></figure>
+<p>&#x7136;&#x540E;&#x7B49;&#x5F85;&#x5B89;&#x88C5;&#x5B8C;&#x6210;&#x540E;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tree --version	<span class="comment"># &#x67E5;&#x770B;&#x662F;&#x5426;&#x5B89;&#x88C5;&#x6210;&#x529F;</span></span><br><span class="line">tree --help		<span class="comment"># &#x67E5;&#x770B;&#x5E2E;&#x52A9;</span></span><br></pre></td></tr></table></figure>
+<h2 id="Api"><a href="#Api" class="headerlink" title="Api"></a>Api</h2><blockquote>
+<p>&#x547D;&#x4EE4;&#x6709;&#x5F88;&#x591A;&#xFF0C;&#x4F46;&#x662F;&#x770B;&#x5E38;&#x7528;&#x7684;&#x65E0;&#x975E;&#x5C31;&#x662F;&#xFF1A;<br>-f &#x751F;&#x6210;&#x5173;&#x7CFB;&#x56FE;<br>-I &#x5FFD;&#x7565;&#x6587;&#x4EF6;/&#x6587;&#x4EF6;&#x5939;<br>-d &#x53EA;&#x8F93;&#x51FA;&#x76EE;&#x5F55;</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">usage: tree [-acdfghilnpqrstuvxACDFJQNSUX] [-H baseHREF] [-T title ]</span><br><span class="line">	[-L level [-R]] [-P pattern] [-I pattern] [-o filename] [--version]</span><br><span class="line">	[--help] [--inodes] [--device] [--noreport] [--nolinks] [--dirsfirst]</span><br><span class="line">	[--charset charset] [--filelimit[=]<span class="comment">#] [--si] [--timefmt[=]&lt;f&gt;]</span></span><br><span class="line">	[--sort[=]&lt;name&gt;] [--matchdirs] [--ignore-case] [--] [&lt;directory list&gt;]</span><br><span class="line">  ------- Listing options -------</span><br><span class="line">  <span class="_">-a</span>            All files are listed.</span><br><span class="line">  <span class="_">-d</span>            List directories only.</span><br><span class="line">  <span class="_">-l</span>            Follow symbolic links like directories.</span><br><span class="line">  <span class="_">-f</span>            Print the full path prefix <span class="keyword">for</span> each file.</span><br><span class="line">  -x            Stay on current filesystem only.</span><br><span class="line">  -L level      Descend only level directories deep.</span><br><span class="line">  -R            Rerun tree when max dir level reached.</span><br><span class="line">  -P pattern    List only those files that match the pattern given.</span><br><span class="line">  -I pattern    Do not list files that match the given pattern.</span><br><span class="line">  --ignore-case Ignore <span class="keyword">case</span> when pattern matching.</span><br><span class="line">  --matchdirs   Include directory names <span class="keyword">in</span> -P pattern matching.</span><br><span class="line">  --noreport    Turn off file/directory count at end of tree listing.</span><br><span class="line">  --charset X   Use charset X <span class="keyword">for</span> terminal/HTML and indentation line output.</span><br><span class="line">  --filelimit <span class="comment"># Do not descend dirs with more than # files in them.</span></span><br><span class="line">  --timefmt &lt;f&gt; Print and format time according to the format &lt;f&gt;.</span><br><span class="line">  -o filename   Output to file instead of stdout.</span><br><span class="line">  -------- File options ---------</span><br><span class="line">  -q            Print non-printable characters as <span class="string">&apos;?&apos;</span>.</span><br><span class="line">  -N            Print non-printable characters as is.</span><br><span class="line">  -Q            Quote filenames with double quotes.</span><br><span class="line">  -p            Print the protections <span class="keyword">for</span> each file.</span><br><span class="line">  -u            Displays file owner or UID number.</span><br><span class="line">  -g            Displays file group owner or GID number.</span><br><span class="line">  <span class="_">-s</span>            Print the size <span class="keyword">in</span> bytes of each file.</span><br><span class="line">  -h            Print the size <span class="keyword">in</span> a more human readable way.</span><br><span class="line">  --si          Like -h, but use <span class="keyword">in</span> SI units (powers of 1000).</span><br><span class="line">  -D            Print the date of last modification or (-c) status change.</span><br><span class="line">  -F            Appends <span class="string">&apos;/&apos;</span>, <span class="string">&apos;=&apos;</span>, <span class="string">&apos;*&apos;</span>, <span class="string">&apos;@&apos;</span>, <span class="string">&apos;|&apos;</span> or <span class="string">&apos;&gt;&apos;</span> as per ls -F.</span><br><span class="line">  --inodes      Print inode number of each file.</span><br><span class="line">  --device      Print device ID number to <span class="built_in">which</span> each file belongs.</span><br><span class="line">  ------- Sorting options -------</span><br><span class="line">  -v            Sort files alphanumerically by version.</span><br><span class="line">  -t            Sort files by last modification time.</span><br><span class="line">  -c            Sort files by last status change time.</span><br><span class="line">  -U            Leave files unsorted.</span><br><span class="line">  -r            Reverse the order of the sort.</span><br><span class="line">  --dirsfirst   List directories before files (-U disables).</span><br><span class="line">  --sort X      Select sort: name,version,size,mtime,ctime.</span><br><span class="line">  ------- Graphics options ------</span><br><span class="line">  -i            Don<span class="string">&apos;t print indentation lines.</span><br><span class="line">  -A            Print ANSI lines graphic indentation lines.</span><br><span class="line">  -S            Print with CP437 (console) graphics indentation lines.</span><br><span class="line">  -n            Turn colorization off always (-C overrides).</span><br><span class="line">  -C            Turn colorization on always.</span><br><span class="line">  ------- XML/HTML/JSON options -------</span><br><span class="line">  -X            Prints out an XML representation of the tree.</span><br><span class="line">  -J            Prints out an JSON representation of the tree.</span><br><span class="line">  -H baseHREF   Prints out HTML format with baseHREF as top directory.</span><br><span class="line">  -T string     Replace the default HTML title and H1 header with string.</span><br><span class="line">  --nolinks     Turn off hyperlinks in HTML output.</span><br><span class="line">  ---- Miscellaneous options ----</span><br><span class="line">  --version     Print version and exit.</span><br><span class="line">  --help        Print usage and this help message and exit.</span><br><span class="line">  --            Options processing terminator.</span></span><br></pre></td></tr></table></figure>
+<h2 id="&#x4E2D;&#x6587;Api"><a href="#&#x4E2D;&#x6587;Api" class="headerlink" title="&#x4E2D;&#x6587;Api"></a>&#x4E2D;&#x6587;Api</h2><blockquote>
+<p>&#x5982;&#x679C;&#x4F60;&#x89C9;&#x5F97;&#x4E0A;&#x9762;&#x7684;&#x770B;&#x8D77;&#x6765;&#x5F88;&#x9EBB;&#x70E6;&#xFF0C;&#x90A3;&#x5C31;&#x770B;&#x8FD9;&#x91CC; &#x1F609;</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="_">-a</span> &#x663E;&#x793A;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x548C;&#x76EE;&#x5F55;&#x3002;</span><br><span class="line"></span><br><span class="line">-A &#x4F7F;&#x7528;ASNI&#x7ED8;&#x56FE;&#x5B57;&#x7B26;&#x663E;&#x793A;&#x6811;&#x72B6;&#x56FE;&#x800C;&#x975E;&#x4EE5;ASCII&#x5B57;&#x7B26;&#x7EC4;&#x5408;&#x3002;</span><br><span class="line"></span><br><span class="line">-C &#x5728;&#x6587;&#x4EF6;&#x548C;&#x76EE;&#x5F55;&#x6E05;&#x5355;&#x52A0;&#x4E0A;&#x8272;&#x5F69;&#xFF0C;&#x4FBF;&#x4E8E;&#x533A;&#x5206;&#x5404;&#x79CD;&#x7C7B;&#x578B;&#x3002;</span><br><span class="line"></span><br><span class="line"><span class="_">-d</span> &#x663E;&#x793A;&#x76EE;&#x5F55;&#x540D;&#x79F0;&#x800C;&#x975E;&#x5185;&#x5BB9;&#x3002;</span><br><span class="line"></span><br><span class="line">-D &#x5217;&#x51FA;&#x6587;&#x4EF6;&#x6216;&#x76EE;&#x5F55;&#x7684;&#x66F4;&#x6539;&#x65F6;&#x95F4;&#x3002;</span><br><span class="line"></span><br><span class="line"><span class="_">-f</span> &#x5728;&#x6BCF;&#x4E2A;&#x6587;&#x4EF6;&#x6216;&#x76EE;&#x5F55;&#x4E4B;&#x524D;&#xFF0C;&#x663E;&#x793A;&#x5B8C;&#x6574;&#x7684;&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;&#x540D;&#x79F0;&#x3002;</span><br><span class="line"></span><br><span class="line">-F &#x5728;&#x6267;&#x884C;&#x6587;&#x4EF6;&#xFF0C;&#x76EE;&#x5F55;&#xFF0C;Socket&#xFF0C;&#x7B26;&#x53F7;&#x8FDE;&#x63A5;&#xFF0C;&#x7BA1;&#x9053;&#x540D;&#x79F0;&#x540D;&#x79F0;&#xFF0C;&#x5404;&#x81EA;&#x52A0;&#x4E0A;<span class="string">&quot;*&quot;</span>,<span class="string">&quot;/&quot;</span>,<span class="string">&quot;=&quot;</span>,<span class="string">&quot;@&quot;</span>,<span class="string">&quot;|&quot;</span>&#x53F7;&#x3002;</span><br><span class="line"></span><br><span class="line">-g &#x5217;&#x51FA;&#x6587;&#x4EF6;&#x6216;&#x76EE;&#x5F55;&#x7684;&#x6240;&#x5C5E;&#x7FA4;&#x7EC4;&#x540D;&#x79F0;&#xFF0C;&#x6CA1;&#x6709;&#x5BF9;&#x5E94;&#x7684;&#x540D;&#x79F0;&#x65F6;&#xFF0C;&#x5219;&#x663E;&#x793A;&#x7FA4;&#x7EC4;&#x8BC6;&#x522B;&#x7801;&#x3002;</span><br><span class="line"></span><br><span class="line">-i &#x4E0D;&#x4EE5;&#x9636;&#x68AF;&#x72B6;&#x5217;&#x51FA;&#x6587;&#x4EF6;&#x6216;&#x76EE;&#x5F55;&#x540D;&#x79F0;&#x3002;</span><br><span class="line"></span><br><span class="line">-I &#x4E0D;&#x663E;&#x793A;&#x7B26;&#x5408;&#x8303;&#x672C;&#x6837;&#x5F0F;&#x7684;&#x6587;&#x4EF6;&#x6216;&#x76EE;&#x5F55;&#x540D;&#x79F0;&#x3002;</span><br><span class="line"></span><br><span class="line"><span class="_">-l</span> &#x5982;&#x9047;&#x5230;&#x6027;&#x8D28;&#x4E3A;&#x7B26;&#x53F7;&#x8FDE;&#x63A5;&#x7684;&#x76EE;&#x5F55;&#xFF0C;&#x76F4;&#x63A5;&#x5217;&#x51FA;&#x8BE5;&#x8FDE;&#x63A5;&#x6240;&#x6307;&#x5411;&#x7684;&#x539F;&#x59CB;&#x76EE;&#x5F55;&#x3002;</span><br><span class="line"></span><br><span class="line">-n &#x4E0D;&#x5728;&#x6587;&#x4EF6;&#x548C;&#x76EE;&#x5F55;&#x6E05;&#x5355;&#x52A0;&#x4E0A;&#x8272;&#x5F69;&#x3002;</span><br><span class="line"></span><br><span class="line">-N &#x76F4;&#x63A5;&#x5217;&#x51FA;&#x6587;&#x4EF6;&#x548C;&#x76EE;&#x5F55;&#x540D;&#x79F0;&#xFF0C;&#x5305;&#x62EC;&#x63A7;&#x5236;&#x5B57;&#x7B26;&#x3002;</span><br><span class="line"></span><br><span class="line">-p &#x5217;&#x51FA;&#x6743;&#x9650;&#x6807;&#x793A;&#x3002;</span><br><span class="line"></span><br><span class="line">-P &#x53EA;&#x663E;&#x793A;&#x7B26;&#x5408;&#x8303;&#x672C;&#x6837;&#x5F0F;&#x7684;&#x6587;&#x4EF6;&#x6216;&#x76EE;&#x5F55;&#x540D;&#x79F0;&#x3002;</span><br><span class="line"></span><br><span class="line">-q &#x7528;<span class="string">&quot;?&quot;</span>&#x53F7;&#x53D6;&#x4EE3;&#x63A7;&#x5236;&#x5B57;&#x7B26;&#xFF0C;&#x5217;&#x51FA;&#x6587;&#x4EF6;&#x548C;&#x76EE;&#x5F55;&#x540D;&#x79F0;&#x3002;</span><br><span class="line"></span><br><span class="line"><span class="_">-s</span> &#x5217;&#x51FA;&#x6587;&#x4EF6;&#x6216;&#x76EE;&#x5F55;&#x5927;&#x5C0F;&#x3002;</span><br><span class="line"></span><br><span class="line">-t &#x7528;&#x6587;&#x4EF6;&#x548C;&#x76EE;&#x5F55;&#x7684;&#x66F4;&#x6539;&#x65F6;&#x95F4;&#x6392;&#x5E8F;&#x3002;</span><br><span class="line"></span><br><span class="line">-u &#x5217;&#x51FA;&#x6587;&#x4EF6;&#x6216;&#x76EE;&#x5F55;&#x7684;&#x62E5;&#x6709;&#x8005;&#x540D;&#x79F0;&#xFF0C;&#x6CA1;&#x6709;&#x5BF9;&#x5E94;&#x7684;&#x540D;&#x79F0;&#x65F6;&#xFF0C;&#x5219;&#x663E;&#x793A;&#x7528;&#x6237;&#x8BC6;&#x522B;&#x7801;&#x3002;</span><br><span class="line"></span><br><span class="line">-x &#x5C06;&#x8303;&#x56F4;&#x5C40;&#x9650;&#x5728;&#x73B0;&#x884C;&#x7684;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E2D;&#xFF0C;&#x82E5;&#x6307;&#x5B9A;&#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x67D0;&#x4E9B;&#x5B50;&#x76EE;&#x5F55;&#xFF0C;&#x5176;&#x5B58;&#x653E;&#x4E8E;&#x53E6;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E0A;&#xFF0C;&#x5219;&#x5C06;&#x8BE5;&#x5B50;&#x76EE;&#x5F55;&#x4E88;&#x4EE5;&#x6392;&#x9664;&#x5728;&#x5BFB;&#x627E;&#x8303;&#x56F4;&#x5916;&#x3002;</span><br></pre></td></tr></table></figure>
+<h2 id="Used"><a href="#Used" class="headerlink" title="Used"></a>Used</h2><p>&#x4E0B;&#x9762;&#x662F;&#x6211;&#x751F;&#x6210;&#x4E0A;&#x9762;&#x7684;&#x7ED3;&#x6784;&#x6240;&#x7528;&#x7684;&#x547D;&#x4EE4;&#xFF0C;&#x5927;&#x5BB6;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x4E0B;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tree -I <span class="string">&apos;node_modules|dist|*.mp3|*.jpg&apos;</span> <span class="_">-f</span></span><br></pre></td></tr></table></figure>
+<h2 id="Over"><a href="#Over" class="headerlink" title="Over"></a>Over</h2><p>&#x65B0;&#x6280;&#x80FD;<code>Get</code>&#xFF01;</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/20/this-api-is-so-fetching/" rel="next" title="Fetch (现代版 ajax ES6)">
+                <i class="fa fa-chevron-left"></i> Fetch (现代版 ajax ES6)
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/02/19/node-tree-user/"
+           data-title="生成项目结构图 - Tree命令的使用" data-url="http://wodewone.com/2017/02/19/node-tree-user/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="switch-box">
+      <input id="enableAnimate" class="switch-btn-cb" type="checkbox" checked="">
+      <label for="enableAnimate" class="switch-btn small shadow" title="动画开关"></label>
+    </div>
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/author.png"
+               alt="Coco" />
+          <p class="site-author-name" itemprop="name">Coco</p>
+          <p class="site-description motion-element" itemprop="description">学了js，趟了jQuery，用上sass，改了angular，看完vue，学了react，变了cssModule，弃了gulp，从了webpack，发现cssInJs，始于Node，终了……</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">42</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wodewone" target="_blank">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/1576981091" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://book.douban.com/people/145249948/" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  豆瓣
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/wodewone/activities" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tree命令"><span class="nav-number">1.</span> <span class="nav-text">Tree命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始"><span class="nav-number">2.</span> <span class="nav-text">开始</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#windows"><span class="nav-number">2.1.</span> <span class="nav-text">windows</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linux"><span class="nav-number">2.2.</span> <span class="nav-text">linux</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mac"><span class="nav-number">2.3.</span> <span class="nav-text">mac</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Api"><span class="nav-number">3.</span> <span class="nav-text">Api</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#中文Api"><span class="nav-number">4.</span> <span class="nav-text">中文Api</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Used"><span class="nav-number">5.</span> <span class="nav-text">Used</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Over"><span class="nav-number">6.</span> <span class="nav-text">Over</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Coco</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wodewone"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("FkaAa7JkTVnjEWwTzitYNqdD-gzGzoHsz", "EQB15sUPijE0qCOJGBaoqxWN");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>
