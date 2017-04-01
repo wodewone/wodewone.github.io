@@ -329,7 +329,9 @@
       
         
           
-          ionic&#x4E2D;ionicView&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;ionicView&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x7684;&#x4E8B;&#x4EF6;&#x8C03;&#x7528
+          ionic中ionicView的生命周期ionicView的生命周期的事件调用在每个 ionicView 的 controller 中使用 $scope.$on(&#39;$ionicView.enter&#39;, function() {}); 调用。
+
+$ionicView.loaded   
           ...
 
           <div class="post-more-link text-center">
@@ -464,7 +466,7 @@
       
         
           
-          &#x524D;&#x8A00;&#x5173;&#x4E8E; web &#x8BED;&#x4E49;&#x5316;&#x3002;&#x4EC0;&#x4E48;&#x662F;&#x8BED;&#x4E49;&#x5316;&#xFF1F;&#x9996;&#x5148;&#x6211;&
+          前言关于 web 语义化。什么是语义化？首先我想到了 html 语义化标签，语义化标签不过是 web 语义化的一个提现和一个方面，当 web 刚开始出现的时候其实已经开始有这种提现了，比如文本段落是 p 、标题 h1 h2 h3 h4 h5 h6 、 图片是 img 可以说这些也是具有语义化作用的，
           ...
 
           <div class="post-more-link text-center">
@@ -599,7 +601,12 @@
       
         
           
-          &#x4F60;&#x731C;&#x5728;&#x67D0;&#x4E9B;&#x7279;&#x5B9A;&#x6761;&#x4EF6;&#x4E0B;&#x9700;&#x8981;&#x5C06;&#x7F51;&#x7AD9;&#x7684;&#x67D0;&#x90E8;&#x520
+          你猜在某些特定条件下需要将网站的某部分内容，或者全部内容色菜去除，如果只是背景或者文字的话很简单
+12background: gray;color: gray;
+两句话就可以了;
+
+思考题：但是如果需要将网站里面的图片也全部都改成灰色呢？难道需要我们的美术老师加班加点的把所有的图片都在做一遍嘛~
+答
           ...
 
           <div class="post-more-link text-center">
@@ -734,7 +741,8 @@
       
         
           
-          Directive&#x4E0E;Controller&#x6570;&#x636E;&#x5171;&#x4EAB;&#x5728;&#x6307;&#x4EE4;&#x4E2D;&#xFF0C;&#x4E0D;&#x4EC5;&#x4EC5;&#x9700;&#x8981;&#x6307;&#x
+          Directive与Controller数据共享在指令中，不仅仅需要指令配置信息，很多时候也需要获取 $scope 的相关数据。那么，如何在指令中拿到 $scope 的数据呢？
+Directive和Controller使用同一个scope1234567891011121314151617181920
           ...
 
           <div class="post-more-link text-center">
@@ -869,7 +877,7 @@
       
         
           
-          angular&#x5B9E;&#x73B0;changeFile&#x4E0A;&#x4F20;[&#x65B9;&#x6CD5;&#x4E00;]1234&lt;div ng-controller=&quot;MyCtrl&quot;&gt;    &lt;input type=&quot;fi
+          angular实现changeFile上传[方法一]1234&lt;div ng-controller="MyCtrl"&gt;    &lt;input type="file" onchange="MyCtrl.prototype.setFile(this)"&gt;    &#123;&#123
           ...
 
           <div class="post-more-link text-center">
@@ -1006,9 +1014,9 @@
           
           View JSFiddle
 view.html:
-1&lt;input type=&quot;file&quot; custom-on-change=&quot;uploadFile&quot;&gt;
+1&lt;input type="file" custom-on-change="uploadFile"&gt;
 controller.js:
-1app.controller(&apos;myCtrl&apos
+1app.controller('myCtrl', function($scope)&#123; $sco
           ...
 
           <div class="post-more-link text-center">
@@ -1143,8 +1151,8 @@ controller.js:
       
         
           
-          angular&#x5B9E;&#x73B0;changeFile&#x4E0A;&#x4F20;[&#x65B9;&#x6CD5;&#x4E8C;]html
-1&lt;div ng-controller=&quot;form-cntlr&quot;&gt; &lt;form&gt; &lt;but
+          angular实现changeFile上传[方法二]html
+1&lt;div ng-controller="form-cntlr"&gt; &lt;form&gt; &lt;button ng-click="selectFile()"&gt;Upload Your File&lt;/button&
           ...
 
           <div class="post-more-link text-center">
@@ -1279,8 +1287,9 @@ controller.js:
       
         
           
-          &#x524D;&#x8A00;&#x5728; hexo &#x4E2D;&#x5B8C;&#x7F8E;&#x6DFB;&#x52A0;img&#x65B9;&#x6CD5;&#xFF1B;
-&#x5982;&#x679C;&#x76F4;&#x63A5;&#x653E;&#x5728;&#x9
+          前言在 hexo 中完美添加img方法；
+如果直接放在项目中的话那么在编辑的时候和发布的时候要改图片路径；
+之前一直是使用新浪图床来承载图片，但是觉得每次添加图片都要上传到图床上去，一个是很麻烦，还有一个就是太（lan）不（de）智（bu）能（xing）了，哈哈！于是乎搜了一把，发现了一个比较不错的
           ...
 
           <div class="post-more-link text-center">
@@ -1415,8 +1424,8 @@ controller.js:
       
         
           
-          hexo123npm install hexo -g #&#x5B89;&#x88C5;  npm update hexo -g #&#x5347;&#x7EA7;  hexo init #&#x521D;&#x59CB;&#x5316;
-&#x7B80;&#x5199;&#x547D;&#x4EE
+          hexo123npm install hexo -g #安装  npm update hexo -g #升级  hexo init #初始化
+简写命令hexo n &quot;我的博客&quot; == hexo new &quot;我的博客&quot; #新建文章hexo p == hexo pu
           ...
 
           <div class="post-more-link text-center">
@@ -1551,7 +1560,7 @@ controller.js:
       
         
           
-          touch &#x6307;&#x4EE4;&#x4EE3;&#x7801;12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152&quot;use strict&
+          touch 指令代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152"use strict";angular.module("ngTouch", []).di
           ...
 
           <div class="post-more-link text-center">
@@ -1855,7 +1864,7 @@ controller.js:
 
   
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-  <script>AV.initialize("FkaAa7JkTVnjEWwTzitYNqdD-gzGzoHsz", "EQB15sUPijE0qCOJGBaoqxWN");</script>
+  <script>AV.initialize("vRu2nM0E4TnPoSh1PmS4wXad-gzGzoHsz", "m1sk6K5zpn10ht2DGFqBOwKC");</script>
   <script>
     function showTime(Counter) {
       var query = new AV.Query(Counter);

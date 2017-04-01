@@ -59,25 +59,25 @@
 
 
 
-<meta name="description" content="&amp;#x76F4;&amp;#x63A5;&amp;#x843D;&amp;#x4EE3;&amp;#x7801;
-js &amp;#x6587;&amp;#x672C;&amp;#x7F16;&amp;#x8F91;&amp;#x6846;&amp;#x5FEB;&amp;#x6377;&amp;#x952E;&amp;#xFF0C;enter&amp;#x548C;ctrl+enter&amp;#x64CD;&amp;#x4F5C;&amp;#xFF0C;alt+enter&amp;#x4E3A;&amp;#x6362;&amp;#x884C;
+<meta name="description" content="直接落代码
+js 文本编辑框快捷键，enter和ctrl+enter操作，alt+enter为换行
 
-12">
+1234567891011121314$(&quot;textarea&quot;).keydown(function(event) &amp;#123;    if (event.altKey &amp;amp;&amp;amp; event.keyCode == 13) &amp;#123;        var e = $(this).val">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js 文本编辑框快捷键，enter和ctrl+enter操作，alt+enter为换行">
 <meta property="og:url" content="http://wodewone.com/2016/06/02/js-文本编辑框快捷键，enter和ctrl-enter操作，alt-enter为换行/index.html">
 <meta property="og:site_name" content="wodewone's blog">
-<meta property="og:description" content="&amp;#x76F4;&amp;#x63A5;&amp;#x843D;&amp;#x4EE3;&amp;#x7801;
-js &amp;#x6587;&amp;#x672C;&amp;#x7F16;&amp;#x8F91;&amp;#x6846;&amp;#x5FEB;&amp;#x6377;&amp;#x952E;&amp;#xFF0C;enter&amp;#x548C;ctrl+enter&amp;#x64CD;&amp;#x4F5C;&amp;#xFF0C;alt+enter&amp;#x4E3A;&amp;#x6362;&amp;#x884C;
+<meta property="og:description" content="直接落代码
+js 文本编辑框快捷键，enter和ctrl+enter操作，alt+enter为换行
 
-12">
+1234567891011121314$(&quot;textarea&quot;).keydown(function(event) &amp;#123;    if (event.altKey &amp;amp;&amp;amp; event.keyCode == 13) &amp;#123;        var e = $(this).val">
 <meta property="og:updated_time" content="2016-09-14T13:30:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js 文本编辑框快捷键，enter和ctrl+enter操作，alt+enter为换行">
-<meta name="twitter:description" content="&amp;#x76F4;&amp;#x63A5;&amp;#x843D;&amp;#x4EE3;&amp;#x7801;
-js &amp;#x6587;&amp;#x672C;&amp;#x7F16;&amp;#x8F91;&amp;#x6846;&amp;#x5FEB;&amp;#x6377;&amp;#x952E;&amp;#xFF0C;enter&amp;#x548C;ctrl+enter&amp;#x64CD;&amp;#x4F5C;&amp;#xFF0C;alt+enter&amp;#x4E3A;&amp;#x6362;&amp;#x884C;
+<meta name="twitter:description" content="直接落代码
+js 文本编辑框快捷键，enter和ctrl+enter操作，alt+enter为换行
 
-12">
+1234567891011121314$(&quot;textarea&quot;).keydown(function(event) &amp;#123;    if (event.altKey &amp;amp;&amp;amp; event.keyCode == 13) &amp;#123;        var e = $(this).val">
 
 
 
@@ -342,10 +342,10 @@ js &amp;#x6587;&amp;#x672C;&amp;#x7F16;&amp;#x8F91;&amp;#x6846;&amp;#x5FEB;&amp;
       
 
       
-        <h3 id="&#x76F4;&#x63A5;&#x843D;&#x4EE3;&#x7801;"><a href="#&#x76F4;&#x63A5;&#x843D;&#x4EE3;&#x7801;" class="headerlink" title="&#x76F4;&#x63A5;&#x843D;&#x4EE3;&#x7801;"></a>&#x76F4;&#x63A5;&#x843D;&#x4EE3;&#x7801;</h3><blockquote>
-<p>js &#x6587;&#x672C;&#x7F16;&#x8F91;&#x6846;&#x5FEB;&#x6377;&#x952E;&#xFF0C;enter&#x548C;ctrl+enter&#x64CD;&#x4F5C;&#xFF0C;alt+enter&#x4E3A;&#x6362;&#x884C;</p>
+        <h3 id="直接落代码"><a href="#直接落代码" class="headerlink" title="直接落代码"></a>直接落代码</h3><blockquote>
+<p>js 文本编辑框快捷键，enter和ctrl+enter操作，alt+enter为换行</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;textarea&quot;</span>).keydown(<span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>{</span><br><span class="line">    <span class="keyword">if</span> (event.altKey &amp;&amp; event.keyCode == <span class="number">13</span>) {</span><br><span class="line">        <span class="keyword">var</span> e = $(<span class="keyword">this</span>).val();</span><br><span class="line">        $(<span class="keyword">this</span>).val(e + <span class="string">&apos;\n&apos;</span>);</span><br><span class="line">    } <span class="keyword">else</span> <span class="keyword">if</span> (event.ctrlKey &amp;&amp; event.keyCode == <span class="number">13</span>) {</span><br><span class="line">        event.returnValue = <span class="literal">false</span>;</span><br><span class="line">        sendText();          <span class="comment">// &#x63D0;&#x4EA4;&#x5185;&#x5BB9;</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    } <span class="keyword">else</span> <span class="keyword">if</span> (event.keyCode == <span class="number">13</span>) {</span><br><span class="line">        event.returnValue = <span class="literal">false</span>;</span><br><span class="line">        sendText();          <span class="comment">// &#x63D0;&#x4EA4;&#x5185;&#x5BB9;</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    }</span><br><span class="line">});</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"textarea"</span>).keydown(<span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (event.altKey &amp;&amp; event.keyCode == <span class="number">13</span>) &#123;</div><div class="line">        <span class="keyword">var</span> e = $(<span class="keyword">this</span>).val();</div><div class="line">        $(<span class="keyword">this</span>).val(e + <span class="string">'\n'</span>);</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (event.ctrlKey &amp;&amp; event.keyCode == <span class="number">13</span>) &#123;</div><div class="line">        event.returnValue = <span class="literal">false</span>;</div><div class="line">        sendText();          <span class="comment">// 提交内容</span></div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (event.keyCode == <span class="number">13</span>) &#123;</div><div class="line">        event.returnValue = <span class="literal">false</span>;</div><div class="line">        sendText();          <span class="comment">// 提交内容</span></div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -690,7 +690,7 @@ js &amp;#x6587;&amp;#x672C;&amp;#x7F16;&amp;#x8F91;&amp;#x6846;&amp;#x5FEB;&amp;
 
   
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-  <script>AV.initialize("FkaAa7JkTVnjEWwTzitYNqdD-gzGzoHsz", "EQB15sUPijE0qCOJGBaoqxWN");</script>
+  <script>AV.initialize("vRu2nM0E4TnPoSh1PmS4wXad-gzGzoHsz", "m1sk6K5zpn10ht2DGFqBOwKC");</script>
   <script>
     function showTime(Counter) {
       var query = new AV.Query(Counter);

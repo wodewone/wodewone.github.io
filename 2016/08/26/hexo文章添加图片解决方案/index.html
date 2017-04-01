@@ -59,19 +59,31 @@
 
 
 
-<meta name="description" content="&amp;#x524D;&amp;#x8A00;&amp;#x5728; hexo &amp;#x4E2D;&amp;#x5B8C;&amp;#x7F8E;&amp;#x6DFB;&amp;#x52A0;img&amp;#x65B9;&amp;#x6CD5;&amp;#xFF1B;
-&amp;#x5982;&amp;#x679C;&amp;#x76F4;&amp;#x63A5;&amp;#x653E;&amp;#x5728;&amp;#x9879;&amp;#x76EE;&amp;#x4E2D;&amp;#x7684;&amp;#x8BDD;&amp;#x90A3;&amp;#x4E4">
+<meta name="description" content="前言在 hexo 中完美添加img方法；
+如果直接放在项目中的话那么在编辑的时候和发布的时候要改图片路径；
+之前一直是使用新浪图床来承载图片，但是觉得每次添加图片都要上传到图床上去，一个是很麻烦，还有一个就是太（lan）不（de）智（bu）能（xing）了，哈哈！于是乎搜了一把，发现了一个比较不错的方法
+先手团dian这里
+里面有介绍直接走就可以，或者看后面我的使用方式
+使用方式安装 hexo-a">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo文章添加图片解决方案">
 <meta property="og:url" content="http://wodewone.com/2016/08/26/hexo文章添加图片解决方案/index.html">
 <meta property="og:site_name" content="wodewone's blog">
-<meta property="og:description" content="&amp;#x524D;&amp;#x8A00;&amp;#x5728; hexo &amp;#x4E2D;&amp;#x5B8C;&amp;#x7F8E;&amp;#x6DFB;&amp;#x52A0;img&amp;#x65B9;&amp;#x6CD5;&amp;#xFF1B;
-&amp;#x5982;&amp;#x679C;&amp;#x76F4;&amp;#x63A5;&amp;#x653E;&amp;#x5728;&amp;#x9879;&amp;#x76EE;&amp;#x4E2D;&amp;#x7684;&amp;#x8BDD;&amp;#x90A3;&amp;#x4E4">
+<meta property="og:description" content="前言在 hexo 中完美添加img方法；
+如果直接放在项目中的话那么在编辑的时候和发布的时候要改图片路径；
+之前一直是使用新浪图床来承载图片，但是觉得每次添加图片都要上传到图床上去，一个是很麻烦，还有一个就是太（lan）不（de）智（bu）能（xing）了，哈哈！于是乎搜了一把，发现了一个比较不错的方法
+先手团dian这里
+里面有介绍直接走就可以，或者看后面我的使用方式
+使用方式安装 hexo-a">
 <meta property="og:updated_time" content="2016-12-03T13:47:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo文章添加图片解决方案">
-<meta name="twitter:description" content="&amp;#x524D;&amp;#x8A00;&amp;#x5728; hexo &amp;#x4E2D;&amp;#x5B8C;&amp;#x7F8E;&amp;#x6DFB;&amp;#x52A0;img&amp;#x65B9;&amp;#x6CD5;&amp;#xFF1B;
-&amp;#x5982;&amp;#x679C;&amp;#x76F4;&amp;#x63A5;&amp;#x653E;&amp;#x5728;&amp;#x9879;&amp;#x76EE;&amp;#x4E2D;&amp;#x7684;&amp;#x8BDD;&amp;#x90A3;&amp;#x4E4">
+<meta name="twitter:description" content="前言在 hexo 中完美添加img方法；
+如果直接放在项目中的话那么在编辑的时候和发布的时候要改图片路径；
+之前一直是使用新浪图床来承载图片，但是觉得每次添加图片都要上传到图床上去，一个是很麻烦，还有一个就是太（lan）不（de）智（bu）能（xing）了，哈哈！于是乎搜了一把，发现了一个比较不错的方法
+先手团dian这里
+里面有介绍直接走就可以，或者看后面我的使用方式
+使用方式安装 hexo-a">
 
 
 
@@ -334,22 +346,22 @@
       
 
       
-        <h4 id="&#x524D;&#x8A00;"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a>&#x524D;&#x8A00;</h4><p>&#x5728; hexo &#x4E2D;&#x5B8C;&#x7F8E;&#x6DFB;&#x52A0;img&#x65B9;&#x6CD5;&#xFF1B;</p>
-<p>&#x5982;&#x679C;&#x76F4;&#x63A5;&#x653E;&#x5728;&#x9879;&#x76EE;&#x4E2D;&#x7684;&#x8BDD;&#x90A3;&#x4E48;&#x5728;&#x7F16;&#x8F91;&#x7684;&#x65F6;&#x5019;&#x548C;&#x53D1;&#x5E03;&#x7684;&#x65F6;&#x5019;&#x8981;&#x6539;&#x56FE;&#x7247;&#x8DEF;&#x5F84;&#xFF1B;</p>
-<p>&#x4E4B;&#x524D;&#x4E00;&#x76F4;&#x662F;&#x4F7F;&#x7528;&#x65B0;&#x6D6A;&#x56FE;&#x5E8A;&#x6765;&#x627F;&#x8F7D;&#x56FE;&#x7247;&#xFF0C;&#x4F46;&#x662F;&#x89C9;&#x5F97;&#x6BCF;&#x6B21;&#x6DFB;&#x52A0;&#x56FE;&#x7247;&#x90FD;&#x8981;&#x4E0A;&#x4F20;&#x5230;&#x56FE;&#x5E8A;&#x4E0A;&#x53BB;&#xFF0C;&#x4E00;&#x4E2A;&#x662F;&#x5F88;&#x9EBB;&#x70E6;&#xFF0C;&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x5C31;&#x662F;&#x592A;&#xFF08;lan&#xFF09;&#x4E0D;&#xFF08;de&#xFF09;&#x667A;&#xFF08;bu&#xFF09;&#x80FD;&#xFF08;xing&#xFF09;&#x4E86;&#xFF0C;&#x54C8;&#x54C8;&#xFF01;&#x4E8E;&#x662F;&#x4E4E;&#x641C;&#x4E86;&#x4E00;&#x628A;&#xFF0C;&#x53D1;&#x73B0;&#x4E86;&#x4E00;&#x4E2A;&#x6BD4;&#x8F83;&#x4E0D;&#x9519;&#x7684;&#x65B9;&#x6CD5;</p>
-<h5 id="&#x5148;&#x624B;&#x56E2;"><a href="#&#x5148;&#x624B;&#x56E2;" class="headerlink" title="&#x5148;&#x624B;&#x56E2;"></a>&#x5148;&#x624B;&#x56E2;</h5><p><a href="https://github.com/CodeFalling/hexo-asset-image" target="_blank" rel="external">dian&#x8FD9;&#x91CC;</a></p>
-<p>&#x91CC;&#x9762;&#x6709;&#x4ECB;&#x7ECD;&#x76F4;&#x63A5;&#x8D70;&#x5C31;&#x53EF;&#x4EE5;&#xFF0C;&#x6216;&#x8005;&#x770B;&#x540E;&#x9762;&#x6211;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;</p>
-<h5 id="&#x4F7F;&#x7528;&#x65B9;&#x5F0F;"><a href="#&#x4F7F;&#x7528;&#x65B9;&#x5F0F;" class="headerlink" title="&#x4F7F;&#x7528;&#x65B9;&#x5F0F;"></a>&#x4F7F;&#x7528;&#x65B9;&#x5F0F;</h5><p>&#x5B89;&#x88C5; <code>hexo-asset-image</code> &#x4E4B;&#x540E;&#xFF0C;<br>&#x5728; <code>_config.yml</code> &#x4E2D;&#x641C;&#x7D22; <code>post_asset_folder</code> &#x8FD9;&#x4E2A;&#x5C5E;&#x6027;</p>
-<p>&#x9ED8;&#x8BA4;&#x662F; <code>false</code> &#x6539;&#x4E3A; <code>true</code> &#x503C;</p>
-<p>&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x662F;&#x5E72;&#x5565;&#x7684;&#x5462;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x5728;&#x4F7F;&#x7528;&#x547D;&#x4EE4;&#x884C;&#x6572;</p>
-<p><code>hexo n &apos;***&apos;</code></p>
-<p>&#x65B0;&#x5EFA;&#x4E00;&#x7BC7;&#x6587;&#x7AE0;&#x7684;&#x65F6;&#x5019;&#x4ED6;&#x4F1A;&#x9ED8;&#x8BA4;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x540C;&#x540D;&#x6587;&#x4EF6;&#x5939;&#x6765;&#x63D0;&#x4F9B;&#x5BB9;&#x7EB3;&#x8BE5;&#x6587;&#x7AE0;&#x91CC;&#x9762;&#x5176;&#x4ED6;&#x8D44;&#x6E90;&#x6BD4;&#x5982;&#x56FE;&#x7247;&#x3001;&#x97F3;&#x9891;&#x3001;&#x89C6;&#x9891;&#x7B49;&#x7B49;</p>
-<p>&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x4F60;&#x53EA;&#x9700;&#x8981;&#x8FD9;&#x6837;&#x6DFB;&#x52A0;&#x56FE;&#x7247;&#x5373;&#x53EF;</p>
+        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>在 hexo 中完美添加img方法；</p>
+<p>如果直接放在项目中的话那么在编辑的时候和发布的时候要改图片路径；</p>
+<p>之前一直是使用新浪图床来承载图片，但是觉得每次添加图片都要上传到图床上去，一个是很麻烦，还有一个就是太（lan）不（de）智（bu）能（xing）了，哈哈！于是乎搜了一把，发现了一个比较不错的方法</p>
+<h5 id="先手团"><a href="#先手团" class="headerlink" title="先手团"></a>先手团</h5><p><a href="https://github.com/CodeFalling/hexo-asset-image" target="_blank" rel="external">dian这里</a></p>
+<p>里面有介绍直接走就可以，或者看后面我的使用方式</p>
+<h5 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h5><p>安装 <code>hexo-asset-image</code> 之后，<br>在 <code>_config.yml</code> 中搜索 <code>post_asset_folder</code> 这个属性</p>
+<p>默认是 <code>false</code> 改为 <code>true</code> 值</p>
+<p>这个属性是干啥的呢，实际上在使用命令行敲</p>
+<p><code>hexo n &#39;***&#39;</code></p>
+<p>新建一篇文章的时候他会默认创建一个同名文件夹来提供容纳该文章里面其他资源比如图片、音频、视频等等</p>
+<p>这个时候你只需要这样添加图片即可</p>
 <p><code>![logo](demo.jpg)</code></p>
-<p>&#x7136;&#x540E;&#x5728;&#x901A;&#x8FC7; </p>
+<p>然后在通过 </p>
 <p><code>hexo g</code></p>
-<p>&#x5373;&#x53EF;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x5230; <code>publish</code> &#x4E0B;&#x9762;</p>
-<p>so easy&#xFF01;</p>
+<p>即可自动生成到 <code>publish</code> 下面</p>
+<p>so easy！</p>
 
       
     </div>
@@ -695,7 +707,7 @@
 
   
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-  <script>AV.initialize("FkaAa7JkTVnjEWwTzitYNqdD-gzGzoHsz", "EQB15sUPijE0qCOJGBaoqxWN");</script>
+  <script>AV.initialize("vRu2nM0E4TnPoSh1PmS4wXad-gzGzoHsz", "m1sk6K5zpn10ht2DGFqBOwKC");</script>
   <script>
     function showTime(Counter) {
       var query = new AV.Query(Counter);

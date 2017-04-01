@@ -59,19 +59,19 @@
 
 
 
-<meta name="description" content="ionic &amp;#x6A21;&amp;#x677F;&amp;#x6570;&amp;#x636E;ionic ion-slide-box&amp;#x8C03;&amp;#x7528;&amp;#x8FDC;&amp;#x7A0B;&amp;#x6570;&amp;#x636E; ng-repeat&amp;#x5FAA;&amp;#x73AF;&amp;#x663E;&amp;#x793A;&amp;#x6570;&amp;#x636E;
-12345&amp;lt;ion-slide-box delegate-hand">
+<meta name="description" content="ionic 模板数据ionic ion-slide-box调用远程数据 ng-repeat循环显示数据
+12345&amp;lt;ion-slide-box delegate-handle=&quot;slideimgs&quot; show-pager=&quot;true&quot; auto-play=&quot;true&quot; does-continue=&quot;true&quot;&amp;gt;&amp;lt;ion-slide  ng-repeat=&quot;focus in foc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ionic ion-slide-box 使用服务器数据 ng-repeat">
 <meta property="og:url" content="http://wodewone.com/2016/06/12/ionic-ion-slide-box-使用服务器数据-ng-repeat/index.html">
 <meta property="og:site_name" content="wodewone's blog">
-<meta property="og:description" content="ionic &amp;#x6A21;&amp;#x677F;&amp;#x6570;&amp;#x636E;ionic ion-slide-box&amp;#x8C03;&amp;#x7528;&amp;#x8FDC;&amp;#x7A0B;&amp;#x6570;&amp;#x636E; ng-repeat&amp;#x5FAA;&amp;#x73AF;&amp;#x663E;&amp;#x793A;&amp;#x6570;&amp;#x636E;
-12345&amp;lt;ion-slide-box delegate-hand">
+<meta property="og:description" content="ionic 模板数据ionic ion-slide-box调用远程数据 ng-repeat循环显示数据
+12345&amp;lt;ion-slide-box delegate-handle=&quot;slideimgs&quot; show-pager=&quot;true&quot; auto-play=&quot;true&quot; does-continue=&quot;true&quot;&amp;gt;&amp;lt;ion-slide  ng-repeat=&quot;focus in foc">
 <meta property="og:updated_time" content="2016-09-14T13:37:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ionic ion-slide-box 使用服务器数据 ng-repeat">
-<meta name="twitter:description" content="ionic &amp;#x6A21;&amp;#x677F;&amp;#x6570;&amp;#x636E;ionic ion-slide-box&amp;#x8C03;&amp;#x7528;&amp;#x8FDC;&amp;#x7A0B;&amp;#x6570;&amp;#x636E; ng-repeat&amp;#x5FAA;&amp;#x73AF;&amp;#x663E;&amp;#x793A;&amp;#x6570;&amp;#x636E;
-12345&amp;lt;ion-slide-box delegate-hand">
+<meta name="twitter:description" content="ionic 模板数据ionic ion-slide-box调用远程数据 ng-repeat循环显示数据
+12345&amp;lt;ion-slide-box delegate-handle=&quot;slideimgs&quot; show-pager=&quot;true&quot; auto-play=&quot;true&quot; does-continue=&quot;true&quot;&amp;gt;&amp;lt;ion-slide  ng-repeat=&quot;focus in foc">
 
 
 
@@ -338,12 +338,12 @@
       
 
       
-        <h3 id="ionic-&#x6A21;&#x677F;&#x6570;&#x636E;"><a href="#ionic-&#x6A21;&#x677F;&#x6570;&#x636E;" class="headerlink" title="ionic &#x6A21;&#x677F;&#x6570;&#x636E;"></a>ionic &#x6A21;&#x677F;&#x6570;&#x636E;</h3><p>ionic ion-slide-box&#x8C03;&#x7528;&#x8FDC;&#x7A0B;&#x6570;&#x636E; ng-repeat&#x5FAA;&#x73AF;&#x663E;&#x793A;&#x6570;&#x636E;</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ion-slide-box</span> <span class="attr">delegate-handle</span>=<span class="string">&quot;slideimgs&quot;</span> <span class="attr">show-pager</span>=<span class="string">&quot;true&quot;</span> <span class="attr">auto-play</span>=<span class="string">&quot;true&quot;</span> <span class="attr">does-continue</span>=<span class="string">&quot;true&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ion-slide</span>  <span class="attr">ng-repeat</span>=<span class="string">&quot;focus in focuslListData&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#/product_content/{{focus.url}}&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">ng-src</span>=<span class="string">&quot;{{ENV.imgUrl}}{{focus.img}}&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ion-slide</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ion-slide-box</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h5 id="js&#x66F4;&#x65B0;ionslidebox"><a href="#js&#x66F4;&#x65B0;ionslidebox" class="headerlink" title="js&#x66F4;&#x65B0;ionslidebox"></a>js&#x66F4;&#x65B0;ionslidebox</h5><p>&#x5FAA;&#x73AF;&#x5B8C;&#x6210;&#x6570;&#x636E;&#x540E;&#x4F7F;&#x7528;$ionicSlideBoxDelegate &#x7136;&#x540E;&#x6267;&#x884C;&#x4E0B;&#x9762;&#x65B9;&#x6CD5;&#x66F4;&#x65B0;&#x6211;&#x4EEC;&#x7684;&#x5E7B;&#x706F;&#x7247; &#x4E0D;&#x7136;&#x4F1A;&#x51FA;&#x95EE;&#x9898;</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ionicSlideBoxDelegate$getByHandle(<span class="string">&quot;slideimgs&quot;</span>).update();  <span class="comment">//&#x66F4;&#x65B0;ionic SlideBox</span></span><br></pre></td></tr></table></figure>
-<p>&#x53D1;&#x73B0;&#x8C03;&#x7528;update&#x867D;&#x7136;&#x6B63;&#x5E38;&#x4E86;&#xFF0C;&#x4F46;&#x662F;slidebox&#x5C31;&#x4F1A;&#x51FA;&#x73B0;&#x4E0D;&#x80FD;&#x5FAA;&#x73AF;&#x6EDA;&#x52A8;,&#x5C31;&#x662F;&#x6EDA;&#x52A8;&#x5230;&#x6700;&#x540E;&#x4E00;&#x5F20;&#x4E0D;&#x4F1A;&#x5728;&#x4ECE;&#x5934;&#x5F00;&#x59CB;,does-continue=&#x201D;true&#x201D;&#x6CA1;&#x6709;&#x751F;&#x6548;,&#x662F;&#x600E;&#x4E48;&#x56DE;&#x4E8B;,&#x600E;&#x4E48;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;?<br>&#x4E5F;&#x5C31;&#x662F;&#x8FD9;&#x6837;</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ionicSlideBoxDelegate$getByHandle(<span class="string">&quot;slideimgs&quot;</span>).update();  <span class="comment">//&#x66F4;&#x65B0;ionic SlideBox</span></span><br><span class="line">$ionicSlideBoxDelegate.$getByHandle(<span class="string">&quot;slideimgs&quot;</span>).loop(<span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
+        <h3 id="ionic-模板数据"><a href="#ionic-模板数据" class="headerlink" title="ionic 模板数据"></a>ionic 模板数据</h3><p>ionic ion-slide-box调用远程数据 ng-repeat循环显示数据</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ion-slide-box</span> <span class="attr">delegate-handle</span>=<span class="string">"slideimgs"</span> <span class="attr">show-pager</span>=<span class="string">"true"</span> <span class="attr">auto-play</span>=<span class="string">"true"</span> <span class="attr">does-continue</span>=<span class="string">"true"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">ion-slide</span>  <span class="attr">ng-repeat</span>=<span class="string">"focus in focuslListData"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#/product_content/&#123;&#123;focus.url&#125;&#125;"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">ng-src</span>=<span class="string">"&#123;&#123;ENV.imgUrl&#125;&#125;&#123;&#123;focus.img&#125;&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ion-slide</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ion-slide-box</span>&gt;</span></div></pre></td></tr></table></figure>
+<h5 id="js更新ionslidebox"><a href="#js更新ionslidebox" class="headerlink" title="js更新ionslidebox"></a>js更新ionslidebox</h5><p>循环完成数据后使用$ionicSlideBoxDelegate 然后执行下面方法更新我们的幻灯片 不然会出问题</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ionicSlideBoxDelegate$getByHandle(<span class="string">"slideimgs"</span>).update();  <span class="comment">//更新ionic SlideBox</span></div></pre></td></tr></table></figure>
+<p>发现调用update虽然正常了，但是slidebox就会出现不能循环滚动,就是滚动到最后一张不会在从头开始,does-continue=”true”没有生效,是怎么回事,怎么解决这个问题?<br>也就是这样</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ionicSlideBoxDelegate$getByHandle(<span class="string">"slideimgs"</span>).update();  <span class="comment">//更新ionic SlideBox</span></div><div class="line">$ionicSlideBoxDelegate.$getByHandle(<span class="string">"slideimgs"</span>).loop(<span class="literal">true</span>);</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -689,7 +689,7 @@
 
   
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-  <script>AV.initialize("FkaAa7JkTVnjEWwTzitYNqdD-gzGzoHsz", "EQB15sUPijE0qCOJGBaoqxWN");</script>
+  <script>AV.initialize("vRu2nM0E4TnPoSh1PmS4wXad-gzGzoHsz", "m1sk6K5zpn10ht2DGFqBOwKC");</script>
   <script>
     function showTime(Counter) {
       var query = new AV.Query(Counter);

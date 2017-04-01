@@ -59,16 +59,19 @@
 
 
 
-<meta name="description" content="angular&amp;#x5B9E;&amp;#x73B0;changeFile&amp;#x4E0A;&amp;#x4F20;[&amp;#x65B9;&amp;#x6CD5;&amp;#x4E00;]1234&amp;lt;div ng-controller=&amp;quot;MyCtrl&amp;quot;&amp;gt;    &amp;lt;input type=&amp;quot;file&amp;quot; onchange=&amp;quot;MyCtrl.prototype.setFile(t">
+<meta name="description" content="angular实现changeFile上传[方法一]1234&amp;lt;div ng-controller=&quot;MyCtrl&quot;&amp;gt;    &amp;lt;input type=&quot;file&quot; onchange=&quot;MyCtrl.prototype.setFile(this)&quot;&amp;gt;    &amp;#123;&amp;#123;theFile.name&amp;#125;&amp;#125;&amp;lt;/div&amp;gt;
+123456789101">
 <meta property="og:type" content="article">
 <meta property="og:title" content="angular实现changeFile上传[方法一]">
 <meta property="og:url" content="http://wodewone.com/2016/08/27/angular实现changeFile上传-方法一/index.html">
 <meta property="og:site_name" content="wodewone's blog">
-<meta property="og:description" content="angular&amp;#x5B9E;&amp;#x73B0;changeFile&amp;#x4E0A;&amp;#x4F20;[&amp;#x65B9;&amp;#x6CD5;&amp;#x4E00;]1234&amp;lt;div ng-controller=&amp;quot;MyCtrl&amp;quot;&amp;gt;    &amp;lt;input type=&amp;quot;file&amp;quot; onchange=&amp;quot;MyCtrl.prototype.setFile(t">
+<meta property="og:description" content="angular实现changeFile上传[方法一]1234&amp;lt;div ng-controller=&quot;MyCtrl&quot;&amp;gt;    &amp;lt;input type=&quot;file&quot; onchange=&quot;MyCtrl.prototype.setFile(this)&quot;&amp;gt;    &amp;#123;&amp;#123;theFile.name&amp;#125;&amp;#125;&amp;lt;/div&amp;gt;
+123456789101">
 <meta property="og:updated_time" content="2016-11-26T11:29:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="angular实现changeFile上传[方法一]">
-<meta name="twitter:description" content="angular&amp;#x5B9E;&amp;#x73B0;changeFile&amp;#x4E0A;&amp;#x4F20;[&amp;#x65B9;&amp;#x6CD5;&amp;#x4E00;]1234&amp;lt;div ng-controller=&amp;quot;MyCtrl&amp;quot;&amp;gt;    &amp;lt;input type=&amp;quot;file&amp;quot; onchange=&amp;quot;MyCtrl.prototype.setFile(t">
+<meta name="twitter:description" content="angular实现changeFile上传[方法一]1234&amp;lt;div ng-controller=&quot;MyCtrl&quot;&amp;gt;    &amp;lt;input type=&quot;file&quot; onchange=&quot;MyCtrl.prototype.setFile(this)&quot;&amp;gt;    &amp;#123;&amp;#123;theFile.name&amp;#125;&amp;#125;&amp;lt;/div&amp;gt;
+123456789101">
 
 
 
@@ -329,8 +332,8 @@
       
 
       
-        <h3 id="angular&#x5B9E;&#x73B0;changeFile&#x4E0A;&#x4F20;-&#x65B9;&#x6CD5;&#x4E00;"><a href="#angular&#x5B9E;&#x73B0;changeFile&#x4E0A;&#x4F20;-&#x65B9;&#x6CD5;&#x4E00;" class="headerlink" title="angular&#x5B9E;&#x73B0;changeFile&#x4E0A;&#x4F20;[&#x65B9;&#x6CD5;&#x4E00;]"></a>angular&#x5B9E;&#x73B0;changeFile&#x4E0A;&#x4F20;[&#x65B9;&#x6CD5;&#x4E00;]</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-controller</span>=<span class="string">&quot;MyCtrl&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">onchange</span>=<span class="string">&quot;MyCtrl.prototype.setFile(this)&quot;</span>&gt;</span></span><br><span class="line">    {{theFile.name}}</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myApp = angular.module(<span class="string">&apos;myApp&apos;</span>,[]);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyCtrl</span>(<span class="params">$scope, $window</span>) </span>{</span><br><span class="line">    $scope.name = <span class="string">&apos;Superhero&apos;</span>;</span><br><span class="line">    MyCtrl.prototype.$scope = $scope;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">MyCtrl.prototype.setFile = <span class="function"><span class="keyword">function</span>(<span class="params">element</span>) </span>{</span><br><span class="line">    <span class="keyword">var</span> $scope = <span class="keyword">this</span>.$scope;</span><br><span class="line">    $scope.$apply(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">        $scope.theFile = element.files[<span class="number">0</span>];</span><br><span class="line">    });</span><br><span class="line">};</span><br></pre></td></tr></table></figure>
+        <h3 id="angular实现changeFile上传-方法一"><a href="#angular实现changeFile上传-方法一" class="headerlink" title="angular实现changeFile上传[方法一]"></a>angular实现changeFile上传[方法一]</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-controller</span>=<span class="string">"MyCtrl"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">onchange</span>=<span class="string">"MyCtrl.prototype.setFile(this)"</span>&gt;</span></div><div class="line">    &#123;&#123;theFile.name&#125;&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myApp = angular.module(<span class="string">'myApp'</span>,[]);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyCtrl</span>(<span class="params">$scope, $window</span>) </span>&#123;</div><div class="line">    $scope.name = <span class="string">'Superhero'</span>;</div><div class="line">    MyCtrl.prototype.$scope = $scope;</div><div class="line">&#125;</div><div class="line"></div><div class="line">MyCtrl.prototype.setFile = <span class="function"><span class="keyword">function</span>(<span class="params">element</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> $scope = <span class="keyword">this</span>.$scope;</div><div class="line">    $scope.$apply(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        $scope.theFile = element.files[<span class="number">0</span>];</div><div class="line">    &#125;);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -675,7 +678,7 @@
 
   
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-  <script>AV.initialize("FkaAa7JkTVnjEWwTzitYNqdD-gzGzoHsz", "EQB15sUPijE0qCOJGBaoqxWN");</script>
+  <script>AV.initialize("vRu2nM0E4TnPoSh1PmS4wXad-gzGzoHsz", "m1sk6K5zpn10ht2DGFqBOwKC");</script>
   <script>
     function showTime(Counter) {
       var query = new AV.Query(Counter);

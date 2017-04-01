@@ -59,19 +59,43 @@
 
 
 
-<meta name="description" content="angular&amp;#x52A0;&amp;#x8F7D;&amp;#x65B9;&amp;#x5F0F;
-&amp;#x5F53;&amp;#x4F60;&amp;#x7528;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x53BB;&amp;#x8BBF;&amp;#x95EE; angular &amp;#x5E94;&amp;#x7528;&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#xFF0C;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x4F9D">
+<meta name="description" content="angular加载方式
+当你用浏览器去访问 angular 应用的时候，浏览器依次做了如下一些事情：
+
+
+加载html，然后解析成DOM；
+加载angular.js脚本；
+AngularJS等待DOMContentLoaded事件的触发；
+AngularJS寻找ng-app指令，根据这个指令确定应用程序的边界；
+使用ng-app中指定的模块配置$injector；
+使用injector创建inje">
 <meta property="og:type" content="article">
 <meta property="og:title" content="angular 实现异步加载">
 <meta property="og:url" content="http://wodewone.com/2016/05/10/angular-实现异步加载/index.html">
 <meta property="og:site_name" content="wodewone's blog">
-<meta property="og:description" content="angular&amp;#x52A0;&amp;#x8F7D;&amp;#x65B9;&amp;#x5F0F;
-&amp;#x5F53;&amp;#x4F60;&amp;#x7528;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x53BB;&amp;#x8BBF;&amp;#x95EE; angular &amp;#x5E94;&amp;#x7528;&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#xFF0C;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x4F9D">
+<meta property="og:description" content="angular加载方式
+当你用浏览器去访问 angular 应用的时候，浏览器依次做了如下一些事情：
+
+
+加载html，然后解析成DOM；
+加载angular.js脚本；
+AngularJS等待DOMContentLoaded事件的触发；
+AngularJS寻找ng-app指令，根据这个指令确定应用程序的边界；
+使用ng-app中指定的模块配置$injector；
+使用injector创建inje">
 <meta property="og:updated_time" content="2016-09-06T09:22:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="angular 实现异步加载">
-<meta name="twitter:description" content="angular&amp;#x52A0;&amp;#x8F7D;&amp;#x65B9;&amp;#x5F0F;
-&amp;#x5F53;&amp;#x4F60;&amp;#x7528;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x53BB;&amp;#x8BBF;&amp;#x95EE; angular &amp;#x5E94;&amp;#x7528;&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#xFF0C;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x4F9D">
+<meta name="twitter:description" content="angular加载方式
+当你用浏览器去访问 angular 应用的时候，浏览器依次做了如下一些事情：
+
+
+加载html，然后解析成DOM；
+加载angular.js脚本；
+AngularJS等待DOMContentLoaded事件的触发；
+AngularJS寻找ng-app指令，根据这个指令确定应用程序的边界；
+使用ng-app中指定的模块配置$injector；
+使用injector创建inje">
 
 
 
@@ -338,27 +362,27 @@
       
 
       
-        <h3 id="angular&#x52A0;&#x8F7D;&#x65B9;&#x5F0F;"><a href="#angular&#x52A0;&#x8F7D;&#x65B9;&#x5F0F;" class="headerlink" title="angular&#x52A0;&#x8F7D;&#x65B9;&#x5F0F;"></a>angular&#x52A0;&#x8F7D;&#x65B9;&#x5F0F;</h3><blockquote>
-<p>&#x5F53;&#x4F60;&#x7528;&#x6D4F;&#x89C8;&#x5668;&#x53BB;&#x8BBF;&#x95EE; <code>angular</code> &#x5E94;&#x7528;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x4F9D;&#x6B21;&#x505A;&#x4E86;&#x5982;&#x4E0B;&#x4E00;&#x4E9B;&#x4E8B;&#x60C5;&#xFF1A;</p>
+        <h3 id="angular加载方式"><a href="#angular加载方式" class="headerlink" title="angular加载方式"></a>angular加载方式</h3><blockquote>
+<p>当你用浏览器去访问 <code>angular</code> 应用的时候，浏览器依次做了如下一些事情：</p>
 </blockquote>
 <ol>
-<li>&#x52A0;&#x8F7D;html&#xFF0C;&#x7136;&#x540E;&#x89E3;&#x6790;&#x6210;DOM&#xFF1B;</li>
-<li>&#x52A0;&#x8F7D;angular.js&#x811A;&#x672C;&#xFF1B;</li>
-<li>AngularJS&#x7B49;&#x5F85;DOMContentLoaded&#x4E8B;&#x4EF6;&#x7684;&#x89E6;&#x53D1;&#xFF1B;</li>
-<li>AngularJS&#x5BFB;&#x627E;ng-app&#x6307;&#x4EE4;&#xFF0C;&#x6839;&#x636E;&#x8FD9;&#x4E2A;&#x6307;&#x4EE4;&#x786E;&#x5B9A;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x8FB9;&#x754C;&#xFF1B;</li>
-<li>&#x4F7F;&#x7528;ng-app&#x4E2D;&#x6307;&#x5B9A;&#x7684;&#x6A21;&#x5757;&#x914D;&#x7F6E;$injector&#xFF1B;</li>
-<li>&#x4F7F;&#x7528;injector&#x521B;&#x5EFA;injector&#x521B;&#x5EFA;compile&#x670D;&#x52A1;&#x548C;$rootScope&#xFF1B;</li>
-<li>&#x4F7F;&#x7528;compile&#x670D;&#x52A1;&#x7F16;&#x8BD1;DOM&#x5E76;&#x628A;&#x5B83;&#x94FE;&#x63A5;&#x5230;compile&#x670D;&#x52A1;&#x7F16;&#x8BD1;DOM&#x5E76;&#x628A;&#x5B83;&#x94FE;&#x63A5;&#x5230;rootScope&#x4E0A;&#xFF1B;</li>
-<li>ng-init&#x6307;&#x4EE4;&#x5BF9;scope&#x91CC;&#x9762;&#x7684;&#x53D8;&#x91CF;name&#x8FDB;&#x884C;&#x8D4B;&#x503C;&#xFF1B;</li>
-<li>&#x5BF9;&#x8868;&#x8FBE;&#x5F0F;&#x8FDB;&#x884C;&#x66FF;&#x6362;&#xFF0C;&#x4E8E;&#x662F;&#x4E4E;&#xFF0C;&#x663E;&#x793A;&#x4E3A;&#x201C;Hello World!&#x201D;  </li>
+<li>加载html，然后解析成DOM；</li>
+<li>加载angular.js脚本；</li>
+<li>AngularJS等待DOMContentLoaded事件的触发；</li>
+<li>AngularJS寻找ng-app指令，根据这个指令确定应用程序的边界；</li>
+<li>使用ng-app中指定的模块配置$injector；</li>
+<li>使用injector创建injector创建compile服务和$rootScope；</li>
+<li>使用compile服务编译DOM并把它链接到compile服务编译DOM并把它链接到rootScope上；</li>
+<li>ng-init指令对scope里面的变量name进行赋值；</li>
+<li>对表达式进行替换，于是乎，显示为“Hello World!”  </li>
 </ol>
-<p><a href="http://www.cnblogs.com/penghongwei/p/3444601.html" target="_blank" rel="external">&#x53C2;&#x8003;&#x5730;&#x5740;1&#xFF1A;AngularJS&#x7684;&#x5DE5;&#x4F5C;&#x539F;&#x7406;</a></p>
-<p><a href="https://github.com/xufei/blog/issues/17" target="_blank" rel="external">&#x53C2;&#x8003;&#x5730;&#x5740;2&#xFF1A;Angular&#x4E2D;&#x7684;&#x6A21;&#x5757;&#x673A;&#x5236;</a></p>
-<h3 id="&#x6539;&#x53D8;Ta"><a href="#&#x6539;&#x53D8;Ta" class="headerlink" title="&#x6539;&#x53D8;Ta"></a>&#x6539;&#x53D8;Ta</h3><p>[&#x672A;&#x5B8C;&#x5F85;&#x7EED;&#x2026;]</p>
-<h3 id="&#x4F7F;&#x7528;&#x63D2;&#x4EF6;"><a href="#&#x4F7F;&#x7528;&#x63D2;&#x4EF6;" class="headerlink" title="&#x4F7F;&#x7528;&#x63D2;&#x4EF6;"></a>&#x4F7F;&#x7528;&#x63D2;&#x4EF6;</h3><ul>
+<p><a href="http://www.cnblogs.com/penghongwei/p/3444601.html" target="_blank" rel="external">参考地址1：AngularJS的工作原理</a></p>
+<p><a href="https://github.com/xufei/blog/issues/17" target="_blank" rel="external">参考地址2：Angular中的模块机制</a></p>
+<h3 id="改变Ta"><a href="#改变Ta" class="headerlink" title="改变Ta"></a>改变Ta</h3><p>[未完待续…]</p>
+<h3 id="使用插件"><a href="#使用插件" class="headerlink" title="使用插件"></a>使用插件</h3><ul>
 <li>angularAMD</li>
 <li>angular-async-loader</li>
-<li>other(i don&#x2019;t konw~~)</li>
+<li>other(i don’t konw~~)</li>
 </ul>
 
       
@@ -705,7 +729,7 @@
 
   
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-  <script>AV.initialize("FkaAa7JkTVnjEWwTzitYNqdD-gzGzoHsz", "EQB15sUPijE0qCOJGBaoqxWN");</script>
+  <script>AV.initialize("vRu2nM0E4TnPoSh1PmS4wXad-gzGzoHsz", "m1sk6K5zpn10ht2DGFqBOwKC");</script>
   <script>
     function showTime(Counter) {
       var query = new AV.Query(Counter);

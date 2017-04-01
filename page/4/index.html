@@ -330,9 +330,17 @@
         
           
           
-png24&#x4F4D;&#x7684;&#x56FE;&#x7247;&#x5728;iE6&#x6D4F;&#x89C8;&#x5668;&#x4E0A;&#x51FA;&#x73B0;&#x80CC;&#x666F;
+png24位的图片在iE6浏览器上出现背景
 
-&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x
+解决方案：做成PNG8，也可以引用一段脚本处理.
+
+
+浏览器默认的 margin 和 padding 不同
+
+解决方案：加一个全局的 *{margin:0;padding:0;} （但不推荐这种方式）来统一。
+
+
+IE6双边距bug：在IE6下，如果对
           ...
 
           <div class="post-more-link text-center">
@@ -467,8 +475,16 @@ png24&#x4F4D;&#x7684;&#x56FE;&#x7247;&#x5728;iE6&#x6D4F;&#x89C8;&#x5668;&#x4E0A;
       
         
           
-          LArea &#x79FB;&#x52A8;&#x7AEF;&#x57CE;&#x5E02;&#x9009;&#x62E9;&#x63A7;&#x4EF6;
-&#x7EAF;&#x539F;&#x751F;js&#x7684;&#x79FB;&#x52A8;&#x7AEF;&#x57CE;&#x5E
+          LArea 移动端城市选择控件
+纯原生js的移动端城市选择插件，不依赖任何库
+Github源码
+
+介绍
+纯 js 不依赖其他 js 库或插件
+UI 仿 IOS 效果
+
+用法在html页面中引入input标签，写法如下：
+1&lt;input id="demo1" type="text" readon
           ...
 
           <div class="post-more-link text-center">
@@ -603,8 +619,11 @@ png24&#x4F4D;&#x7684;&#x56FE;&#x7247;&#x5728;iE6&#x6D4F;&#x89C8;&#x5668;&#x4E0A;
       
         
           
-          LCalendar v1.5&#x79FB;&#x52A8;&#x7AEF;&#x65E5;&#x671F;&#x65F6;&#x95F4;&#x9009;&#x62E9;&#x63A7;&#x4EF6;
-&#x7EAF;&#x539F;&#x751F;js&#x7684;&#x79FB;&#x52
+          LCalendar v1.5移动端日期时间选择控件
+纯原生js的移动端日期插件，不依赖任何库，体积非常小只有10kUI 仿 IOS 效果
+
+用法在html页面中引入input标签，通过自定义属性data-lcalendar控制最小日期和最大日期，写法如下：
+123...&lt;input type=
           ...
 
           <div class="post-more-link text-center">
@@ -739,13 +758,16 @@ png24&#x4F4D;&#x7684;&#x56FE;&#x7247;&#x5728;iE6&#x6D4F;&#x89C8;&#x5668;&#x4E0A;
       
         
           
-          &#x95EE;&#x9898;&#xFF1A;
+          问题：
 
 Cannot find ./catalina.sh
 The file is absent or does not have execute permission
 This file is needed to run this program
 
-&#
+解决：
+
+文件的执行权限不足
+chmod +x
           ...
 
           <div class="post-more-link text-center">
@@ -881,8 +903,14 @@ This file is needed to run this program
         
           
           Javascript
-js &#x8FD0;&#x7B97;&#x7B26; !!
- !!&#x7684;&#x4F5C;&#x7528;&#x662F;&#x628A;&#x4E00;&#x4E2A;&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x7684;&#x53D8;&
+js 运算符 !!
+ !!的作用是把一个其他类型的变量转成的bool类型。
+ 
+
+在js逻辑运算中，0、””、null、false、undefined、NaN都会判为    false，其他都为true
+
+js 运算符 &amp;&amp;
+ js中||和&amp;&amp;的
           ...
 
           <div class="post-more-link text-center">
@@ -1157,9 +1185,16 @@ Home page: http://
         
           
           
-&#x4ECB;&#x7ECD;&#x6D4F;&#x89C8;&#x5668;&#x5BF9;&#x8C61;
-&#x6D4F;&#x89C8;&#x5668;&#x5BF9;&#x8C61;&#x4E3B;&#x8981;&#x6709;&#xFF1A;
-History&#x5386;&#x5
+介绍浏览器对象
+浏览器对象主要有：
+History历史对象、
+Location地址对象、
+document文档对象、
+window对象浏览器对象、
+Navigator对象(客户机浏览器的信息)、
+Screen对象（客户机屏幕的信息）等。
+history历史对象
+History对象是由浏览器中的脚本
           ...
 
           <div class="post-more-link text-center">
@@ -1295,7 +1330,7 @@ History&#x5386;&#x5
         
           
           
-&#x4ECB;&#x7ECD;Velocity.js&#x662F;&#x4E00;&#x6B3E;jquery&#x52A8;&#x753B;&#x5F15;&#x64CE;&#x63D2;&#x4EF6;&#xFF0C;&#x5B83;&#x62E5;&#x6709;&#x4E0E;jque
+介绍Velocity.js是一款jquery动画引擎插件，它拥有与jquery中的$.animate()相同的API，还打包了颜色动画，转换，循环，easing效果，类动画、滚动等功能，因此大家可以像使用$.animate()方法一样使用velocity，您可以快速的上手velocity.js。简
           ...
 
           <div class="post-more-link text-center">
@@ -1430,7 +1465,11 @@ History&#x5386;&#x5
       
         
           
-          1&#x3001;&#x901A;&#x8FC7;viewport + REM&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x517C;&#x5BB9;&#x3002;&#x76EE;&#x524D;&#x8FD9;&#x79CD;&#x517C;&#x5BB9;&#x65B9
+          1、通过viewport + REM的方式来兼容。目前这种兼容方案相对比较完美，适合新项目（老项目改用REM单位成本会比较高）。 淘宝M首页 就是这种方案。
+
+在devicePixelRatio = 2 时，输出viewport
+
+1&lt;meta name="viewport" content=
           ...
 
           <div class="post-more-link text-center">
@@ -1565,7 +1604,8 @@ History&#x5386;&#x5
       
         
           
-          &#x4ECB;&#x7ECD;float&#x662F;&#x7F51;&#x9875;&#x5E03;&#x5C40;&#x4E2D;&#x6700;&#x5E38;&#x7528;&#x7684;css&#x5C5E;&#x6027;&#x4E4B;&#x4E00;&#xFF0C;&#x4F4
+          介绍float是网页布局中最常用的css属性之一，但是使用float同样会带来各种各样的问题，例如它使元素脱离正常的文档流，使父元素的高度坍塌等，所以我们经常要清除浮动。
+现在，越来越多人反对使用float来布局，最具代表性的就是google，因为float布局是会产生各种问题，有事问题还是莫名其妙
           ...
 
           <div class="post-more-link text-center">
@@ -1869,7 +1909,7 @@ History&#x5386;&#x5
 
   
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-  <script>AV.initialize("FkaAa7JkTVnjEWwTzitYNqdD-gzGzoHsz", "EQB15sUPijE0qCOJGBaoqxWN");</script>
+  <script>AV.initialize("vRu2nM0E4TnPoSh1PmS4wXad-gzGzoHsz", "m1sk6K5zpn10ht2DGFqBOwKC");</script>
   <script>
     function showTime(Counter) {
       var query = new AV.Query(Counter);

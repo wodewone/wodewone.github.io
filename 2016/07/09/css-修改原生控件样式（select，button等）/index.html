@@ -59,17 +59,23 @@
 
 
 
-<meta name="description" content="&amp;#x524D;&amp;#x8A00;&amp;#x6211;&amp;#x4EEC;&amp;#x90FD;&amp;#x77E5;&amp;#x9053; html &amp;#x7684;&amp;#x4E00;&amp;#x4E9B;&amp;#x539F;&amp;#x751F;&amp;#x63A7;&amp;#x4EF6;&amp;#x90FD;&amp;#x6709;&amp;#x81EA;&amp;#x5DF1;&amp;#x7684;&amp;#x6837;&amp;#x5F0F;&amp;#xFF0C;&amp;#x6BD4;&amp;#x5982; s">
+<meta name="description" content="前言我们都知道 html 的一些原生控件都有自己的样式，比如 select（超级难看），button，input 等都有自己默认的样式，而在不用浏览器下显示的效果也不相同
+为了保持在所有浏览器下保持一直，我们都会使用自定义的样式去代替这些默认的样式，但是为了快速开发也会使用一些，毕竟原生的没有那么多麻烦事儿~
+那么有没有一种 css 来清除这些默认的样式呢？然后还没有一个标准的属性来统一清除默认的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="css 修改原生控件样式（select，button等）">
 <meta property="og:url" content="http://wodewone.com/2016/07/09/css-修改原生控件样式（select，button等）/index.html">
 <meta property="og:site_name" content="wodewone's blog">
-<meta property="og:description" content="&amp;#x524D;&amp;#x8A00;&amp;#x6211;&amp;#x4EEC;&amp;#x90FD;&amp;#x77E5;&amp;#x9053; html &amp;#x7684;&amp;#x4E00;&amp;#x4E9B;&amp;#x539F;&amp;#x751F;&amp;#x63A7;&amp;#x4EF6;&amp;#x90FD;&amp;#x6709;&amp;#x81EA;&amp;#x5DF1;&amp;#x7684;&amp;#x6837;&amp;#x5F0F;&amp;#xFF0C;&amp;#x6BD4;&amp;#x5982; s">
+<meta property="og:description" content="前言我们都知道 html 的一些原生控件都有自己的样式，比如 select（超级难看），button，input 等都有自己默认的样式，而在不用浏览器下显示的效果也不相同
+为了保持在所有浏览器下保持一直，我们都会使用自定义的样式去代替这些默认的样式，但是为了快速开发也会使用一些，毕竟原生的没有那么多麻烦事儿~
+那么有没有一种 css 来清除这些默认的样式呢？然后还没有一个标准的属性来统一清除默认的">
 <meta property="og:image" content="http://wodewone.com/2016/07/09/css-修改原生控件样式（select，button等）/demo.png">
 <meta property="og:updated_time" content="2016-12-03T13:48:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css 修改原生控件样式（select，button等）">
-<meta name="twitter:description" content="&amp;#x524D;&amp;#x8A00;&amp;#x6211;&amp;#x4EEC;&amp;#x90FD;&amp;#x77E5;&amp;#x9053; html &amp;#x7684;&amp;#x4E00;&amp;#x4E9B;&amp;#x539F;&amp;#x751F;&amp;#x63A7;&amp;#x4EF6;&amp;#x90FD;&amp;#x6709;&amp;#x81EA;&amp;#x5DF1;&amp;#x7684;&amp;#x6837;&amp;#x5F0F;&amp;#xFF0C;&amp;#x6BD4;&amp;#x5982; s">
+<meta name="twitter:description" content="前言我们都知道 html 的一些原生控件都有自己的样式，比如 select（超级难看），button，input 等都有自己默认的样式，而在不用浏览器下显示的效果也不相同
+为了保持在所有浏览器下保持一直，我们都会使用自定义的样式去代替这些默认的样式，但是为了快速开发也会使用一些，毕竟原生的没有那么多麻烦事儿~
+那么有没有一种 css 来清除这些默认的样式呢？然后还没有一个标准的属性来统一清除默认的">
 <meta name="twitter:image" content="http://wodewone.com/2016/07/09/css-修改原生控件样式（select，button等）/demo.png">
 
 
@@ -331,15 +337,15 @@
       
 
       
-        <h4 id="&#x524D;&#x8A00;"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a>&#x524D;&#x8A00;</h4><p>&#x6211;&#x4EEC;&#x90FD;&#x77E5;&#x9053; html &#x7684;&#x4E00;&#x4E9B;&#x539F;&#x751F;&#x63A7;&#x4EF6;&#x90FD;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x6837;&#x5F0F;&#xFF0C;&#x6BD4;&#x5982; select&#xFF08;&#x8D85;&#x7EA7;&#x96BE;&#x770B;&#xFF09;&#xFF0C;button&#xFF0C;input &#x7B49;&#x90FD;&#x6709;&#x81EA;&#x5DF1;&#x9ED8;&#x8BA4;&#x7684;&#x6837;&#x5F0F;&#xFF0C;&#x800C;&#x5728;&#x4E0D;&#x7528;&#x6D4F;&#x89C8;&#x5668;&#x4E0B;&#x663E;&#x793A;&#x7684;&#x6548;&#x679C;&#x4E5F;&#x4E0D;&#x76F8;&#x540C;</p>
-<p>&#x4E3A;&#x4E86;&#x4FDD;&#x6301;&#x5728;&#x6240;&#x6709;&#x6D4F;&#x89C8;&#x5668;&#x4E0B;&#x4FDD;&#x6301;&#x4E00;&#x76F4;&#xFF0C;&#x6211;&#x4EEC;&#x90FD;&#x4F1A;&#x4F7F;&#x7528;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x6837;&#x5F0F;&#x53BB;&#x4EE3;&#x66FF;&#x8FD9;&#x4E9B;&#x9ED8;&#x8BA4;&#x7684;&#x6837;&#x5F0F;&#xFF0C;&#x4F46;&#x662F;&#x4E3A;&#x4E86;&#x5FEB;&#x901F;&#x5F00;&#x53D1;&#x4E5F;&#x4F1A;&#x4F7F;&#x7528;&#x4E00;&#x4E9B;&#xFF0C;&#x6BD5;&#x7ADF;&#x539F;&#x751F;&#x7684;&#x6CA1;&#x6709;&#x90A3;&#x4E48;&#x591A;&#x9EBB;&#x70E6;&#x4E8B;&#x513F;~</p>
-<p>&#x90A3;&#x4E48;&#x6709;&#x6CA1;&#x6709;&#x4E00;&#x79CD; css &#x6765;&#x6E05;&#x9664;&#x8FD9;&#x4E9B;&#x9ED8;&#x8BA4;&#x7684;&#x6837;&#x5F0F;&#x5462;&#xFF1F;<br>&#x7136;&#x540E;&#x8FD8;&#x6CA1;&#x6709;&#x4E00;&#x4E2A;&#x6807;&#x51C6;&#x7684;&#x5C5E;&#x6027;&#x6765;&#x7EDF;&#x4E00;&#x6E05;&#x9664;&#x9ED8;&#x8BA4;&#x7684;&#x6837;&#x5F0F;&#xFF0C;<br>&#x4F46;&#x662F;~~~<br>&#x4ECA;&#x5929;&#x770B;&#x5230;&#x4E86;&#x4E00;&#x4E2A;&#x975E;CSS &#x89C4;&#x8303;&#x7684;&#x5C5E;&#x6027; <code>-webkit-appearance</code></p>
-<h3 id="&#x9ED8;&#x8BA4;&#x503C;"><a href="#&#x9ED8;&#x8BA4;&#x503C;" class="headerlink" title="&#x9ED8;&#x8BA4;&#x503C;"></a>&#x9ED8;&#x8BA4;&#x503C;</h3><blockquote>
+        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>我们都知道 html 的一些原生控件都有自己的样式，比如 select（超级难看），button，input 等都有自己默认的样式，而在不用浏览器下显示的效果也不相同</p>
+<p>为了保持在所有浏览器下保持一直，我们都会使用自定义的样式去代替这些默认的样式，但是为了快速开发也会使用一些，毕竟原生的没有那么多麻烦事儿~</p>
+<p>那么有没有一种 css 来清除这些默认的样式呢？<br>然后还没有一个标准的属性来统一清除默认的样式，<br>但是~~~<br>今天看到了一个非CSS 规范的属性 <code>-webkit-appearance</code></p>
+<h3 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h3><blockquote>
 <p>appearance: normal|icon|window|button|menu|field;</p>
 </blockquote>
-<h4 id="&#x4F7F;&#x7528;&#x65B9;&#x6CD5;"><a href="#&#x4F7F;&#x7528;&#x65B9;&#x6CD5;" class="headerlink" title="&#x4F7F;&#x7528;&#x65B9;&#x6CD5;"></a>&#x4F7F;&#x7528;&#x65B9;&#x6CD5;</h4><p>&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4FEE;&#x6539;&#x5143;&#x7D20;&#x7684;&#x9ED8;&#x8BA4;&#x6837;&#x5F0F;&#xFF1A;</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;appearance&quot;</span> <span class="attr">style</span>=<span class="string">&quot;-webkit-appearance: searchfield-cancel-button;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;appearance&quot;</span> <span class="attr">style</span>=<span class="string">&quot;-webkit-appearance: checkbox;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;appearance&quot;</span> <span class="attr">style</span>=<span class="string">&quot;-webkit-appearance: button;&quot;</span>&gt;</span>&#x6309;&#x94AE;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>&#x6548;&#x679C;&#xFF1A;<br><img src="/2016/07/09/css-&#x4FEE;&#x6539;&#x539F;&#x751F;&#x63A7;&#x4EF6;&#x6837;&#x5F0F;&#xFF08;select&#xFF0C;button&#x7B49;&#xFF09;/demo.png" alt="demo"></p>
+<h4 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h4><p>这个属性可以直接修改元素的默认样式：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"appearance"</span> <span class="attr">style</span>=<span class="string">"-webkit-appearance: searchfield-cancel-button;"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"appearance"</span> <span class="attr">style</span>=<span class="string">"-webkit-appearance: checkbox;"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"appearance"</span> <span class="attr">style</span>=<span class="string">"-webkit-appearance: button;"</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>效果：<br><img src="/2016/07/09/css-修改原生控件样式（select，button等）/demo.png" alt="demo"></p>
 
       
     </div>
@@ -685,7 +691,7 @@
 
   
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-  <script>AV.initialize("FkaAa7JkTVnjEWwTzitYNqdD-gzGzoHsz", "EQB15sUPijE0qCOJGBaoqxWN");</script>
+  <script>AV.initialize("vRu2nM0E4TnPoSh1PmS4wXad-gzGzoHsz", "m1sk6K5zpn10ht2DGFqBOwKC");</script>
   <script>
     function showTime(Counter) {
       var query = new AV.Query(Counter);

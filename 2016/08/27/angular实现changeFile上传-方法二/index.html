@@ -59,19 +59,19 @@
 
 
 
-<meta name="description" content="angular&amp;#x5B9E;&amp;#x73B0;changeFile&amp;#x4E0A;&amp;#x4F20;[&amp;#x65B9;&amp;#x6CD5;&amp;#x4E8C;]html
-1&amp;lt;div ng-controller=&amp;quot;form-cntlr&amp;quot;&amp;gt; &amp;lt;form&amp;gt; &amp;lt;button ng-click=&amp;quot;selectFile()&amp;quot;&amp;gt;Upload Yo">
+<meta name="description" content="angular实现changeFile上传[方法二]html
+1&amp;lt;div ng-controller=&quot;form-cntlr&quot;&amp;gt; &amp;lt;form&amp;gt; &amp;lt;button ng-click=&quot;selectFile()&quot;&amp;gt;Upload Your File&amp;lt;/button&amp;gt; &amp;lt;input type=&quot;file&quot; style=&quot;display:none&quot; id=">
 <meta property="og:type" content="article">
 <meta property="og:title" content="angular实现changeFile上传[方法二]">
 <meta property="og:url" content="http://wodewone.com/2016/08/27/angular实现changeFile上传-方法二/index.html">
 <meta property="og:site_name" content="wodewone's blog">
-<meta property="og:description" content="angular&amp;#x5B9E;&amp;#x73B0;changeFile&amp;#x4E0A;&amp;#x4F20;[&amp;#x65B9;&amp;#x6CD5;&amp;#x4E8C;]html
-1&amp;lt;div ng-controller=&amp;quot;form-cntlr&amp;quot;&amp;gt; &amp;lt;form&amp;gt; &amp;lt;button ng-click=&amp;quot;selectFile()&amp;quot;&amp;gt;Upload Yo">
+<meta property="og:description" content="angular实现changeFile上传[方法二]html
+1&amp;lt;div ng-controller=&quot;form-cntlr&quot;&amp;gt; &amp;lt;form&amp;gt; &amp;lt;button ng-click=&quot;selectFile()&quot;&amp;gt;Upload Your File&amp;lt;/button&amp;gt; &amp;lt;input type=&quot;file&quot; style=&quot;display:none&quot; id=">
 <meta property="og:updated_time" content="2016-12-03T13:45:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="angular实现changeFile上传[方法二]">
-<meta name="twitter:description" content="angular&amp;#x5B9E;&amp;#x73B0;changeFile&amp;#x4E0A;&amp;#x4F20;[&amp;#x65B9;&amp;#x6CD5;&amp;#x4E8C;]html
-1&amp;lt;div ng-controller=&amp;quot;form-cntlr&amp;quot;&amp;gt; &amp;lt;form&amp;gt; &amp;lt;button ng-click=&amp;quot;selectFile()&amp;quot;&amp;gt;Upload Yo">
+<meta name="twitter:description" content="angular实现changeFile上传[方法二]html
+1&amp;lt;div ng-controller=&quot;form-cntlr&quot;&amp;gt; &amp;lt;form&amp;gt; &amp;lt;button ng-click=&quot;selectFile()&quot;&amp;gt;Upload Your File&amp;lt;/button&amp;gt; &amp;lt;input type=&quot;file&quot; style=&quot;display:none&quot; id=">
 
 
 
@@ -334,18 +334,18 @@
       
 
       
-        <h3 id="angular&#x5B9E;&#x73B0;changeFile&#x4E0A;&#x4F20;-&#x65B9;&#x6CD5;&#x4E8C;"><a href="#angular&#x5B9E;&#x73B0;changeFile&#x4E0A;&#x4F20;-&#x65B9;&#x6CD5;&#x4E8C;" class="headerlink" title="angular&#x5B9E;&#x73B0;changeFile&#x4E0A;&#x4F20;[&#x65B9;&#x6CD5;&#x4E8C;]"></a>angular&#x5B9E;&#x73B0;changeFile&#x4E0A;&#x4F20;[&#x65B9;&#x6CD5;&#x4E8C;]</h3><p>html</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-controller</span>=<span class="string">&quot;form-cntlr&quot;</span>&gt;</span> <span class="tag">&lt;<span class="name">form</span>&gt;</span> <span class="tag">&lt;<span class="name">button</span> <span class="attr">ng-click</span>=<span class="string">&quot;selectFile()&quot;</span>&gt;</span>Upload Your File<span class="tag">&lt;/<span class="name">button</span>&gt;</span> <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">style</span>=<span class="string">&quot;display:none&quot;</span> <span class="attr">id</span>=<span class="string">&quot;file&quot;</span> <span class="attr">name</span>=<span class="string">&apos;file&apos;</span> <span class="attr">onchange</span>=<span class="string">&quot;angular.element(this).scope().fileNameChanged(this)&quot;</span> /&gt;</span> <span class="tag">&lt;/<span class="name">form</span>&gt;</span> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+        <h3 id="angular实现changeFile上传-方法二"><a href="#angular实现changeFile上传-方法二" class="headerlink" title="angular实现changeFile上传[方法二]"></a>angular实现changeFile上传[方法二]</h3><p>html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-controller</span>=<span class="string">"form-cntlr"</span>&gt;</span> <span class="tag">&lt;<span class="name">form</span>&gt;</span> <span class="tag">&lt;<span class="name">button</span> <span class="attr">ng-click</span>=<span class="string">"selectFile()"</span>&gt;</span>Upload Your File<span class="tag">&lt;/<span class="name">button</span>&gt;</span> <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">style</span>=<span class="string">"display:none"</span> <span class="attr">id</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">'file'</span> <span class="attr">onchange</span>=<span class="string">"angular.element(this).scope().fileNameChanged(this)"</span> /&gt;</span> <span class="tag">&lt;/<span class="name">form</span>&gt;</span> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>instead of </p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">style</span>=<span class="string">&quot;display:none&quot;</span> <span class="attr">id</span>=<span class="string">&quot;file&quot;</span> <span class="attr">name</span>=<span class="string">&apos;file&apos;</span> <span class="attr">ng-Change</span>=<span class="string">&quot;fileNameChanged()&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">style</span>=<span class="string">"display:none"</span> <span class="attr">id</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">'file'</span> <span class="attr">ng-Change</span>=<span class="string">"fileNameChanged()"</span> /&gt;</span></div></pre></td></tr></table></figure>
 <p>can you try</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">style</span>=<span class="string">&quot;display:none&quot;</span> <span class="attr">id</span>=<span class="string">&quot;file&quot;</span> <span class="attr">name</span>=<span class="string">&apos;file&apos;</span> <span class="attr">onchange</span>=<span class="string">&quot;angular.element(this).scope().fileNameChanged()&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">style</span>=<span class="string">"display:none"</span> <span class="attr">id</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">'file'</span> <span class="attr">onchange</span>=<span class="string">"angular.element(this).scope().fileNameChanged()"</span> /&gt;</span></div></pre></td></tr></table></figure>
 <p>and in your function changes instead of</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$scope.fileNameChanged = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{ alert(<span class="string">&quot;select file&quot;</span>); }</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$scope.fileNameChanged = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; alert(<span class="string">"select file"</span>); &#125;</div></pre></td></tr></table></figure>
 <p>can you try</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$scope.fileNameChanged = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;select file&quot;</span>);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p><a href="http://stackoverflow.com/questions/17922557/angularjs-how-to-check-for-changes-in-file-input-fields" target="_blank" rel="external">&#x53C2;&#x8003;&#x51FA;&#x5904;1</a></p>
-<p><a href="https://github.com/angular/angular.js/issues/1375" target="_blank" rel="external">&#x53C2;&#x8003;&#x51FA;&#x5904;2</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$scope.fileNameChanged = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">"select file"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><a href="http://stackoverflow.com/questions/17922557/angularjs-how-to-check-for-changes-in-file-input-fields" target="_blank" rel="external">参考出处1</a></p>
+<p><a href="https://github.com/angular/angular.js/issues/1375" target="_blank" rel="external">参考出处2</a></p>
 
       
     </div>
@@ -691,7 +691,7 @@
 
   
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-  <script>AV.initialize("FkaAa7JkTVnjEWwTzitYNqdD-gzGzoHsz", "EQB15sUPijE0qCOJGBaoqxWN");</script>
+  <script>AV.initialize("vRu2nM0E4TnPoSh1PmS4wXad-gzGzoHsz", "m1sk6K5zpn10ht2DGFqBOwKC");</script>
   <script>
     function showTime(Counter) {
       var query = new AV.Query(Counter);

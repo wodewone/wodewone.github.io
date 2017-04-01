@@ -59,16 +59,22 @@
 
 
 
-<meta name="description" content="ionic&amp;#x4E2D;ionicView&amp;#x7684;&amp;#x751F;&amp;#x547D;&amp;#x5468;&amp;#x671F;ionicView&amp;#x7684;&amp;#x751F;&amp;#x547D;&amp;#x5468;&amp;#x671F;&amp;#x7684;&amp;#x4E8B;&amp;#x4EF6;&amp;#x8C03;&amp;#x7528;&amp;#x5728;&amp;#x6BCF;&amp;#x4E2A; ionicView &amp;#x7684; contr">
+<meta name="description" content="ionic中ionicView的生命周期ionicView的生命周期的事件调用在每个 ionicView 的 controller 中使用 $scope.$on(&amp;#39;$ionicView.enter&amp;#39;, function() {}); 调用。
+
+$ionicView.loaded    该观点已经加载。此事件仅一次按次被创建并添加到DOM发生。如果视图离开，但被缓存，那么这个事件将不">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ionic中ionicView的生命周期">
 <meta property="og:url" content="http://wodewone.com/2016/10/11/ionic中ionicView的生命周期/index.html">
 <meta property="og:site_name" content="wodewone's blog">
-<meta property="og:description" content="ionic&amp;#x4E2D;ionicView&amp;#x7684;&amp;#x751F;&amp;#x547D;&amp;#x5468;&amp;#x671F;ionicView&amp;#x7684;&amp;#x751F;&amp;#x547D;&amp;#x5468;&amp;#x671F;&amp;#x7684;&amp;#x4E8B;&amp;#x4EF6;&amp;#x8C03;&amp;#x7528;&amp;#x5728;&amp;#x6BCF;&amp;#x4E2A; ionicView &amp;#x7684; contr">
+<meta property="og:description" content="ionic中ionicView的生命周期ionicView的生命周期的事件调用在每个 ionicView 的 controller 中使用 $scope.$on(&amp;#39;$ionicView.enter&amp;#39;, function() {}); 调用。
+
+$ionicView.loaded    该观点已经加载。此事件仅一次按次被创建并添加到DOM发生。如果视图离开，但被缓存，那么这个事件将不">
 <meta property="og:updated_time" content="2016-11-26T13:25:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ionic中ionicView的生命周期">
-<meta name="twitter:description" content="ionic&amp;#x4E2D;ionicView&amp;#x7684;&amp;#x751F;&amp;#x547D;&amp;#x5468;&amp;#x671F;ionicView&amp;#x7684;&amp;#x751F;&amp;#x547D;&amp;#x5468;&amp;#x671F;&amp;#x7684;&amp;#x4E8B;&amp;#x4EF6;&amp;#x8C03;&amp;#x7528;&amp;#x5728;&amp;#x6BCF;&amp;#x4E2A; ionicView &amp;#x7684; contr">
+<meta name="twitter:description" content="ionic中ionicView的生命周期ionicView的生命周期的事件调用在每个 ionicView 的 controller 中使用 $scope.$on(&amp;#39;$ionicView.enter&amp;#39;, function() {}); 调用。
+
+$ionicView.loaded    该观点已经加载。此事件仅一次按次被创建并添加到DOM发生。如果视图离开，但被缓存，那么这个事件将不">
 
 
 
@@ -329,23 +335,23 @@
       
 
       
-        <h3 id="ionic&#x4E2D;ionicView&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;"><a href="#ionic&#x4E2D;ionicView&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;" class="headerlink" title="ionic&#x4E2D;ionicView&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;"></a>ionic&#x4E2D;ionicView&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;</h3><p>ionicView&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x7684;&#x4E8B;&#x4EF6;&#x8C03;&#x7528;&#x5728;&#x6BCF;&#x4E2A; <code>ionicView</code> &#x7684; <code>controller</code> &#x4E2D;&#x4F7F;&#x7528; <code>$scope.$on(&apos;$ionicView.enter&apos;, function() {});</code> &#x8C03;&#x7528;&#x3002;</p>
+        <h3 id="ionic中ionicView的生命周期"><a href="#ionic中ionicView的生命周期" class="headerlink" title="ionic中ionicView的生命周期"></a>ionic中ionicView的生命周期</h3><p>ionicView的生命周期的事件调用在每个 <code>ionicView</code> 的 <code>controller</code> 中使用 <code>$scope.$on(&#39;$ionicView.enter&#39;, function() {});</code> 调用。</p>
 <ol>
-<li><p><code>$ionicView.loaded</code>    &#x8BE5;&#x89C2;&#x70B9;&#x5DF2;&#x7ECF;&#x52A0;&#x8F7D;&#x3002;&#x6B64;&#x4E8B;&#x4EF6;&#x4EC5;&#x4E00;&#x6B21;&#x6309;&#x6B21;&#x88AB;&#x521B;&#x5EFA;&#x5E76;&#x6DFB;&#x52A0;&#x5230;DOM&#x53D1;&#x751F;&#x3002;&#x5982;&#x679C;&#x89C6;&#x56FE;&#x79BB;&#x5F00;&#xFF0C;&#x4F46;&#x88AB;&#x7F13;&#x5B58;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;&#x4E8B;&#x4EF6;&#x5C06;&#x4E0D;&#x4F1A;&#x518D;&#x5728;&#x968F;&#x540E;&#x89C2;&#x770B;&#x5C04;&#x51FB;&#x3002;<br>&#x52A0;&#x8F7D;&#x7684;&#x4E8B;&#x4EF6;&#x662F;&#x597D;&#x5730;&#x65B9;&#xFF0C;&#x628A;&#x4F60;&#x7684;&#x8BBE;&#x7F6E;&#x4EE3;&#x7801;&#x7684;&#x89C6;&#x56FE;; &#x7136;&#x800C;&#xFF0C;&#x8FD9;&#x662F;&#x4E0D;&#x63A8;&#x8350;&#x7684;&#x4E8B;&#x4EF6;&#x6536;&#x542C;&#x65F6;&#x7684;&#x56FE;&#x53D8;&#x5F97;&#x6D3B;&#x8DC3;&#x3002;<br>&#x7C7B;&#x4F3C;&#x4E8E;<code>Android</code>&#x7684;<code>activity</code>&#x4E2D;&#x7684;<code>onCreate()</code>&#x65B9;&#x6CD5;&#x3002;</p>
+<li><p><code>$ionicView.loaded</code>    该观点已经加载。此事件仅一次按次被创建并添加到DOM发生。如果视图离开，但被缓存，那么这个事件将不会再在随后观看射击。<br>加载的事件是好地方，把你的设置代码的视图; 然而，这是不推荐的事件收听时的图变得活跃。<br>类似于<code>Android</code>的<code>activity</code>中的<code>onCreate()</code>方法。</p>
 </li>
-<li><p><code>$ionicView.enter</code>    &#x8BE5;&#x89C2;&#x70B9;&#x5DF2;&#x7ECF;&#x5168;&#x9762;&#x8FDB;&#x5165;&#xFF0C;&#x73B0;&#x5728;&#x662F;&#x6D3B;&#x52A8;&#x89C6;&#x56FE;&#x3002;&#x6B64;&#x4E8B;&#x4EF6;&#x5C06;&#x89E6;&#x53D1;&#xFF0C;&#x65E0;&#x8BBA;&#x662F;&#x7B2C;&#x4E00;&#x6B21;&#x8D1F;&#x8377;&#x6216;&#x7F13;&#x5B58;&#x7684;&#x89C6;&#x56FE;&#x3002;<br>&#x7C7B;&#x4F3C;&#x4E8E;<code>Android</code>&#x7684;<code>activity</code>&#x4E2D;&#x7684;<code>onStart()</code>&#x65B9;&#x6CD5;&#x3002;</p>
+<li><p><code>$ionicView.enter</code>    该观点已经全面进入，现在是活动视图。此事件将触发，无论是第一次负荷或缓存的视图。<br>类似于<code>Android</code>的<code>activity</code>中的<code>onStart()</code>方法。</p>
 </li>
-<li><p><code>$ionicView.leave</code>    &#x8BE5;&#x89C2;&#x70B9;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;&#x79BB;&#x5F00;&#xFF0C;&#x4E0D;&#x518D;&#x662F;&#x79EF;&#x6781;&#x7684;&#x770B;&#x6CD5;&#x3002;&#x6B64;&#x4E8B;&#x4EF6;&#x5C06;&#x89E6;&#x53D1;&#xFF0C;&#x65E0;&#x8BBA;&#x662F;&#x7F13;&#x5B58;&#x6216;&#x9500;&#x6BC1;&#x3002;<br>&#x7C7B;&#x4F3C;&#x4E8E;<code>Android</code>&#x7684;<code>activity</code>&#x4E2D;&#x7684;<code>onStop()</code>&#x65B9;&#x6CD5;&#x3002;</p>
+<li><p><code>$ionicView.leave</code>    该观点已经完成离开，不再是积极的看法。此事件将触发，无论是缓存或销毁。<br>类似于<code>Android</code>的<code>activity</code>中的<code>onStop()</code>方法。</p>
 </li>
-<li><p><code>$ionicView.beforeEnter</code>    &#x89C6;&#x56FE;&#x662F;&#x5373;&#x5C06;&#x8FDB;&#x5165;&#x5E76;&#x6210;&#x4E3A;&#x6D3B;&#x52A8;&#x89C6;&#x56FE;&#x3002;<br>&#x7C7B;&#x4F3C;&#x4E8E;<code>Android</code>&#x7684;<code>activity</code>&#x4E2D;&#x7684;<code>onResume()</code>&#x65B9;&#x6CD5;&#x3002;</p>
+<li><p><code>$ionicView.beforeEnter</code>    视图是即将进入并成为活动视图。<br>类似于<code>Android</code>的<code>activity</code>中的<code>onResume()</code>方法。</p>
 </li>
-<li><p><code>$ionicView.beforeLeave</code>    &#x89C6;&#x56FE;&#x662F;&#x5373;&#x5C06;&#x79BB;&#x5F00;&#xFF0C;&#x4E0D;&#x518D;&#x662F;&#x6D3B;&#x52A8;&#x89C6;&#x56FE;&#x3002;<br>&#x7C7B;&#x4F3C;&#x4E8E;<code>Android</code>&#x7684;<code>activity</code>&#x4E2D;&#x7684;<code>onPause()</code>&#x65B9;&#x6CD5;&#x3002;</p>
+<li><p><code>$ionicView.beforeLeave</code>    视图是即将离开，不再是活动视图。<br>类似于<code>Android</code>的<code>activity</code>中的<code>onPause()</code>方法。</p>
 </li>
-<li><p><code>$ionicView.afterEnter</code>    &#x8BE5;&#x89C2;&#x70B9;&#x5DF2;&#x7ECF;&#x5168;&#x9762;&#x8FDB;&#x5165;&#xFF0C;&#x73B0;&#x5728;&#x662F;&#x6D3B;&#x52A8;&#x89C6;&#x56FE;&#x3002;</p>
+<li><p><code>$ionicView.afterEnter</code>    该观点已经全面进入，现在是活动视图。</p>
 </li>
-<li><p><code>$ionicView.afterLeave</code>    &#x8BE5;&#x89C2;&#x70B9;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;&#x79BB;&#x5F00;&#xFF0C;&#x4E0D;&#x518D;&#x662F;&#x79EF;&#x6781;&#x7684;&#x770B;&#x6CD5;&#x3002;</p>
+<li><p><code>$ionicView.afterLeave</code>    该观点已经完成离开，不再是积极的看法。</p>
 </li>
-<li><p><code>$ionicView.unloaded</code>    &#x8BE5;&#x89C6;&#x56FE;&#x7684;&#x63A7;&#x5236;&#x5668;&#x5DF2;&#x7ECF;&#x88AB;&#x7834;&#x574F;&#xFF0C;&#x5B83;&#x7684;&#x5143;&#x7D20;&#x5DF2;&#x7ECF;&#x4ECE;DOM&#x4E2D;&#x5220;&#x9664;&#x3002;<br>&#x7C7B;&#x4F3C;&#x4E8E;<code>Android</code>&#x7684;<code>activity</code>&#x4E2D;&#x7684;<code>onDestroy()</code>&#x65B9;&#x6CD5;&#x3002;</p>
+<li><p><code>$ionicView.unloaded</code>    该视图的控制器已经被破坏，它的元素已经从DOM中删除。<br>类似于<code>Android</code>的<code>activity</code>中的<code>onDestroy()</code>方法。</p>
 </li>
 </ol>
 
@@ -693,7 +699,7 @@
 
   
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-  <script>AV.initialize("FkaAa7JkTVnjEWwTzitYNqdD-gzGzoHsz", "EQB15sUPijE0qCOJGBaoqxWN");</script>
+  <script>AV.initialize("vRu2nM0E4TnPoSh1PmS4wXad-gzGzoHsz", "m1sk6K5zpn10ht2DGFqBOwKC");</script>
   <script>
     function showTime(Counter) {
       var query = new AV.Query(Counter);

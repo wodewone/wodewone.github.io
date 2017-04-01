@@ -59,17 +59,17 @@
 
 
 
-<meta name="description" content="&amp;#x5E8F;&amp;#x8A00;&amp;#x56E0;&amp;#x4E3A;&amp;#x81EA;&amp;#x5DF1;&amp;#x4E0D;&amp;#x5927;&amp;#x559C;&amp;#x6B22;&amp;#x559C;&amp;#x6B22;&amp;#x7528;&amp;#x624B;&amp;#x673A;&amp;#xFF0C;&amp;#x6240;&amp;#x4EE5;&amp;#x5F53;&amp;#x5728;&amp;#x624B;&amp;#x673A;&amp;#x4E0A;&amp;#x770B;&amp;#x5230;">
+<meta name="description" content="序言因为自己不大喜欢喜欢用手机，所以当在手机上看到有些应用只能在手机上使用时觉得好别扭，但是自己也不是写原生应用的人，怎么办呢~那么问题来了，这个世界上还有 js 不能干的事情吗，js 都能写移动应用了，那能不能用来写桌面应用呢，于世~带着疑问还是 google 然后发现了有意思的了；原来早就有解决方案了，早在Node.js问世不久之后就出现了 NW.js 这么个东西，但是我们这里不讨论他，哈哈~">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用js创建macOS应用(更新:2017-02-18)">
 <meta property="og:url" content="http://wodewone.com/2016/12/03/使用js创建macOS应用/index.html">
 <meta property="og:site_name" content="wodewone's blog">
-<meta property="og:description" content="&amp;#x5E8F;&amp;#x8A00;&amp;#x56E0;&amp;#x4E3A;&amp;#x81EA;&amp;#x5DF1;&amp;#x4E0D;&amp;#x5927;&amp;#x559C;&amp;#x6B22;&amp;#x559C;&amp;#x6B22;&amp;#x7528;&amp;#x624B;&amp;#x673A;&amp;#xFF0C;&amp;#x6240;&amp;#x4EE5;&amp;#x5F53;&amp;#x5728;&amp;#x624B;&amp;#x673A;&amp;#x4E0A;&amp;#x770B;&amp;#x5230;">
+<meta property="og:description" content="序言因为自己不大喜欢喜欢用手机，所以当在手机上看到有些应用只能在手机上使用时觉得好别扭，但是自己也不是写原生应用的人，怎么办呢~那么问题来了，这个世界上还有 js 不能干的事情吗，js 都能写移动应用了，那能不能用来写桌面应用呢，于世~带着疑问还是 google 然后发现了有意思的了；原来早就有解决方案了，早在Node.js问世不久之后就出现了 NW.js 这么个东西，但是我们这里不讨论他，哈哈~">
 <meta property="og:image" content="http://electron.atom.io/images/apps/atom-icon.png">
 <meta property="og:updated_time" content="2017-02-24T10:35:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用js创建macOS应用(更新:2017-02-18)">
-<meta name="twitter:description" content="&amp;#x5E8F;&amp;#x8A00;&amp;#x56E0;&amp;#x4E3A;&amp;#x81EA;&amp;#x5DF1;&amp;#x4E0D;&amp;#x5927;&amp;#x559C;&amp;#x6B22;&amp;#x559C;&amp;#x6B22;&amp;#x7528;&amp;#x624B;&amp;#x673A;&amp;#xFF0C;&amp;#x6240;&amp;#x4EE5;&amp;#x5F53;&amp;#x5728;&amp;#x624B;&amp;#x673A;&amp;#x4E0A;&amp;#x770B;&amp;#x5230;">
+<meta name="twitter:description" content="序言因为自己不大喜欢喜欢用手机，所以当在手机上看到有些应用只能在手机上使用时觉得好别扭，但是自己也不是写原生应用的人，怎么办呢~那么问题来了，这个世界上还有 js 不能干的事情吗，js 都能写移动应用了，那能不能用来写桌面应用呢，于世~带着疑问还是 google 然后发现了有意思的了；原来早就有解决方案了，早在Node.js问世不久之后就出现了 NW.js 这么个东西，但是我们这里不讨论他，哈哈~">
 <meta name="twitter:image" content="http://electron.atom.io/images/apps/atom-icon.png">
 
 
@@ -347,175 +347,175 @@
       
 
       
-        <h2 id="&#x5E8F;&#x8A00;"><a href="#&#x5E8F;&#x8A00;" class="headerlink" title="&#x5E8F;&#x8A00;"></a>&#x5E8F;&#x8A00;</h2><p>&#x56E0;&#x4E3A;&#x81EA;&#x5DF1;&#x4E0D;&#x5927;&#x559C;&#x6B22;&#x559C;&#x6B22;&#x7528;&#x624B;&#x673A;&#xFF0C;&#x6240;&#x4EE5;&#x5F53;&#x5728;&#x624B;&#x673A;&#x4E0A;&#x770B;&#x5230;&#x6709;&#x4E9B;&#x5E94;&#x7528;&#x53EA;&#x80FD;&#x5728;&#x624B;&#x673A;&#x4E0A;&#x4F7F;&#x7528;&#x65F6;&#x89C9;&#x5F97;&#x597D;&#x522B;&#x626D;&#xFF0C;&#x4F46;&#x662F;&#x81EA;&#x5DF1;&#x4E5F;&#x4E0D;&#x662F;&#x5199;&#x539F;&#x751F;&#x5E94;&#x7528;&#x7684;&#x4EBA;&#xFF0C;&#x600E;&#x4E48;&#x529E;&#x5462;~<br>&#x90A3;&#x4E48;&#x95EE;&#x9898;&#x6765;&#x4E86;&#xFF0C;&#x8FD9;&#x4E2A;&#x4E16;&#x754C;&#x4E0A;&#x8FD8;&#x6709; js &#x4E0D;&#x80FD;&#x5E72;&#x7684;&#x4E8B;&#x60C5;&#x5417;&#xFF0C;js &#x90FD;&#x80FD;&#x5199;&#x79FB;&#x52A8;&#x5E94;&#x7528;&#x4E86;&#xFF0C;&#x90A3;&#x80FD;&#x4E0D;&#x80FD;&#x7528;&#x6765;&#x5199;&#x684C;&#x9762;&#x5E94;&#x7528;&#x5462;&#xFF0C;&#x4E8E;&#x4E16;~&#x5E26;&#x7740;&#x7591;&#x95EE;&#x8FD8;&#x662F; google &#x7136;&#x540E;&#x53D1;&#x73B0;&#x4E86;&#x6709;&#x610F;&#x601D;&#x7684;&#x4E86;&#xFF1B;<br>&#x539F;&#x6765;&#x65E9;&#x5C31;&#x6709;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x4E86;&#xFF0C;&#x65E9;&#x5728;<code>Node.js</code>&#x95EE;&#x4E16;&#x4E0D;&#x4E45;&#x4E4B;&#x540E;&#x5C31;&#x51FA;&#x73B0;&#x4E86; <code>NW.js</code> &#x8FD9;&#x4E48;&#x4E2A;&#x4E1C;&#x897F;&#xFF0C;&#x4F46;&#x662F;&#x6211;&#x4EEC;&#x8FD9;&#x91CC;&#x4E0D;&#x8BA8;&#x8BBA;&#x4ED6;&#xFF0C;&#x54C8;&#x54C8;~<br>&#x4E3A;&#x5565;&#x5462;&#xFF1F;&#x56E0;&#x4E3A;&#x51FA;&#x73B0;&#x4E86;&#x66F4;&#x597D;&#x7684;~ <code>electron</code> &#x5B83;&#x7684;&#x524D;&#x8EAB;&#x662F; <code>Atom Shell</code> &#x5173;&#x4E8E;&#x66F4;&#x591A;&#x7EC6;&#x81F4;&#x7684;&#x5185;&#x5BB9;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x5B98;&#x7F51;<a href="http://electron.atom.io/" target="_blank" rel="external">Electron</a>&#x6216;&#x81EA;&#x884C;&#x641C;&#x7D22;&#xFF1B;<br>&#x76EE;&#x524D;&#x4F7F;&#x7528; <code>electron</code> &#x5DF2;&#x7ECF;&#x6784;&#x5EFA;&#x51FA;&#x6765;&#x7684;&#x6BD4;&#x8F83;&#x51FA;&#x540D;&#x7684; Atom&#x7F16;&#x8F91;&#x5668;</p>
-<p>&#x53EF;&#x4EE5;&#x53BB;&#x5B98;&#x7F51;&#x770B;&#x4E0B;</p>
+        <h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>因为自己不大喜欢喜欢用手机，所以当在手机上看到有些应用只能在手机上使用时觉得好别扭，但是自己也不是写原生应用的人，怎么办呢~<br>那么问题来了，这个世界上还有 js 不能干的事情吗，js 都能写移动应用了，那能不能用来写桌面应用呢，于世~带着疑问还是 google 然后发现了有意思的了；<br>原来早就有解决方案了，早在<code>Node.js</code>问世不久之后就出现了 <code>NW.js</code> 这么个东西，但是我们这里不讨论他，哈哈~<br>为啥呢？因为出现了更好的~ <code>electron</code> 它的前身是 <code>Atom Shell</code> 关于更多细致的内容可以访问官网<a href="http://electron.atom.io/" target="_blank" rel="external">Electron</a>或自行搜索；<br>目前使用 <code>electron</code> 已经构建出来的比较出名的 Atom编辑器</p>
+<p>可以去官网看下</p>
 <p><a href="https://atom.io/" target="_blank" rel="external"><img src="http://electron.atom.io/images/apps/atom-icon.png" alt="Atom"></a></p>
-<h2 id="&#x8D44;&#x6599;&#x51C6;&#x5907;"><a href="#&#x8D44;&#x6599;&#x51C6;&#x5907;" class="headerlink" title="&#x8D44;&#x6599;&#x51C6;&#x5907;"></a>&#x8D44;&#x6599;&#x51C6;&#x5907;</h2><h3 id="&#x5E73;&#x53F0;&#x51C6;&#x5907;"><a href="#&#x5E73;&#x53F0;&#x51C6;&#x5907;" class="headerlink" title="&#x5E73;&#x53F0;&#x51C6;&#x5907;"></a>&#x5E73;&#x53F0;&#x51C6;&#x5907;</h3><blockquote>
-<p>&#x719F;&#x6089;electron &#x7684; api &#x63A5;&#x53E3;&#xFF0C;&#x7136;&#x540E;&#x914D;&#x5408;&#x5176;&#x4ED6;&#x6559;&#x7A0B;&#x719F;&#x6089;&#x4E86;&#x4E00;&#x4E0B;&#x63A5;&#x53E3;&#x7684;&#x4F7F;&#x7528;</p>
+<h2 id="资料准备"><a href="#资料准备" class="headerlink" title="资料准备"></a>资料准备</h2><h3 id="平台准备"><a href="#平台准备" class="headerlink" title="平台准备"></a>平台准备</h3><blockquote>
+<p>熟悉electron 的 api 接口，然后配合其他教程熟悉了一下接口的使用</p>
 </blockquote>
 <ul>
-<li><a href="http://www.w3cschool.cn/electronmanual/electronmanual-tray.html" target="_blank" rel="external">w3cschool Electron &#x4E2D;&#x6587; API</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/20225295" target="_blank" rel="external">&#x4F7F;&#x7528; Electron &#x6784;&#x5EFA;&#x684C;&#x9762;&#x5E94;&#x7528;</a></li>
+<li><a href="http://www.w3cschool.cn/electronmanual/electronmanual-tray.html" target="_blank" rel="external">w3cschool Electron 中文 API</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/20225295" target="_blank" rel="external">使用 Electron 构建桌面应用</a></li>
 </ul>
 <p><em>2016-12-05</em></p>
-<h3 id="&#x642D;&#x5EFA;&#x9879;&#x76EE;&#x811A;&#x624B;&#x67B6;"><a href="#&#x642D;&#x5EFA;&#x9879;&#x76EE;&#x811A;&#x624B;&#x67B6;" class="headerlink" title="&#x642D;&#x5EFA;&#x9879;&#x76EE;&#x811A;&#x624B;&#x67B6;"></a>&#x642D;&#x5EFA;&#x9879;&#x76EE;&#x811A;&#x624B;&#x67B6;</h3><blockquote>
-<p>&#x914D;&#x7F6E;&#x73AF;&#x5883;&#xFF0C;&#x642D;&#x5EFA;&#x9879;&#x76EE;&#x7ED3;&#x6784;<br>Q&#xFF1A;&#x6846;&#x67B6;&#x9009;&#x578B;&#xFF1F;</p>
-<p>&#x7531;&#x4E8E;&#x4E4B;&#x524D;&#x7528;&#x4E86; <code>angular</code> &#x89C9;&#x5F97;&#xFF0C;&#x867D;&#x7136;&#x4ED6;&#x662F;&#x6BD4;&#x8F83;&#x597D;&#x7528;&#xFF08;&#x7531;&#x4E8E; <code>angular</code> &#x662F;&#x6211;&#x63A5;&#x89E6;&#x7684;&#x7B2C;&#x4E00;&#x4E2A; MVVM &#x7C7B;&#x578B;&#x6846;&#x67B6;&#xFF0C;&#x989D;&#xFF0C;&#x867D;&#x7136;&#x7528;&#x4E86;&#x4E00;&#x6BB5;&#x65E5;&#x5B50;&#x4E86;&#xFF0C;&#x4F46;&#x662F;&#x5BF9;&#x4ED6;&#x771F;&#x7684;&#x628A;&#x63A7;&#x4E0D;&#x4E86;&#xFF0C;&#x53EF;&#x80FD;&#x662F; <code>jQuery</code> &#x5DF2;&#x7ECF;&#x6DF1;&#x6DF1;&#x7684;&#x5370;&#x523B;&#x5728;&#x5FC3;&#x91CC;&#x4E86;&#x628A;&#xFF0C;&#x54C8;&#x54C8;&#xFF09;&#x53EF;&#x4EE5;&#x8BF4;&#x8FD9;&#x79CD;&#x6846;&#x67B6;&#x624D;&#x662F;&#x771F;&#x6B63;&#x7684;&#x6846;&#x67B6;&#x3002;&#x4E4B;&#x524D;&#x4E00;&#x76F4;&#x89C9;&#x5F97;<code>jQuery</code> &#x548C; <code>zepto</code> &#x8FD9;&#x79CD;&#x5386;&#x4EFB;&#x51E0;&#x671D;&#x51E0;&#x4EE3;&#x7684;&#x5143;&#x8001;&#x7EA7;&#x5BF9;&#x4E8E;&#x4F60;&#x5DF2;&#x7ECF;&#x8DB3;&#x591F;&#x4E86;&#xFF0C;&#x54C8;&#x54C8;&#xFF0C;&#x4F46;&#x662F;&#x63A5;&#x89E6; <code>angualr</code> &#x4E4B;&#x540E;&#x4F60;&#x4F1A;&#x61C2;&#x7684;&#x4EC0;&#x4E48;&#x624D;&#x53EB;&#x6846;&#x67B6;&#xFF01;&#x6709;&#x5174;&#x8DA3;&#x7684;&#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x53BB;&#x5C1D;&#x8BD5;&#x4E00;&#x4E0B;&#xFF0C;&#x628A;&#x5B83;&#x7528;&#x5728;&#x4F60;&#x7684;&#x4E0B;&#x4E00;&#x4E2A;&#x9879;&#x76EE;&#x91CC;&#x9762;&#xFF0C;&#x5F53;&#x7136;&#x5982;&#x679C;&#x5408;&#x9002;&#x7684;&#x8BDD;&#xFF0C;&#x5BF9;&#x4E8E; web &#x9879;&#x76EE;&#x4ECE;&#x6765;&#x5C31;&#x6CA1;&#x6709;&#x4E00;&#x4E2A;&#x6700;&#x597D;&#x7684;&#x6846;&#x67B6;&#xFF0C;&#x53EA;&#x6709;&#x6700;&#x5408;&#x9002;&#x7684;&#x6846;&#x67B6;&#xFF0C;&#x56E0;&#x4E3A;&#x5373;&#x4F7F;&#x4F60;&#x4E0D;&#x7528;&#x4EFB;&#x4F55;&#x6846;&#x67B6;&#x4E00;&#x6837;&#x53EF;&#x4EE5;&#x5B8C;&#x6210;~~</p>
-<p>&#x56E0;&#x4E3A;&#x4E4B;&#x524D;&#x7528; <code>angular</code> &#x5F00;&#x53D1;&#x5FAE;&#x4FE1;&#x5E94;&#x7528;&#x7684;&#x7ECF;&#x5386;&#x8BA9;&#x6211;&#x4E00;&#x76F4;&#x89C9;&#x5F97; <code>angular</code> &#x5B9E;&#x5728;&#x662F;&#x592A;&#x96BE;&#x628A;&#x63A7;&#x4E86;&#xFF0C;&#x56E0;&#x4E3A;&#x5177;&#x4F53;&#x5199;&#x7684;&#x65F6;&#x5019;&#x6709;&#x4E9B;&#x95EE;&#x9898;&#x8FD8;&#x662F;&#x5F88;&#x75DB;&#x82E6;&#x7684;&#xFF08;&#x5177;&#x4F53;&#x95EE;&#x9898;&#x5DF2;&#x7ECF;&#x8BB0;&#x4E0D;&#x6E05;&#x4E86;&#xFF0C;&#x53EA;&#x80FD;&#x60F3;&#x8D77;&#x6765;&#xFF0C;&#x6709;&#x6BB5;&#x65F6;&#x95F4;&#x6211;&#x5F88;&#x75DB;&#x82E6;~&#xFF09;</p>
-<p>&#x518D;&#x52A0;&#x4E0A;&#x73B0;&#x5728; <code>React</code> &#x771F;&#x7684;&#x706B;&#x7684;&#x4E0D;&#x884C;&#x7684;&#xFF0C;&#x6211;&#x51B3;&#x5B9A;&#x5165;&#x624B;~&#xFF08;&#x56E0;&#x4E3A;&#x79CD;&#x79CD;&#x539F;&#x56E0;&#xFF0C;&#x4E4B;&#x524D;&#x4E00;&#x76F4;&#x6CA1;&#x6709;&#x7528;&#x4E0A;&#xFF09;</p>
+<h3 id="搭建项目脚手架"><a href="#搭建项目脚手架" class="headerlink" title="搭建项目脚手架"></a>搭建项目脚手架</h3><blockquote>
+<p>配置环境，搭建项目结构<br>Q：框架选型？</p>
+<p>由于之前用了 <code>angular</code> 觉得，虽然他是比较好用（由于 <code>angular</code> 是我接触的第一个 MVVM 类型框架，额，虽然用了一段日子了，但是对他真的把控不了，可能是 <code>jQuery</code> 已经深深的印刻在心里了把，哈哈）可以说这种框架才是真正的框架。之前一直觉得<code>jQuery</code> 和 <code>zepto</code> 这种历任几朝几代的元老级对于你已经足够了，哈哈，但是接触 <code>angualr</code> 之后你会懂的什么才叫框架！有兴趣的可以自己去尝试一下，把它用在你的下一个项目里面，当然如果合适的话，对于 web 项目从来就没有一个最好的框架，只有最合适的框架，因为即使你不用任何框架一样可以完成~~</p>
+<p>因为之前用 <code>angular</code> 开发微信应用的经历让我一直觉得 <code>angular</code> 实在是太难把控了，因为具体写的时候有些问题还是很痛苦的（具体问题已经记不清了，只能想起来，有段时间我很痛苦~）</p>
+<p>再加上现在 <code>React</code> 真的火的不行的，我决定入手~（因为种种原因，之前一直没有用上）</p>
 </blockquote>
-<p>&#x5F53;&#x524D;&#x51B3;&#x5B9A;&#xFF1A;</p>
+<p>当前决定：</p>
 <p><code>Webpack</code> + <code>Babel</code> + <code>React</code> + <code>css-modules</code></p>
 <ul>
-<li><a href="http://www.jianshu.com/p/4c61da559d75" target="_blank" rel="external">React Native&#x586B;&#x5751;&#x4E4B;&#x65C5;&#x2013;HTTP&#x8BF7;&#x6C42;&#x7BC7;</a></li>
+<li><a href="http://www.jianshu.com/p/4c61da559d75" target="_blank" rel="external">React Native填坑之旅–HTTP请求篇</a></li>
 <li><a href="http://cn.vuejs.org" target="_blank" rel="external">VueJs</a></li>
-<li><a href="https://segmentfault.com/a/1190000005013207" target="_blank" rel="external">React &#x6700;&#x4F73;&#x5B9E;&#x8DF5;&#x2014;&#x2014;&#x90A3;&#x4E9B; React &#x6CA1;&#x544A;&#x8BC9;&#x4F60;&#x4F46;&#x5F88;&#x91CD;&#x8981;&#x7684;&#x4E8B;</a></li>
+<li><a href="https://segmentfault.com/a/1190000005013207" target="_blank" rel="external">React 最佳实践——那些 React 没告诉你但很重要的事</a></li>
 </ul>
 <p><em>2016-12-06</em></p>
-<h3 id="&#x4F7F;&#x7528;react-css-module"><a href="#&#x4F7F;&#x7528;react-css-module" class="headerlink" title="&#x4F7F;&#x7528;react-css-module"></a>&#x4F7F;&#x7528;react-css-module</h3><p>&#x4F7F;&#x7528; <code>css module</code> &#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6BCF;&#x4E2A; <code>className</code> &#x90FD;&#x8981; <code>styles.**</code> &#x5F88;&#x9EBB;&#x70E6;&#xFF0C;<br>&#x7136;&#x540E;&#xFF0C;&#x7136;&#x540E;&#x5C31;&#x51FA;&#x73B0;&#x4E86; <code>react-css-module</code> &#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>styleName</code> &#x6765;&#x4EE3;&#x66FF; &#x2018;className&#x2019;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x4E0D;&#x9700;&#x8981;&#x6BCF;&#x6B21;&#x90FD;&#x53BB;&#x5199; <code>{styles.**}</code> &#x8FD9;&#x6837;&#x9EBB;&#x70E6;&#x4E86;&#xFF0C;&#x7136;&#x540E;&#x4E5F;&#x4E0D;&#x7528;&#x5FC5;&#x987B;&#x4F7F;&#x7528;&#x9A7C;&#x5CF0;&#x5F0F;&#x5199;&#x6CD5;&#x4E86;&#xFF08;&#x5176;&#x5B9E;&#x662F;&#x56E0;&#x4E3A;&#x4E0D;&#x559C;&#x6B22;&#x9A7C;&#x5CF0;&#x5F0F;&#x547D;&#x540D; <code>css</code> &#xFF0C;&#x54C8;&#x54C8;&#xFF0C;&#x53EF;&#x80FD;&#x662F;&#x56E0;&#x4E3A; BEM &#x7684;&#x5173;&#x7CFB;&#xFF09;&#xFF0C;&#x7136;&#x540E;&#x8FD8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x591A;&#x4E2A; <code>class</code> &#x5F88;&#x65B9;&#x4FBF;~</p>
-<p>&#x4F46;&#x662F;&#x4F7F;&#x7528; <code>react-css-module</code> &#x6BCF;&#x6B21; export &#x90FD;&#x8981;&#x624B;&#x52A8;&#x6307;&#x5B9A;&#xFF0C;&#x4F8B;&#x5982;&#x4E0B;&#x9762;&#xFF1A;</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">&apos;react&apos;</span>;</span><br><span class="line"><span class="keyword">import</span> CSSModules <span class="keyword">from</span> <span class="string">&apos;react-css-modules&apos;</span>;</span><br><span class="line"><span class="keyword">import</span> styles <span class="keyword">from</span> <span class="string">&apos;./App.css&apos;</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>{</span><br><span class="line">    render () {</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">        &lt;div styleName=&apos;container&apos;&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        );</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> CSSModules(App, styles);</span><br></pre></td></tr></table></figure>
-<p>&#x6BCF;&#x4E2A;&#x7EC4;&#x4EF6;&#x90FD;&#x8981;&#x52A0;&#x4E0A; <code>CSSModules(App, styles)</code> &#x6211;&#x89C9;&#x5F97;&#x5F88;&#x5570;&#x55E6;~<br>&#x8FD8;&#x597D; <code>react-css-module</code> &#x652F;&#x6301; ES7&#xFF08;&#x6682;&#x79F0; ES7 &#x5427;&#xFF0C;&#x867D;&#x7136;&#x8FD8;&#x662F;&#x8349;&#x6848;&#xFF09; &#x7684;<code>Decorators</code> &#x8BED;&#x6CD5;&#xFF0C;&#x7136;&#x540E;&#x4F60;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x5199;&#xFF1A;</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">&apos;react&apos;</span>;</span><br><span class="line"><span class="keyword">import</span> CSSModules <span class="keyword">from</span> <span class="string">&apos;react-css-modules&apos;</span>;</span><br><span class="line"><span class="keyword">import</span> styles <span class="keyword">from</span> <span class="string">&apos;./App.css&apos;</span>;</span><br><span class="line"></span><br><span class="line">@CSSModules(styles)</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>{</span><br><span class="line">    render () {</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">        &lt;div styleName=&apos;container&apos;&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        );</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> App;</span><br></pre></td></tr></table></figure>
-<p>&#x4E2A;&#x4EBA;&#x611F;&#x89C9;&#x8FD9;&#x6837;&#x611F;&#x89C9;&#x5F88;&#x597D;&#xFF08;&#x81F3;&#x5C11;&#x6709;&#x70B9;&#x903C;&#x683C;&#xFF0C;&#x54C8;&#x54C8;&#xFF09;</p>
-<p>&#x4F46;&#x662F;&#x6700;&#x65B0;&#x7684; <code>Babel v6</code> &#x4E2D;&#x4E0D;&#x77E5;&#x9053;&#x4E3A;&#x5565;&#x5C45;&#x7136;&#x53BB;&#x6389;&#x4E86;&#x5BF9; <code>Decorators</code> &#x7684;&#x652F;&#x6301;&#xFF08;&#x8BE6;&#x60C5;&#x70B9;&#x51FB;<a href="http://babeljs.io/docs/plugins/transform-decorators/" target="_blank" rel="external">Babel &#x5B98;&#x7F51;</a>&#xFF09;&#x67E5;&#x770B;&#xFF09;&#xFF0C;&#x5B98;&#x65B9;&#x89E3;&#x91CA;&#xFF1A;</p>
+<h3 id="使用react-css-module"><a href="#使用react-css-module" class="headerlink" title="使用react-css-module"></a>使用react-css-module</h3><p>使用 <code>css module</code> 的时候，每个 <code>className</code> 都要 <code>styles.**</code> 很麻烦，<br>然后，然后就出现了 <code>react-css-module</code> 可以使用 <code>styleName</code> 来代替 ‘className’，这样就不需要每次都去写 <code>{styles.**}</code> 这样麻烦了，然后也不用必须使用驼峰式写法了（其实是因为不喜欢驼峰式命名 <code>css</code> ，哈哈，可能是因为 BEM 的关系），然后还可以使用多个 <code>class</code> 很方便~</p>
+<p>但是使用 <code>react-css-module</code> 每次 export 都要手动指定，例如下面：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> CSSModules <span class="keyword">from</span> <span class="string">'react-css-modules'</span>;</div><div class="line"><span class="keyword">import</span> styles <span class="keyword">from</span> <span class="string">'./App.css'</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">    render () &#123;</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">        <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">styleName</span>=<span class="string">'container'</span>&gt;</span></span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        );</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> CSSModules(App, styles);</div></pre></td></tr></table></figure>
+<p>每个组件都要加上 <code>CSSModules(App, styles)</code> 我觉得很啰嗦~<br>还好 <code>react-css-module</code> 支持 ES7（暂称 ES7 吧，虽然还是草案） 的<code>Decorators</code> 语法，然后你可以这样写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> CSSModules <span class="keyword">from</span> <span class="string">'react-css-modules'</span>;</div><div class="line"><span class="keyword">import</span> styles <span class="keyword">from</span> <span class="string">'./App.css'</span>;</div><div class="line"></div><div class="line">@CSSModules(styles)</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">    render () &#123;</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">        <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">styleName</span>=<span class="string">'container'</span>&gt;</span></span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        );</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> App;</div></pre></td></tr></table></figure>
+<p>个人感觉这样感觉很好（至少有点逼格，哈哈）</p>
+<p>但是最新的 <code>Babel v6</code> 中不知道为啥居然去掉了对 <code>Decorators</code> 的支持（详情点击<a href="http://babeljs.io/docs/plugins/transform-decorators/" target="_blank" rel="external">Babel 官网</a>）查看），官方解释：</p>
 <blockquote>
-<p><strong>Decorators are not currently supported</strong><br>Decorators are disabled in Babel v6, pending a proposal update &#x2013; see babel/babel#2645.</p>
+<p><strong>Decorators are not currently supported</strong><br>Decorators are disabled in Babel v6, pending a proposal update – see babel/babel#2645.</p>
 </blockquote>
 <p>Until Babel officially supports decorators again, you might want to try the third-party transform-decorators-legacy plugin, or use Babel v5.</p>
-<p>&#x5927;&#x6982;&#x610F;&#x601D;&#x662F;&#x8BF4;&#x5728;babel 6&#x91CC;&#x9762;&#x6682;&#x65F6;&#x53BB;&#x6389;&#x4E86;&#x5BF9; <code>Decorators</code> &#x7684;&#x652F;&#x6301;&#xFF0C;&#x7136;&#x540E;&#x8981;&#x7F16;&#x8BD1; <code>Decorators</code> &#x7684;&#x8BDD;&#x8981;&#x4F7F;&#x7528;&#x7B2C;&#x4E09;&#x65B9;&#x7684;&#x62D3;&#x5C55;&#x63D2;&#x4EF6;<a href="https://github.com/loganfsmyth/babel-plugin-transform-decorators-legacy" target="_blank" rel="external">babel-plugin-transform-decorators-legacy</a></p>
+<p>大概意思是说在babel 6里面暂时去掉了对 <code>Decorators</code> 的支持，然后要编译 <code>Decorators</code> 的话要使用第三方的拓展插件<a href="https://github.com/loganfsmyth/babel-plugin-transform-decorators-legacy" target="_blank" rel="external">babel-plugin-transform-decorators-legacy</a></p>
 <ul>
 <li><a href="https://github.com/loganfsmyth/babel-plugin-transform-decorators-legacy" target="_blank" rel="external">Babel Legacy Decorator plugin</a></li>
 <li><a href="http://babeljs.io/docs/plugins/transform-decorators/" target="_blank" rel="external">Decorators transform</a></li>
 </ul>
-<h3 id="&#x6280;&#x672F;&#x79EF;&#x7D2F;"><a href="#&#x6280;&#x672F;&#x79EF;&#x7D2F;" class="headerlink" title="&#x6280;&#x672F;&#x79EF;&#x7D2F;"></a>&#x6280;&#x672F;&#x79EF;&#x7D2F;</h3><blockquote>
-<p>Q&#xFF1A;&#x9879;&#x76EE;&#x7ED3;&#x6784;&#x662F;&#x600E;&#x6837;&#x7684;&#xFF1F;<br>Q&#xFF1A;<code>webpack</code> &#x7684;&#x914D;&#x7F6E;&#x662F;&#x600E;&#x6837;&#x7684;&#xFF1F;<br>Q&#xFF1A; <code>cssModules</code> &#x662F;&#x600E;&#x4E48;&#x4F7F;&#x7528;&#x4EE5;&#x53CA;&#x600E;&#x4E48;&#x642D;&#x914D;&#x5176;&#x4ED6; <code>css</code> &#x5904;&#x7406;&#x5668;(&#x5982; <code>sass</code>&#x3001;<code>less</code>&#x3001;<code>postcss</code> &#x7B49;)?<br>Q&#xFF1A;&#x6211;&#x5E94;&#x8BE5;&#x5B89;&#x88C5;&#x54EA;&#x4E9B; <code>webpack</code> &#x63D2;&#x4EF6; and &#x8FD9;&#x4E9B;&#x63D2;&#x4EF6;&#x8BE5;&#x5982;&#x4F55;&#x914D;&#x7F6E;&#xFF1F;<br>Q&#xFF1A;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x53C8;&#x662F;&#x600E;&#x6837;&#xFF1F;&#x9700;&#x8981;&#x70ED;&#x90E8;&#x7F72;&#x5417;&#xFF1F;</p>
-<p>&#x5E26;&#x7740;&#x8FD9;&#x4E9B;&#x7591;&#x95EE;&#x5F80;&#x540E;&#x8D70;&#x628A;~</p>
+<h3 id="技术积累"><a href="#技术积累" class="headerlink" title="技术积累"></a>技术积累</h3><blockquote>
+<p>Q：项目结构是怎样的？<br>Q：<code>webpack</code> 的配置是怎样的？<br>Q： <code>cssModules</code> 是怎么使用以及怎么搭配其他 <code>css</code> 处理器(如 <code>sass</code>、<code>less</code>、<code>postcss</code> 等)?<br>Q：我应该安装哪些 <code>webpack</code> 插件 and 这些插件该如何配置？<br>Q：开发环境又是怎样？需要热部署吗？</p>
+<p>带着这些疑问往后走把~</p>
 </blockquote>
 <p><em>2016-12-07</em></p>
-<h3 id="&#x5206;&#x6790;-API-&#x63A5;&#x53E3;&#x6570;&#x636E;"><a href="#&#x5206;&#x6790;-API-&#x63A5;&#x53E3;&#x6570;&#x636E;" class="headerlink" title="&#x5206;&#x6790; API &#x63A5;&#x53E3;&#x6570;&#x636E;"></a>&#x5206;&#x6790; API &#x63A5;&#x53E3;&#x6570;&#x636E;</h3><blockquote>
-<p>Q&#xFF1A;&#x5982;&#x4F55;&#x5B58;&#x53D6; <code>Token</code> &#x5185;&#x5BB9;&#xFF0C;&#x5982;&#x4F55;&#x66F4;&#x65B0; <code>Token</code> &#x503C;&#xFF1F;<br>&#x5206;&#x6790; <code>token</code> &#x52A0;&#x5BC6;&#x89C4;&#x5219;&#xFF08;&#x5982;&#x4F55;&#x4F20;&#x9012;<code>token</code>&#x83B7;&#x53D6;&#x6570;&#x636E;&#xFF09;</p>
+<h3 id="分析-API-接口数据"><a href="#分析-API-接口数据" class="headerlink" title="分析 API 接口数据"></a>分析 API 接口数据</h3><blockquote>
+<p>Q：如何存取 <code>Token</code> 内容，如何更新 <code>Token</code> 值？<br>分析 <code>token</code> 加密规则（如何传递<code>token</code>获取数据）</p>
 </blockquote>
-<p>&#x53C2;&#x8003;&#x5185;&#x5BB9;&#xFF1A;<br><a href="http://solee.me/2016/02/01/jwt-ren-zheng-mo-shi-jian-dan-miao-shu/#open" target="_blank" rel="external">JWT &#x8BA4;&#x8BC1;&#x6A21;&#x5F0F;&#x7B80;&#x5355;&#x63CF;&#x8FF0;</a></p>
+<p>参考内容：<br><a href="http://solee.me/2016/02/01/jwt-ren-zheng-mo-shi-jian-dan-miao-shu/#open" target="_blank" rel="external">JWT 认证模式简单描述</a></p>
 <p><em>2016-12-13</em></p>
-<h3 id="&#x79BB;&#x7EBF;&#x5B58;&#x50A8;"><a href="#&#x79BB;&#x7EBF;&#x5B58;&#x50A8;" class="headerlink" title="&#x79BB;&#x7EBF;&#x5B58;&#x50A8;"></a>&#x79BB;&#x7EBF;&#x5B58;&#x50A8;</h3><blockquote>
-<p>Q&#xFF1A;&#x5982;&#x4F55;&#x5C06;&#x4E0B;&#x8F7D;&#x8D44;&#x6E90;&#x5B58;&#x50A8;&#x5230;&#x672C;&#x5730;&#xFF0C;&#x5728;&#x65E0;&#x7F51;&#x7EDC;&#x60C5;&#x51B5;&#x4E0B;&#x4F9D;&#x7136;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#xFF1F;<br>&#x6B64;&#x95EE;&#x9898;&#x5C06;&#x7A0D;&#x665A;&#x66F4;&#x65B0;</p>
+<h3 id="离线存储"><a href="#离线存储" class="headerlink" title="离线存储"></a>离线存储</h3><blockquote>
+<p>Q：如何将下载资源存储到本地，在无网络情况下依然可以使用？<br>此问题将稍晚更新</p>
 </blockquote>
 <p><em>2017-02-13</em></p>
-<h3 id="electron-&#x6253;&#x5305;-app"><a href="#electron-&#x6253;&#x5305;-app" class="headerlink" title="electron &#x6253;&#x5305; app"></a>electron &#x6253;&#x5305; app</h3><blockquote>
-<p>&#x6211;&#x8FD9;&#x91CC;&#x4F7F;&#x7528;&#x7684;&#x662F;&#x81EA;&#x52A8;&#x6253;&#x5305;&#xFF0C;&#x624B;&#x52A8;&#x6253;&#x5305;&#x65B9;&#x5F0F;&#x8BF7;&#x81EA;&#x884C;Google&#x641C;&#x7D22;~</p>
+<h3 id="electron-打包-app"><a href="#electron-打包-app" class="headerlink" title="electron 打包 app"></a>electron 打包 app</h3><blockquote>
+<p>我这里使用的是自动打包，手动打包方式请自行Google搜索~</p>
 </blockquote>
-<p>&#x6BD4;&#x8F83;&#x597D;&#x7528;&#x7684;&#x81EA;&#x52A8;&#x6253;&#x5305;&#x65B9;&#x5F0F;&#xFF1A;</p>
+<p>比较好用的自动打包方式：</p>
 <ul>
-<li>electron-packager [&#x672A;&#x4F7F;&#x7528;]</li>
-<li>electron-builder [&#x4F7F;&#x7528;]</li>
+<li>electron-packager [未使用]</li>
+<li>electron-builder [使用]</li>
 </ul>
-<p>&#x8FD9;&#x91CC;&#x505A;&#x4E00;&#x4E0B;&#x7B80;&#x5355;&#x7684;&#x6BD4;&#x8F83;&#xFF1A;</p>
+<p>这里做一下简单的比较：</p>
 <p>electron-packager</p>
 <ul>
-<li>&#x4F7F;&#x7528; electron-packager &#x6253;&#x5305;&#xFF0C;macOS&#x7CFB;&#x7EDF;&#x6253;&#x5305;app&#x6587;&#x4EF6;&#xFF0C;&#x4E0D;&#x80FD;&#x6253;&#x5305;exe&#x6587;&#x4EF6;&#xFF0C;windows&#x7CFB;&#x7EDF;&#x53EF;&#x4EE5;&#x6253;&#x5305;app&#x6587;&#x4EF6;&#x4EE5;&#x53CA;exe&#x6587;&#x4EF6;&#xFF1B;</li>
-<li>&#x652F;&#x6301;&#x5E73;&#x53F0;&#x6709;&#xFF1A;Windows (32/64 bit)&#x3001;OS X (also known as macOS)&#x3001;Linux (x86/x86_64)&#xFF1B;</li>
-<li>&#x751F;&#x6210;&#x7684;&#x683C;&#x5F0F;&#xFF1A;.exe&#xFF08;&#x8FD9;&#x91CC;&#x4E0D;&#x80FD;&#x751F;&#x6210;&#x5B89;&#x88C5;&#x5305;&#xFF0C;&#x53EA;&#x80FD;&#x751F;&#x6210;&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#x53CA;&#x76EE;&#x5F55;&#xFF09;&#x3001;.app&#x3001;mas&#x3001;linux&#x53EF;&#x6267;&#x884C;&#x683C;&#x5F0F;&#xFF1B;</li>
-<li>&#x652F;&#x6301;CLI&#x548C;JS API&#x4E24;&#x79CD;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#xFF1B;</li>
+<li>使用 electron-packager 打包，macOS系统打包app文件，不能打包exe文件，windows系统可以打包app文件以及exe文件；</li>
+<li>支持平台有：Windows (32/64 bit)、OS X (also known as macOS)、Linux (x86/x86_64)；</li>
+<li>生成的格式：.exe（这里不能生成安装包，只能生成可执行文件及目录）、.app、mas、linux可执行格式；</li>
+<li>支持CLI和JS API两种使用方式；</li>
 </ul>
 <p>electron-builder</p>
 <ul>
-<li>electron-builder &#x53EF;&#x4EE5;&#x6253;&#x5305;&#x6210;msi&#x3001;exe&#x3001;dmg&#x6587;&#x4EF6;&#xFF0C;macOS&#x7CFB;&#x7EDF;&#xFF0C;&#x53EA;&#x80FD;&#x6253;&#x5305;dmg&#x6587;&#x4EF6;&#xFF0C;window&#x7CFB;&#x7EDF;&#x624D;&#x80FD;&#x6253;&#x5305;exe&#xFF0C;msi&#x6587;&#x4EF6;&#xFF1B;</li>
-<li>&#x51E0;&#x4E4E;&#x652F;&#x6301;&#x4E86;&#x6240;&#x6709;&#x5E73;&#x53F0;&#x7684;&#x6240;&#x6709;&#x683C;&#x5F0F;&#xFF1B;</li>
-<li>&#x53EF;&#x4EE5;&#x5C06;prepackage&#x76EE;&#x5F55;&#xFF08;&#x624B;&#x52A8;&#x6216;&#x4F7F;&#x7528;electron-packager&#x751F;&#x6210;&#x7684;&#x76EE;&#x5F55;&#xFF09;&#x6253;&#x5305;&#x6210;&#x5B89;&#x88C5;&#x5305;&#xFF1B;</li>
-<li>&#x652F;&#x6301;<a href="https://github.com/electron-userland/electron-builder/wiki/Auto-Update" target="_blank" rel="external">Auto Update</a>&#xFF1B;</li>
-<li>&#x540C;&#x6837;&#x652F;&#x6301;CLI&#x548C;JS API&#x4E24;&#x79CD;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#xFF1B;</li>
+<li>electron-builder 可以打包成msi、exe、dmg文件，macOS系统，只能打包dmg文件，window系统才能打包exe，msi文件；</li>
+<li>几乎支持了所有平台的所有格式；</li>
+<li>可以将prepackage目录（手动或使用electron-packager生成的目录）打包成安装包；</li>
+<li>支持<a href="https://github.com/electron-userland/electron-builder/wiki/Auto-Update" target="_blank" rel="external">Auto Update</a>；</li>
+<li>同样支持CLI和JS API两种使用方式；</li>
 </ul>
-<h4 id="electron-builder-&#x4F7F;&#x7528;"><a href="#electron-builder-&#x4F7F;&#x7528;" class="headerlink" title="electron-builder &#x4F7F;&#x7528;"></a>electron-builder &#x4F7F;&#x7528;</h4><p><a href="https://github.com/electron-userland/electron-builder/" target="_blank" rel="external">electron-builder&#x4F7F;&#x7528;&#x8BF4;&#x660E;</a></p>
-<p>&#x5B89;&#x88C5;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i --save-dev electron-builder</span><br></pre></td></tr></table></figure></p>
+<h4 id="electron-builder-使用"><a href="#electron-builder-使用" class="headerlink" title="electron-builder 使用"></a>electron-builder 使用</h4><p><a href="https://github.com/electron-userland/electron-builder/" target="_blank" rel="external">electron-builder使用说明</a></p>
+<p>安装<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i --save-dev electron-builder</div></pre></td></tr></table></figure></p>
 <blockquote>
-<p>&#x6CE8;&#xFF1A;&#x786E;&#x4FDD;&#x4F60;&#x7684;package.json&#x4E2D;&#x5305;&#x542B;&#x8FD9;&#x4E9B;&#x5B57;&#x6BB5;&#xFF1A;name, description, version and author&#x3002;</p>
+<p>注：确保你的package.json中包含这些字段：name, description, version and author。</p>
 </blockquote>
-<p>&#x7136;&#x540E;&#x5728;<code>pacpackage.json</code>&#x4E2D;&#x6DFB;&#x52A0;<code>build</code>&#x5C5E;&#x6027;&#xFF1A;</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&quot;build&quot;: {</span><br><span class="line">  &quot;appId&quot;: &quot;your.id&quot;, (&#x9700;&#x8981;&#x53D1;&#x5E03;store&#x7684;&#x9700;&#x8981;&#x6CE8;&#x518C;&#x4E00;&#x4E0B;&#xFF0C;&#x6211;&#x8FD9;&#x91CC;&#x968F;&#x4FBF;&#x586B;&#x4E86;&#x4E00;&#x4E2A;)</span><br><span class="line">  &quot;mac&quot;: {</span><br><span class="line">    &quot;category&quot;: &quot;your.app.category.type&quot;</span><br><span class="line">  },</span><br><span class="line">  &quot;win&quot;: {</span><br><span class="line">    &quot;iconUrl&quot;: &quot;(windows-only) https link to icon&quot;</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p>&#x7136;&#x540E;&#x518D;&#x6DFB;&#x52A0;&#x4E24;&#x4E2A;script&#x547D;&#x4EE4;&#xFF1A;</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: {</span><br><span class="line">  &quot;pack&quot;: &quot;build --dir&quot;,</span><br><span class="line">  &quot;dist&quot;: &quot;build&quot;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p>&#x5728;&#x8981;&#x6253;&#x5305;&#x7684;&#x9879;&#x76EE;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#x5EFA;&#x7ACB;build&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x5176;&#x4E2D;&#x5B58;&#x653E;&#x4E09;&#x4E2A;&#x56FE;&#x7247;&#xFF1A;</p>
+<p>然后在<code>pacpackage.json</code>中添加<code>build</code>属性：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">"build": &#123;</div><div class="line">  "appId": "your.id", (需要发布store的需要注册一下，我这里随便填了一个)</div><div class="line">  "mac": &#123;</div><div class="line">    "category": "your.app.category.type"</div><div class="line">  &#125;,</div><div class="line">  "win": &#123;</div><div class="line">    "iconUrl": "(windows-only) https link to icon"</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后再添加两个script命令：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">"scripts": &#123;</div><div class="line">  "pack": "build --dir",</div><div class="line">  "dist": "build"</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在要打包的项目根目录下建立build文件夹，其中存放三个图片：</p>
 <ol>
 <li>background.png (macOS DMG background)</li>
 <li>icon.icns (macOS app icon)</li>
 <li>icon.ico (Windows app icon)</li>
 </ol>
-<p>&#x4FDD;&#x5B58;&#x4EE5;&#x4E0A;&#x5185;&#x5BB9;&#x540E;&#xFF0C;&#x8FD0;&#x884C; <code>npm run dist</code></p>
-<p>&#x7B49;&#x547D;&#x4EE4;&#x6267;&#x884C;&#x5B8C;&#x4E4B;&#x540E;&#x4F1A;&#x5728;&#x5F53;&#x524D;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#x4E0B;&#x751F;<code>dist</code>&#x6587;&#x4EF6;&#x52A0;&#x91CC;&#x9762;&#x5305;&#x62EC;&#xFF1A;</p>
+<p>保存以上内容后，运行 <code>npm run dist</code></p>
+<p>等命令执行完之后会在当前项目目录下生<code>dist</code>文件加里面包括：</p>
 <ul>
-<li>&#x6210;&#x53EF;&#x6267;&#x884C;&#x7A0B;&#x5E8F;</li>
-<li>&#x5B89;&#x88C5;&#x5305;</li>
-<li>zip&#x5305;</li>
+<li>成可执行程序</li>
+<li>安装包</li>
+<li>zip包</li>
 </ul>
 <blockquote>
-<p>&#x5230;&#x8FD9;&#x91CC;&#x5C31;&#x5B8C;&#x6210;&#x4E86;&#x9996;&#x6B21;&#x6253;&#x5305;&#xFF01;<br>&#x4EE5;&#x4E0A;&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x57FA;&#x672C;&#x7684;&#x6253;&#x5305;&#x8FC7;&#x7A0B;&#xFF0C;&#x66F4;&#x591A;&#x7684;&#x914D;&#x7F6E;&#x53EF;&#x4EE5;&#x53C2;&#x770B;<a href="https://github.com/electron-userland/electron-builder/wiki/Options" target="_blank" rel="external">api wiki</a></p>
+<p>到这里就完成了首次打包！<br>以上只是一个基本的打包过程，更多的配置可以参看<a href="https://github.com/electron-userland/electron-builder/wiki/Options" target="_blank" rel="external">api wiki</a></p>
 </blockquote>
-<h4 id="asar&#x5305;"><a href="#asar&#x5305;" class="headerlink" title="asar&#x5305;"></a>asar&#x5305;</h4><p>asar&#x683C;&#x5F0F;&#x662F;Electron&#x9879;&#x76EE;&#x7EC4;&#x63A8;&#x51FA;&#x7684;&#x4E00;&#x79CD;&#x6587;&#x4EF6;&#x6253;&#x5305;&#x683C;&#x5F0F;&#x3002;<br>asar&#x662F;&#x4E00;&#x79CD;&#x5C06;&#x591A;&#x4E2A;&#x6587;&#x4EF6;&#x5408;&#x5E76;&#x6210;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x7684;&#x7C7B;tar&#x98CE;&#x683C;&#x7684;&#x5F52;&#x6863;&#x683C;&#x5F0F;&#x3002; Electron&#x53EF;&#x4EE5;&#x65E0;&#x9700;&#x89E3;&#x538B;&#xFF0C;&#x5373;&#x4ECE;&#x5176;&#x4E2D;&#x8BFB;&#x53D6;&#x4EFB;&#x610F;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#xFF0C;&#x751A;&#x81F3;&#x53EF;&#x4EE5;&#x8FD9;&#x4E48;&#x7406;&#x89E3;&#xFF0C;&#x628A; <code>asar</code> &#x5F53;&#x6210;&#x4E00;&#x4E2A;&#x2018;&#x6587;&#x4EF6;&#x5939;&#x2019;&#xFF0C;&#x4F7F;&#x7528;Node APIs&#x4E2D;&#x5982;<code>fs.readFile</code>&#x6216;&#x8005;<code>require</code>&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4ECE;&#x91CC;&#x9762;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#xFF0C;&#x4F46;&#x4E0D;&#x80FD;&#x5199;&#x5165;&#xFF09;&#x3002;</p>
+<h4 id="asar包"><a href="#asar包" class="headerlink" title="asar包"></a>asar包</h4><p>asar格式是Electron项目组推出的一种文件打包格式。<br>asar是一种将多个文件合并成一个文件的类tar风格的归档格式。 Electron可以无需解压，即从其中读取任意文件内容，甚至可以这么理解，把 <code>asar</code> 当成一个‘文件夹’，使用Node APIs中如<code>fs.readFile</code>或者<code>require</code>可以直接从里面读取文件，但不能写入）。</p>
 <blockquote>
-<p> &#x5B98;&#x65B9;&#x4ECB;&#x7ECD;&#xFF1A;&#x201C;An asar archive is a simple tar-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.&#x201D;</p>
+<p> 官方介绍：“An asar archive is a simple tar-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.”</p>
 </blockquote>
-<h5 id="&#x793A;&#x4F8B;"><a href="#&#x793A;&#x4F8B;" class="headerlink" title="&#x793A;&#x4F8B;"></a>&#x793A;&#x4F8B;</h5><p>&#x5047;&#x8BBE;&#x6211;&#x4EEC;&#x5728;<code>/path/to</code>&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x6709;&#x4E2A;<code>example.asar</code>&#x5305;&#xFF1A;</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ asar list /path/to/example.asar</span><br><span class="line">/app.js</span><br><span class="line">/file.txt</span><br><span class="line">/dir/module.js</span><br><span class="line">/static/index.html</span><br><span class="line">/static/main.css</span><br><span class="line">/static/jquery.min.js</span><br></pre></td></tr></table></figure>
-<p>&#x4ECE;asar&#x5305;&#x8BFB;&#x53D6;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF1A;</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&apos;fs&apos;</span>);</span><br><span class="line">fs.readFileSync(<span class="string">&apos;/path/to/example.asar/file.txt&apos;</span>);</span><br></pre></td></tr></table></figure>
-<p>&#x4F7F;&#x7528;asar&#x5305;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#xFF1A;</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">&apos;/path/to/example.asar/dir/module.js&apos;</span>);</span><br></pre></td></tr></table></figure>
-<p>&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;BrowserWindow&#x6765;&#x663E;&#x793A;&#x4E00;&#x4E2A;asar&#x5305;&#x91CC;&#x7684;web&#x9875;&#x9762;&#xFF1A;</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> BrowserWindow = <span class="built_in">require</span>(<span class="string">&apos;electron&apos;</span>).BrowserWindow;</span><br><span class="line"><span class="keyword">var</span> win = <span class="keyword">new</span> BrowserWindow({width: <span class="number">800</span>, height: <span class="number">600</span>});</span><br><span class="line">win.loadURL(<span class="string">&apos;file:///path/to/example.asar/static/index.html&apos;</span>);</span><br></pre></td></tr></table></figure>
-<p><a href="https://xwartz.gitbooks.io/electron-gitbook/content/zh/tutorial/application-packaging.html" target="_blank" rel="external">&#x66F4;&#x591A;&#x8BE6;&#x7EC6;&#x5185;&#x5BB9;&#x4EE5;&#x53CA;&#x4ECB;&#x7ECD;</a></p>
-<h5 id="&#x5B89;&#x88C5;"><a href="#&#x5B89;&#x88C5;" class="headerlink" title="&#x5B89;&#x88C5;"></a>&#x5B89;&#x88C5;</h5><p><code>npm install -g asar</code></p>
+<h5 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h5><p>假设我们在<code>/path/to</code>文件夹下有个<code>example.asar</code>包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ asar list /path/to/example.asar</div><div class="line">/app.js</div><div class="line">/file.txt</div><div class="line">/dir/module.js</div><div class="line">/static/index.html</div><div class="line">/static/main.css</div><div class="line">/static/jquery.min.js</div></pre></td></tr></table></figure>
+<p>从asar包读取一个文件：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</div><div class="line">fs.readFileSync(<span class="string">'/path/to/example.asar/file.txt'</span>);</div></pre></td></tr></table></figure>
+<p>使用asar包中的一个模块：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>(<span class="string">'/path/to/example.asar/dir/module.js'</span>);</div></pre></td></tr></table></figure>
+<p>你也可以使用BrowserWindow来显示一个asar包里的web页面：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> BrowserWindow = <span class="built_in">require</span>(<span class="string">'electron'</span>).BrowserWindow;</div><div class="line"><span class="keyword">var</span> win = <span class="keyword">new</span> BrowserWindow(&#123;<span class="attr">width</span>: <span class="number">800</span>, <span class="attr">height</span>: <span class="number">600</span>&#125;);</div><div class="line">win.loadURL(<span class="string">'file:///path/to/example.asar/static/index.html'</span>);</div></pre></td></tr></table></figure>
+<p><a href="https://xwartz.gitbooks.io/electron-gitbook/content/zh/tutorial/application-packaging.html" target="_blank" rel="external">更多详细内容以及介绍</a></p>
+<h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><p><code>npm install -g asar</code></p>
 <p><em>2017-02-18</em></p>
-<h3 id="&#x5B89;&#x88C5;-Electron"><a href="#&#x5B89;&#x88C5;-Electron" class="headerlink" title="&#x5B89;&#x88C5; Electron"></a>&#x5B89;&#x88C5; Electron</h3><p>&#x8FD9;&#x91CC;&#x5E94;&#x8BE5;&#x662F;&#x653E;&#x5728;&#x524D;&#x9762;&#x7684;&#x4E4B;&#x6240;&#x4EE5;&#x5728;&#x8FD9;&#x91CC;&#x653E;&#x7740;&#x5462;&#xFF0C;&#x662F;&#x56E0;&#x4E3A;&#x6211;&#x5230;&#x4ECA;&#x5929;&#x624D; <code>install electron</code> &#x597D;&#x5B83;&#xFF0C;&#x56E0;&#x4E3A; <code>electron</code> &#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x592A;&#x5927;&#xFF08;&#x6709;110&#x591A;M&#xFF09;&#x5728;&#x56FD;&#x5185;&#x8FD9;&#x4E2A;&#x5927;&#x5C0F;&#x51E0;&#x4E4E;&#x662F;&#x5929;&#x6587;&#x6587;&#x4EF6;&#x4E86;&#xFF0C;&#x4E4B;&#x524D;&#x6211;&#x662F;&#x76F4;&#x63A5;&#x5728; <code>github</code> &#x4E0A;&#x8F7D;&#x4E0B;&#x6765;&#x7684;&#xFF0C;&#x7136;&#x540E;&#x4ECA;&#x5929;&#x53C8;&#x7528;&#x5230;&#x4E86; <code>electron</code> &#x8FD9;&#x4E2A;&#x5305;&#x5C31;&#x662F;&#x5F15;&#x4E0D;&#x8FDB;&#x6765;&#xFF0C;&#x5E72;&#x8106;&#x5728;&#x6298;&#x817E;&#x4E00;&#x904D;&#x5427; 233333<br>&#x7136;&#x540E;&#x627E;&#x554A;&#x627E;&#x7684;&#x627E;&#x5230;&#x4E86; <a href="http://blog.tomyail.com/install-electron-slow-in-china/" target="_blank" rel="external">&#x52A0;&#x901F;electron&#x5728;&#x56FD;&#x5185;&#x7684;&#x4E0B;&#x8F7D;&#x901F;&#x5EA6;</a> &#x8FD9;&#x4E2A;&#xFF0C;&#x7136;&#x540E;&#x9C7C;&#x5757;&#x7684;&#x4E0B;&#x8F7D;&#x597D;&#x4E86;</p>
-<h2 id="&#x6240;&#x6709;&#x53C2;&#x8003;&#x5185;&#x5BB9;"><a href="#&#x6240;&#x6709;&#x53C2;&#x8003;&#x5185;&#x5BB9;" class="headerlink" title="&#x6240;&#x6709;&#x53C2;&#x8003;&#x5185;&#x5BB9;"></a>&#x6240;&#x6709;&#x53C2;&#x8003;&#x5185;&#x5BB9;</h2><p><strong>&#x53C2;&#x8003;&#x8D44;&#x6599;</strong></p>
+<h3 id="安装-Electron"><a href="#安装-Electron" class="headerlink" title="安装 Electron"></a>安装 Electron</h3><p>这里应该是放在前面的之所以在这里放着呢，是因为我到今天才 <code>install electron</code> 好它，因为 <code>electron</code> 的二进制文件太大（有110多M）在国内这个大小几乎是天文文件了，之前我是直接在 <code>github</code> 上载下来的，然后今天又用到了 <code>electron</code> 这个包就是引不进来，干脆在折腾一遍吧 233333<br>然后找啊找的找到了 <a href="http://blog.tomyail.com/install-electron-slow-in-china/" target="_blank" rel="external">加速electron在国内的下载速度</a> 这个，然后鱼块的下载好了</p>
+<h2 id="所有参考内容"><a href="#所有参考内容" class="headerlink" title="所有参考内容"></a>所有参考内容</h2><p><strong>参考资料</strong></p>
 <ul>
-<li><a href="https://github.com/sindresorhus/awesome-electron" target="_blank" rel="external">&#x5F00;&#x6E90;electron App</a></li>
-<li><a href="https://gold.xitu.io/entry/56aae5e4a633bd0257ae4ab8" target="_blank" rel="external">[&#x8BD1;&#x6587;] &#x901A;&#x8FC7; Electron &#x5F00;&#x53D1;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x5730;&#x684C;&#x9762;&#x5E94;&#x7528;</a></li>
-<li><a href="https://github.com/electron/electron/blob/master/docs-translations/zh-CN/tutorial/quick-start.md" target="_blank" rel="external">Electron &#x5FEB;&#x901F;&#x5165;&#x95E8;</a></li>
+<li><a href="https://github.com/sindresorhus/awesome-electron" target="_blank" rel="external">开源electron App</a></li>
+<li><a href="https://gold.xitu.io/entry/56aae5e4a633bd0257ae4ab8" target="_blank" rel="external">[译文] 通过 Electron 开发一个简单地桌面应用</a></li>
+<li><a href="https://github.com/electron/electron/blob/master/docs-translations/zh-CN/tutorial/quick-start.md" target="_blank" rel="external">Electron 快速入门</a></li>
 <li><a href="http://electron.atom.io/docs/api/" target="_blank" rel="external">Electron API</a></li>
-<li><a href="https://wizardforcel.gitbooks.io/electron-doc/content/api" target="_blank" rel="external">Electron &#x4E2D;&#x6587;&#x6587;&#x6863;</a></li>
+<li><a href="https://wizardforcel.gitbooks.io/electron-doc/content/api" target="_blank" rel="external">Electron 中文文档</a></li>
 <li><a href="https://github.com/electron/electron/tree/master/docs-translations/zh-CN" target="_blank" rel="external">Electron/docs-translations/zh-CN/</a></li>
-<li><a href="http://www.w3cschool.cn/electronmanual/electronmanual-tray.html" target="_blank" rel="external">w3cschool Electron &#x4E2D;&#x6587; API</a></li>
-<li><a href="https://github.com/electron/electron/tree/master/docs-translations/zh-CN" target="_blank" rel="external">Electron &#x6587;&#x6863;</a></li>
-<li><a href="http://taobaofed.org/blog/2016/01/07/find-back-the-lost-es6-features-in-nodejs/" target="_blank" rel="external">ES6&#x8F6C;Node</a></li>
-<li><a href="http://imweb.io/topic/582293894067ce9726778be9?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="external">Node&#x4E2D;&#x6CA1;&#x641E;&#x660E;&#x767D;require&#x548C;import&#xFF0C;&#x4F60;&#x4F1A;&#x88AB;&#x5751;&#x7684;&#x5F88;&#x60E8;</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/20225295" target="_blank" rel="external">&#x4F7F;&#x7528; Electron &#x6784;&#x5EFA;&#x684C;&#x9762;&#x5E94;&#x7528;</a></li>
-<li><a href="http://www.jianshu.com/p/4c61da559d75" target="_blank" rel="external">React Native&#x586B;&#x5751;&#x4E4B;&#x65C5;&#x2013;HTTP&#x8BF7;&#x6C42;&#x7BC7;</a></li>
+<li><a href="http://www.w3cschool.cn/electronmanual/electronmanual-tray.html" target="_blank" rel="external">w3cschool Electron 中文 API</a></li>
+<li><a href="https://github.com/electron/electron/tree/master/docs-translations/zh-CN" target="_blank" rel="external">Electron 文档</a></li>
+<li><a href="http://taobaofed.org/blog/2016/01/07/find-back-the-lost-es6-features-in-nodejs/" target="_blank" rel="external">ES6转Node</a></li>
+<li><a href="http://imweb.io/topic/582293894067ce9726778be9?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="external">Node中没搞明白require和import，你会被坑的很惨</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/20225295" target="_blank" rel="external">使用 Electron 构建桌面应用</a></li>
+<li><a href="http://www.jianshu.com/p/4c61da559d75" target="_blank" rel="external">React Native填坑之旅–HTTP请求篇</a></li>
 <li><a href="http://cn.vuejs.org" target="_blank" rel="external">VueJs</a></li>
-<li><a href="https://github.com/ppoffice/Hozz" target="_blank" rel="external">Electron+react+webpack &#x6784;&#x9020;&#x8DE8;&#x5E73;&#x53F0;&#x81EA;&#x52A8;&#x66F4;&#x65B0;host&#x5E94;&#x7528;</a></li>
-<li><a href="https://segmentfault.com/a/1190000005013207" target="_blank" rel="external">React &#x6700;&#x4F73;&#x5B9E;&#x8DF5;&#x2014;&#x2014;&#x90A3;&#x4E9B; React &#x6CA1;&#x544A;&#x8BC9;&#x4F60;&#x4F46;&#x5F88;&#x91CD;&#x8981;&#x7684;&#x4E8B;</a></li>
-<li><a href="http://www.ruanyifeng.com/blog/2016/09/react-technology-stack.html" target="_blank" rel="external">&#x962E;&#x4E00;&#x5CF0;React&#x9879;&#x76EE;&#x811A;&#x624B;&#x67B6;</a></li>
-<li><a href="https://github.com/camsong/blog/issues/5" target="_blank" rel="external">CSSModules&#x8BE6;&#x89E3;&#x53CA;React&#x4E2D;&#x5B9E;&#x8DF5;</a></li>
-<li><a href="http://boke.io/tan-tan-css-modules/" target="_blank" rel="external">&#x8C08;&#x8C08; CSS Modules</a></li>
-<li><a href="http://www.cnblogs.com/wonyun/p/6030090.html" target="_blank" rel="external">html-webpack-plugin&#x8BE6;&#x89E3;</a></li>
-<li><a href="https://segmentfault.com/a/1190000005089993?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="external">[&#x8BD1;] Webpack&#x2014;&#x2014;&#x4EE4;&#x4EBA;&#x56F0;&#x60D1;&#x7684;&#x5730;&#x65B9;</a></li>
-<li><a href="https://segmentfault.com/a/1190000004530909" target="_blank" rel="external">[&#x8BD1;] react-css-modules</a></li>
-<li><a href="https://segmentfault.com/a/1190000005969488" target="_blank" rel="external">&#x4F7F;&#x7528; webpack + react + redux + es6 &#x5F00;&#x53D1;&#x7EC4;&#x4EF6;&#x5316;&#x524D;&#x7AEF;&#x9879;&#x76EE;</a></li>
-<li><a href="http://bbs.reactnative.cn/topic/15/react-react-native-%E7%9A%84es5-es6%E5%86%99%E6%B3%95%E5%AF%B9%E7%85%A7%E8%A1%A8" target="_blank" rel="external">React/React Native &#x7684;ES5 ES6&#x5199;&#x6CD5;&#x5BF9;&#x7167;&#x8868;</a></li>
-<li><a href="https://segmentfault.com/a/1190000004660311" target="_blank" rel="external">&#x4F7F;&#x7528; react-hot-loader</a></li>
-<li><a href="http://stackoverflow.com/questions/37311972/react-doesnt-switch-to-production-mode" target="_blank" rel="external">React doesn&#x2019;t switch to production mode</a></li>
-<li><a href="http://www.alloyteam.com/2015/07/react-zu-jian-jian-tong-xin/#prettyPhoto" target="_blank" rel="external">react&#x7EC4;&#x4EF6;&#x95F4;&#x901A;&#x4FE1;</a></li>
+<li><a href="https://github.com/ppoffice/Hozz" target="_blank" rel="external">Electron+react+webpack 构造跨平台自动更新host应用</a></li>
+<li><a href="https://segmentfault.com/a/1190000005013207" target="_blank" rel="external">React 最佳实践——那些 React 没告诉你但很重要的事</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2016/09/react-technology-stack.html" target="_blank" rel="external">阮一峰React项目脚手架</a></li>
+<li><a href="https://github.com/camsong/blog/issues/5" target="_blank" rel="external">CSSModules详解及React中实践</a></li>
+<li><a href="http://boke.io/tan-tan-css-modules/" target="_blank" rel="external">谈谈 CSS Modules</a></li>
+<li><a href="http://www.cnblogs.com/wonyun/p/6030090.html" target="_blank" rel="external">html-webpack-plugin详解</a></li>
+<li><a href="https://segmentfault.com/a/1190000005089993?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="external">[译] Webpack——令人困惑的地方</a></li>
+<li><a href="https://segmentfault.com/a/1190000004530909" target="_blank" rel="external">[译] react-css-modules</a></li>
+<li><a href="https://segmentfault.com/a/1190000005969488" target="_blank" rel="external">使用 webpack + react + redux + es6 开发组件化前端项目</a></li>
+<li><a href="http://bbs.reactnative.cn/topic/15/react-react-native-%E7%9A%84es5-es6%E5%86%99%E6%B3%95%E5%AF%B9%E7%85%A7%E8%A1%A8" target="_blank" rel="external">React/React Native 的ES5 ES6写法对照表</a></li>
+<li><a href="https://segmentfault.com/a/1190000004660311" target="_blank" rel="external">使用 react-hot-loader</a></li>
+<li><a href="http://stackoverflow.com/questions/37311972/react-doesnt-switch-to-production-mode" target="_blank" rel="external">React doesn’t switch to production mode</a></li>
+<li><a href="http://www.alloyteam.com/2015/07/react-zu-jian-jian-tong-xin/#prettyPhoto" target="_blank" rel="external">react组件间通信</a></li>
 <li><a href="https://github.com/github/fetch" target="_blank" rel="external">github/fetch</a></li>
-<li><a href="http://blog.parryqiu.com/2016/03/02/using_fetch_in_nodejs/" target="_blank" rel="external">&#x5728; JS &#x4E2D;&#x4F7F;&#x7528; fetch &#x66F4;&#x52A0;&#x9AD8;&#x6548;&#x5730;&#x8FDB;&#x884C;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;</a></li>
-<li><a href="http://solee.me/2016/02/01/jwt-ren-zheng-mo-shi-jian-dan-miao-shu/#open" target="_blank" rel="external">JWT &#x8BA4;&#x8BC1;&#x6A21;&#x5F0F;&#x7B80;&#x5355;&#x63CF;&#x8FF0;</a></li>
+<li><a href="http://blog.parryqiu.com/2016/03/02/using_fetch_in_nodejs/" target="_blank" rel="external">在 JS 中使用 fetch 更加高效地进行网络请求</a></li>
+<li><a href="http://solee.me/2016/02/01/jwt-ren-zheng-mo-shi-jian-dan-miao-shu/#open" target="_blank" rel="external">JWT 认证模式简单描述</a></li>
 <li><a href="http://www.haomou.net/2014/08/13/2014_bare_token/" target="_blank" rel="external">Bearer Token</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/20381597?columnSlug=purerender" target="_blank" rel="external">&#x6DF1;&#x5165;&#x7406;&#x89E3; react-router &#x8DEF;&#x7531;&#x7CFB;&#x7EDF;</a></li>
-<li><a href="https://github.com/zhengweikeng/blog/issues/9" target="_blank" rel="external">webpack&#x4E2D;&#x5173;&#x4E8E;&#x6837;&#x5F0F;&#x7684;&#x5904;&#x7406;</a></li>
-<li><a href="https://csspod.com/refactoring-react-components-to-es2015-classes/" target="_blank" rel="external">&#x4F7F;&#x7528; ES2015 &#x91CD;&#x6784; React &#x7EC4;&#x4EF6;
+<li><a href="https://zhuanlan.zhihu.com/p/20381597?columnSlug=purerender" target="_blank" rel="external">深入理解 react-router 路由系统</a></li>
+<li><a href="https://github.com/zhengweikeng/blog/issues/9" target="_blank" rel="external">webpack中关于样式的处理</a></li>
+<li><a href="https://csspod.com/refactoring-react-components-to-es2015-classes/" target="_blank" rel="external">使用 ES2015 重构 React 组件
 </a></li>
-<li><a href="https://segmentfault.com/a/1190000006907701" target="_blank" rel="external">webpack&#x591A;&#x9875;&#x5E94;&#x7528;&#x67B6;&#x6784;&#x7CFB;&#x5217;&#xFF08;&#x516D;&#xFF09;&#xFF1A;&#x542C;&#x8BF4;webpack&#x8FDE;&#x56FE;&#x7247;&#x548C;&#x5B57;&#x4F53;&#x4E5F;&#x80FD;&#x6253;&#x5305;&#xFF1F;</a></li>
-<li><a href="http://blog.tomyail.com/install-electron-slow-in-china/" target="_blank" rel="external">&#x52A0;&#x901F;electron&#x5728;&#x56FD;&#x5185;&#x7684;&#x4E0B;&#x8F7D;&#x901F;&#x5EA6;</a></li>
-<li><a href="https://github.com/zjzhome/I_want_to_say/issues/3" target="_blank" rel="external">&#x6DF1;&#x5165;Electron </a></li>
-<li><a href="http://get.ftqq.com/7870.get#" target="_blank" rel="external">&#x7528;Electron&#x5F00;&#x53D1;&#x684C;&#x9762;&#x5E94;&#x7528;</a></li>
-<li><a href="http://web.jobbole.com/86509/" target="_blank" rel="external">&#x7528; Electron &#x6253;&#x9020;&#x8DE8;&#x5E73;&#x53F0;&#x524D;&#x7AEF; App</a></li>
+<li><a href="https://segmentfault.com/a/1190000006907701" target="_blank" rel="external">webpack多页应用架构系列（六）：听说webpack连图片和字体也能打包？</a></li>
+<li><a href="http://blog.tomyail.com/install-electron-slow-in-china/" target="_blank" rel="external">加速electron在国内的下载速度</a></li>
+<li><a href="https://github.com/zjzhome/I_want_to_say/issues/3" target="_blank" rel="external">深入Electron </a></li>
+<li><a href="http://get.ftqq.com/7870.get#" target="_blank" rel="external">用Electron开发桌面应用</a></li>
+<li><a href="http://web.jobbole.com/86509/" target="_blank" rel="external">用 Electron 打造跨平台前端 App</a></li>
 <li><a href="https://github.com/Stuk/jszip" target="_blank" rel="external">JSZip</a></li>
-<li><a href="http://ourjs.com/detail/56dab56c88feaf2d031d2484" target="_blank" rel="external">NodeJS &#x6587;&#x4EF6;(&#x5939;)&#x538B;&#x7F29;/&#x89E3;&#x538B;&#x65B9;&#x6848;(zip/unzip)-Linux&#x4E0A;zip&#x76F8;&#x5173;&#x547D;&#x4EE4;</a></li>
+<li><a href="http://ourjs.com/detail/56dab56c88feaf2d031d2484" target="_blank" rel="external">NodeJS 文件(夹)压缩/解压方案(zip/unzip)-Linux上zip相关命令</a></li>
 <li><a href="http://stuk.github.io/jszip/documentation/api_jszip" target="_blank" rel="external">JSZip API</a></li>
-<li><a href="https://github.com/sorrycc/blog/issues/13" target="_blank" rel="external">Electron &#x5E94;&#x7528;&#x5B9E;&#x6218; (&#x67B6;&#x6784;&#x7BC7;) </a></li>
-<li><a href="http://mushanshitiancai.github.io/2017/02/11/js/electron/%E6%89%93%E5%8C%85Electron%E5%BA%94%E7%94%A8/" target="_blank" rel="external">&#x6253;&#x5305;Electron&#x5E94;&#x7528;</a></li>
-<li><a href="http://www.jianshu.com/p/1c2ad78df208" target="_blank" rel="external">&#x5E38;&#x7528;Electron App&#x6253;&#x5305;&#x5DE5;&#x5177;</a></li>
-<li><a href="https://github.com/webpack/webpack/issues/1599" target="_blank" rel="external">__dirname returns &#x2018;/&#x2018; when js file is built with webpack</a></li>
-<li><a href="https://github.com/nukc/how-to-use-travis-ci" target="_blank" rel="external">&#x5982;&#x4F55;&#x7B80;&#x5355;&#x5165;&#x95E8;&#x4F7F;&#x7528;Travis-CI&#x6301;&#x7EED;&#x96C6;&#x6210;</a></li>
+<li><a href="https://github.com/sorrycc/blog/issues/13" target="_blank" rel="external">Electron 应用实战 (架构篇) </a></li>
+<li><a href="http://mushanshitiancai.github.io/2017/02/11/js/electron/%E6%89%93%E5%8C%85Electron%E5%BA%94%E7%94%A8/" target="_blank" rel="external">打包Electron应用</a></li>
+<li><a href="http://www.jianshu.com/p/1c2ad78df208" target="_blank" rel="external">常用Electron App打包工具</a></li>
+<li><a href="https://github.com/webpack/webpack/issues/1599" target="_blank" rel="external">__dirname returns ‘/‘ when js file is built with webpack</a></li>
+<li><a href="https://github.com/nukc/how-to-use-travis-ci" target="_blank" rel="external">如何简单入门使用Travis-CI持续集成</a></li>
 <li><a href="https://docs.travis-ci.com/user/deployment/releases/" target="_blank" rel="external">Travis-CI - GitHub Releases Uploading</a></li>
 </ul>
 
@@ -863,7 +863,7 @@
 
   
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-  <script>AV.initialize("FkaAa7JkTVnjEWwTzitYNqdD-gzGzoHsz", "EQB15sUPijE0qCOJGBaoqxWN");</script>
+  <script>AV.initialize("vRu2nM0E4TnPoSh1PmS4wXad-gzGzoHsz", "m1sk6K5zpn10ht2DGFqBOwKC");</script>
   <script>
     function showTime(Counter) {
       var query = new AV.Query(Counter);
