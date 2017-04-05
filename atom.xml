@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wodewone.com/"/>
-  <updated>2017-04-05T03:27:54.000Z</updated>
+  <updated>2017-04-05T03:31:21.000Z</updated>
   <id>http://wodewone.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://wodewone.com/2017/04/05/%E5%85%B3%E4%BA%8EOOP%E7%9A%84SOLID%E5%8E%9F%E5%88%99/"/>
     <id>http://wodewone.com/2017/04/05/关于OOP的SOLID原则/</id>
     <published>2017-04-05T03:23:49.000Z</published>
-    <updated>2017-04-05T03:27:54.000Z</updated>
+    <updated>2017-04-05T03:31:21.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <ul>
@@ -28,6 +28,7 @@
 <li>原文作者：<a href="https://android.jlelse.eu/@aantunesdias" target="_blank" rel="external">Arthur Antunes</a></li>
 <li>译文出自：<a href="https://github.com/xitu/gold-miner" target="_blank" rel="external">掘金翻译计划</a></li>
 <li>译者：<a href="https://github.com/XHShirley" target="_blank" rel="external">XHShirley</a> * 校对者：<a href="https://github.com/imink" target="_blank" rel="external">Patrick Wang</a>, <a href="https://github.com/skyar2009" target="_blank" rel="external">skyar2009</a></li>
+<li>本文原址：<a href="https://github.com/xitu/gold-miner/blob/master/TODO/solid-principles-the-definitive-guide.md" target="_blank" rel="external">[译] SOLID 原则：权威指南</a></li>
 </ul>
 </blockquote>
 <h1 id="SOLID-原则：权威指南"><a href="#SOLID-原则：权威指南" class="headerlink" title="SOLID 原则：权威指南"></a>SOLID 原则：权威指南</h1><p><img src="https://cdn-images-1.medium.com/max/2000/1*LcsyJRuNmvg31Va1M2OZgA.png" alt=""></p>
@@ -295,6 +296,129 @@
       <category term="solid" scheme="http://wodewone.com/tags/solid/"/>
     
       <category term="SOLID" scheme="http://wodewone.com/tags/SOLID/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>从输入URL到页面加载发生了什么</title>
+    <link href="http://wodewone.com/2017/03/28/enter-url-to-html/"/>
+    <id>http://wodewone.com/2017/03/28/enter-url-to-html/</id>
+    <published>2017-03-28T13:50:41.000Z</published>
+    <updated>2017-04-05T07:40:11.000Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li><a href="https://segmentfault.com/a/1190000006879700" target="_blank" rel="external">原文地址</a></li>
+</ul>
+<h1 id="从输入URL到页面加载发生了什么"><a href="#从输入URL到页面加载发生了什么" class="headerlink" title="从输入URL到页面加载发生了什么"></a>从输入URL到页面加载发生了什么</h1><p>最近在进行前端面试方面的一些准备，看了网上许多相关的文章，发现有一个问题始终绕不开: 在浏览器中输入URL到整个页面显示在用户面前时这个过程中到底发生了什么。仔细思考这个问题，发现确实很深，这个过程涉及到的东西很多。这个问题的回答真的能够很好的考验一个web工程师的水平，于是我自问自答一番。</p>
+<p>总体来说分为以下几个过程:</p>
+<ol>
+<li><p>DNS解析</p>
+</li>
+<li><p>TCP连接</p>
+</li>
+<li><p>发送HTTP请求</p>
+</li>
+<li><p>服务器处理请求并返回HTTP报文</p>
+</li>
+<li><p>浏览器解析渲染页面</p>
+</li>
+<li><p>连接结束</p>
+</li>
+</ol>
+<h2 id="具体过程"><a href="#具体过程" class="headerlink" title="具体过程"></a>具体过程</h2><h3 id="DNS解析"><a href="#DNS解析" class="headerlink" title="DNS解析"></a>DNS解析</h3><p>DNS解析的过程就是寻找哪台机器上有你需要资源的过程。当你在浏览器中输入一个地址时，例如www.baidu.com，其实不是百度网站真正意义上的地址。互联网上每一台计算机的唯一标识是它的IP地址，但是IP地址并不方便记忆。用户更喜欢用方便记忆的网址去寻找互联网上的其它计算机，也就是上面提到的百度的网址。所以互联网设计者需要在用户的方便性与可用性方面做一个权衡，这个权衡就是一个网址到IP地址的转换，这个过程就是DNS解析。它实际上充当了一个翻译的角色，实现了网址到IP地址的转换。网址到IP地址转换的过程是如何进行的?</p>
+<h4 id="解析过程"><a href="#解析过程" class="headerlink" title="解析过程"></a>解析过程</h4><p>DNS解析是一个递归查询的过程。</p>
+<p><img src="/2017/03/28/enter-url-to-html/1618288278-57f00bf9444dd_articlex.png" alt="1618288278-57f00bf9444dd_articlex.png"></p>
+<p>上述图片是查找www.google.com的IP地址过程。首先在本地域名服务器中查询IP地址，如果没有找到的情况下，本地域名服务器会向根域名服务器发送一个请求，如果根域名服务器也不存在该域名时，本地域名会向com顶级域名服务器发送一个请求，依次类推下去。直到最后本地域名服务器得到google的IP地址并把它缓存到本地，供下次查询使用。从上述过程中，可以看出网址的解析是一个从右向左的过程: com -&gt; google.com -&gt; www.google.com。但是你是否发现少了点什么，根域名服务器的解析过程呢？事实上，真正的网址是www.google.com.，并不是我多打了一个.，这个.对应的就是根域名服务器，默认情况下所有的网址的最后一位都是.，既然是默认情况下，为了方便用户，通常都会省略，浏览器在请求DNS的时候会自动加上，所有网址真正的解析过程为: . -&gt; .com -&gt; google.com. -&gt; www.google.com.。</p>
+<h4 id="DNS优化"><a href="#DNS优化" class="headerlink" title="DNS优化"></a>DNS优化</h4><p>了解了DNS的过程，可以为我们带来哪些？上文中请求到google的IP地址时，经历了8个步骤，这个过程中存在多个请求(同时存在UDP和TCP请求，为什么有两种请求方式，请自行查找)。如果每次都经过这么多步骤，是否太耗时间？如何减少该过程的步骤呢？那就是DNS缓存。</p>
+<h5 id="DNS缓存"><a href="#DNS缓存" class="headerlink" title="DNS缓存"></a>DNS缓存</h5><p>DNS存在着多级缓存，从离浏览器的距离排序的话，有以下几种: 浏览器缓存，系统缓存，路由器缓存，IPS服务器缓存，根域名服务器缓存，顶级域名服务器缓存，主域名服务器缓存。</p>
+<ul>
+<li><p>在你的chrome浏览器中输入:chrome://dns/，你可以看到chrome浏览器的DNS缓存。</p>
+</li>
+<li><p>系统缓存主要存在/etc/hosts(Linux系统)中:</p>
+</li>
+</ul>
+<p><img src="/2017/03/28/enter-url-to-html/2644576721-57f01287b68cc_articlex.png" alt="2644576721-57f01287b68cc_articlex.png"></p>
+<ul>
+<li>…</li>
+</ul>
+<h5 id="DNS负载均衡"><a href="#DNS负载均衡" class="headerlink" title="DNS负载均衡"></a>DNS负载均衡</h5><p>不知道大家有没有思考过一个问题: DNS返回的IP地址是否每次都一样？如果每次都一样是否说明你请求的资源都位于同一台机器上面，那么这台机器需要多高的性能和储存才能满足亿万请求呢？其实真实的互联网世界背后存在成千上百台服务器，大型的网站甚至更多。但是在用户的眼中，它需要的只是处理他的请求，哪台机器处理请求并不重要。DNS可以返回一个合适的机器的IP给用户，例如可以根据每台机器的负载量，该机器离用户地理位置的距离等等，这种过程就是DNS负载均衡，又叫做DNS重定向。大家耳熟能详的CDN(Content Delivery Network)就是利用DNS的重定向技术，DNS服务器会返回一个跟用户最接近的点的IP地址给用户，CDN节点的服务器负责响应用户的请求，提供所需的内容。在这里打个免费的广告，我平时使用的比较多的是七牛云的CDN(免费)储存图片，作为我个人博客的图床使用。</p>
+<h3 id="TCP连接"><a href="#TCP连接" class="headerlink" title="TCP连接"></a>TCP连接</h3><p>HTTP协议是使用TCP作为其传输层协议的，当TCP出现瓶颈时，HTTP也会受到影响。但由于TCP优化这一块我平常接触的并不是很多，再加上大学时的计算机网络的基础基本上忘完，所以这一部分我也就不在这里分析了。</p>
+<h4 id="HTTPS协议"><a href="#HTTPS协议" class="headerlink" title="HTTPS协议"></a>HTTPS协议</h4><p>我不知道把HTTPS放在这个部分是否合适，但是放在这里好像又说的过去。HTTP报文是包裹在TCP报文中发送的，服务器端收到TCP报文时会解包提取出HTTP报文。但是这个过程中存在一定的风险，HTTP报文是明文，如果中间被截取的话会存在一些信息泄露的风险。那么在进入TCP报文之前对HTTP做一次加密就可以解决这个问题了。HTTPS协议的本质就是HTTP + SSL(or TLS)。在HTTP报文进入TCP报文之前，先使用SSL对HTTP报文进行加密。从网络的层级结构看它位于HTTP协议与TCP协议之间。</p>
+<p><img src="/2017/03/28/enter-url-to-html/3598916885-5608f6c220945_articlex.png" alt="3598916885-5608f6c220945_articlex.png"></p>
+<h4 id="HTTPS过程"><a href="#HTTPS过程" class="headerlink" title="HTTPS过程"></a>HTTPS过程</h4><p>HTTPS在传输数据之前需要客户端与服务器进行一个握手(TLS/SSL握手)，在握手过程中将确立双方加密传输数据的密码信息。TLS/SSL使用了非对称加密，对称加密以及hash等。具体过程请参考经典的阮一峰先生的博客<a href="http://www.ruanyifeng.com/blog/2014/09/illustration-ssl.html" target="_blank" rel="external">TLS/SSL握手过程</a>。<br>HTTPS相比于HTTP，虽然提供了安全保证，但是势必会带来一些时间上的损耗，如握手和加密等过程，是否使用HTTPS需要根据具体情况在安全和性能方面做出权衡。</p>
+<h3 id="HTTP请求"><a href="#HTTP请求" class="headerlink" title="HTTP请求"></a>HTTP请求</h3><p>其实这部分又可以称为前端工程师眼中的HTTP，它主要发生在客户端。发送HTTP请求的过程就是构建HTTP请求报文并通过TCP协议中发送到服务器指定端口(HTTP协议80/8080, HTTPS协议443)。HTTP请求报文是由三部分组成: <strong>请求行</strong>, <strong>请求报头</strong>和<strong>请求正文</strong>。</p>
+<h4 id="请求行"><a href="#请求行" class="headerlink" title="请求行"></a>请求行</h4><p>格式如下:<br><code>Method Request-URL HTTP-Version CRLF</code></p>
+<div class="widget-codetool" style="display:none;"><br><br><div class="widget-codetool--inner"><span class="selectCode code-tool" data-toggle="tooltip" data-placement="top" title="" data-original-title="全选"></span><span type="button" class="copyCode code-tool" data-toggle="tooltip" data-placement="top" data-clipboard-text="eg: GET index.html HTTP/1.1
+" title="" data-original-title="复制"></span><span type="button" class="saveToNote code-tool" data-toggle="tooltip" data-placement="top" title="" data-original-title="放进笔记"></span></div>
+
+<p></p></div><p></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">eg: GET index.html HTTP/1.1</div></pre></td></tr></table></figure>
+<p>常用的方法有: GET, POST, PUT, DELETE, OPTIONS, HEAD。</p>
+<p>TODO：</p>
+<ul>
+<li>GET和POST有什么区别？</li>
+</ul>
+<h4 id="请求报头"><a href="#请求报头" class="headerlink" title="请求报头"></a>请求报头</h4><p>请求报头允许客户端向服务器传递请求的附加信息和客户端自身的信息。<br>PS: 客户端不一定特指浏览器，有时候也可使用Linux下的CURL命令以及HTTP客户端测试工具等。<br>常见的请求报头有: Accept, Accept-Charset, Accept-Encoding, Accept-Language, Content-Type, Authorization, Cookie, User-Agent等。</p>
+<p><img src="/2017/03/28/enter-url-to-html/3739029528-57d55e6ce8b6c_articlex.png" alt="3739029528-57d55e6ce8b6c_articlex.png"></p>
+<p>上图是使用Chrome开发者工具截取的对百度的HTTP请求以及响应报文，从图中可以看出，请求报头中使用了Accept, Accept-Encoding, Accept-Language, Cache-Control, Connection, Cookie等字段。Accept用于指定客户端用于接受哪些类型的信息，Accept-Encoding与Accept类似，它用于指定接受的编码方式。Connection设置为Keep-alive用于告诉客户端本次HTTP请求结束之后并不需要关闭TCP连接，这样可以使下次HTTP请求使用相同的TCP通道，节省TCP连接建立的时间。</p>
+<h4 id="请求正文"><a href="#请求正文" class="headerlink" title="请求正文"></a>请求正文</h4><p>当使用POST, PUT等方法时，通常需要客户端向服务器传递数据。这些数据就储存在请求正文中。在请求包头中有一些与请求正文相关的信息，例如: 现在的Web应用通常采用Rest架构，请求的数据格式一般为json。这时就需要设置Content-Type: application/json。</p>
+<h3 id="服务器处理请求并返回HTTP报文"><a href="#服务器处理请求并返回HTTP报文" class="headerlink" title="服务器处理请求并返回HTTP报文"></a>服务器处理请求并返回HTTP报文</h3><p>自然而然这部分对应的就是后端工程师眼中的HTTP。后端从在固定的端口接收到TCP报文开始，这一部分对应于编程语言中的socket。它会对TCP连接进行处理，对HTTP协议进行解析，并按照报文格式进一步封装成HTTP Request对象，供上层使用。这一部分工作一般是由Web服务器去进行，我使用过的Web服务器有Tomcat, Jetty和Netty等等。</p>
+<p>HTTP响应报文也是由三部分组成: <strong>状态码</strong>, <strong>响应报头</strong>和<strong>响应报文</strong>。</p>
+<h4 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h4><p>状态码是由3位数组成，第一个数字定义了响应的类别，且有五种可能取值:</p>
+<ul>
+<li><p>1xx：指示信息–表示请求已接收，继续处理。</p>
+</li>
+<li><p>2xx：成功–表示请求已被成功接收、理解、接受。</p>
+</li>
+<li><p>3xx：重定向–要完成请求必须进行更进一步的操作。</p>
+</li>
+<li><p>4xx：客户端错误–请求有语法错误或请求无法实现。</p>
+</li>
+<li><p>5xx：服务器端错误–服务器未能实现合法的请求。<br>平时遇到比较常见的状态码有:200, 204, 301, 302, 304, 400, 401, 403, 404, 422, 500(分别表示什么请自行查找)。</p>
+</li>
+</ul>
+<p>TODO:</p>
+<ul>
+<li><p>301和302有什么区别？</p>
+</li>
+<li><p>HTTP缓存</p>
+</li>
+</ul>
+<p><img src="/2017/03/28/enter-url-to-html/3884439248-57f0f943c72f3_articlex.png" alt="3884439248-57f0f943c72f3_articlex.png"></p>
+<p>该图是本公司对状态码的一个总结，绘制而成的status code map，请大家参考。</p>
+<h4 id="响应报头"><a href="#响应报头" class="headerlink" title="响应报头"></a>响应报头</h4><p>常见的响应报头字段有: Server, Connection…。</p>
+<h4 id="响应报文"><a href="#响应报文" class="headerlink" title="响应报文"></a>响应报文</h4><p>服务器返回给浏览器的文本信息，通常HTML, CSS, JS, 图片等文件就放在这一部分。</p>
+<h3 id="浏览器解析渲染页面"><a href="#浏览器解析渲染页面" class="headerlink" title="浏览器解析渲染页面"></a>浏览器解析渲染页面</h3><p>浏览器在收到HTML,CSS,JS文件后，它是如何把页面呈现到屏幕上的？下图对应的就是WebKit渲染的过程。</p>
+<p><img src="/2017/03/28/enter-url-to-html/775625205-57d4063b7b60d_articlex.png" alt="775625205-57d4063b7b60d_articlex.png"></p>
+<p>浏览器是一个边解析边渲染的过程。首先浏览器解析HTML文件构建DOM树，然后解析CSS文件构建渲染树，等到渲染树构建完成后，浏览器开始布局渲染树并将其绘制到屏幕上。这个过程比较复杂，涉及到两个概念: reflow(回流)和repain(重绘)。DOM节点中的各个元素都是以盒模型的形式存在，这些都需要浏览器去计算其位置和大小等，这个过程称为relow;当盒模型的位置,大小以及其他属性，如颜色,字体,等确定下来之后，浏览器便开始绘制内容，这个过程称为repain。页面在首次加载时必然会经历reflow和repain。reflow和repain过程是非常消耗性能的，尤其是在移动设备上，它会破坏用户体验，有时会造成页面卡顿。所以我们应该尽可能少的减少reflow和repain。</p>
+<p><img src="/2017/03/28/enter-url-to-html/3426749863-57d54b4293001_articlex.png" alt="3426749863-57d54b4293001_articlex.png"></p>
+<p>JS的解析是由浏览器中的JS解析引擎完成的。JS是单线程运行，也就是说，在同一个时间内只能做一件事，所有的任务都需要排队，前一个任务结束，后一个任务才能开始。但是又存在某些任务比较耗时，如IO读写等，所以需要一种机制可以先执行排在后面的任务，这就是：同步任务(synchronous)和异步任务(asynchronous)。JS的执行机制就可以看做是一个主线程加上一个任务队列(task queue)。同步任务就是放在主线程上执行的任务，异步任务是放在任务队列中的任务。所有的同步任务在主线程上执行，形成一个执行栈;异步任务有了运行结果就会在任务队列中放置一个事件；脚本运行时先依次运行执行栈，然后会从任务队列里提取事件，运行任务队列中的任务，这个过程是不断重复的，所以又叫做事件循环(Event loop)。</p>
+<p>浏览器在解析过程中，如果遇到请求外部资源时，如图像,iconfont,JS等。浏览器将重复1-6过程下载该资源。请求过程是异步的，并不会影响HTML文档进行加载，但是当文档加载过程中遇到JS文件，HTML文档会挂起渲染过程，不仅要等到文档中JS文件加载完毕还要等待解析执行完毕，才会继续HTML的渲染过程。原因是因为JS有可能修改DOM结构，这就意味着JS执行完成前，后续所有资源的下载是没有必要的，这就是JS阻塞后续资源下载的根本原因。CSS文件的加载不影响JS文件的加载，但是却影响JS文件的执行。JS代码执行前浏览器必须保证CSS文件已经下载并加载完毕。</p>
+<h2 id="Web优化"><a href="#Web优化" class="headerlink" title="Web优化"></a>Web优化</h2><p>上面部分主要介绍了一次完整的请求对应的过程，了解该过程的目的无非就是为了Web优化。在谈到Web优化之前，我们回到一个更原始的问题，Web前端的本质是什么。我的理解是: 将信息快速并友好的展示给用户并能够与用户进行交互。快速的意思就是在尽可能短的时间内完成页面的加载，试想一下当你在淘宝购买东西的时候，淘宝页面加载了10几秒才显示出物品，这个时候你还有心情去购买吗？怎么快速的完成页面的加载呢？优雅的学院派雅虎给出了常用的一些手段，也就是我们熟悉的<a href="https://developer.yahoo.com/performance/" target="_blank" rel="external">雅虎34条军规</a>。这34军规实际上就是围绕请求过程进行的一些优化方式。</p>
+<p>如何尽快的加载资源？答案就是能不从网络中加载的资源就不从网络中加载，当我们合理使用缓存，将资源放在浏览器端，这是最快的方式。如果资源必须从网络中加载，则要考虑缩短连接时间，即DNS优化部分;减少响应内容大小，即对内容进行压缩。另一方面，如果加载的资源数比较少的话，也可以快速的响应用户。当资源到达浏览器之后，浏览器开始进行解析渲染，浏览器中最耗时的部分就是reflow，所以围绕这一部分就是考虑如何减少reflow的次数。</p>
+<hr>
+<ul>
+<li><a href="https://segmentfault.com/a/1190000006879700" target="_blank" rel="external">原文地址</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000006879700&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;原文地址&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;从输入URL到页面加载发生了什么&quot;&gt;
+    
+    </summary>
+    
+      <category term="html" scheme="http://wodewone.com/categories/html/"/>
+    
+    
+      <category term="html" scheme="http://wodewone.com/tags/html/"/>
+    
+      <category term="DNS" scheme="http://wodewone.com/tags/DNS/"/>
+    
+      <category term="URL" scheme="http://wodewone.com/tags/URL/"/>
     
   </entry>
   
@@ -1467,63 +1591,6 @@
       <category term="hexo" scheme="http://wodewone.com/tags/hexo/"/>
     
       <category term="img" scheme="http://wodewone.com/tags/img/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo语法集</title>
-    <link href="http://wodewone.com/2016/08/22/hexo%E8%AF%AD%E6%B3%95%E9%9B%86/"/>
-    <id>http://wodewone.com/2016/08/22/hexo语法集/</id>
-    <published>2016-08-22T14:01:44.000Z</published>
-    <updated>2016-12-03T13:47:22.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm install hexo -g <span class="comment">#安装  </span></div><div class="line">npm update hexo -g <span class="comment">#升级  </span></div><div class="line">hexo init <span class="comment">#初始化</span></div></pre></td></tr></table></figure>
-<h4 id="简写命令"><a href="#简写命令" class="headerlink" title="简写命令"></a>简写命令</h4><p><code>hexo n &quot;我的博客&quot;</code> == <code>hexo new &quot;我的博客&quot;</code> #新建文章<br><code>hexo p</code> == <code>hexo publish</code><br><code>hexo g</code> == <code>hexo generate</code>    #生成<br><code>hexo s</code> == <code>hexo server</code>        #启动服务预览<br><code>hexo d</code> == <code>hexo deploy</code>        #部署</p>
-<h4 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h4><p><code>hexo server</code> #Hexo 会监视文件变动并自动更新，您无须重启服务器。<br><code>hexo server -s</code> #静态模式<br><code>hexo server -p 5000</code> #更改端口<br><code>hexo server -i 192.168.1.1</code> #自定义 IP</p>
-<p><code>hexo clean</code> #清除缓存 网页正常情况下可以忽略此条命令<br><code>hexo g</code> #生成静态网页<br><code>hexo d</code> #开始部署</p>
-<h4 id="监视文件变动"><a href="#监视文件变动" class="headerlink" title="监视文件变动"></a>监视文件变动</h4><p><code>hexo generate</code> #使用 Hexo 生成静态文件快速而且简单<br><code>hexo generate --watch</code> #监视文件变动</p>
-<h4 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h4><p><code>hexo generate --deploy</code><br><code>hexo deploy --generate</code></p>
-<p>or</p>
-<p><code>hexo deploy -g</code><br><code>hexo server -g</code></p>
-<h4 id="编辑草稿"><a href="#编辑草稿" class="headerlink" title="编辑草稿"></a>编辑草稿</h4><p><code>hexo publish [layout] &lt;title&gt;</code></p>
-<h4 id="模版"><a href="#模版" class="headerlink" title="模版"></a>模版</h4><p><code>hexo new &quot;postName&quot;</code> #新建文章<br><code>hexo new page &quot;pageName&quot;</code> #新建页面<br><code>hexo generate</code> #生成静态页面至public目录<br><code>hexo server</code> #开启预览访问端口（默认端口4000，’ctrl + c’关闭server）<br><code>hexo deploy</code> #将.deploy目录部署到GitHub</p>
-<p><code>hexo new [layout] &lt;title&gt;</code><br><code>hexo new photo &quot;My Gallery&quot;</code><br><code>hexo new &quot;Hello World&quot; --lang tw</code></p>
-<table>
-<thead>
-<tr>
-<th>变量</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>layout</td>
-<td>布局</td>
-</tr>
-<tr>
-<td>title</td>
-<td>标题</td>
-</tr>
-<tr>
-<td>date</td>
-<td>文件建立日期</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">title: HEXO</div><div class="line">layout: post</div><div class="line">date: 2016-11-26 19:17:46</div><div class="line">comments: true</div><div class="line">categories: Blog</div><div class="line">tags: [Hexo]</div><div class="line">keywords: hexo</div><div class="line">description: 你不说我不说</div></pre></td></tr></table></figure>
-<p>【以上内容摘抄自<a href="https://segmentfault.com/a/1190000002632530" target="_blank" rel="external">segmentfault文章</a>】</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;hexo&quot;&gt;&lt;a href=&quot;#hexo&quot; class=&quot;headerlink&quot; title=&quot;hexo&quot;&gt;&lt;/a&gt;hexo&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre
-    
-    </summary>
-    
-      <category term="hexo" scheme="http://wodewone.com/categories/hexo/"/>
-    
-    
-      <category term="hexo" scheme="http://wodewone.com/tags/hexo/"/>
     
   </entry>
   

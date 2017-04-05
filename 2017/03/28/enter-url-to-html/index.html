@@ -1,0 +1,907 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="html,DNS,URL," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="wodewone's blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="原文地址
+
+从输入URL到页面加载发生了什么最近在进行前端面试方面的一些准备，看了网上许多相关的文章，发现有一个问题始终绕不开: 在浏览器中输入URL到整个页面显示在用户面前时这个过程中到底发生了什么。仔细思考这个问题，发现确实很深，这个过程涉及到的东西很多。这个问题的回答真的能够很好的考验一个web工程师的水平，于是我自问自答一番。
+总体来说分为以下几个过程:
+
+DNS解析
+
+TCP连接
+
+发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从输入URL到页面加载发生了什么">
+<meta property="og:url" content="http://wodewone.com/2017/03/28/enter-url-to-html/index.html">
+<meta property="og:site_name" content="wodewone's blog">
+<meta property="og:description" content="原文地址
+
+从输入URL到页面加载发生了什么最近在进行前端面试方面的一些准备，看了网上许多相关的文章，发现有一个问题始终绕不开: 在浏览器中输入URL到整个页面显示在用户面前时这个过程中到底发生了什么。仔细思考这个问题，发现确实很深，这个过程涉及到的东西很多。这个问题的回答真的能够很好的考验一个web工程师的水平，于是我自问自答一番。
+总体来说分为以下几个过程:
+
+DNS解析
+
+TCP连接
+
+发">
+<meta property="og:image" content="http://wodewone.com/2017/03/28/enter-url-to-html/1618288278-57f00bf9444dd_articlex.png">
+<meta property="og:image" content="http://wodewone.com/2017/03/28/enter-url-to-html/2644576721-57f01287b68cc_articlex.png">
+<meta property="og:image" content="http://wodewone.com/2017/03/28/enter-url-to-html/3598916885-5608f6c220945_articlex.png">
+<meta property="og:image" content="http://wodewone.com/2017/03/28/enter-url-to-html/3739029528-57d55e6ce8b6c_articlex.png">
+<meta property="og:image" content="http://wodewone.com/2017/03/28/enter-url-to-html/3884439248-57f0f943c72f3_articlex.png">
+<meta property="og:image" content="http://wodewone.com/2017/03/28/enter-url-to-html/775625205-57d4063b7b60d_articlex.png">
+<meta property="og:image" content="http://wodewone.com/2017/03/28/enter-url-to-html/3426749863-57d54b4293001_articlex.png">
+<meta property="og:updated_time" content="2017-04-05T07:40:11.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="从输入URL到页面加载发生了什么">
+<meta name="twitter:description" content="原文地址
+
+从输入URL到页面加载发生了什么最近在进行前端面试方面的一些准备，看了网上许多相关的文章，发现有一个问题始终绕不开: 在浏览器中输入URL到整个页面显示在用户面前时这个过程中到底发生了什么。仔细思考这个问题，发现确实很深，这个过程涉及到的东西很多。这个问题的回答真的能够很好的考验一个web工程师的水平，于是我自问自答一番。
+总体来说分为以下几个过程:
+
+DNS解析
+
+TCP连接
+
+发">
+<meta name="twitter:image" content="http://wodewone.com/2017/03/28/enter-url-to-html/1618288278-57f00bf9444dd_articlex.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6269890100566427000,
+      author: 'Coco'
+    }
+  };
+</script>
+
+  <title> 从输入URL到页面加载发生了什么 | wodewone's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?4691d35db2be0afe7a932e6f4f7e68af";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">wodewone's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">梦想是主题，生活才是题主</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-favourites">
+          <a href="/favourites" rel="section">
+            
+              <i class="menu-item-icon fa fa-question-circle fa-fw"></i> <br />
+            
+            收藏
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                从输入URL到页面加载发生了什么
+              
+            
+          </h1>
+        
+
+        
+          <div class="post-tags">
+            
+              <a href="/tags/html/" rel="tag">#html</a>
+            
+              <a href="/tags/DNS/" rel="tag">#DNS</a>
+            
+              <a href="/tags/URL/" rel="tag">#URL</a>
+            
+          </div>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-03-28T21:50:41+08:00" content="2017-03-28">
+              2017-03-28
+            </time>
+          </span>
+
+          
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/html/" itemprop="url" rel="index">
+                    <span itemprop="name">html</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/03/28/enter-url-to-html/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/28/enter-url-to-html/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/03/28/enter-url-to-html/" class="leancloud_visitors" data-flag-title="从输入URL到页面加载发生了什么">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ul>
+<li><a href="https://segmentfault.com/a/1190000006879700" target="_blank" rel="external">原文地址</a></li>
+</ul>
+<h1 id="从输入URL到页面加载发生了什么"><a href="#从输入URL到页面加载发生了什么" class="headerlink" title="从输入URL到页面加载发生了什么"></a>从输入URL到页面加载发生了什么</h1><p>最近在进行前端面试方面的一些准备，看了网上许多相关的文章，发现有一个问题始终绕不开: 在浏览器中输入URL到整个页面显示在用户面前时这个过程中到底发生了什么。仔细思考这个问题，发现确实很深，这个过程涉及到的东西很多。这个问题的回答真的能够很好的考验一个web工程师的水平，于是我自问自答一番。</p>
+<p>总体来说分为以下几个过程:</p>
+<ol>
+<li><p>DNS解析</p>
+</li>
+<li><p>TCP连接</p>
+</li>
+<li><p>发送HTTP请求</p>
+</li>
+<li><p>服务器处理请求并返回HTTP报文</p>
+</li>
+<li><p>浏览器解析渲染页面</p>
+</li>
+<li><p>连接结束</p>
+</li>
+</ol>
+<h2 id="具体过程"><a href="#具体过程" class="headerlink" title="具体过程"></a>具体过程</h2><h3 id="DNS解析"><a href="#DNS解析" class="headerlink" title="DNS解析"></a>DNS解析</h3><p>DNS解析的过程就是寻找哪台机器上有你需要资源的过程。当你在浏览器中输入一个地址时，例如www.baidu.com，其实不是百度网站真正意义上的地址。互联网上每一台计算机的唯一标识是它的IP地址，但是IP地址并不方便记忆。用户更喜欢用方便记忆的网址去寻找互联网上的其它计算机，也就是上面提到的百度的网址。所以互联网设计者需要在用户的方便性与可用性方面做一个权衡，这个权衡就是一个网址到IP地址的转换，这个过程就是DNS解析。它实际上充当了一个翻译的角色，实现了网址到IP地址的转换。网址到IP地址转换的过程是如何进行的?</p>
+<h4 id="解析过程"><a href="#解析过程" class="headerlink" title="解析过程"></a>解析过程</h4><p>DNS解析是一个递归查询的过程。</p>
+<p><img src="/2017/03/28/enter-url-to-html/1618288278-57f00bf9444dd_articlex.png" alt="1618288278-57f00bf9444dd_articlex.png"></p>
+<p>上述图片是查找www.google.com的IP地址过程。首先在本地域名服务器中查询IP地址，如果没有找到的情况下，本地域名服务器会向根域名服务器发送一个请求，如果根域名服务器也不存在该域名时，本地域名会向com顶级域名服务器发送一个请求，依次类推下去。直到最后本地域名服务器得到google的IP地址并把它缓存到本地，供下次查询使用。从上述过程中，可以看出网址的解析是一个从右向左的过程: com -&gt; google.com -&gt; www.google.com。但是你是否发现少了点什么，根域名服务器的解析过程呢？事实上，真正的网址是www.google.com.，并不是我多打了一个.，这个.对应的就是根域名服务器，默认情况下所有的网址的最后一位都是.，既然是默认情况下，为了方便用户，通常都会省略，浏览器在请求DNS的时候会自动加上，所有网址真正的解析过程为: . -&gt; .com -&gt; google.com. -&gt; www.google.com.。</p>
+<h4 id="DNS优化"><a href="#DNS优化" class="headerlink" title="DNS优化"></a>DNS优化</h4><p>了解了DNS的过程，可以为我们带来哪些？上文中请求到google的IP地址时，经历了8个步骤，这个过程中存在多个请求(同时存在UDP和TCP请求，为什么有两种请求方式，请自行查找)。如果每次都经过这么多步骤，是否太耗时间？如何减少该过程的步骤呢？那就是DNS缓存。</p>
+<h5 id="DNS缓存"><a href="#DNS缓存" class="headerlink" title="DNS缓存"></a>DNS缓存</h5><p>DNS存在着多级缓存，从离浏览器的距离排序的话，有以下几种: 浏览器缓存，系统缓存，路由器缓存，IPS服务器缓存，根域名服务器缓存，顶级域名服务器缓存，主域名服务器缓存。</p>
+<ul>
+<li><p>在你的chrome浏览器中输入:chrome://dns/，你可以看到chrome浏览器的DNS缓存。</p>
+</li>
+<li><p>系统缓存主要存在/etc/hosts(Linux系统)中:</p>
+</li>
+</ul>
+<p><img src="/2017/03/28/enter-url-to-html/2644576721-57f01287b68cc_articlex.png" alt="2644576721-57f01287b68cc_articlex.png"></p>
+<ul>
+<li>…</li>
+</ul>
+<h5 id="DNS负载均衡"><a href="#DNS负载均衡" class="headerlink" title="DNS负载均衡"></a>DNS负载均衡</h5><p>不知道大家有没有思考过一个问题: DNS返回的IP地址是否每次都一样？如果每次都一样是否说明你请求的资源都位于同一台机器上面，那么这台机器需要多高的性能和储存才能满足亿万请求呢？其实真实的互联网世界背后存在成千上百台服务器，大型的网站甚至更多。但是在用户的眼中，它需要的只是处理他的请求，哪台机器处理请求并不重要。DNS可以返回一个合适的机器的IP给用户，例如可以根据每台机器的负载量，该机器离用户地理位置的距离等等，这种过程就是DNS负载均衡，又叫做DNS重定向。大家耳熟能详的CDN(Content Delivery Network)就是利用DNS的重定向技术，DNS服务器会返回一个跟用户最接近的点的IP地址给用户，CDN节点的服务器负责响应用户的请求，提供所需的内容。在这里打个免费的广告，我平时使用的比较多的是七牛云的CDN(免费)储存图片，作为我个人博客的图床使用。</p>
+<h3 id="TCP连接"><a href="#TCP连接" class="headerlink" title="TCP连接"></a>TCP连接</h3><p>HTTP协议是使用TCP作为其传输层协议的，当TCP出现瓶颈时，HTTP也会受到影响。但由于TCP优化这一块我平常接触的并不是很多，再加上大学时的计算机网络的基础基本上忘完，所以这一部分我也就不在这里分析了。</p>
+<h4 id="HTTPS协议"><a href="#HTTPS协议" class="headerlink" title="HTTPS协议"></a>HTTPS协议</h4><p>我不知道把HTTPS放在这个部分是否合适，但是放在这里好像又说的过去。HTTP报文是包裹在TCP报文中发送的，服务器端收到TCP报文时会解包提取出HTTP报文。但是这个过程中存在一定的风险，HTTP报文是明文，如果中间被截取的话会存在一些信息泄露的风险。那么在进入TCP报文之前对HTTP做一次加密就可以解决这个问题了。HTTPS协议的本质就是HTTP + SSL(or TLS)。在HTTP报文进入TCP报文之前，先使用SSL对HTTP报文进行加密。从网络的层级结构看它位于HTTP协议与TCP协议之间。</p>
+<p><img src="/2017/03/28/enter-url-to-html/3598916885-5608f6c220945_articlex.png" alt="3598916885-5608f6c220945_articlex.png"></p>
+<h4 id="HTTPS过程"><a href="#HTTPS过程" class="headerlink" title="HTTPS过程"></a>HTTPS过程</h4><p>HTTPS在传输数据之前需要客户端与服务器进行一个握手(TLS/SSL握手)，在握手过程中将确立双方加密传输数据的密码信息。TLS/SSL使用了非对称加密，对称加密以及hash等。具体过程请参考经典的阮一峰先生的博客<a href="http://www.ruanyifeng.com/blog/2014/09/illustration-ssl.html" target="_blank" rel="external">TLS/SSL握手过程</a>。<br>HTTPS相比于HTTP，虽然提供了安全保证，但是势必会带来一些时间上的损耗，如握手和加密等过程，是否使用HTTPS需要根据具体情况在安全和性能方面做出权衡。</p>
+<h3 id="HTTP请求"><a href="#HTTP请求" class="headerlink" title="HTTP请求"></a>HTTP请求</h3><p>其实这部分又可以称为前端工程师眼中的HTTP，它主要发生在客户端。发送HTTP请求的过程就是构建HTTP请求报文并通过TCP协议中发送到服务器指定端口(HTTP协议80/8080, HTTPS协议443)。HTTP请求报文是由三部分组成: <strong>请求行</strong>, <strong>请求报头</strong>和<strong>请求正文</strong>。</p>
+<h4 id="请求行"><a href="#请求行" class="headerlink" title="请求行"></a>请求行</h4><p>格式如下:<br><code>Method Request-URL HTTP-Version CRLF</code></p>
+<div class="widget-codetool" style="display:none;"><br><br><div class="widget-codetool--inner"><span class="selectCode code-tool" data-toggle="tooltip" data-placement="top" title="" data-original-title="全选"></span><span type="button" class="copyCode code-tool" data-toggle="tooltip" data-placement="top" data-clipboard-text="eg: GET index.html HTTP/1.1
+" title="" data-original-title="复制"></span><span type="button" class="saveToNote code-tool" data-toggle="tooltip" data-placement="top" title="" data-original-title="放进笔记"></span></div>
+
+<p></p></div><p></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">eg: GET index.html HTTP/1.1</div></pre></td></tr></table></figure>
+<p>常用的方法有: GET, POST, PUT, DELETE, OPTIONS, HEAD。</p>
+<p>TODO：</p>
+<ul>
+<li>GET和POST有什么区别？</li>
+</ul>
+<h4 id="请求报头"><a href="#请求报头" class="headerlink" title="请求报头"></a>请求报头</h4><p>请求报头允许客户端向服务器传递请求的附加信息和客户端自身的信息。<br>PS: 客户端不一定特指浏览器，有时候也可使用Linux下的CURL命令以及HTTP客户端测试工具等。<br>常见的请求报头有: Accept, Accept-Charset, Accept-Encoding, Accept-Language, Content-Type, Authorization, Cookie, User-Agent等。</p>
+<p><img src="/2017/03/28/enter-url-to-html/3739029528-57d55e6ce8b6c_articlex.png" alt="3739029528-57d55e6ce8b6c_articlex.png"></p>
+<p>上图是使用Chrome开发者工具截取的对百度的HTTP请求以及响应报文，从图中可以看出，请求报头中使用了Accept, Accept-Encoding, Accept-Language, Cache-Control, Connection, Cookie等字段。Accept用于指定客户端用于接受哪些类型的信息，Accept-Encoding与Accept类似，它用于指定接受的编码方式。Connection设置为Keep-alive用于告诉客户端本次HTTP请求结束之后并不需要关闭TCP连接，这样可以使下次HTTP请求使用相同的TCP通道，节省TCP连接建立的时间。</p>
+<h4 id="请求正文"><a href="#请求正文" class="headerlink" title="请求正文"></a>请求正文</h4><p>当使用POST, PUT等方法时，通常需要客户端向服务器传递数据。这些数据就储存在请求正文中。在请求包头中有一些与请求正文相关的信息，例如: 现在的Web应用通常采用Rest架构，请求的数据格式一般为json。这时就需要设置Content-Type: application/json。</p>
+<h3 id="服务器处理请求并返回HTTP报文"><a href="#服务器处理请求并返回HTTP报文" class="headerlink" title="服务器处理请求并返回HTTP报文"></a>服务器处理请求并返回HTTP报文</h3><p>自然而然这部分对应的就是后端工程师眼中的HTTP。后端从在固定的端口接收到TCP报文开始，这一部分对应于编程语言中的socket。它会对TCP连接进行处理，对HTTP协议进行解析，并按照报文格式进一步封装成HTTP Request对象，供上层使用。这一部分工作一般是由Web服务器去进行，我使用过的Web服务器有Tomcat, Jetty和Netty等等。</p>
+<p>HTTP响应报文也是由三部分组成: <strong>状态码</strong>, <strong>响应报头</strong>和<strong>响应报文</strong>。</p>
+<h4 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h4><p>状态码是由3位数组成，第一个数字定义了响应的类别，且有五种可能取值:</p>
+<ul>
+<li><p>1xx：指示信息–表示请求已接收，继续处理。</p>
+</li>
+<li><p>2xx：成功–表示请求已被成功接收、理解、接受。</p>
+</li>
+<li><p>3xx：重定向–要完成请求必须进行更进一步的操作。</p>
+</li>
+<li><p>4xx：客户端错误–请求有语法错误或请求无法实现。</p>
+</li>
+<li><p>5xx：服务器端错误–服务器未能实现合法的请求。<br>平时遇到比较常见的状态码有:200, 204, 301, 302, 304, 400, 401, 403, 404, 422, 500(分别表示什么请自行查找)。</p>
+</li>
+</ul>
+<p>TODO:</p>
+<ul>
+<li><p>301和302有什么区别？</p>
+</li>
+<li><p>HTTP缓存</p>
+</li>
+</ul>
+<p><img src="/2017/03/28/enter-url-to-html/3884439248-57f0f943c72f3_articlex.png" alt="3884439248-57f0f943c72f3_articlex.png"></p>
+<p>该图是本公司对状态码的一个总结，绘制而成的status code map，请大家参考。</p>
+<h4 id="响应报头"><a href="#响应报头" class="headerlink" title="响应报头"></a>响应报头</h4><p>常见的响应报头字段有: Server, Connection…。</p>
+<h4 id="响应报文"><a href="#响应报文" class="headerlink" title="响应报文"></a>响应报文</h4><p>服务器返回给浏览器的文本信息，通常HTML, CSS, JS, 图片等文件就放在这一部分。</p>
+<h3 id="浏览器解析渲染页面"><a href="#浏览器解析渲染页面" class="headerlink" title="浏览器解析渲染页面"></a>浏览器解析渲染页面</h3><p>浏览器在收到HTML,CSS,JS文件后，它是如何把页面呈现到屏幕上的？下图对应的就是WebKit渲染的过程。</p>
+<p><img src="/2017/03/28/enter-url-to-html/775625205-57d4063b7b60d_articlex.png" alt="775625205-57d4063b7b60d_articlex.png"></p>
+<p>浏览器是一个边解析边渲染的过程。首先浏览器解析HTML文件构建DOM树，然后解析CSS文件构建渲染树，等到渲染树构建完成后，浏览器开始布局渲染树并将其绘制到屏幕上。这个过程比较复杂，涉及到两个概念: reflow(回流)和repain(重绘)。DOM节点中的各个元素都是以盒模型的形式存在，这些都需要浏览器去计算其位置和大小等，这个过程称为relow;当盒模型的位置,大小以及其他属性，如颜色,字体,等确定下来之后，浏览器便开始绘制内容，这个过程称为repain。页面在首次加载时必然会经历reflow和repain。reflow和repain过程是非常消耗性能的，尤其是在移动设备上，它会破坏用户体验，有时会造成页面卡顿。所以我们应该尽可能少的减少reflow和repain。</p>
+<p><img src="/2017/03/28/enter-url-to-html/3426749863-57d54b4293001_articlex.png" alt="3426749863-57d54b4293001_articlex.png"></p>
+<p>JS的解析是由浏览器中的JS解析引擎完成的。JS是单线程运行，也就是说，在同一个时间内只能做一件事，所有的任务都需要排队，前一个任务结束，后一个任务才能开始。但是又存在某些任务比较耗时，如IO读写等，所以需要一种机制可以先执行排在后面的任务，这就是：同步任务(synchronous)和异步任务(asynchronous)。JS的执行机制就可以看做是一个主线程加上一个任务队列(task queue)。同步任务就是放在主线程上执行的任务，异步任务是放在任务队列中的任务。所有的同步任务在主线程上执行，形成一个执行栈;异步任务有了运行结果就会在任务队列中放置一个事件；脚本运行时先依次运行执行栈，然后会从任务队列里提取事件，运行任务队列中的任务，这个过程是不断重复的，所以又叫做事件循环(Event loop)。</p>
+<p>浏览器在解析过程中，如果遇到请求外部资源时，如图像,iconfont,JS等。浏览器将重复1-6过程下载该资源。请求过程是异步的，并不会影响HTML文档进行加载，但是当文档加载过程中遇到JS文件，HTML文档会挂起渲染过程，不仅要等到文档中JS文件加载完毕还要等待解析执行完毕，才会继续HTML的渲染过程。原因是因为JS有可能修改DOM结构，这就意味着JS执行完成前，后续所有资源的下载是没有必要的，这就是JS阻塞后续资源下载的根本原因。CSS文件的加载不影响JS文件的加载，但是却影响JS文件的执行。JS代码执行前浏览器必须保证CSS文件已经下载并加载完毕。</p>
+<h2 id="Web优化"><a href="#Web优化" class="headerlink" title="Web优化"></a>Web优化</h2><p>上面部分主要介绍了一次完整的请求对应的过程，了解该过程的目的无非就是为了Web优化。在谈到Web优化之前，我们回到一个更原始的问题，Web前端的本质是什么。我的理解是: 将信息快速并友好的展示给用户并能够与用户进行交互。快速的意思就是在尽可能短的时间内完成页面的加载，试想一下当你在淘宝购买东西的时候，淘宝页面加载了10几秒才显示出物品，这个时候你还有心情去购买吗？怎么快速的完成页面的加载呢？优雅的学院派雅虎给出了常用的一些手段，也就是我们熟悉的<a href="https://developer.yahoo.com/performance/" target="_blank" rel="external">雅虎34条军规</a>。这34军规实际上就是围绕请求过程进行的一些优化方式。</p>
+<p>如何尽快的加载资源？答案就是能不从网络中加载的资源就不从网络中加载，当我们合理使用缓存，将资源放在浏览器端，这是最快的方式。如果资源必须从网络中加载，则要考虑缩短连接时间，即DNS优化部分;减少响应内容大小，即对内容进行压缩。另一方面，如果加载的资源数比较少的话，也可以快速的响应用户。当资源到达浏览器之后，浏览器开始进行解析渲染，浏览器中最耗时的部分就是reflow，所以围绕这一部分就是考虑如何减少reflow的次数。</p>
+<hr>
+<ul>
+<li><a href="https://segmentfault.com/a/1190000006879700" target="_blank" rel="external">原文地址</a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/19/node-tree-user/" rel="next" title="生成项目结构图 - Tree命令的使用">
+                <i class="fa fa-chevron-left"></i> 生成项目结构图 - Tree命令的使用
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/05/关于OOP的SOLID原则/" rel="prev" title="关于OOP的SOLID原则">
+                关于OOP的SOLID原则 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/28/enter-url-to-html/"
+           data-title="从输入URL到页面加载发生了什么" data-url="http://wodewone.com/2017/03/28/enter-url-to-html/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="switch-box">
+      <input id="enableAnimate" class="switch-btn-cb" type="checkbox" checked="">
+      <label for="enableAnimate" class="switch-btn small shadow" title="动画开关"></label>
+    </div>
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/author.png"
+               alt="Coco" />
+          <p class="site-author-name" itemprop="name">Coco</p>
+          <p class="site-description motion-element" itemprop="description">学了js，趟了jQuery，用上sass，改了angular，看完vue，学了react，变了cssModule，弃了gulp，从了webpack，发现cssInJs，始于Node，终了……</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">44</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">54</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wodewone" target="_blank">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/1576981091" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://book.douban.com/people/145249948/" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  豆瓣
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/wodewone/activities" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#从输入URL到页面加载发生了什么"><span class="nav-number">1.</span> <span class="nav-text">从输入URL到页面加载发生了什么</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#具体过程"><span class="nav-number">1.1.</span> <span class="nav-text">具体过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DNS解析"><span class="nav-number">1.1.1.</span> <span class="nav-text">DNS解析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#解析过程"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">解析过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DNS优化"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">DNS优化</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#DNS缓存"><span class="nav-number">1.1.1.2.1.</span> <span class="nav-text">DNS缓存</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#DNS负载均衡"><span class="nav-number">1.1.1.2.2.</span> <span class="nav-text">DNS负载均衡</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP连接"><span class="nav-number">1.1.2.</span> <span class="nav-text">TCP连接</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTPS协议"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">HTTPS协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTPS过程"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">HTTPS过程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP请求"><span class="nav-number">1.1.3.</span> <span class="nav-text">HTTP请求</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#请求行"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">请求行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#请求报头"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">请求报头</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#请求正文"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">请求正文</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器处理请求并返回HTTP报文"><span class="nav-number">1.1.4.</span> <span class="nav-text">服务器处理请求并返回HTTP报文</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#状态码"><span class="nav-number">1.1.4.1.</span> <span class="nav-text">状态码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#响应报头"><span class="nav-number">1.1.4.2.</span> <span class="nav-text">响应报头</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#响应报文"><span class="nav-number">1.1.4.3.</span> <span class="nav-text">响应报文</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器解析渲染页面"><span class="nav-number">1.1.5.</span> <span class="nav-text">浏览器解析渲染页面</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web优化"><span class="nav-number">1.2.</span> <span class="nav-text">Web优化</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Coco</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wodewone"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("vRu2nM0E4TnPoSh1PmS4wXad-gzGzoHsz", "m1sk6K5zpn10ht2DGFqBOwKC");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>
