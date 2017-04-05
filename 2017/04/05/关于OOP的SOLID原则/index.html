@@ -1,0 +1,1053 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="OOP,java,solid,SOLID," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="wodewone's blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="原文地址：SOLID Principles : The Definitive Guide
+原文作者：Arthur Antunes
+译文出自：掘金翻译计划
+译者：XHShirley * 校对者：Patrick Wang, skyar2009
+
+
+SOLID 原则：权威指南
+SOLID 是五个面向对象编程的重要原则的缩写。另外，它也是每个开发者必备的基本知识。了解并应用这些原则能让你写出更优质的代">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于OOP的SOLID原则">
+<meta property="og:url" content="http://wodewone.com/2017/04/05/关于OOP的SOLID原则/index.html">
+<meta property="og:site_name" content="wodewone's blog">
+<meta property="og:description" content="原文地址：SOLID Principles : The Definitive Guide
+原文作者：Arthur Antunes
+译文出自：掘金翻译计划
+译者：XHShirley * 校对者：Patrick Wang, skyar2009
+
+
+SOLID 原则：权威指南
+SOLID 是五个面向对象编程的重要原则的缩写。另外，它也是每个开发者必备的基本知识。了解并应用这些原则能让你写出更优质的代">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/2000/1*LcsyJRuNmvg31Va1M2OZgA.png">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/800/1*ykdDqm06KRI1XDtv34b2BQ.png">
+<meta property="og:updated_time" content="2017-04-05T03:27:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于OOP的SOLID原则">
+<meta name="twitter:description" content="原文地址：SOLID Principles : The Definitive Guide
+原文作者：Arthur Antunes
+译文出自：掘金翻译计划
+译者：XHShirley * 校对者：Patrick Wang, skyar2009
+
+
+SOLID 原则：权威指南
+SOLID 是五个面向对象编程的重要原则的缩写。另外，它也是每个开发者必备的基本知识。了解并应用这些原则能让你写出更优质的代">
+<meta name="twitter:image" content="https://cdn-images-1.medium.com/max/2000/1*LcsyJRuNmvg31Va1M2OZgA.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6269890100566427000,
+      author: 'Coco'
+    }
+  };
+</script>
+
+  <title> 关于OOP的SOLID原则 | wodewone's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?4691d35db2be0afe7a932e6f4f7e68af";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">wodewone's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">梦想是主题，生活才是题主</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-favourites">
+          <a href="/favourites" rel="section">
+            
+              <i class="menu-item-icon fa fa-question-circle fa-fw"></i> <br />
+            
+            收藏
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                关于OOP的SOLID原则
+              
+            
+          </h1>
+        
+
+        
+          <div class="post-tags">
+            
+              <a href="/tags/OOP/" rel="tag">#OOP</a>
+            
+              <a href="/tags/java/" rel="tag">#java</a>
+            
+              <a href="/tags/solid/" rel="tag">#solid</a>
+            
+              <a href="/tags/SOLID/" rel="tag">#SOLID</a>
+            
+          </div>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-05T11:23:49+08:00" content="2017-04-05">
+              2017-04-05
+            </time>
+          </span>
+
+          
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/04/05/关于OOP的SOLID原则/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/05/关于OOP的SOLID原则/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/04/05/关于OOP的SOLID原则/" class="leancloud_visitors" data-flag-title="关于OOP的SOLID原则">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<ul>
+<li>原文地址：<a href="https://android.jlelse.eu/solid-principles-the-definitive-guide-75e30a284dea#.8b78yjtyk" target="_blank" rel="external">SOLID Principles : The Definitive Guide</a></li>
+<li>原文作者：<a href="https://android.jlelse.eu/@aantunesdias" target="_blank" rel="external">Arthur Antunes</a></li>
+<li>译文出自：<a href="https://github.com/xitu/gold-miner" target="_blank" rel="external">掘金翻译计划</a></li>
+<li>译者：<a href="https://github.com/XHShirley" target="_blank" rel="external">XHShirley</a> * 校对者：<a href="https://github.com/imink" target="_blank" rel="external">Patrick Wang</a>, <a href="https://github.com/skyar2009" target="_blank" rel="external">skyar2009</a></li>
+</ul>
+</blockquote>
+<h1 id="SOLID-原则：权威指南"><a href="#SOLID-原则：权威指南" class="headerlink" title="SOLID 原则：权威指南"></a>SOLID 原则：权威指南</h1><p><img src="https://cdn-images-1.medium.com/max/2000/1*LcsyJRuNmvg31Va1M2OZgA.png" alt=""></p>
+<p><strong>SOLID</strong> 是五个面向对象编程的重要原则的缩写。另外，它也是每个开发者必备的基本知识。了解并应用这些原则能<strong>让你写出更优质的代码</strong>，变成更优秀的开发者。</p>
+<p>SOLID 原则是由 <a href="https://en.wikipedia.org/wiki/Robert_Cecil_Martin" target="_blank" rel="external">Robert C. Martin （Bob 大叔）</a> 在 21 世纪初定义的。Bob 大叔阐述了几个并且确认了其它已经存在的原则。他说我们应该使用这些原则，让代码获得好的依赖管理。</p>
+<p>但是，SOLID 原则在最初并没有被大家熟知直到 <a href="https://michaelfeathers.silvrback.com/" target="_blank" rel="external">Michael Feathers</a> 观察到这些原则的首字母正好能拼成缩写 SOLID，这个非常具有代表性的名字。</p>
+<p>当应用在我们的代码里面的时候，这组实用的建议可以帮助我们获得以下的好处：</p>
+<ul>
+<li>可持续性</li>
+<li>扩展性</li>
+<li>鲁棒的代码</li>
+</ul>
+<p>但在我们了解每个 SOLID 原则之前， 我们需要回忆<strong>软件开发中两个相关的概念</strong>。<strong>耦合</strong>和<strong>内聚</strong>：</p>
+<h4 id="耦合："><a href="#耦合：" class="headerlink" title="耦合："></a>耦合：</h4><p>我们可以把它定义为<strong>一个类、方法或者任何一个实体直接与另一个实体连接的度</strong>。这个耦合的度也可以被看作依赖的度。</p>
+<ul>
+<li><strong>例子：</strong>当我们想要使用的一个类，与一个或者多个类紧密地绑定在一起（高耦合），我们将最终使用或修改这些类我们所依赖的部分。</li>
+</ul>
+<h4 id="内聚："><a href="#内聚：" class="headerlink" title="内聚："></a>内聚：</h4><p>内聚是一个系统里两个或多个部分一起执行工作的度量，来获得比每个部分单独工作获得更好的结果。</p>
+<ul>
+<li><strong>例子：</strong> 星球大战中 Han Solo 和 Chewbacca 一起在千年隼号里。</li>
+</ul>
+<p><strong>想要有一个高质量的软件，我们必须尝试低耦合高内聚，</strong>而 SOLID 原则正好帮助我们完成这个任务。如果我们遵循这些指引，我们的代码会更健壮，更易于维护，有更高的复用性和可扩展性。同时，可以避免每次变更都要修改多处代码的问题。</p>
+<p>让我们把 SOLID 的字母拆开看看每一个对应原则的细节吧。</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*ykdDqm06KRI1XDtv34b2BQ.png" alt=""></p>
+<h3 id="单一职责原则（SRP）："><a href="#单一职责原则（SRP）：" class="headerlink" title="单一职责原则（SRP）："></a>单一职责原则（SRP）：</h3><blockquote>
+<p><strong>一个类应该只有一个引起改变的原因。</strong></p>
+</blockquote>
+<p>这个原则意味着<strong>一个类只能有一个职责并且只完成为它设计的功能任务。</strong></p>
+<p>否则，如果我们的类承担的职责多于一个，那么我们的代码就具有高度的耦合性，并会导致它对于任何改变都很脆弱。</p>
+<p><strong>好处：</strong></p>
+<ul>
+<li>降低耦合性。</li>
+<li>代码易于理解和维护。</li>
+</ul>
+<h4 id="违反-SRP-原则"><a href="#违反-SRP-原则" class="headerlink" title="违反 SRP 原则"></a><strong>违反 SRP 原则</strong></h4><ul>
+<li>我们的 <strong>Customer</strong> 类<strong>有多个的职责：</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">public class Customer &#123;</div><div class="line"> </div><div class="line">    private String name;</div><div class="line"> </div><div class="line">    // getter and setter methods...</div><div class="line"> </div><div class="line">    // This is a Responsibility</div><div class="line">    public void storeCustomer(String customerName) &#123;</div><div class="line">        // store customer into a database...</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    // This is another Responsibility</div><div class="line">    public void generateCustomerReport(String customerName) &#123;</div><div class="line">        // generate a report...</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>storeCustomer(String name)</strong> 职责是把顾客存入数据库。这个职责是持续的，应该把它放在顾客类的外面。</p>
+<p><strong>generateCustomerReport(String name)</strong> 职责是生成一个关于顾客的报告，所以它也应该放在顾客类的外面。</p>
+<p>当一个类有多个职责，它就更加难以被理解，扩展和修改。</p>
+<h4 id="更好的解决办法："><a href="#更好的解决办法：" class="headerlink" title="更好的解决办法："></a><strong>更好的解决办法：</strong></h4><p>我们 <strong>为每一个职责创建不同的类。</strong></p>
+<ul>
+<li><strong>Customer</strong> 类：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">public class Customer &#123;</div><div class="line"> </div><div class="line">    private String name;</div><div class="line"> </div><div class="line">    // getter and setter methods...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>CustomerDB</strong> 类用于持续的职责：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">public class CustomerDB &#123;</div><div class="line"> </div><div class="line">    public void storeCustomer(String customerName) &#123;</div><div class="line">        // store customer into a database...</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>CustomerReportGenerator</strong> 类用于报告制作的职责：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">public class CustomerReportGenerator &#123;</div><div class="line"> </div><div class="line">    public void generateReport(String customerName) &#123;</div><div class="line">        // generate a report...</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这样，我们就有几个类，但是<strong>每个类都有单一的职责</strong>，我们就使它变成了低耦合高内聚。</p>
+<h3 id="开闭原则（OCP）："><a href="#开闭原则（OCP）：" class="headerlink" title="开闭原则（OCP）："></a>开闭原则（OCP）：</h3><blockquote>
+<p><strong>软件实体（类，模块，方法等）应该对扩展开放，对修改封闭。</strong></p>
+</blockquote>
+<p>根据这一原则，一个软件实体能很容易地扩展新功能而不必修改现有的代码。</p>
+<p><strong>open for extension:</strong> 添加新的功能从而满足新的需求。</p>
+<p><strong>close for modification:</strong> 扩展新的功能行为而不需要修改现有的代码。</p>
+<p>如果我们应用这个原则，我们会有一个可扩展的系统且在更改需求的时候更不易出错。我们可以用<a href="https://en.wikipedia.org/wiki/Abstraction_%28software_engineering%29" target="_blank" rel="external">抽象</a>和<a href="https://en.wikipedia.org/wiki/Polymorphism_%28computer_science%29" target="_blank" rel="external">多态</a>来帮助我们应用这个原则。</p>
+<p><strong>好处：</strong></p>
+<ul>
+<li>代码的可维护性和复用性。</li>
+<li>代码会更健壮。</li>
+</ul>
+<h4 id="违反-OCP-原则"><a href="#违反-OCP-原则" class="headerlink" title="违反 OCP 原则"></a><strong>违反 OCP 原则</strong></h4><ul>
+<li>我们有一个 <strong>Rectangle</strong> 类：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">public class Rectangle &#123;</div><div class="line"> </div><div class="line">    private int width;</div><div class="line">    private int height;</div><div class="line"> </div><div class="line">    // getter and setter methods...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>同时，我们有一个 <strong>Square</strong> 类</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">public class Square &#123;</div><div class="line"> </div><div class="line">    private int side;</div><div class="line"> </div><div class="line">    // getter and setter methods...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>我们还有一个 <strong>ShapePrinter</strong> 类可以画不同的形状：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">public class ShapePrinter &#123;</div><div class="line"> </div><div class="line">    public void drawShape(Object shape) &#123;</div><div class="line"> </div><div class="line">        if (shape instanceof Rectangle) &#123;</div><div class="line">            // Draw Rectangle...</div><div class="line">        &#125; else if (shape instanceof Square) &#123;</div><div class="line">            // Draw Square...</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>可以看到，当我们每次想要画一个新的形状我们就要<strong>修改 ShapePrinter 类里的 drawShape 方法来接受这个新的形状。</strong></p>
+<p>当要画新的形状种类的时候，ShapePrinter 类就会变得更让人难以理解并且不易于改变。</p>
+<p>所以 <strong>ShapePrinter</strong> 类不对修改封闭。</p>
+<h4 id="一个解决办法："><a href="#一个解决办法：" class="headerlink" title="一个解决办法："></a><strong>一个解决办法：</strong></h4><ul>
+<li>我们添加一个 <strong>Shape</strong> 抽象类：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">public abstract class Shape &#123;</div><div class="line">    abstract void draw();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>重构 <strong>Rectangle</strong> 类以继承自 <strong>Shape:</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">public class Rectangle extends Shape &#123;</div><div class="line"> </div><div class="line">    private int width;</div><div class="line">    private int height;</div><div class="line"> </div><div class="line">    // getter and setter methods...</div><div class="line"> </div><div class="line">    @Override</div><div class="line">    public void draw() &#123;</div><div class="line">        // Draw the Rectangle...</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>重构 <strong>Square</strong> 类以继承自 <strong>Shape:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">public class Square extends Shape &#123;</div><div class="line"> </div><div class="line">    private int side;</div><div class="line"> </div><div class="line">    // getter and setter methods...</div><div class="line"> </div><div class="line">    @Override</div><div class="line">    public void draw() &#123;</div><div class="line">        // Draw the Square</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>ShapePrinter</strong> 的重构：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">public class ShapePrinter &#123;</div><div class="line"> </div><div class="line">    public void drawShape(Shape shape) &#123;</div><div class="line">        shape.draw();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>现在，<strong>ShapePrinter</strong> 类在我们添加了新的形状类型的同时也保持了完整性。</p>
+<h4 id="另一个解决方法："><a href="#另一个解决方法：" class="headerlink" title="另一个解决方法："></a><strong>另一个解决方法：</strong></h4><p>用这个方法，<strong>ShapePrinter</strong> 也能在添加新形状的同时保持完整性，因为 <strong>drawShape 方法接受 Shape 抽象。</strong></p>
+<ul>
+<li>我们把 <strong>Shape</strong> 变成一个接口：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">public interface Shape &#123;</div><div class="line">    void draw();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>重构 <strong>Rectangle</strong> 类以实现 <strong>Shape:</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">public class Rectangle implements Shape &#123;</div><div class="line"> </div><div class="line">    private int width;</div><div class="line">    private int height;</div><div class="line"> </div><div class="line">    // getter and setter methods...</div><div class="line"> </div><div class="line">    @Override</div><div class="line">    public void draw() &#123;</div><div class="line">        // Draw the Rectangle...</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>重构 <strong>Square</strong> 类以实现 <strong>Shape:</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">public class Square implements Shape &#123;</div><div class="line"> </div><div class="line">    private int side;</div><div class="line"> </div><div class="line">    // getter and setter methods...</div><div class="line"> </div><div class="line">    @Override</div><div class="line">    public void draw() &#123;</div><div class="line">        // Draw the Square</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>ShapePrinter:</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">public class ShapePrinter &#123;</div><div class="line"> </div><div class="line">    public void drawShape(Shape shape) &#123;</div><div class="line">        shape.draw();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="里氏替换原则（LSP）："><a href="#里氏替换原则（LSP）：" class="headerlink" title="里氏替换原则（LSP）："></a>里氏替换原则（LSP）：</h3><blockquote>
+<p><strong>程序里的对象都应该可以被它的子类实例替换而不用更改程序.</strong></p>
+</blockquote>
+<p>这个原则由 <a href="https://en.wikipedia.org/wiki/Barbara_Liskov" target="_blank" rel="external">Barbara Liskov</a> 定义。他说程序里的对象都应该可以被它的子类实例替换而不用更改系统的正常工作.</p>
+<p><strong>好处:</strong></p>
+<ul>
+<li>更高的代码复用性。</li>
+<li>类的层次结构易于理解。</li>
+</ul>
+<p>经常用于解释这个原则的经典例子就是长方形的例子。</p>
+<h4 id="违反-LSP-原则"><a href="#违反-LSP-原则" class="headerlink" title="违反 LSP 原则:"></a><strong>违反 LSP 原则:</strong></h4><ul>
+<li>我们有一个 <strong>Rectangle</strong> 类:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">public class Rectangle &#123;</div><div class="line"> </div><div class="line">    private int width;</div><div class="line">    private int height;</div><div class="line"> </div><div class="line">    public void setWidth(int width) &#123;</div><div class="line">        this.width = width;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    public void setHeight(int height) &#123;</div><div class="line">        this.height = height;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    public int getArea() &#123;</div><div class="line">        return width * height;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>还有一个 <strong>Square</strong> 类：</li>
+</ul>
+<p>因为一个正方形是一个长方形（从数学上讲），我们决定把 <strong>Square</strong> 作为 <strong>Rectangle</strong> 的子类。</p>
+<p>我们在重写的 <strong>setHeight()</strong> 和 <strong>setWidth()</strong> 方法中设置（与它的父类）同样的尺寸（宽和高），让 <strong>Square</strong> 的实例依然有效。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">public class Square extends Rectangle &#123;</div><div class="line"> </div><div class="line">    @Override </div><div class="line">    public void setWidth(int width) &#123;</div><div class="line">        super.setWidth(width);</div><div class="line">        super.setHeight(width);</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    @Override</div><div class="line">    public void setHeight(int height) &#123;</div><div class="line">        super.setWidth(height);</div><div class="line">        super.setHeight(height);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>所以现在我们可以传一个 <strong>Square</strong> 实例到一个需要 <strong>Rectangle</strong> 实例的地方。</p>
+<p>但是如果我们这样做，我们会<strong>破坏 Rectangle 的行为假设：</strong></p>
+<p>下面对于 <strong>Rectangle</strong> 的假设是<strong>对的：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">public class LiskovSubstitutionTest &#123;</div><div class="line"> </div><div class="line">    public static void main(String args[]) &#123;</div><div class="line">        Rectangle rectangle = new Rectangle();</div><div class="line">        rectangle.setWidth(2);</div><div class="line">        rectangle.setHeight(5);</div><div class="line"> </div><div class="line">        if (rectangle.getArea() == 10) &#123;</div><div class="line">            System.out.println(rectangle.getArea());</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>但是同样的假设却不适用于 <strong>Square:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">public class LiskovSubstitutionTest &#123;</div><div class="line"> </div><div class="line">    public static void main(String args[]) &#123;</div><div class="line">        Rectangle rectangle = new Square(); // Square</div><div class="line">        rectangle.setWidth(2);</div><div class="line">        rectangle.setHeight(5);</div><div class="line"> </div><div class="line">        if (rectangle.getArea() == 10) &#123;</div><div class="line">            System.out.println(rectangle.getArea());</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>Square</strong> 不是 <strong>Rectangle</strong> 正确的替代品，因为它不遵循 <strong>Rectangle</strong> 的行为规则。</p>
+<p><strong>Square</strong> / <strong>Rectangle</strong> 层次分离虽然不能反应出任何问题，但是这<strong>违反了里氏替换原则</strong>！</p>
+<h4 id="一个解决方法："><a href="#一个解决方法：" class="headerlink" title="一个解决方法："></a><strong>一个解决方法：</strong></h4><ul>
+<li>用 <strong>Shape</strong> 接口来获取面积：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">public interface Shape &#123;</div><div class="line">    int area();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>重构 <strong>Rectangle</strong> 以实现 <strong>Shape:</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">public class Rectangle implements Shape &#123;</div><div class="line"> </div><div class="line">    private int width;</div><div class="line">    private int height;</div><div class="line"> </div><div class="line">    public void setWidth(int width) &#123;</div><div class="line">        this.width = width;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    public void setHeight(int height) &#123;</div><div class="line">        this.height = height;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    @Override</div><div class="line">    public int area() &#123;</div><div class="line">        return width * height;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>重构 <strong>Square</strong> 以实现 <strong>Shape:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">public class Square implements Shape &#123;</div><div class="line"> </div><div class="line">    private int size;</div><div class="line"> </div><div class="line">    public void setSize(int size) &#123;</div><div class="line">        this.size = size;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    @Override</div><div class="line">    public int area() &#123;</div><div class="line">        return size * size;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="另一个解决方法经常与非可变性一起应用"><a href="#另一个解决方法经常与非可变性一起应用" class="headerlink" title="另一个解决方法经常与非可变性一起应用"></a><strong>另一个解决方法经常与<a href="https://en.wikipedia.org/wiki/Immutable_object" target="_blank" rel="external">非可变性</a>一起应用</strong></h4><ul>
+<li><strong>Rectangle</strong> 重构：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">public class Rectangle &#123;</div><div class="line"> </div><div class="line">    private final int width;</div><div class="line">    private final int height;</div><div class="line"> </div><div class="line">    public Rectangle(int width, int height) &#123;</div><div class="line">        this.width = width;</div><div class="line">        this.height = height;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    public int getArea() &#123;</div><div class="line">        return width * height;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>重构 <strong>Square</strong> 以继承 <strong>Rectangle:</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">public class Square extends Rectangle &#123;</div><div class="line"> </div><div class="line">    public Square(int side) &#123;</div><div class="line">        super(side, side);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>很多时候，我们对类的建模依赖于我们想展示的现实世界客体的属性，但更重要的是我们应该关注它们各自的行为来避免这种错误。</p>
+<h3 id="接口隔离原则（ISP）："><a href="#接口隔离原则（ISP）：" class="headerlink" title="接口隔离原则（ISP）："></a>接口隔离原则（ISP）：</h3><blockquote>
+<p><strong>多个专用的接口比一个通用接口好。</strong></p>
+</blockquote>
+<p>这个原则定义了<strong>一个类决不要实现不会用到的接口</strong>。不遵循这个原则意味着在我们在实现里会依赖很多我们并不需要的方法，但又不得不去定义。</p>
+<p>所以，实现多个特定的接口比实现一个通用接口要好。一个接口被需要用到的类所定义，所以这个接口不应该有这个类不需要实现的其它方法。</p>
+<p><strong>好处：</strong></p>
+<ul>
+<li>系统解耦。</li>
+<li>代码易于重构。</li>
+</ul>
+<h4 id="违反-ISP-原则"><a href="#违反-ISP-原则" class="headerlink" title="违反 ISP 原则"></a><strong>违反 ISP 原则</strong></h4><ul>
+<li>我们有一个 <strong>Car</strong> 的接口：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">public interface Car &#123;</div><div class="line">    void startEngine();</div><div class="line">    void accelerate();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>同时也有一个实现 <strong>Car</strong> 接口的 <strong>Mustang</strong> 类：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">public class Mustang implements Car &#123;</div><div class="line"> </div><div class="line">    @Override</div><div class="line">    public void startEngine() &#123;</div><div class="line">        // start engine...</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    @Override</div><div class="line">    public void accelerate() &#123;</div><div class="line">        // accelerate...</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>现在我们有个新的需求，要添加一个新的车型：</p>
+<p>一辆 <strong>DeloRean,</strong> 但这并不是一个普通的 DeLorean，我们的 <strong>DeloRean</strong> 非常特别，它有穿梭时光的功能。</p>
+<p>像以往一样，我们没有时间来做一个好的实现，而且 <strong>DeloRean</strong> 必须马上回到过去。</p>
+<ul>
+<li>为我们的 <strong>DeloRean</strong> 在 <strong>Car</strong> 接口里增加两个新的方法：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">public interface Car &#123;</div><div class="line">    void startEngine();</div><div class="line">    void accelerate();</div><div class="line">    void backToThePast();</div><div class="line">    void backToTheFuture();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>现在我们的 <strong>DeloRean</strong> 实现 <strong>Car</strong> 的方法：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">public class DeloRean implements Car &#123;</div><div class="line"> </div><div class="line">    @Override</div><div class="line">    public void startEngine() &#123;</div><div class="line">        // start engine...</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    @Override</div><div class="line">    public void accelerate() &#123;</div><div class="line">        // accelerate...</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    @Override</div><div class="line">    public void backToThePast() &#123;</div><div class="line">        // back to the past...</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    @Override</div><div class="line">    public void backToTheFuture() &#123;</div><div class="line">        // back to the future...</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>但是现在 <strong>Mustang</strong> 被迫去实现在 <strong>Car</strong> 接口里的新方法：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">public class Mustang implements Car &#123;</div><div class="line"> </div><div class="line">    @Override</div><div class="line">    public void startEngine() &#123;</div><div class="line">        // 启动引擎</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    @Override</div><div class="line">    public void accelerate() &#123;</div><div class="line">        // 加速</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    @Override</div><div class="line">    public void backToThePast() &#123;</div><div class="line">        // 因为 Mustang 不能回到过去！</div><div class="line">        throw new UnsupportedOperationException();</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    @Override</div><div class="line">    public void backToTheFuture() &#123;</div><div class="line">        // 因为 Mustang 不能穿越去未来！</div><div class="line">        throw new UnsupportedOperationException();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在这种情况下，Mustang <strong>违反了接口隔离的原则</strong>，因为它实现了它不会用到的方法。</p>
+<h4 id="使用接口隔离的解决方法："><a href="#使用接口隔离的解决方法：" class="headerlink" title="使用接口隔离的解决方法："></a><strong>使用接口隔离的解决方法：</strong></h4><ul>
+<li>重构 <strong>Car</strong> 接口：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">public interface Car &#123;</div><div class="line">    void startEngine();</div><div class="line">    void accelerate();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>增添一个 <strong>TimeMachine</strong> 接口：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">public interface TimeMachine &#123;</div><div class="line">    void backToThePast();</div><div class="line">    void backToTheFuture();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>重构 <strong>Mustang（只实现 Car 的接口）</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">public class Mustang implements Car &#123;</div><div class="line"> </div><div class="line">    @Override</div><div class="line">    public void startEngine() &#123;</div><div class="line">        // 启动引擎</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    @Override</div><div class="line">    public void accelerate() &#123;</div><div class="line">        // 加速</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>重构 <strong>DeloRean（同时实现 Car 和 TimeMachine）</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">public class DeloRean implements Car, TimeMachine &#123;</div><div class="line"> </div><div class="line">    @Override</div><div class="line">    public void startEngine() &#123;</div><div class="line">        // 启动引擎</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    @Override</div><div class="line">    public void accelerate() &#123;</div><div class="line">        // 加速</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    @Override</div><div class="line">    public void backToThePast() &#123;</div><div class="line">        // 回到过去</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    @Override</div><div class="line">    public void backToTheFuture() &#123;</div><div class="line">        // 到未来去</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="依赖倒转原则-DIP"><a href="#依赖倒转原则-DIP" class="headerlink" title="依赖倒转原则 (DIP):"></a>依赖倒转原则 (DIP):</h3><blockquote>
+<p><strong>高层次的模块不应该依赖于低层次的模块，它们都应该依赖于抽象。</strong></p>
+<p><strong>抽象不应该依赖于细节。细节应该依赖于抽象。</strong></p>
+</blockquote>
+<p>依赖倒转原则的意思是一个特定的类不应该直接依赖于另外一个类，但是可以依赖于这个类的抽象（接口）。</p>
+<p>当我们应用这个原则的时候我们能减少对特定实现的依赖性，让我们的代码复用性更高。</p>
+<p><strong>好处:</strong></p>
+<ul>
+<li>减少耦合。</li>
+<li>代码更高的复用性。</li>
+</ul>
+<h4 id="违反-DIP-原则"><a href="#违反-DIP-原则" class="headerlink" title="违反 DIP 原则:"></a><strong>违反 DIP 原则:</strong></h4><ul>
+<li>我们有一个类叫 <strong>DeliveryDriver</strong> 代表着一个司机为快递公司工作。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">public class DeliveryDriver &#123;</div><div class="line"> </div><div class="line">    public void deliverProduct(Product product)&#123;</div><div class="line">        // 运送产品</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>DeliveryCompany</strong> 类处理货物装运：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">public class DeliveryCompany &#123;</div><div class="line"> </div><div class="line">    public void sendProduct(Product product) &#123;</div><div class="line">        DeliveryDriver deliveryDriver = new DeliveryDriver();</div><div class="line">        deliveryDriver.deliverProduct(product);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我们注意到 <strong>DeliveryCompany</strong> 创建并使用 DeliveryDriver 实例。所以 <strong>DeliveryCompany</strong> 是一个依赖于低层次类的高层次的类，这就<strong>违背了依赖倒转原则</strong>。（译者注：上述代码中 DeliveryCompany 需要运送货物，必须需要一个 DeliveryDriver 参与。但如果以后对司机有更多的要求，那我们既要修改 DeliveryDriver 也要修改上述代码。这样造成的依赖，耦合度高）</p>
+<h4 id="A-solution"><a href="#A-solution" class="headerlink" title="A solution:"></a><strong>A solution:</strong></h4><h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法:"></a><strong>解决方法:</strong></h4><ul>
+<li>我们创建 <strong>DeliveryService</strong> 接口，这样我们就有了一个抽象。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">public interface DeliveryService &#123;</div><div class="line">    void deliverProduct(Product product);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>重构 <strong>DeliveryDriver</strong> 类以实现 <strong>DeliveryService</strong> 的抽象方法：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">public class DeliveryDriver implements DeliveryService &#123;</div><div class="line"> </div><div class="line">    @Override</div><div class="line">    public void deliverProduct(Product product) &#123;</div><div class="line">        // 运送产品</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>重构 <strong>DeliveryCompany</strong>，使它依赖于一个抽象而不是一个具体的东西。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">public class DeliveryCompany &#123;</div><div class="line"> </div><div class="line">    private DeliveryService deliveryService;</div><div class="line"> </div><div class="line">    public DeliveryCompany(DeliveryService deliveryService) &#123;</div><div class="line">        this.deliveryService = deliveryService;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    public void sendProduct(Product product) &#123;</div><div class="line">        this.deliveryService.deliverProduct(product);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>现在，依赖在别的地方创建，并且从类构造器中被注入。</p>
+<p>千万不要把这个原则与<a href="https://en.wikipedia.org/wiki/Dependency_injection" target="_blank" rel="external">依赖注入</a>混淆。依赖注入是一种设计模式，帮助我们应用这个原则来确保各个类之间的合作不涉及相互依赖。</p>
+<p>这里有好几个库使依赖注入更容易实现，像 <a href="https://github.com/google/guice" target="_blank" rel="external">Guice</a> 或者非常流行的 <a href="https://github.com/google/dagger" target="_blank" rel="external">Dagger2</a>。</p>
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>遵循 SOLID 原则来构建高质量, 易于扩展, 足够健壮并且可复用的软件是非常必要的。同时, 我们也不要忘了从实际和常识出发, 因为有的时候过份设计会使简单的问题复杂化。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/19/node-tree-user/" rel="next" title="生成项目结构图 - Tree命令的使用">
+                <i class="fa fa-chevron-left"></i> 生成项目结构图 - Tree命令的使用
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/04/05/关于OOP的SOLID原则/"
+           data-title="关于OOP的SOLID原则" data-url="http://wodewone.com/2017/04/05/关于OOP的SOLID原则/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="switch-box">
+      <input id="enableAnimate" class="switch-btn-cb" type="checkbox" checked="">
+      <label for="enableAnimate" class="switch-btn small shadow" title="动画开关"></label>
+    </div>
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/author.png"
+               alt="Coco" />
+          <p class="site-author-name" itemprop="name">Coco</p>
+          <p class="site-description motion-element" itemprop="description">学了js，趟了jQuery，用上sass，改了angular，看完vue，学了react，变了cssModule，弃了gulp，从了webpack，发现cssInJs，始于Node，终了……</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wodewone" target="_blank">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/1576981091" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://book.douban.com/people/145249948/" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  豆瓣
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/wodewone/activities" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SOLID-原则：权威指南"><span class="nav-number">1.</span> <span class="nav-text">SOLID 原则：权威指南</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#耦合："><span class="nav-number">1.0.0.1.</span> <span class="nav-text">耦合：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内聚："><span class="nav-number">1.0.0.2.</span> <span class="nav-text">内聚：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单一职责原则（SRP）："><span class="nav-number">1.0.1.</span> <span class="nav-text">单一职责原则（SRP）：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#违反-SRP-原则"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">违反 SRP 原则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更好的解决办法："><span class="nav-number">1.0.1.2.</span> <span class="nav-text">更好的解决办法：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开闭原则（OCP）："><span class="nav-number">1.0.2.</span> <span class="nav-text">开闭原则（OCP）：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#违反-OCP-原则"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">违反 OCP 原则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一个解决办法："><span class="nav-number">1.0.2.2.</span> <span class="nav-text">一个解决办法：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#另一个解决方法："><span class="nav-number">1.0.2.3.</span> <span class="nav-text">另一个解决方法：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#里氏替换原则（LSP）："><span class="nav-number">1.0.3.</span> <span class="nav-text">里氏替换原则（LSP）：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#违反-LSP-原则"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">违反 LSP 原则:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一个解决方法："><span class="nav-number">1.0.3.2.</span> <span class="nav-text">一个解决方法：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#另一个解决方法经常与非可变性一起应用"><span class="nav-number">1.0.3.3.</span> <span class="nav-text">另一个解决方法经常与非可变性一起应用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接口隔离原则（ISP）："><span class="nav-number">1.0.4.</span> <span class="nav-text">接口隔离原则（ISP）：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#违反-ISP-原则"><span class="nav-number">1.0.4.1.</span> <span class="nav-text">违反 ISP 原则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用接口隔离的解决方法："><span class="nav-number">1.0.4.2.</span> <span class="nav-text">使用接口隔离的解决方法：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#依赖倒转原则-DIP"><span class="nav-number">1.0.5.</span> <span class="nav-text">依赖倒转原则 (DIP):</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#违反-DIP-原则"><span class="nav-number">1.0.5.1.</span> <span class="nav-text">违反 DIP 原则:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#A-solution"><span class="nav-number">1.0.5.2.</span> <span class="nav-text">A solution:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决方法"><span class="nav-number">1.0.5.3.</span> <span class="nav-text">解决方法:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结论"><span class="nav-number">1.0.6.</span> <span class="nav-text">结论</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Coco</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wodewone"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("vRu2nM0E4TnPoSh1PmS4wXad-gzGzoHsz", "m1sk6K5zpn10ht2DGFqBOwKC");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>
