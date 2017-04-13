@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wodewone.com/"/>
-  <updated>2017-04-05T03:31:21.000Z</updated>
+  <updated>2017-04-13T13:17:38.000Z</updated>
   <id>http://wodewone.com/</id>
   
   <author>
@@ -14,6 +14,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>nodeJs - 构建科目一</title>
+    <link href="http://wodewone.com/2017/04/13/node-build-1/"/>
+    <id>http://wodewone.com/2017/04/13/node-build-1/</id>
+    <published>2017-04-13T13:16:34.000Z</published>
+    <updated>2017-04-13T13:17:38.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>node </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;node &lt;/p&gt;
+
+    
+    </summary>
+    
+      <category term="node" scheme="http://wodewone.com/categories/node/"/>
+    
+    
+      <category term="javascript" scheme="http://wodewone.com/tags/javascript/"/>
+    
+      <category term="node" scheme="http://wodewone.com/tags/node/"/>
+    
+  </entry>
   
   <entry>
     <title>关于OOP的SOLID原则</title>
@@ -1549,48 +1575,6 @@
       <category term="angular" scheme="http://wodewone.com/tags/angular/"/>
     
       <category term="javascript" scheme="http://wodewone.com/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo文章添加图片解决方案</title>
-    <link href="http://wodewone.com/2016/08/26/hexo%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
-    <id>http://wodewone.com/2016/08/26/hexo文章添加图片解决方案/</id>
-    <published>2016-08-26T10:16:24.000Z</published>
-    <updated>2016-12-03T13:47:03.000Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>在 hexo 中完美添加img方法；</p>
-<p>如果直接放在项目中的话那么在编辑的时候和发布的时候要改图片路径；</p>
-<p>之前一直是使用新浪图床来承载图片，但是觉得每次添加图片都要上传到图床上去，一个是很麻烦，还有一个就是太（lan）不（de）智（bu）能（xing）了，哈哈！于是乎搜了一把，发现了一个比较不错的方法</p>
-<h5 id="先手团"><a href="#先手团" class="headerlink" title="先手团"></a>先手团</h5><p><a href="https://github.com/CodeFalling/hexo-asset-image" target="_blank" rel="external">dian这里</a></p>
-<p>里面有介绍直接走就可以，或者看后面我的使用方式</p>
-<h5 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h5><p>安装 <code>hexo-asset-image</code> 之后，<br>在 <code>_config.yml</code> 中搜索 <code>post_asset_folder</code> 这个属性</p>
-<p>默认是 <code>false</code> 改为 <code>true</code> 值</p>
-<p>这个属性是干啥的呢，实际上在使用命令行敲</p>
-<p><code>hexo n &#39;***&#39;</code></p>
-<p>新建一篇文章的时候他会默认创建一个同名文件夹来提供容纳该文章里面其他资源比如图片、音频、视频等等</p>
-<p>这个时候你只需要这样添加图片即可</p>
-<p><code>![logo](demo.jpg)</code></p>
-<p>然后在通过 </p>
-<p><code>hexo g</code></p>
-<p>即可自动生成到 <code>publish</code> 下面</p>
-<p>so easy！</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h4&gt;&lt;p&gt;在 hexo 中完美添加img方法；&lt;/p&gt;
-&lt;p&gt;如果直接放在项目中的话那么在编辑的时候和发布的时候要改图片路径；&lt;/p&gt;
-&lt;p&gt;之前一直
-    
-    </summary>
-    
-      <category term="hexo" scheme="http://wodewone.com/categories/hexo/"/>
-    
-    
-      <category term="hexo" scheme="http://wodewone.com/tags/hexo/"/>
-    
-      <category term="img" scheme="http://wodewone.com/tags/img/"/>
     
   </entry>
   
