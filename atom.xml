@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wodewone.com/"/>
-  <updated>2017-04-13T13:17:38.000Z</updated>
+  <updated>2017-04-14T07:28:48.000Z</updated>
   <id>http://wodewone.com/</id>
   
   <author>
@@ -20,15 +20,31 @@
     <link href="http://wodewone.com/2017/04/13/node-build-1/"/>
     <id>http://wodewone.com/2017/04/13/node-build-1/</id>
     <published>2017-04-13T13:16:34.000Z</published>
-    <updated>2017-04-13T13:17:38.000Z</updated>
+    <updated>2017-04-14T07:28:48.000Z</updated>
     
-    <content type="html"><![CDATA[<p>node </p>
+    <content type="html"><![CDATA[<blockquote>
+<p>此文记录一些踩点，想要系统学习可根据文中参考的网站进行系统学习，使用有js基础的同鞋~</p>
+</blockquote>
+<h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><p>关于服务器语言方向我一向不太感冒，但是关于js涉猎的方向我还是很向往的，不管js的路能走多远，希望都能走下去……</p>
+<p>由于最近在潜心研究项目前后端分离设计，再次涉及了<code>nodejs</code>，干脆就系统的学习一下<code>node</code>，自此开始记录自己在学习路程中遇到的问题，也算是记录自己成长的一部分~~~~</p>
+<h2 id="Hello-World！"><a href="#Hello-World！" class="headerlink" title="Hello World！"></a>Hello World！</h2><p>学习一个新语言 or 新方向的开始当然是国际标准的 ‘hello world’ 了；<br>详细内容请参考<a href="http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001434501245426ad4b91f2b880464ba876a8e3043fc8ef000" target="_blank" rel="external">廖大的官方node教程</a></p>
+<h2 id="promise"><a href="#promise" class="headerlink" title="promise"></a>promise</h2><p>由于之前对<code>promise</code>的理解一直不是很清楚，学到这里的时候跟着路程又踏了一次<code>promise</code>的问题；</p>
+<p>如果你直接搜<code>promise 用处</code>搜到的大多是这样‘promise用来解决回调地狱问题’，没错这句话说的没毛病，不仅没毛病而且很对，但问题是回调地狱问题在日常工作以及实际业务中也不是经常有啊，如果只是为了解决这么一个个别问题单独制定一套规范是否过于繁重了呢？</p>
+<p>起初我刚了解它的时候还试着在实际工作中去使用它，然而我并没有发现它有多好使，或者说，因为它我还要单独学习api然后修改习惯性的回调问题，我个人觉得似乎是麻烦了。。。</p>
+<p>然后我们回到这个问题，发明了<code>promise</code>这个东东的其他用处，其实它在<code>node</code>里面更能体现出价值，因为在服务器端处理任务对于js这个单线程的语言来说不够使啊！但是这还是它的优点，那么异步自然而然的成为了宠儿，然而面对异步的问题对于多年来一直处于回调的状态让开发者烦恼之极，<code>promise</code>应运而生；</p>
+<blockquote>
+<p>由于我的理解有限避免误导群众，这里不阐述<code>promise</code>的具体使用示例，想要进一步了解的请移步<a href="http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014345008539155e93fc16046d4bb7854943814c4f9dc2000" target="_blank" rel="external">廖大js教程的promis</a> 或者 <a href="http://es6.ruanyifeng.com/#docs/promise" target="_blank" rel="external">阮大的ECMAScript 6 入门一书中 - promise</a></p>
+</blockquote>
+<p>我的理解是<code>promise</code>主要是用于处理异步任务的时候，开发者不需关心任务的执行过程而只关心任务的执行结果，也就是说我只要异步执行结果，在我需要的时候你给我返回来这样就可以了，至于你是什么时候返回来不重要，回不来或者出错了，就走<code>catch</code>；这样代码可以像同步的方式一样写，代码可维护性自然提高；</p>
+<p>[不知道我理解的对不对，请大家谨慎参考]</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;node &lt;/p&gt;
-
+      &lt;blockquote&gt;
+&lt;p&gt;此文记录一些踩点，想要系统学习可根据文中参考的网站进行系统学习，使用有js基础的同鞋~&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;开始&quot;&gt;&lt;a href=&quot;#开始&quot; class=&quot;headerlink&quot; title=&quot;开始&quot;&gt;&lt;/a&gt;开始
     
     </summary>
     
@@ -38,6 +54,8 @@
       <category term="javascript" scheme="http://wodewone.com/tags/javascript/"/>
     
       <category term="node" scheme="http://wodewone.com/tags/node/"/>
+    
+      <category term="promise" scheme="http://wodewone.com/tags/promise/"/>
     
   </entry>
   
