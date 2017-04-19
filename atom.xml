@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wodewone.com/"/>
-  <updated>2017-04-14T07:28:48.000Z</updated>
+  <updated>2017-04-19T15:47:51.000Z</updated>
   <id>http://wodewone.com/</id>
   
   <author>
@@ -16,14 +16,28 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>async-and-await-used</title>
+    <link href="http://wodewone.com/2017/04/19/async-and-await-used/"/>
+    <id>http://wodewone.com/2017/04/19/async-and-await-used/</id>
+    <published>2017-04-19T15:47:51.000Z</published>
+    <updated>2017-04-19T15:47:51.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>nodeJs - 构建科目一</title>
     <link href="http://wodewone.com/2017/04/13/node-build-1/"/>
     <id>http://wodewone.com/2017/04/13/node-build-1/</id>
     <published>2017-04-13T13:16:34.000Z</published>
-    <updated>2017-04-14T07:28:48.000Z</updated>
+    <updated>2017-04-14T07:33:21.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
-<p>此文记录一些踩点，想要系统学习可根据文中参考的网站进行系统学习，使用有js基础的同鞋~</p>
+<p>此文记录一些关于nodejs方面的踩点，想要系统学习可根据文中参考的网站进行系统学习，使用有js基础的同鞋~</p>
 </blockquote>
 <h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><p>关于服务器语言方向我一向不太感冒，但是关于js涉猎的方向我还是很向往的，不管js的路能走多远，希望都能走下去……</p>
 <p>由于最近在潜心研究项目前后端分离设计，再次涉及了<code>nodejs</code>，干脆就系统的学习一下<code>node</code>，自此开始记录自己在学习路程中遇到的问题，也算是记录自己成长的一部分~~~~</p>
@@ -37,14 +51,18 @@
 </blockquote>
 <p>我的理解是<code>promise</code>主要是用于处理异步任务的时候，开发者不需关心任务的执行过程而只关心任务的执行结果，也就是说我只要异步执行结果，在我需要的时候你给我返回来这样就可以了，至于你是什么时候返回来不重要，回不来或者出错了，就走<code>catch</code>；这样代码可以像同步的方式一样写，代码可维护性自然提高；</p>
 <p>[不知道我理解的对不对，请大家谨慎参考]</p>
+<h1 id="学习地址"><a href="#学习地址" class="headerlink" title="学习地址"></a>学习地址</h1><ul>
+<li><a href="http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001434501245426ad4b91f2b880464ba876a8e3043fc8ef000" target="_blank" rel="external">Node.js - 廖雪峰的官方网站</a></li>
+<li><a href="http://es6.ruanyifeng.com/" target="_blank" rel="external">ECMAScript 6 入门 - 阮一峰</a></li>
+</ul>
 ]]></content>
     
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;此文记录一些踩点，想要系统学习可根据文中参考的网站进行系统学习，使用有js基础的同鞋~&lt;/p&gt;
+&lt;p&gt;此文记录一些关于nodejs方面的踩点，想要系统学习可根据文中参考的网站进行系统学习，使用有js基础的同鞋~&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h1 id=&quot;开始&quot;&gt;&lt;a href=&quot;#开始&quot; class=&quot;headerlink&quot; title=&quot;开始&quot;&gt;&lt;/a&gt;开始
+&lt;h1 id=&quot;开始&quot;&gt;&lt;a href=&quot;#开始&quot; class=&quot;headerlink&quot; title=
     
     </summary>
     
@@ -655,6 +673,8 @@
     
       <category term="javascript" scheme="http://wodewone.com/tags/javascript/"/>
     
+      <category term="promise" scheme="http://wodewone.com/tags/promise/"/>
+    
       <category term="fetch" scheme="http://wodewone.com/tags/fetch/"/>
     
       <category term="ajax" scheme="http://wodewone.com/tags/ajax/"/>
@@ -662,8 +682,6 @@
       <category term="http" scheme="http://wodewone.com/tags/http/"/>
     
       <category term="es6" scheme="http://wodewone.com/tags/es6/"/>
-    
-      <category term="promise" scheme="http://wodewone.com/tags/promise/"/>
     
   </entry>
   
@@ -858,9 +876,9 @@
     
       <category term="javascript" scheme="http://wodewone.com/tags/javascript/"/>
     
-      <category term="mac" scheme="http://wodewone.com/tags/mac/"/>
-    
       <category term="css" scheme="http://wodewone.com/tags/css/"/>
+    
+      <category term="mac" scheme="http://wodewone.com/tags/mac/"/>
     
       <category term="Node" scheme="http://wodewone.com/tags/Node/"/>
     
@@ -1360,9 +1378,9 @@
       <category term="html" scheme="http://wodewone.com/categories/html/"/>
     
     
-      <category term="web" scheme="http://wodewone.com/tags/web/"/>
-    
       <category term="html" scheme="http://wodewone.com/tags/html/"/>
+    
+      <category term="web" scheme="http://wodewone.com/tags/web/"/>
     
   </entry>
   
@@ -1548,42 +1566,6 @@
       &lt;p&gt;&lt;a href=&quot;http://jsfiddle.net/sqren/27ugfym6/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;View JSFiddle&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;view.html:&lt;/p&gt;
 &lt;figure class=&quot;highl
-    
-    </summary>
-    
-      <category term="angular" scheme="http://wodewone.com/categories/angular/"/>
-    
-    
-      <category term="angular" scheme="http://wodewone.com/tags/angular/"/>
-    
-      <category term="javascript" scheme="http://wodewone.com/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>angular实现changeFile上传[方法二]</title>
-    <link href="http://wodewone.com/2016/08/27/angular%E5%AE%9E%E7%8E%B0changeFile%E4%B8%8A%E4%BC%A0-%E6%96%B9%E6%B3%95%E4%BA%8C/"/>
-    <id>http://wodewone.com/2016/08/27/angular实现changeFile上传-方法二/</id>
-    <published>2016-08-27T04:29:18.000Z</published>
-    <updated>2016-12-03T13:45:29.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="angular实现changeFile上传-方法二"><a href="#angular实现changeFile上传-方法二" class="headerlink" title="angular实现changeFile上传[方法二]"></a>angular实现changeFile上传[方法二]</h3><p>html</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-controller</span>=<span class="string">"form-cntlr"</span>&gt;</span> <span class="tag">&lt;<span class="name">form</span>&gt;</span> <span class="tag">&lt;<span class="name">button</span> <span class="attr">ng-click</span>=<span class="string">"selectFile()"</span>&gt;</span>Upload Your File<span class="tag">&lt;/<span class="name">button</span>&gt;</span> <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">style</span>=<span class="string">"display:none"</span> <span class="attr">id</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">'file'</span> <span class="attr">onchange</span>=<span class="string">"angular.element(this).scope().fileNameChanged(this)"</span> /&gt;</span> <span class="tag">&lt;/<span class="name">form</span>&gt;</span> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>instead of </p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">style</span>=<span class="string">"display:none"</span> <span class="attr">id</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">'file'</span> <span class="attr">ng-Change</span>=<span class="string">"fileNameChanged()"</span> /&gt;</span></div></pre></td></tr></table></figure>
-<p>can you try</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">style</span>=<span class="string">"display:none"</span> <span class="attr">id</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">'file'</span> <span class="attr">onchange</span>=<span class="string">"angular.element(this).scope().fileNameChanged()"</span> /&gt;</span></div></pre></td></tr></table></figure>
-<p>and in your function changes instead of</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$scope.fileNameChanged = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; alert(<span class="string">"select file"</span>); &#125;</div></pre></td></tr></table></figure>
-<p>can you try</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$scope.fileNameChanged = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">"select file"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><a href="http://stackoverflow.com/questions/17922557/angularjs-how-to-check-for-changes-in-file-input-fields" target="_blank" rel="external">参考出处1</a></p>
-<p><a href="https://github.com/angular/angular.js/issues/1375" target="_blank" rel="external">参考出处2</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;angular实现changeFile上传-方法二&quot;&gt;&lt;a href=&quot;#angular实现changeFile上传-方法二&quot; class=&quot;headerlink&quot; title=&quot;angular实现changeFile上传[方法二]&quot;&gt;&lt;/a&gt;angular实现c
     
     </summary>
     

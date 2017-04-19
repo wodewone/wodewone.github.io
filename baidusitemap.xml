@@ -4,8 +4,23 @@
 
     
   <url>
+    <loc>http://wodewone.com/2017/04/19/async-and-await-used/</loc>
+    <lastmod>2017-04-19T15:47:51.000Z</lastmod>
+    <data>
+        <display>
+        <title>async-and-await-used</title>
+        <pubTime>2017-04-19T15:47:51.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://wodewone.com/2017/04/13/node-build-1/</loc>
-    <lastmod>2017-04-14T07:28:48.000Z</lastmod>
+    <lastmod>2017-04-14T07:33:21.000Z</lastmod>
     <data>
         <display>
         <title>nodeJs - 构建科目一</title>
@@ -87,9 +102,9 @@
         
         <tag>javascript</tag>
          
-        <tag>mac</tag>
-         
         <tag>css</tag>
+         
+        <tag>mac</tag>
          
         <tag>Node</tag>
          
@@ -145,6 +160,8 @@
         
         <tag>javascript</tag>
          
+        <tag>promise</tag>
+         
         <tag>fetch</tag>
          
         <tag>ajax</tag>
@@ -152,8 +169,6 @@
         <tag>http</tag>
          
         <tag>es6</tag>
-         
-        <tag>promise</tag>
          
          
            
@@ -633,9 +648,9 @@
         <title>如何理解Web语义化</title>
         <pubTime>2016-10-01T07:05:57.000Z</pubTime>
         
-        <tag>web</tag>
-         
         <tag>html</tag>
+         
+        <tag>web</tag>
          
          
            
