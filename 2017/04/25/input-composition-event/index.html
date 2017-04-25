@@ -1,0 +1,845 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="javascript,input,js,compositionend," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="wodewone's blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="input 监听关于js监听input输入的方法很容易想到 oninput 和 onchange （包括ie下onpropertychange）这些都是监听用户敲下键盘改变input内容的方法，正常情况下没有问题或者说输入英文没有问题；但是！
+天朝输入法是那么的棒（当然其他国家不在考虑范围内）；说到中文输入法这里要引入另一个概念；
+即：
+
+直接输入
+非直接输入
+
+直接输入什么是直接输入呢？就是用户">
+<meta property="og:type" content="article">
+<meta property="og:title" content="input-composition-event">
+<meta property="og:url" content="http://wodewone.com/2017/04/25/input-composition-event/index.html">
+<meta property="og:site_name" content="wodewone's blog">
+<meta property="og:description" content="input 监听关于js监听input输入的方法很容易想到 oninput 和 onchange （包括ie下onpropertychange）这些都是监听用户敲下键盘改变input内容的方法，正常情况下没有问题或者说输入英文没有问题；但是！
+天朝输入法是那么的棒（当然其他国家不在考虑范围内）；说到中文输入法这里要引入另一个概念；
+即：
+
+直接输入
+非直接输入
+
+直接输入什么是直接输入呢？就是用户">
+<meta property="og:image" content="http://wodewone.com/2017/04/25/input-composition-event/./E2BCB28D-B0A2-484C-B40B-AA00565E4E89.png">
+<meta property="og:image" content="http://wodewone.com/2017/04/25/input-composition-event/7563E5E0-B443-4B38-8260-134E66BF5755.png">
+<meta property="og:updated_time" content="2017-04-25T10:35:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="input-composition-event">
+<meta name="twitter:description" content="input 监听关于js监听input输入的方法很容易想到 oninput 和 onchange （包括ie下onpropertychange）这些都是监听用户敲下键盘改变input内容的方法，正常情况下没有问题或者说输入英文没有问题；但是！
+天朝输入法是那么的棒（当然其他国家不在考虑范围内）；说到中文输入法这里要引入另一个概念；
+即：
+
+直接输入
+非直接输入
+
+直接输入什么是直接输入呢？就是用户">
+<meta name="twitter:image" content="http://wodewone.com/2017/04/25/input-composition-event/./E2BCB28D-B0A2-484C-B40B-AA00565E4E89.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6269890100566427000,
+      author: 'Coco'
+    }
+  };
+</script>
+
+  <title> input-composition-event | wodewone's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?4691d35db2be0afe7a932e6f4f7e68af";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">wodewone's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">梦想是主题，生活才是题主</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-favourites">
+          <a href="/favourites" rel="section">
+            
+              <i class="menu-item-icon fa fa-question-circle fa-fw"></i> <br />
+            
+            收藏
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                input-composition-event
+              
+            
+          </h1>
+        
+
+        
+          <div class="post-tags">
+            
+              <a href="/tags/javascript/" rel="tag">#javascript</a>
+            
+              <a href="/tags/input/" rel="tag">#input</a>
+            
+              <a href="/tags/js/" rel="tag">#js</a>
+            
+              <a href="/tags/compositionend/" rel="tag">#compositionend</a>
+            
+          </div>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-25T11:28:06+08:00" content="2017-04-25">
+              2017-04-25
+            </time>
+          </span>
+
+          
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/04/25/input-composition-event/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/25/input-composition-event/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/04/25/input-composition-event/" class="leancloud_visitors" data-flag-title="input-composition-event">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="input-监听"><a href="#input-监听" class="headerlink" title="input 监听"></a>input 监听</h2><p>关于js监听input输入的方法很容易想到 <code>oninput</code> 和 <code>onchange</code> （包括ie下<code>onpropertychange</code>）这些都是监听用户敲下键盘改变input内容的方法，正常情况下没有问题或者说输入英文没有问题；<br>但是！</p>
+<p>天朝输入法是那么的棒（当然其他国家不在考虑范围内）；说到中文输入法这里要引入另一个概念；</p>
+<p>即：</p>
+<ul>
+<li>直接输入</li>
+<li>非直接输入</li>
+</ul>
+<h2 id="直接输入"><a href="#直接输入" class="headerlink" title="直接输入"></a>直接输入</h2><p>什么是直接输入呢？<br>就是用户敲下键盘后直接将结果填充到input输入框中的，也就是输入英文字母，字节以及数字这种不需要选择的内容（或者把输入法改为英文状态）；</p>
+<p>这个时候我们基本上不用考虑特殊情况了，监听事件直接使用 <code>input</code> 或者 <code>change</code> 都可以，足够满足使用；</p>
+<h2 id="非直接输入"><a href="#非直接输入" class="headerlink" title="非直接输入"></a>非直接输入</h2><p>然后我们来说说这个非直接输入，经过上面的解释那么<strong>非直接输入</strong>也就比较好理解了；<br>就是用户选择了中文输入然后在用户在input中输入中文前，input并不是空的而是把用户敲的键盘对应按键<strong>暂时</strong>放在了input中，直到用户选择了最终的结果后<strong>替换</strong>刚才存放在input里面的内容；这时问题来了，刚才存放在input里面的字节是否会触发<code>input</code>或者<code>change</code>事件呢？</p>
+<p>我们试下：</p>
+<p><img src="/2017/04/25/input-composition-event/./E2BCB28D-B0A2-484C-B40B-AA00565E4E89.png" alt="E2BCB28D-B0A2-484C-B40B-AA00565E4E89.png"></p>
+<p>可以发现其实即使没有选择最终的结果但是依然触发了input的<code>input</code>事件，但是有些时候我们不希望是这样的，比如这样一个业务需求：</p>
+<ul>
+<li>给input设置一个输入限制，最多输入12个字节（也就是6个汉字）</li>
+</ul>
+<p>这个需求应该属于比较常见的，那么正常情况下我们可以给input设置 <code>maxlength</code> 属性来限制最大长度，</p>
+<p>但是！</p>
+<p><code>maxlength</code>是不区分中英文的，也就是说不管你是中文还是英文我都算一个，即 <code>‘w’.length === ‘我’.length</code> 是成立的，所以我们需要用正则来验证中英文来限制用户输入……</p>
+<p>通常我是这样做的当用户输入的内容达到指定长度之后在输入的时候我就截取前面有效的内容显示，也就是说除非用户删除了一些内容，否则不允许在输入新内容了；</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>demo<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"text"</span> <span class="attr">placeHolder</span>=<span class="string">"最大支持12个字节"</span> <span class="attr">maxlength</span>=<span class="string">"12"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="xml"></span></div><div class="line">     var Str = &#123;</div><div class="line">         byteLen : function (str)&#123;</div><div class="line">            //正则取到中文的个数，然后len*count+原来的长度。不用replace</div><div class="line">            str += '';</div><div class="line">            var tmp = str.match(/[^\x00-\xff]/g) || [];</div><div class="line">            return str.length + tmp.length;</div><div class="line">        &#125;,</div><div class="line">        getMaxlen : function(str,maxlen)&#123;</div><div class="line">            var sResult = '', L=0, i=0, stop = false, sChar;</div><div class="line">            if(str.replace(/[^\x00-\xff]/g,'xxx').length <span class="tag">&lt;<span class="name">=</span> <span class="attr">maxlen</span>)&#123;</span></div><div class="line">                <span class="attr">return</span> <span class="attr">str</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="attr">while</span>(!<span class="attr">stop</span>)&#123;</div><div class="line">                <span class="attr">sChar</span> = <span class="string">str.charAt(i);</span></div><div class="line">                <span class="attr">L</span>+= <span class="string">sChar.match(/[^\x00-\xff]/)</span> !== <span class="string">null</span> ? <span class="attr">2</span> <span class="attr">:</span> <span class="attr">1</span>;</div><div class="line"></div><div class="line">                <span class="attr">if</span>(<span class="attr">L</span> &gt; maxlen)&#123;</div><div class="line">                    stop = true;</div><div class="line">                &#125;else&#123;</div><div class="line">                    sResult+=sChar;</div><div class="line">                    i++;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            return sResult;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">    document.querySelector('#text').addEventListener('input', function()&#123;</div><div class="line">    	var value = this.value,</div><div class="line">    		maxlength = this.getAttribute('maxlength');</div><div class="line"></div><div class="line">        if(Str.byteLen(value)&gt;maxlength)&#123;</div><div class="line">            this.value = Str.getMaxlen(value, maxlength);</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>接着问题来了 - -!</p>
+<p>当用户输入中文的时候发现我居然无法连续输入6个汉字！？</p>
+<p>呐尼？</p>
+<p>比如：用户需要输入“长长的筷子”，结果不能输入中文！对应的拼音（不考虑五笔或其他方式）是“changchangdekuaizi“ - 很明显这已经超过12个字节了，但是用<code>input</code>或者<code>change</code>监听的话，已经触发了超过12字节长度的条件了，那么我就不会让它输入了，也就是阻止了用户的输入行为（实际测试某些浏览器+某些输入法也可以完成输入，此处考虑特殊环境不能输入的情况）；<br>这很反人类，这样不好，这样容易没有朋友！</p>
+<p>改！<br>然后加了一顿的判断，哈哈~</p>
+<p>实现了类似的需求/表示不想在写这个了~</p>
+<h2 id="super-hero"><a href="#super-hero" class="headerlink" title="super hero"></a>super hero</h2><p>噔~ 噔~ 噔~ 噔！</p>
+<p>input composition 家族登场</p>
+<p>这个 composition 家族 有</p>
+<ul>
+<li>compositionstart</li>
+<li>compositionupdate</li>
+<li>compositionend</li>
+</ul>
+<p>[<a href="https://developer.mozilla.org/zh-CN/docs/Web/Events/compositionstart" target="_blank" rel="external">具体解释请查看文档说明</a>]</p>
+<p>三个方法</p>
+<p>我们可以只看中<code>compositionstart</code> 和 <code>compositionend</code></p>
+<p>利用这两个方法可以实现一个不截断用户输入但能限制用户输入长度的效果</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var inputLock = false;</div><div class="line">document.querySelector('#text').addEventListener('compositionstart', function()&#123;</div><div class="line">    inputLock = true;</div><div class="line">&#125;)</div><div class="line">document.querySelector('#text').addEventListener('compositionend', function()&#123;</div><div class="line">    inputLock = false;</div><div class="line">&#125;)</div><div class="line">document.querySelector('#text').addEventListener('input', function()&#123;</div><div class="line">    if(!inputLock)</div><div class="line">    	console.log(this.value);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>实际测试<code>compositionend</code>的触发条件必须要选定内容也就是非直接输入内容才会触发并且是在<code>input</code>事件之后才会触发；所以我们不能直接用来检测用户的输入但是可以用这个<strong>搞！事！情！</strong></p>
+</blockquote>
+<p><img src="/2017/04/25/input-composition-event/7563E5E0-B443-4B38-8260-134E66BF5755.png" alt="7563E5E0-B443-4B38-8260-134E66BF5755.png"></p>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>使用<code>compositionstart</code> 和 <code>compositionend</code> 结合前面的字数限制可以实现下面的效果！！！</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>demo<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"text"</span> <span class="attr">placeHolder</span>=<span class="string">"最大支持12个字节"</span> <span class="attr">maxlength</span>=<span class="string">"12"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="xml"></span></div><div class="line">     var Str = &#123;</div><div class="line">         byteLen : function (str)&#123;</div><div class="line">            //正则取到中文的个数，然后len*count+原来的长度。不用replace</div><div class="line">            str += '';</div><div class="line">            var tmp = str.match(/[^\x00-\xff]/g) || [];</div><div class="line">            return str.length + tmp.length;</div><div class="line">        &#125;,</div><div class="line">        getMaxlen : function(str,maxlen)&#123;</div><div class="line">            var sResult = '', L=0, i=0, stop = false, sChar;</div><div class="line">            if(str.replace(/[^\x00-\xff]/g,'xxx').length <span class="tag">&lt;<span class="name">=</span> <span class="attr">maxlen</span>)&#123;</span></div><div class="line">                <span class="attr">return</span> <span class="attr">str</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="attr">while</span>(!<span class="attr">stop</span>)&#123;</div><div class="line">                <span class="attr">sChar</span> = <span class="string">str.charAt(i);</span></div><div class="line">                <span class="attr">L</span>+= <span class="string">sChar.match(/[^\x00-\xff]/)</span> ? <span class="attr">2</span> <span class="attr">:</span> <span class="attr">1</span>;</div><div class="line"></div><div class="line">                <span class="attr">if</span>(<span class="attr">L</span> &gt; maxlen)&#123;</div><div class="line">                    stop = true;</div><div class="line">                &#125;else&#123;</div><div class="line">                    sResult+=sChar;</div><div class="line">                    i++;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            return sResult;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">    var inputLock = false;</div><div class="line">	document.querySelector('#text').addEventListener('compositionstart', function()&#123;</div><div class="line">	    inputLock = true;</div><div class="line">	&#125;)</div><div class="line">	document.querySelector('#text').addEventListener('compositionend', function()&#123;</div><div class="line">	    inputLock = false;</div><div class="line">	    var value = this.value,</div><div class="line">    		maxlength = this.getAttribute('maxlength');</div><div class="line"></div><div class="line">        if(Str.byteLen(value) &gt; maxlength)&#123;</div><div class="line">            this.value = Str.getMaxlen(value, maxlength);</div><div class="line">        &#125;</div><div class="line">	&#125;)</div><div class="line">	document.querySelector('#text').addEventListener('input', function()&#123;</div><div class="line">	    if(!inputLock)&#123;</div><div class="line">	    	var value = this.value,</div><div class="line">	    		maxlength = this.getAttribute('maxlength');</div><div class="line"></div><div class="line">	        if(Str.byteLen(value) &gt; maxlength)&#123;</div><div class="line">	            this.value = Str.getMaxlen(value, maxlength);</div><div class="line">	        &#125;</div><div class="line">	    &#125;</div><div class="line">	&#125;);</div><div class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/19/async-and-await-used/" rel="next" title="async-and-await-used">
+                <i class="fa fa-chevron-left"></i> async-and-await-used
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/04/25/input-composition-event/"
+           data-title="input-composition-event" data-url="http://wodewone.com/2017/04/25/input-composition-event/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="switch-box">
+      <input id="enableAnimate" class="switch-btn-cb" type="checkbox" checked="">
+      <label for="enableAnimate" class="switch-btn small shadow" title="动画开关"></label>
+    </div>
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/author.png"
+               alt="Coco" />
+          <p class="site-author-name" itemprop="name">Coco</p>
+          <p class="site-description motion-element" itemprop="description">学了js，趟了jQuery，用上sass，改了angular，看完vue，学了react，变了cssModule，弃了gulp，从了webpack，发现cssInJs，始于Node，终了……</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">47</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">56</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wodewone" target="_blank">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/1576981091" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://book.douban.com/people/145249948/" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  豆瓣
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/wodewone/activities" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#input-监听"><span class="nav-number">1.</span> <span class="nav-text">input 监听</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#直接输入"><span class="nav-number">2.</span> <span class="nav-text">直接输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#非直接输入"><span class="nav-number">3.</span> <span class="nav-text">非直接输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#super-hero"><span class="nav-number">4.</span> <span class="nav-text">super hero</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决"><span class="nav-number">5.</span> <span class="nav-text">解决</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Coco</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wodewone"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("vRu2nM0E4TnPoSh1PmS4wXad-gzGzoHsz", "m1sk6K5zpn10ht2DGFqBOwKC");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>

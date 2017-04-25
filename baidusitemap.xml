@@ -4,6 +4,32 @@
 
     
   <url>
+    <loc>http://wodewone.com/2017/04/25/input-composition-event/</loc>
+    <lastmod>2017-04-25T10:35:58.000Z</lastmod>
+    <data>
+        <display>
+        <title>input-composition-event</title>
+        <pubTime>2017-04-25T03:28:06.000Z</pubTime>
+        
+        <tag>javascript</tag>
+         
+        <tag>input</tag>
+         
+        <tag>js</tag>
+         
+        <tag>compositionend</tag>
+         
+         
+           
+             
+              <breadCrumb title="javascript" url="http://wodewone.com/categories/javascript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://wodewone.com/2017/04/19/async-and-await-used/</loc>
     <lastmod>2017-04-19T15:47:51.000Z</lastmod>
     <data>
@@ -106,6 +132,8 @@
          
         <tag>mac</tag>
          
+        <tag>js</tag>
+         
         <tag>Node</tag>
          
         <tag>webpack</tag>
@@ -113,8 +141,6 @@
         <tag>react</tag>
          
         <tag>cssModule</tag>
-         
-        <tag>js</tag>
          
         <tag>electron</tag>
          

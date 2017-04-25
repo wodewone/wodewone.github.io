@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wodewone.com/"/>
-  <updated>2017-04-19T15:47:51.000Z</updated>
+  <updated>2017-04-25T10:35:58.000Z</updated>
   <id>http://wodewone.com/</id>
   
   <author>
@@ -14,6 +14,79 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>input-composition-event</title>
+    <link href="http://wodewone.com/2017/04/25/input-composition-event/"/>
+    <id>http://wodewone.com/2017/04/25/input-composition-event/</id>
+    <published>2017-04-25T03:28:06.000Z</published>
+    <updated>2017-04-25T10:35:58.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="input-监听"><a href="#input-监听" class="headerlink" title="input 监听"></a>input 监听</h2><p>关于js监听input输入的方法很容易想到 <code>oninput</code> 和 <code>onchange</code> （包括ie下<code>onpropertychange</code>）这些都是监听用户敲下键盘改变input内容的方法，正常情况下没有问题或者说输入英文没有问题；<br>但是！</p>
+<p>天朝输入法是那么的棒（当然其他国家不在考虑范围内）；说到中文输入法这里要引入另一个概念；</p>
+<p>即：</p>
+<ul>
+<li>直接输入</li>
+<li>非直接输入</li>
+</ul>
+<h2 id="直接输入"><a href="#直接输入" class="headerlink" title="直接输入"></a>直接输入</h2><p>什么是直接输入呢？<br>就是用户敲下键盘后直接将结果填充到input输入框中的，也就是输入英文字母，字节以及数字这种不需要选择的内容（或者把输入法改为英文状态）；</p>
+<p>这个时候我们基本上不用考虑特殊情况了，监听事件直接使用 <code>input</code> 或者 <code>change</code> 都可以，足够满足使用；</p>
+<h2 id="非直接输入"><a href="#非直接输入" class="headerlink" title="非直接输入"></a>非直接输入</h2><p>然后我们来说说这个非直接输入，经过上面的解释那么<strong>非直接输入</strong>也就比较好理解了；<br>就是用户选择了中文输入然后在用户在input中输入中文前，input并不是空的而是把用户敲的键盘对应按键<strong>暂时</strong>放在了input中，直到用户选择了最终的结果后<strong>替换</strong>刚才存放在input里面的内容；这时问题来了，刚才存放在input里面的字节是否会触发<code>input</code>或者<code>change</code>事件呢？</p>
+<p>我们试下：</p>
+<p><img src="/2017/04/25/input-composition-event/./E2BCB28D-B0A2-484C-B40B-AA00565E4E89.png" alt="E2BCB28D-B0A2-484C-B40B-AA00565E4E89.png"></p>
+<p>可以发现其实即使没有选择最终的结果但是依然触发了input的<code>input</code>事件，但是有些时候我们不希望是这样的，比如这样一个业务需求：</p>
+<ul>
+<li>给input设置一个输入限制，最多输入12个字节（也就是6个汉字）</li>
+</ul>
+<p>这个需求应该属于比较常见的，那么正常情况下我们可以给input设置 <code>maxlength</code> 属性来限制最大长度，</p>
+<p>但是！</p>
+<p><code>maxlength</code>是不区分中英文的，也就是说不管你是中文还是英文我都算一个，即 <code>‘w’.length === ‘我’.length</code> 是成立的，所以我们需要用正则来验证中英文来限制用户输入……</p>
+<p>通常我是这样做的当用户输入的内容达到指定长度之后在输入的时候我就截取前面有效的内容显示，也就是说除非用户删除了一些内容，否则不允许在输入新内容了；</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>demo<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"text"</span> <span class="attr">placeHolder</span>=<span class="string">"最大支持12个字节"</span> <span class="attr">maxlength</span>=<span class="string">"12"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="xml"></span></div><div class="line">     var Str = &#123;</div><div class="line">         byteLen : function (str)&#123;</div><div class="line">            //正则取到中文的个数，然后len*count+原来的长度。不用replace</div><div class="line">            str += '';</div><div class="line">            var tmp = str.match(/[^\x00-\xff]/g) || [];</div><div class="line">            return str.length + tmp.length;</div><div class="line">        &#125;,</div><div class="line">        getMaxlen : function(str,maxlen)&#123;</div><div class="line">            var sResult = '', L=0, i=0, stop = false, sChar;</div><div class="line">            if(str.replace(/[^\x00-\xff]/g,'xxx').length <span class="tag">&lt;<span class="name">=</span> <span class="attr">maxlen</span>)&#123;</span></div><div class="line">                <span class="attr">return</span> <span class="attr">str</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="attr">while</span>(!<span class="attr">stop</span>)&#123;</div><div class="line">                <span class="attr">sChar</span> = <span class="string">str.charAt(i);</span></div><div class="line">                <span class="attr">L</span>+= <span class="string">sChar.match(/[^\x00-\xff]/)</span> !== <span class="string">null</span> ? <span class="attr">2</span> <span class="attr">:</span> <span class="attr">1</span>;</div><div class="line"></div><div class="line">                <span class="attr">if</span>(<span class="attr">L</span> &gt; maxlen)&#123;</div><div class="line">                    stop = true;</div><div class="line">                &#125;else&#123;</div><div class="line">                    sResult+=sChar;</div><div class="line">                    i++;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            return sResult;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">    document.querySelector('#text').addEventListener('input', function()&#123;</div><div class="line">    	var value = this.value,</div><div class="line">    		maxlength = this.getAttribute('maxlength');</div><div class="line"></div><div class="line">        if(Str.byteLen(value)&gt;maxlength)&#123;</div><div class="line">            this.value = Str.getMaxlen(value, maxlength);</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>接着问题来了 - -!</p>
+<p>当用户输入中文的时候发现我居然无法连续输入6个汉字！？</p>
+<p>呐尼？</p>
+<p>比如：用户需要输入“长长的筷子”，结果不能输入中文！对应的拼音（不考虑五笔或其他方式）是“changchangdekuaizi“ - 很明显这已经超过12个字节了，但是用<code>input</code>或者<code>change</code>监听的话，已经触发了超过12字节长度的条件了，那么我就不会让它输入了，也就是阻止了用户的输入行为（实际测试某些浏览器+某些输入法也可以完成输入，此处考虑特殊环境不能输入的情况）；<br>这很反人类，这样不好，这样容易没有朋友！</p>
+<p>改！<br>然后加了一顿的判断，哈哈~</p>
+<p>实现了类似的需求/表示不想在写这个了~</p>
+<h2 id="super-hero"><a href="#super-hero" class="headerlink" title="super hero"></a>super hero</h2><p>噔~ 噔~ 噔~ 噔！</p>
+<p>input composition 家族登场</p>
+<p>这个 composition 家族 有</p>
+<ul>
+<li>compositionstart</li>
+<li>compositionupdate</li>
+<li>compositionend</li>
+</ul>
+<p>[<a href="https://developer.mozilla.org/zh-CN/docs/Web/Events/compositionstart" target="_blank" rel="external">具体解释请查看文档说明</a>]</p>
+<p>三个方法</p>
+<p>我们可以只看中<code>compositionstart</code> 和 <code>compositionend</code></p>
+<p>利用这两个方法可以实现一个不截断用户输入但能限制用户输入长度的效果</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var inputLock = false;</div><div class="line">document.querySelector('#text').addEventListener('compositionstart', function()&#123;</div><div class="line">    inputLock = true;</div><div class="line">&#125;)</div><div class="line">document.querySelector('#text').addEventListener('compositionend', function()&#123;</div><div class="line">    inputLock = false;</div><div class="line">&#125;)</div><div class="line">document.querySelector('#text').addEventListener('input', function()&#123;</div><div class="line">    if(!inputLock)</div><div class="line">    	console.log(this.value);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>实际测试<code>compositionend</code>的触发条件必须要选定内容也就是非直接输入内容才会触发并且是在<code>input</code>事件之后才会触发；所以我们不能直接用来检测用户的输入但是可以用这个<strong>搞！事！情！</strong></p>
+</blockquote>
+<p><img src="/2017/04/25/input-composition-event/7563E5E0-B443-4B38-8260-134E66BF5755.png" alt="7563E5E0-B443-4B38-8260-134E66BF5755.png"></p>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>使用<code>compositionstart</code> 和 <code>compositionend</code> 结合前面的字数限制可以实现下面的效果！！！</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>demo<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"text"</span> <span class="attr">placeHolder</span>=<span class="string">"最大支持12个字节"</span> <span class="attr">maxlength</span>=<span class="string">"12"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="xml"></span></div><div class="line">     var Str = &#123;</div><div class="line">         byteLen : function (str)&#123;</div><div class="line">            //正则取到中文的个数，然后len*count+原来的长度。不用replace</div><div class="line">            str += '';</div><div class="line">            var tmp = str.match(/[^\x00-\xff]/g) || [];</div><div class="line">            return str.length + tmp.length;</div><div class="line">        &#125;,</div><div class="line">        getMaxlen : function(str,maxlen)&#123;</div><div class="line">            var sResult = '', L=0, i=0, stop = false, sChar;</div><div class="line">            if(str.replace(/[^\x00-\xff]/g,'xxx').length <span class="tag">&lt;<span class="name">=</span> <span class="attr">maxlen</span>)&#123;</span></div><div class="line">                <span class="attr">return</span> <span class="attr">str</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="attr">while</span>(!<span class="attr">stop</span>)&#123;</div><div class="line">                <span class="attr">sChar</span> = <span class="string">str.charAt(i);</span></div><div class="line">                <span class="attr">L</span>+= <span class="string">sChar.match(/[^\x00-\xff]/)</span> ? <span class="attr">2</span> <span class="attr">:</span> <span class="attr">1</span>;</div><div class="line"></div><div class="line">                <span class="attr">if</span>(<span class="attr">L</span> &gt; maxlen)&#123;</div><div class="line">                    stop = true;</div><div class="line">                &#125;else&#123;</div><div class="line">                    sResult+=sChar;</div><div class="line">                    i++;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            return sResult;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">    var inputLock = false;</div><div class="line">	document.querySelector('#text').addEventListener('compositionstart', function()&#123;</div><div class="line">	    inputLock = true;</div><div class="line">	&#125;)</div><div class="line">	document.querySelector('#text').addEventListener('compositionend', function()&#123;</div><div class="line">	    inputLock = false;</div><div class="line">	    var value = this.value,</div><div class="line">    		maxlength = this.getAttribute('maxlength');</div><div class="line"></div><div class="line">        if(Str.byteLen(value) &gt; maxlength)&#123;</div><div class="line">            this.value = Str.getMaxlen(value, maxlength);</div><div class="line">        &#125;</div><div class="line">	&#125;)</div><div class="line">	document.querySelector('#text').addEventListener('input', function()&#123;</div><div class="line">	    if(!inputLock)&#123;</div><div class="line">	    	var value = this.value,</div><div class="line">	    		maxlength = this.getAttribute('maxlength');</div><div class="line"></div><div class="line">	        if(Str.byteLen(value) &gt; maxlength)&#123;</div><div class="line">	            this.value = Str.getMaxlen(value, maxlength);</div><div class="line">	        &#125;</div><div class="line">	    &#125;</div><div class="line">	&#125;);</div><div class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;input-监听&quot;&gt;&lt;a href=&quot;#input-监听&quot; class=&quot;headerlink&quot; title=&quot;input 监听&quot;&gt;&lt;/a&gt;input 监听&lt;/h2&gt;&lt;p&gt;关于js监听input输入的方法很容易想到 &lt;code&gt;oninput&lt;/code&gt; 和 &lt;
+    
+    </summary>
+    
+      <category term="javascript" scheme="http://wodewone.com/categories/javascript/"/>
+    
+    
+      <category term="javascript" scheme="http://wodewone.com/tags/javascript/"/>
+    
+      <category term="input" scheme="http://wodewone.com/tags/input/"/>
+    
+      <category term="js" scheme="http://wodewone.com/tags/js/"/>
+    
+      <category term="compositionend" scheme="http://wodewone.com/tags/compositionend/"/>
+    
+  </entry>
   
   <entry>
     <title>async-and-await-used</title>
@@ -880,6 +953,8 @@
     
       <category term="mac" scheme="http://wodewone.com/tags/mac/"/>
     
+      <category term="js" scheme="http://wodewone.com/tags/js/"/>
+    
       <category term="Node" scheme="http://wodewone.com/tags/Node/"/>
     
       <category term="webpack" scheme="http://wodewone.com/tags/webpack/"/>
@@ -887,8 +962,6 @@
       <category term="react" scheme="http://wodewone.com/tags/react/"/>
     
       <category term="cssModule" scheme="http://wodewone.com/tags/cssModule/"/>
-    
-      <category term="js" scheme="http://wodewone.com/tags/js/"/>
     
       <category term="electron" scheme="http://wodewone.com/tags/electron/"/>
     
@@ -1540,41 +1613,6 @@
     
     
       <category term="angular" scheme="http://wodewone.com/tags/angular/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>angular实现changeFile上传[方法三]</title>
-    <link href="http://wodewone.com/2016/08/27/angular%E5%AE%9E%E7%8E%B0changeFile%E4%B8%8A%E4%BC%A0-%E6%96%B9%E6%B3%95%E4%B8%89/"/>
-    <id>http://wodewone.com/2016/08/27/angular实现changeFile上传-方法三/</id>
-    <published>2016-08-27T05:03:46.000Z</published>
-    <updated>2016-12-03T13:44:50.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="http://jsfiddle.net/sqren/27ugfym6/" target="_blank" rel="external">View JSFiddle</a></p>
-<p>view.html:</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">custom-on-change</span>=<span class="string">"uploadFile"</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>controller.js:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">app.controller(<span class="string">'myCtrl'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123; $scope.uploadFile = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123; <span class="keyword">var</span> files = event.target.files; &#125;; &#125;);</div></pre></td></tr></table></figure>
-<p>directive.js:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">app.directive(<span class="string">'customOnChange'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    <span class="attr">restrict</span>: <span class="string">'A'</span>,</div><div class="line">    <span class="attr">link</span>: <span class="function"><span class="keyword">function</span> (<span class="params">scope, element, attrs</span>) </span>&#123;</div><div class="line">      <span class="keyword">var</span> onChangeHandler = scope.$<span class="built_in">eval</span>(attrs.customOnChange);</div><div class="line">      element.bind(<span class="string">'change'</span>, onChangeHandler);</div><div class="line">    &#125;</div><div class="line">  &#125;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p><a href="http://jsfiddle.net/sqren/27ugfym6/" target="_blank" rel="external">View JSFiddle</a></p>
-<p><a href="http://stackoverflow.com/questions/17922557/angularjs-how-to-check-for-changes-in-file-input-fields" target="_blank" rel="external">参考出处</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;http://jsfiddle.net/sqren/27ugfym6/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;View JSFiddle&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;view.html:&lt;/p&gt;
-&lt;figure class=&quot;highl
-    
-    </summary>
-    
-      <category term="angular" scheme="http://wodewone.com/categories/angular/"/>
-    
-    
-      <category term="angular" scheme="http://wodewone.com/tags/angular/"/>
-    
-      <category term="javascript" scheme="http://wodewone.com/tags/javascript/"/>
     
   </entry>
   
