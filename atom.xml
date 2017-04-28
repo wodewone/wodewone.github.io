@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wodewone.com/"/>
-  <updated>2017-04-25T10:35:58.000Z</updated>
+  <updated>2017-04-28T07:35:24.000Z</updated>
   <id>http://wodewone.com/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>input-composition-event</title>
+    <title>input限制字符长度 - composition</title>
     <link href="http://wodewone.com/2017/04/25/input-composition-event/"/>
     <id>http://wodewone.com/2017/04/25/input-composition-event/</id>
     <published>2017-04-25T03:28:06.000Z</published>
-    <updated>2017-04-25T10:35:58.000Z</updated>
+    <updated>2017-04-28T07:35:24.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="input-监听"><a href="#input-监听" class="headerlink" title="input 监听"></a>input 监听</h2><p>关于js监听input输入的方法很容易想到 <code>oninput</code> 和 <code>onchange</code> （包括ie下<code>onpropertychange</code>）这些都是监听用户敲下键盘改变input内容的方法，正常情况下没有问题或者说输入英文没有问题；<br>但是！</p>
 <p>天朝输入法是那么的棒（当然其他国家不在考虑范围内）；说到中文输入法这里要引入另一个概念；</p>
