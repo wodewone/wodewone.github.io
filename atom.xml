@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wodewone.com/"/>
-  <updated>2017-04-28T07:35:24.000Z</updated>
+  <updated>2017-05-09T11:17:52.000Z</updated>
   <id>http://wodewone.com/</id>
   
   <author>
@@ -14,6 +14,66 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>async和await</title>
+    <link href="http://wodewone.com/2017/05/06/async-and-await-used/"/>
+    <id>http://wodewone.com/2017/05/06/async-and-await-used/</id>
+    <published>2017-05-06T15:47:51.000Z</published>
+    <updated>2017-05-09T11:17:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="关于"><a href="#关于" class="headerlink" title="关于"></a>关于</h1><p>关于js内异步的问题，一直都是个*痛的点；<br>因为js单线程造成的无可避免的会产生异步操作，单因为单线程也让js更方便管理，不用处理多个线程间的麻烦 - 当然这只是我个人意见，如果有问题欢迎指出</p>
+<p>而纵观js异步发展史，<br>从</p>
+<ul>
+<li>回调函数（callback）</li>
+<li>新对象 promise</li>
+<li>新方法 generator</li>
+<li>如今 async</li>
+</ul>
+<p>在同一道路上，产生的各种方案可以发现异步问题是有多么的紧迫，而我们所期望的是什么？<br>就是在进行异步的操作时候，我们不关心它到底是不是异步操作，我只想要一个结果，而产生这个结果的过程我不需要在乎！</p>
+<p>那解决这个问题的答案是什么？那就是<code>async</code>可以说，这是操作异步有史以来最简单的一次了。</p>
+<p>随着前端时间 Node v7.6 版本更新后 Node 原生支持 <code>async</code>/<code>await</code> 方法，似乎以后我们就不需要那么关心异步问题了呢~（/偷笑）</p>
+<h1 id="async-函数"><a href="#async-函数" class="headerlink" title="async 函数"></a>async 函数</h1><blockquote>
+<p>解释 <code>async</code> 函数，简单说 <code>async</code> 函数本身是 <code>Generator</code> 的语法糖，因为它本身并没有应用新的技术点<br>在koa v1.* 里面异步主要使用ES6里面多 <code>Generator</code> 外加 co (用于 generator 函数的自动执行) 来解决异步的问题</p>
+</blockquote>
+<p>看一段使用 <code>Generator</code> 的异步操作代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> readFile = <span class="function"><span class="keyword">function</span> (<span class="params">fileName</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>)</span>&#123;</div><div class="line">    fs.readFile(fileName, <span class="function"><span class="keyword">function</span>(<span class="params">error, data</span>)</span>&#123;</div><div class="line">      <span class="keyword">if</span> (error) reject(error);</div><div class="line">      resolve(data);</div><div class="line">    &#125;);</div><div class="line">  &#125;);</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> gen = <span class="function"><span class="keyword">function</span>* (<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> f1 = <span class="keyword">yield</span> readFile(<span class="string">'/etc/fstab'</span>);</div><div class="line">  <span class="keyword">var</span> f2 = <span class="keyword">yield</span> readFile(<span class="string">'/etc/shells'</span>);</div><div class="line">  <span class="built_in">console</span>.log(f1.toString());</div><div class="line">  <span class="built_in">console</span>.log(f2.toString());</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>然后是使用了 <code>async</code> 之后的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> asyncReadFile = <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> f1 = <span class="keyword">await</span> readFile(<span class="string">'/etc/fstab'</span>);</div><div class="line">  <span class="keyword">var</span> f2 = <span class="keyword">await</span> readFile(<span class="string">'/etc/shells'</span>);</div><div class="line">  <span class="built_in">console</span>.log(f1.toString());</div><div class="line">  <span class="built_in">console</span>.log(f2.toString());</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h1 id="async优点"><a href="#async优点" class="headerlink" title="async优点"></a>async优点</h1><p>async 函数对 Generator 函数的改进，体现在以下三点。</p>
+<ol>
+<li><p>内置执行器。 Generator 函数的执行必须靠执行器，所以才有了 co 函数库，而 async 函数自带执行器。也就是说，async 函数的执行，与普通函数一模一样，只要一行。</p>
+</li>
+<li><p>更好的语义。 async 和 await，比起星号和 yield，语义更清楚了。async 表示函数里有异步操作，await 表示紧跟在后面的表达式需要等待结果。</p>
+</li>
+<li>更广的适用性。 co 函数库约定，yield 命令后面只能是 Thunk 函数或 Promise 对象，而 async 函数的 await 命令后面，可以跟 Promise 对象和原始类型的值（数值、字符串和布尔值，但这时等同于同步操作）。</li>
+</ol>
+<p><a href="http://www.ruanyifeng.com/blog/2015/05/async.html" target="_blank" rel="external">摘自阮一峰老师的博客</a></p>
+<h1 id="async使用"><a href="#async使用" class="headerlink" title="async使用"></a>async使用</h1><p>相比generator来说async更灵活一些，且<code>async</code>返回的都是promise对象，这样更好操作一些，也就是异步操作都统一处理promise对象</p>
+<p>这里提一点在处理promise的时候要处理好异常问题，因为promise运行中出现异常会中断后续任务，当然这个和使用async没啥关系，突然想到了这里~<br>详细使用可以参考<a href="http://www.ruanyifeng.com/blog/2015/05/async.html" target="_blank" rel="external">阮大</a>或<a href="http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001471087582981d6c0ea265bf241b59a04fa6f61d767f6000" target="_blank" rel="external">廖大</a>的博文</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="http://www.ruanyifeng.com/blog/2015/05/async.html" target="_blank" rel="external">async 函数的含义和用法</a><br><a href="https://zhuanlan.zhihu.com/p/26682505?group_id=843871788546023424" target="_blank" rel="external">koa 学习心得及核心源码分析</a><br><a href="http://javascript.ruanyifeng.com/nodejs/koa.html" target="_blank" rel="external">Koa 框架 – JavaScript 标准参考教程（alpha</a><br><a href="http://koacn.com" target="_blank" rel="external">Koa (koajs) – 基于 Node.js 平台的下一代 web 开发框架</a><br><a href="http://es6.ruanyifeng.com/#docs/generator" target="_blank" rel="external">ECMAScript 6 入门 - Generator 函数的语法</a><br><a href="http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001471133885340dad9058705804899b1cc2d0a10e7dc80000" target="_blank" rel="external">koa处理URL - 廖雪峰的官方网站</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;关于&quot;&gt;&lt;a href=&quot;#关于&quot; class=&quot;headerlink&quot; title=&quot;关于&quot;&gt;&lt;/a&gt;关于&lt;/h1&gt;&lt;p&gt;关于js内异步的问题，一直都是个*痛的点；&lt;br&gt;因为js单线程造成的无可避免的会产生异步操作，单因为单线程也让js更方便管理，不用处理多个
+    
+    </summary>
+    
+      <category term="javscript" scheme="http://wodewone.com/categories/javscript/"/>
+    
+    
+      <category term="javascript" scheme="http://wodewone.com/tags/javascript/"/>
+    
+      <category term="async" scheme="http://wodewone.com/tags/async/"/>
+    
+      <category term="node" scheme="http://wodewone.com/tags/node/"/>
+    
+      <category term="ES6" scheme="http://wodewone.com/tags/ES6/"/>
+    
+      <category term="koa" scheme="http://wodewone.com/tags/koa/"/>
+    
+  </entry>
   
   <entry>
     <title>input限制字符长度 - composition</title>
@@ -85,20 +145,6 @@
       <category term="js" scheme="http://wodewone.com/tags/js/"/>
     
       <category term="compositionend" scheme="http://wodewone.com/tags/compositionend/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>async-and-await-used</title>
-    <link href="http://wodewone.com/2017/04/19/async-and-await-used/"/>
-    <id>http://wodewone.com/2017/04/19/async-and-await-used/</id>
-    <published>2017-04-19T15:47:51.000Z</published>
-    <updated>2017-04-19T15:47:51.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
     
   </entry>
   

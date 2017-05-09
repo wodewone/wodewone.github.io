@@ -4,6 +4,34 @@
 
     
   <url>
+    <loc>http://wodewone.com/2017/05/06/async-and-await-used/</loc>
+    <lastmod>2017-05-09T11:17:52.000Z</lastmod>
+    <data>
+        <display>
+        <title>async和await</title>
+        <pubTime>2017-05-06T15:47:51.000Z</pubTime>
+        
+        <tag>javascript</tag>
+         
+        <tag>async</tag>
+         
+        <tag>node</tag>
+         
+        <tag>ES6</tag>
+         
+        <tag>koa</tag>
+         
+         
+           
+             
+              <breadCrumb title="javscript" url="http://wodewone.com/categories/javscript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://wodewone.com/2017/04/25/input-composition-event/</loc>
     <lastmod>2017-04-28T07:35:24.000Z</lastmod>
     <data>
@@ -24,21 +52,6 @@
              
               <breadCrumb title="javascript" url="http://wodewone.com/categories/javascript/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://wodewone.com/2017/04/19/async-and-await-used/</loc>
-    <lastmod>2017-04-19T15:47:51.000Z</lastmod>
-    <data>
-        <display>
-        <title>async-and-await-used</title>
-        <pubTime>2017-04-19T15:47:51.000Z</pubTime>
-        
-         
-           
         </display>
     </data>
     </url>
