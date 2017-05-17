@@ -1,0 +1,822 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="javascript,function,throttle,debounce," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="wodewone's blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="什么是函数节流和函数防抖？
+国际惯例听起来高大上的名词一般都是常见的问题，哈哈通俗的来讲就是当需要进行一个连续操作的动作时，我们不希望代码连续的跑这个任务，因为人根本就区分不出来，但是计算机可以执行，虽然可以执行但我们并不需要这样我们只需要它的结果，那这个任务就是在浪费计算机的性能，这怎么能行！所以我们要解决！
+
+想象每天上班大厦底下的电梯。把电梯完成一次运送，类比为一次函数的执行和响应。假设电梯">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js函数节流和函数防抖">
+<meta property="og:url" content="http://wodewone.com/2017/05/17/function-throttle-debounce/index.html">
+<meta property="og:site_name" content="wodewone's blog">
+<meta property="og:description" content="什么是函数节流和函数防抖？
+国际惯例听起来高大上的名词一般都是常见的问题，哈哈通俗的来讲就是当需要进行一个连续操作的动作时，我们不希望代码连续的跑这个任务，因为人根本就区分不出来，但是计算机可以执行，虽然可以执行但我们并不需要这样我们只需要它的结果，那这个任务就是在浪费计算机的性能，这怎么能行！所以我们要解决！
+
+想象每天上班大厦底下的电梯。把电梯完成一次运送，类比为一次函数的执行和响应。假设电梯">
+<meta property="og:image" content="http://wodewone.com/2017/05/17/function-throttle-debounce/675542-20160326150241120-393738911.png">
+<meta property="og:updated_time" content="2017-05-17T10:32:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js函数节流和函数防抖">
+<meta name="twitter:description" content="什么是函数节流和函数防抖？
+国际惯例听起来高大上的名词一般都是常见的问题，哈哈通俗的来讲就是当需要进行一个连续操作的动作时，我们不希望代码连续的跑这个任务，因为人根本就区分不出来，但是计算机可以执行，虽然可以执行但我们并不需要这样我们只需要它的结果，那这个任务就是在浪费计算机的性能，这怎么能行！所以我们要解决！
+
+想象每天上班大厦底下的电梯。把电梯完成一次运送，类比为一次函数的执行和响应。假设电梯">
+<meta name="twitter:image" content="http://wodewone.com/2017/05/17/function-throttle-debounce/675542-20160326150241120-393738911.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6269890100566427000,
+      author: 'Coco'
+    }
+  };
+</script>
+
+  <title> js函数节流和函数防抖 | wodewone's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?4691d35db2be0afe7a932e6f4f7e68af";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">wodewone's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">梦想是主题，生活才是题主</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-favourites">
+          <a href="/favourites" rel="section">
+            
+              <i class="menu-item-icon fa fa-question-circle fa-fw"></i> <br />
+            
+            收藏
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                js函数节流和函数防抖
+              
+            
+          </h1>
+        
+
+        
+          <div class="post-tags">
+            
+              <a href="/tags/javascript/" rel="tag">#javascript</a>
+            
+              <a href="/tags/function/" rel="tag">#function</a>
+            
+              <a href="/tags/throttle/" rel="tag">#throttle</a>
+            
+              <a href="/tags/debounce/" rel="tag">#debounce</a>
+            
+          </div>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-05-17T16:38:42+08:00" content="2017-05-17">
+              2017-05-17
+            </time>
+          </span>
+
+          
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/05/17/function-throttle-debounce/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/05/17/function-throttle-debounce/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/05/17/function-throttle-debounce/" class="leancloud_visitors" data-flag-title="js函数节流和函数防抖">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="什么是函数节流和函数防抖？"><a href="#什么是函数节流和函数防抖？" class="headerlink" title="什么是函数节流和函数防抖？"></a>什么是函数节流和函数防抖？</h1><blockquote>
+<p>国际惯例听起来高大上的名词一般都是常见的问题，哈哈<br>通俗的来讲就是当需要进行一个连续操作的动作时，我们不希望代码连续的跑这个任务，因为人根本就区分不出来，但是计算机可以执行，虽然可以执行但我们并不需要这样我们只需要它的结果，那这个任务就是在浪费计算机的性能，这怎么能行！所以我们要解决！</p>
+</blockquote>
+<p>想象每天上班大厦底下的电梯。把电梯完成一次运送，类比为一次函数的执行和响应。假设电梯有两种运行策略 throttle 和 debounce ，超时设定为15秒，不考虑容量限制。<br>举个栗子：</p>
+<ul>
+<li><code>throttle</code> 策略的电梯。保证如果电梯第一个人进来后，15秒后准时运送一次，不等待。如果没有人，则待机。</li>
+<li><code>debounce</code> 策略的电梯。如果电梯里有人进来，等待15秒。如果又人进来，15秒等待重新计时，直到15秒超时，开始运送。</li>
+</ul>
+<p><a href="https://blog.coding.net/blog/the-difference-between-throttle-and-debounce-in-underscorejs?page=1" target="_blank" rel="external">栗子来源</a></p>
+<h1 id="throttle-应用场景"><a href="#throttle-应用场景" class="headerlink" title="throttle 应用场景"></a>throttle 应用场景</h1><p>函数节流有哪些应用场景？<br>哪些时候我们需要间隔一定时间触发回调来控制函数调用频率？</p>
+<ul>
+<li>DOM 元素的拖拽功能实现（mousemove）</li>
+<li>射击游戏的 mousedown/keydown 事件（单位时间只能发射一颗子弹）</li>
+<li>计算鼠标移动的距离（mousemove）</li>
+<li>Canvas 模拟画板功能（mousemove）</li>
+<li>搜索联想（keyup）</li>
+<li>监听滚动事件判断是否到页面底部自动加载更多（给 scroll 加了 debounce 后，只有用户停止滚动后，才会判断是否到了页面底部；如果是 throttle 的话，只要页面滚动就会间隔一段时间判断一次）；</li>
+</ul>
+<h1 id="debounce-应用场景"><a href="#debounce-应用场景" class="headerlink" title="debounce 应用场景"></a>debounce 应用场景</h1><p>函数去抖有哪些应用场景？<br>哪些时候对于连续的事件响应我们只需要执行一次回调？</p>
+<ul>
+<li>resize/scroll 触发统计事件</li>
+<li>文本输入的验证</li>
+</ul>
+<h1 id="解决之道"><a href="#解决之道" class="headerlink" title="解决之道"></a>解决之道</h1><blockquote>
+<p>其实<code>throttle</code>和<code>debounce</code>是差不多的，只是大家在具体使用的时候拓展出来的</p>
+</blockquote>
+<p>发现大多数人对于这部分内容都会提到《JavaScript高级程序设计》里面的一段：<br><img src="/2017/05/17/function-throttle-debounce/675542-20160326150241120-393738911.png" alt="675542-20160326150241120-393738911.png"></p>
+<p>且不论这段代码具体是<code>throttle</code>还是<code>debounce</code>，我们只关心它的思路；</p>
+<p>一个简版：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">method, context</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> timer = <span class="literal">null</span>;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        clearTimeout(timer);</div><div class="line">        timer = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            method.call(context);</div><div class="line">        &#125;, <span class="number">1000</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">print</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'hello world'</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">window</span>.onscroll = debounce(print);</div></pre></td></tr></table></figure>
+<h2 id="underscore-的实现"><a href="#underscore-的实现" class="headerlink" title="underscore 的实现"></a>underscore 的实现</h2><p>而 underscore 库里面已经收录了这两个方法，并加以具体改进：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Returns a function, that, as long as it continues to be invoked, will not</span></div><div class="line"><span class="comment">// be triggered. The function will be called after it stops being called for</span></div><div class="line"><span class="comment">// N milliseconds. If `immediate` is passed, trigger the function on the</span></div><div class="line"><span class="comment">// leading edge, instead of the trailing.</span></div><div class="line"><span class="comment">// 函数去抖（连续事件触发结束后只触发一次）</span></div><div class="line"><span class="comment">// sample 1: _.debounce(function()&#123;&#125;, 1000)</span></div><div class="line"><span class="comment">// 连续事件结束后的 1000ms 后触发</span></div><div class="line"><span class="comment">// sample 1: _.debounce(function()&#123;&#125;, 1000, true)</span></div><div class="line"><span class="comment">// 连续事件触发后立即触发（此时会忽略第二个参数）</span></div><div class="line">_.debounce = <span class="function"><span class="keyword">function</span>(<span class="params">func, wait, immediate</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> timeout, args, context, timestamp, result;</div><div class="line"></div><div class="line">  <span class="keyword">var</span> later = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// 定时器设置的回调 later 方法的触发时间，和连续事件触发的最后一次时间戳的间隔</span></div><div class="line">    <span class="comment">// 如果间隔为 wait（或者刚好大于 wait），则触发事件</span></div><div class="line">    <span class="keyword">var</span> last = _.now() - timestamp;</div><div class="line"></div><div class="line">    <span class="comment">// 时间间隔 last 在 [0, wait) 中</span></div><div class="line">    <span class="comment">// 还没到触发的点，则继续设置定时器</span></div><div class="line">    <span class="comment">// last 值应该不会小于 0 吧？</span></div><div class="line">    <span class="keyword">if</span> (last &lt; wait &amp;&amp; last &gt;= <span class="number">0</span>) &#123;</div><div class="line">      timeout = setTimeout(later, wait - last);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      <span class="comment">// 到了可以触发的时间点</span></div><div class="line">      timeout = <span class="literal">null</span>;</div><div class="line">      <span class="comment">// 可以触发了</span></div><div class="line">      <span class="comment">// 并且不是设置为立即触发的</span></div><div class="line">      <span class="comment">// 因为如果是立即触发（callNow），也会进入这个回调中</span></div><div class="line">      <span class="comment">// 主要是为了将 timeout 值置为空，使之不影响下次连续事件的触发</span></div><div class="line">      <span class="comment">// 如果不是立即执行，随即执行 func 方法</span></div><div class="line">      <span class="keyword">if</span> (!immediate) &#123;</div><div class="line">        <span class="comment">// 执行 func 函数</span></div><div class="line">        result = func.apply(context, args);</div><div class="line">        <span class="comment">// 这里的 timeout 一定是 null 了吧</span></div><div class="line">        <span class="comment">// 感觉这个判断多余了</span></div><div class="line">        <span class="keyword">if</span> (!timeout)</div><div class="line">          context = args = <span class="literal">null</span>;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  <span class="comment">// 嗯，闭包返回的函数，是可以传入参数的</span></div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// 可以指定 this 指向</span></div><div class="line">    context = <span class="keyword">this</span>;</div><div class="line">    args = <span class="built_in">arguments</span>;</div><div class="line"></div><div class="line">    <span class="comment">// 每次触发函数，更新时间戳</span></div><div class="line">    <span class="comment">// later 方法中取 last 值时用到该变量</span></div><div class="line">    <span class="comment">// 判断距离上次触发事件是否已经过了 wait seconds 了</span></div><div class="line">    <span class="comment">// 即我们需要距离最后一次触发事件 wait seconds 后触发这个回调方法</span></div><div class="line">    timestamp = _.now();</div><div class="line"></div><div class="line">    <span class="comment">// 立即触发需要满足两个条件</span></div><div class="line">    <span class="comment">// immediate 参数为 true，并且 timeout 还没设置</span></div><div class="line">    <span class="comment">// immediate 参数为 true 是显而易见的</span></div><div class="line">    <span class="comment">// 如果去掉 !timeout 的条件，就会一直触发，而不是触发一次</span></div><div class="line">    <span class="comment">// 因为第一次触发后已经设置了 timeout，所以根据 timeout 是否为空可以判断是否是首次触发</span></div><div class="line">    <span class="keyword">var</span> callNow = immediate &amp;&amp; !timeout;</div><div class="line"></div><div class="line">    <span class="comment">// 设置 wait seconds 后触发 later 方法</span></div><div class="line">    <span class="comment">// 无论是否 callNow（如果是 callNow，也进入 later 方法，去 later 方法中判断是否执行相应回调函数）</span></div><div class="line">    <span class="comment">// 在某一段的连续触发中，只会在第一次触发时进入这个 if 分支中</span></div><div class="line">    <span class="keyword">if</span> (!timeout)</div><div class="line">      <span class="comment">// 设置了 timeout，所以以后不会进入这个 if 分支了</span></div><div class="line">      timeout = setTimeout(later, wait);</div><div class="line"></div><div class="line">    <span class="comment">// 如果是立即触发</span></div><div class="line">    <span class="keyword">if</span> (callNow) &#123;</div><div class="line">      <span class="comment">// func 可能是有返回值的</span></div><div class="line">      result = func.apply(context, args);</div><div class="line">      <span class="comment">// 解除引用</span></div><div class="line">      context = args = <span class="literal">null</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">  &#125;;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p><a href="https://github.com/jashkenas/underscore/pull/1269" target="_blank" rel="external">关于性能分析</a></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://github.com/hanzichi/underscore-analysis/issues/20" target="_blank" rel="external">JavaScript 函数节流和函数去抖应用场景辨析</a><br><a href="https://blog.coding.net/blog/the-difference-between-throttle-and-debounce-in-underscorejs?page=1" target="_blank" rel="external">浅谈 Underscore.js 中 <em>.throttle 和 </em>.debounce 的差异</a><br><a href="http://www.alloyteam.com/2012/11/javascript-throttle/comment-page-1/#comments" target="_blank" rel="external">浅谈javascript的函数节流</a></p>
+<p><a href="http://underscorejs.org/#throttle" target="_blank" rel="external">Underscore 中 关于throttle和debounce</a><br><a href="http://benalman.com/projects/jquery-throttle-debounce-plugin/" target="_blank" rel="external">jQuery throttle / debounce: Sometimes, less is more!</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/06/async-and-await-used/" rel="next" title="async和await">
+                <i class="fa fa-chevron-left"></i> async和await
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/05/17/function-throttle-debounce/"
+           data-title="js函数节流和函数防抖" data-url="http://wodewone.com/2017/05/17/function-throttle-debounce/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="switch-box">
+      <input id="enableAnimate" class="switch-btn-cb" type="checkbox" checked="">
+      <label for="enableAnimate" class="switch-btn small shadow" title="动画开关"></label>
+    </div>
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/author.png"
+               alt="Coco" />
+          <p class="site-author-name" itemprop="name">Coco</p>
+          <p class="site-description motion-element" itemprop="description">学了js，趟了jQuery，用上sass，改了angular，看完vue，学了react，变了cssModule，弃了gulp，从了webpack，发现cssInJs，始于Node，终了……</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">48</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">61</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wodewone" target="_blank">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/1576981091" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://book.douban.com/people/145249948/" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  豆瓣
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/wodewone/activities" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是函数节流和函数防抖？"><span class="nav-number">1.</span> <span class="nav-text">什么是函数节流和函数防抖？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#throttle-应用场景"><span class="nav-number">2.</span> <span class="nav-text">throttle 应用场景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#debounce-应用场景"><span class="nav-number">3.</span> <span class="nav-text">debounce 应用场景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解决之道"><span class="nav-number">4.</span> <span class="nav-text">解决之道</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#underscore-的实现"><span class="nav-number">4.1.</span> <span class="nav-text">underscore 的实现</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Coco</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wodewone"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("vRu2nM0E4TnPoSh1PmS4wXad-gzGzoHsz", "m1sk6K5zpn10ht2DGFqBOwKC");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>

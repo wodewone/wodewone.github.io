@@ -4,6 +4,32 @@
 
     
   <url>
+    <loc>http://wodewone.com/2017/05/17/function-throttle-debounce/</loc>
+    <lastmod>2017-05-17T10:32:04.000Z</lastmod>
+    <data>
+        <display>
+        <title>js函数节流和函数防抖</title>
+        <pubTime>2017-05-17T08:38:42.000Z</pubTime>
+        
+        <tag>javascript</tag>
+         
+        <tag>function</tag>
+         
+        <tag>throttle</tag>
+         
+        <tag>debounce</tag>
+         
+         
+           
+             
+              <breadCrumb title="javascript" url="http://wodewone.com/categories/javascript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://wodewone.com/2017/05/06/async-and-await-used/</loc>
     <lastmod>2017-05-09T11:17:52.000Z</lastmod>
     <data>
@@ -15,9 +41,9 @@
          
         <tag>async</tag>
          
-        <tag>node</tag>
-         
         <tag>ES6</tag>
+         
+        <tag>node</tag>
          
         <tag>koa</tag>
          
@@ -139,9 +165,9 @@
         <title>使用js创建macOS应用(更新:2017-02-18)</title>
         <pubTime>2016-12-03T14:28:29.000Z</pubTime>
         
-        <tag>javascript</tag>
-         
         <tag>css</tag>
+         
+        <tag>javascript</tag>
          
         <tag>mac</tag>
          
@@ -379,11 +405,11 @@
         <title>多行文本溢出显示省略号</title>
         <pubTime>2016-04-19T16:46:53.000Z</pubTime>
         
-        <tag>javascript</tag>
-         
         <tag>html</tag>
          
         <tag>css</tag>
+         
+        <tag>javascript</tag>
          
         <tag>jquery</tag>
          
@@ -709,9 +735,9 @@
         <title>使用modernizr处理IE兼容</title>
         <pubTime>2016-12-01T03:22:21.000Z</pubTime>
         
-        <tag>javascript</tag>
-         
         <tag>css</tag>
+         
+        <tag>javascript</tag>
          
         <tag>浏览器兼容</tag>
          
@@ -923,9 +949,9 @@
         <title>Modernizr 专为HTML5 and CSS3</title>
         <pubTime>2016-04-16T12:50:35.000Z</pubTime>
         
-        <tag>javascript</tag>
-         
         <tag>html</tag>
+         
+        <tag>javascript</tag>
          
         <tag>html5</tag>
          
