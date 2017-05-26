@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://wodewone.com/2017/05/25/js-excerpt-for-algorithm/</loc>
+    <lastmod>2017-05-26T07:10:29.000Z</lastmod>
+    <data>
+        <display>
+        <title>摘录js部分算法</title>
+        <pubTime>2017-05-25T14:42:55.000Z</pubTime>
+        
+        <tag>javascript</tag>
+         
+         
+           
+             
+              <breadCrumb title="javascript" url="http://wodewone.com/categories/javascript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://wodewone.com/2017/05/17/function-throttle-debounce/</loc>
     <lastmod>2017-05-17T10:32:04.000Z</lastmod>
     <data>
@@ -165,11 +185,11 @@
         <title>使用js创建macOS应用(更新:2017-02-18)</title>
         <pubTime>2016-12-03T14:28:29.000Z</pubTime>
         
-        <tag>css</tag>
-         
         <tag>javascript</tag>
          
         <tag>mac</tag>
+         
+        <tag>css</tag>
          
         <tag>js</tag>
          
@@ -405,11 +425,11 @@
         <title>多行文本溢出显示省略号</title>
         <pubTime>2016-04-19T16:46:53.000Z</pubTime>
         
+        <tag>javascript</tag>
+         
         <tag>html</tag>
          
         <tag>css</tag>
-         
-        <tag>javascript</tag>
          
         <tag>jquery</tag>
          
@@ -713,9 +733,9 @@
         <title>如何理解Web语义化</title>
         <pubTime>2016-10-01T07:05:57.000Z</pubTime>
         
-        <tag>html</tag>
-         
         <tag>web</tag>
+         
+        <tag>html</tag>
          
          
            
@@ -735,9 +755,9 @@
         <title>使用modernizr处理IE兼容</title>
         <pubTime>2016-12-01T03:22:21.000Z</pubTime>
         
-        <tag>css</tag>
-         
         <tag>javascript</tag>
+         
+        <tag>css</tag>
          
         <tag>浏览器兼容</tag>
          
@@ -949,9 +969,9 @@
         <title>Modernizr 专为HTML5 and CSS3</title>
         <pubTime>2016-04-16T12:50:35.000Z</pubTime>
         
-        <tag>html</tag>
-         
         <tag>javascript</tag>
+         
+        <tag>html</tag>
          
         <tag>html5</tag>
          
