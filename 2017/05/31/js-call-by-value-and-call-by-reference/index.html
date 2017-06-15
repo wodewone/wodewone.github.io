@@ -79,7 +79,9 @@
 
 原始数据类型的数据在内存中是存储在栈中的，因为原始数据类型所占的内存空间是固定可计算的；
 引用类型数据是可以拓展的，所以他们存放在堆中；">
-<meta property="og:updated_time" content="2017-06-13T10:42:50.000Z">
+<meta property="og:image" content="http://wodewone.com/2017/05/31/js-call-by-value-and-call-by-reference/363F974C-9E02-4098-B7D1-2D94B81E1B0E.png">
+<meta property="og:image" content="http://wodewone.com/2017/05/31/js-call-by-value-and-call-by-reference/FB2CAFE2-CDFA-46FA-A0B2-E7A3EC57B79F.png">
+<meta property="og:updated_time" content="2017-06-15T09:45:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于js值传递和引用传递">
 <meta name="twitter:description" content="关于函数传值数据类型
@@ -90,6 +92,7 @@
 
 原始数据类型的数据在内存中是存储在栈中的，因为原始数据类型所占的内存空间是固定可计算的；
 引用类型数据是可以拓展的，所以他们存放在堆中；">
+<meta name="twitter:image" content="http://wodewone.com/2017/05/31/js-call-by-value-and-call-by-reference/363F974C-9E02-4098-B7D1-2D94B81E1B0E.png">
 
 
 
@@ -361,7 +364,22 @@
 <li><strong>原始数据类型</strong>的数据在内存中是存储在栈中的，因为原始数据类型所占的内存空间是固定可计算的；</li>
 <li><strong>引用类型数据</strong>是可以拓展的，所以他们存放在堆中；返回的也并不是数据本身，而是数据在内存中的地址指针，然后计算机会把这个指针放到栈中，从而更快的读取数据。</li>
 </ul>
-<p>(未完……)</p>
+<h2 id="举个栗子"><a href="#举个栗子" class="headerlink" title="举个栗子"></a>举个栗子</h2><p>不知道大家有没有这样试过，在变量传递的时候，对传递的<a href="http://baike.baidu.com/item/%E5%BD%A2%E5%8F%82" target="_blank" rel="external">形参</a>进行类型转换，比如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> para = <span class="number">123</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">obj</span>)</span>&#123;</div><div class="line">	obj = <span class="string">'abc'</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">func(para)</div><div class="line"></div><div class="line"><span class="built_in">console</span>.info(para)</div></pre></td></tr></table></figure>
+<p>可以先思考下，答案最后揭晓。<br>然后<br>下一题：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> para = &#123;<span class="attr">item</span>: <span class="number">123</span>&#125;;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">obj</span>)</span>&#123;</div><div class="line">	obj.item = <span class="string">'abc'</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">func(para)</div><div class="line"></div><div class="line"><span class="built_in">console</span>.info(para)</div></pre></td></tr></table></figure>
+<p>在接着，下一题：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> para1 = &#123;<span class="attr">item</span>: <span class="number">123</span>&#125;;</div><div class="line"><span class="keyword">var</span> para2 = &#123;<span class="attr">item</span>: <span class="number">456</span>&#125;;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">obj, obj2</span>)</span>&#123;</div><div class="line">	obj.item = <span class="string">'abc'</span>;</div><div class="line">	obj2 = &#123;<span class="attr">item</span>: <span class="string">'abc'</span>&#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">func(para1, para2)</div><div class="line"></div><div class="line"><span class="built_in">console</span>.info(para1, para2)</div></pre></td></tr></table></figure>
+<p>到这里，如果打印出来的和你想象的值是一样的，那么说明你已经能理解参数传递的概念了；<br>如果到这你晕了，那就看下面的分析；</p>
+<p>先看第一个，<br>第一行</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> para = <span class="number">123</span>;</div></pre></td></tr></table></figure>
+<p>这没太多说的，只是定义了一个变量，变量值是一个Number类型，也就是原始数据类型，<br>然后<br>定义了一个方法把这个变量传进去对他进行类型改变</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">obj</span>)</span>&#123;</div><div class="line">    obj = <span class="string">'abc'</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>按照人脑的思考模式；<br>参数被传递之后等于<code>function</code>拿到参数的执行权了<br>那么应该可以操作改变这个参数的内容，包括参数的类型（因为js是弱类型的语言，变量声明的时候没有指定类型，这是其他大部分语言不可进行的）</p>
+<p>但是结果不是这样的<br><img src="/2017/05/31/js-call-by-value-and-call-by-reference/363F974C-9E02-4098-B7D1-2D94B81E1B0E.png" alt="363F974C-9E02-4098-B7D1-2D94B81E1B0E.png"></p>
+<p>被传递的参数不仅类型不会改变，连内容都不会改变<br><img src="/2017/05/31/js-call-by-value-and-call-by-reference/FB2CAFE2-CDFA-46FA-A0B2-E7A3EC57B79F.png" alt="FB2CAFE2-CDFA-46FA-A0B2-E7A3EC57B79F.png"></p>
+<p>后面两个其实是一个意思，<br>都是对象传递，<br>我们知道引用类型的变量存储的是内存地址，所以传递的也是内存地址，这里可能有个概念是 <code>call by sharing</code> 也就是这里实参传递给形参的并不是简单的引用传递，而是把引用的地址复制了一份，然后把这个副本传递了过去，所以不管是修改变量类型还是变量内容都是不会修改实参。</p>
+<p>如果还是不太理解的话可以看下面的参考资料然后自己动手敲一敲，基本就能理解了。</p>
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://www.zhihu.com/question/27114726" target="_blank" rel="external">javascript传递参数如果是object的话，是按值传递还是按引用传递？</a><br><a href="https://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_value" target="_blank" rel="external">wiki - Evaluation strategy</a><br><a href="https://stackoverflow.com/questions/518000/is-javascript-a-pass-by-reference-or-pass-by-value-language?lq=1" target="_blank" rel="external">Is JavaScript a pass-by-reference or pass-by-value language?</a></p>
 
       
@@ -566,7 +584,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于函数传值"><span class="nav-number">1.</span> <span class="nav-text">关于函数传值</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型"><span class="nav-number">1.1.</span> <span class="nav-text">数据类型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">2.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于函数传值"><span class="nav-number">1.</span> <span class="nav-text">关于函数传值</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型"><span class="nav-number">1.1.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#举个栗子"><span class="nav-number">1.2.</span> <span class="nav-text">举个栗子</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">2.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
           </div>
         </section>
