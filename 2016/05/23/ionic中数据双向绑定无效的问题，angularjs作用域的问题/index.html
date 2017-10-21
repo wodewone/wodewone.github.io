@@ -59,22 +59,18 @@
 
 
 
-<meta name="description" content="ionic中数据双向绑定无效的问题，angularjs作用域的思考angular的数据双向绑定机制，让我们在开发SPA时，非常的方便。但是，今天在开发一个ionic项目时，确遇到这么个问题：
-在路由代码中定义了一个首页的路由，对应controller：homeCtrl。
-123456789.state(&apos;toys.index&apos;, &amp;#123;        url: &apos;/index&apos;,">
+<meta name="description" content="ionic中数据双向绑定无效的问题，angularjs作用域的思考angular的数据双向绑定机制，让我们在开发SPA时，非常的方便。但是，今天在开发一个ionic项目时，确遇到这么个问题： 在路由代码中定义了一个首页的路由，对应controller：homeCtrl。 123456789.state(&apos;toys.index&apos;, &amp;#123;        url: &apos;/index&apos;,">
+<meta name="keywords" content="angular,javascript,ionic,scope">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ionic中数据双向绑定无效的问题，angularjs作用域的问题">
 <meta property="og:url" content="http://wodewone.com/2016/05/23/ionic中数据双向绑定无效的问题，angularjs作用域的问题/index.html">
-<meta property="og:site_name" content="wodewone's blog">
-<meta property="og:description" content="ionic中数据双向绑定无效的问题，angularjs作用域的思考angular的数据双向绑定机制，让我们在开发SPA时，非常的方便。但是，今天在开发一个ionic项目时，确遇到这么个问题：
-在路由代码中定义了一个首页的路由，对应controller：homeCtrl。
-123456789.state(&apos;toys.index&apos;, &amp;#123;        url: &apos;/index&apos;,">
+<meta property="og:site_name" content="wodewone&#39;s blog">
+<meta property="og:description" content="ionic中数据双向绑定无效的问题，angularjs作用域的思考angular的数据双向绑定机制，让我们在开发SPA时，非常的方便。但是，今天在开发一个ionic项目时，确遇到这么个问题： 在路由代码中定义了一个首页的路由，对应controller：homeCtrl。 123456789.state(&apos;toys.index&apos;, &amp;#123;        url: &apos;/index&apos;,">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2016-09-14T13:25:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ionic中数据双向绑定无效的问题，angularjs作用域的问题">
-<meta name="twitter:description" content="ionic中数据双向绑定无效的问题，angularjs作用域的思考angular的数据双向绑定机制，让我们在开发SPA时，非常的方便。但是，今天在开发一个ionic项目时，确遇到这么个问题：
-在路由代码中定义了一个首页的路由，对应controller：homeCtrl。
-123456789.state(&apos;toys.index&apos;, &amp;#123;        url: &apos;/index&apos;,">
+<meta name="twitter:description" content="ionic中数据双向绑定无效的问题，angularjs作用域的思考angular的数据双向绑定机制，让我们在开发SPA时，非常的方便。但是，今天在开发一个ionic项目时，确遇到这么个问题： 在路由代码中定义了一个首页的路由，对应controller：homeCtrl。 123456789.state(&apos;toys.index&apos;, &amp;#123;        url: &apos;/index&apos;,">
 
 
 
@@ -343,7 +339,7 @@
       
         <h3 id="ionic中数据双向绑定无效的问题，angularjs作用域的思考"><a href="#ionic中数据双向绑定无效的问题，angularjs作用域的思考" class="headerlink" title="ionic中数据双向绑定无效的问题，angularjs作用域的思考"></a>ionic中数据双向绑定无效的问题，angularjs作用域的思考</h3><p>angular的数据双向绑定机制，让我们在开发SPA时，非常的方便。但是，今天在开发一个ionic项目时，确遇到这么个问题：</p>
 <p>在路由代码中定义了一个首页的路由，对应controller：homeCtrl。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">.state(<span class="string">'toys.index'</span>, &#123;</div><div class="line">        <span class="attr">url</span>: <span class="string">'/index'</span>,</div><div class="line">        <span class="attr">views</span>: &#123;</div><div class="line">            <span class="string">'toys-index'</span>: &#123;</div><div class="line">                <span class="attr">templateUrl</span>: <span class="string">"template/index.html"</span>,</div><div class="line">                <span class="attr">controller</span>: <span class="string">'homeCtrl'</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">.state(<span class="string">'toys.index'</span>, &#123;</div><div class="line">        url: <span class="string">'/index'</span>,</div><div class="line">        views: &#123;</div><div class="line">            <span class="string">'toys-index'</span>: &#123;</div><div class="line">                templateUrl: <span class="string">"template/index.html"</span>,</div><div class="line">                controller: <span class="string">'homeCtrl'</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
 <p>加载的模板文件如下，其中在ion-content中有一个绑定了双向数据的输入框。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ion-view</span> <span class="attr">view-title</span>=<span class="string">"indexs"</span> <span class="attr">hide-nav-bar</span>=<span class="string">"true"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">ion-header-bar</span> <span class="attr">class</span>=<span class="string">"bar-dark"</span> <span class="attr">align-title</span>=<span class="string">"center"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">ion-header-bar</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">ion-content</span> <span class="attr">ng-controller</span>=<span class="string">"homeCtrl"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item item-input-inset"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">"item-input-wrapper"</span>&gt;</span></div><div class="line">              <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">placeholder</span>=<span class="string">"搜索"</span> <span class="attr">ng-model</span>=<span class="string">"keywords"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"button button-small ion-ios-search-strong"</span> <span class="attr">ng-click</span>=<span class="string">"search()"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">ion-content</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ion-view</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>在controller中定义了keywords和search函数</p>
@@ -468,7 +464,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">50</span>
+              <span class="site-state-item-count">51</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -476,7 +472,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -485,7 +481,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">63</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

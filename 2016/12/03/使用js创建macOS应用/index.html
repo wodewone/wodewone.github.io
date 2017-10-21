@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="javascript,mac,css,js,Node,webpack,react,cssModule,electron," />
+  <meta name="keywords" content="javascript,css,mac,js,Node,webpack,react,cssModule,electron," />
 
 
 
@@ -60,11 +60,13 @@
 
 
 <meta name="description" content="序言因为自己不大喜欢喜欢用手机，所以当在手机上看到有些应用只能在手机上使用时觉得好别扭，但是自己也不是写原生应用的人，怎么办呢~那么问题来了，这个世界上还有 js 不能干的事情吗，js 都能写移动应用了，那能不能用来写桌面应用呢，于世~带着疑问还是 google 然后发现了有意思的了；原来早就有解决方案了，早在Node.js问世不久之后就出现了 NW.js 这么个东西，但是我们这里不讨论他，哈哈~">
+<meta name="keywords" content="javascript,css,mac,js,Node,webpack,react,cssModule,electron">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用js创建macOS应用(更新:2017-02-18)">
 <meta property="og:url" content="http://wodewone.com/2016/12/03/使用js创建macOS应用/index.html">
-<meta property="og:site_name" content="wodewone's blog">
+<meta property="og:site_name" content="wodewone&#39;s blog">
 <meta property="og:description" content="序言因为自己不大喜欢喜欢用手机，所以当在手机上看到有些应用只能在手机上使用时觉得好别扭，但是自己也不是写原生应用的人，怎么办呢~那么问题来了，这个世界上还有 js 不能干的事情吗，js 都能写移动应用了，那能不能用来写桌面应用呢，于世~带着疑问还是 google 然后发现了有意思的了；原来早就有解决方案了，早在Node.js问世不久之后就出现了 NW.js 这么个东西，但是我们这里不讨论他，哈哈~">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://electron.atom.io/images/apps/atom-icon.png">
 <meta property="og:updated_time" content="2017-02-24T10:35:14.000Z">
 <meta name="twitter:card" content="summary">
@@ -259,9 +261,9 @@
             
               <a href="/tags/javascript/" rel="tag">#javascript</a>
             
-              <a href="/tags/mac/" rel="tag">#mac</a>
-            
               <a href="/tags/css/" rel="tag">#css</a>
+            
+              <a href="/tags/mac/" rel="tag">#mac</a>
             
               <a href="/tags/js/" rel="tag">#js</a>
             
@@ -374,9 +376,9 @@
 <p><em>2016-12-06</em></p>
 <h3 id="使用react-css-module"><a href="#使用react-css-module" class="headerlink" title="使用react-css-module"></a>使用react-css-module</h3><p>使用 <code>css module</code> 的时候，每个 <code>className</code> 都要 <code>styles.**</code> 很麻烦，<br>然后，然后就出现了 <code>react-css-module</code> 可以使用 <code>styleName</code> 来代替 ‘className’，这样就不需要每次都去写 <code>{styles.**}</code> 这样麻烦了，然后也不用必须使用驼峰式写法了（其实是因为不喜欢驼峰式命名 <code>css</code> ，哈哈，可能是因为 BEM 的关系），然后还可以使用多个 <code>class</code> 很方便~</p>
 <p>但是使用 <code>react-css-module</code> 每次 export 都要手动指定，例如下面：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> CSSModules <span class="keyword">from</span> <span class="string">'react-css-modules'</span>;</div><div class="line"><span class="keyword">import</span> styles <span class="keyword">from</span> <span class="string">'./App.css'</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">    render () &#123;</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">        <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">styleName</span>=<span class="string">'container'</span>&gt;</span></span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        );</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> CSSModules(App, styles);</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> CSSModules <span class="keyword">from</span> <span class="string">'react-css-modules'</span>;</div><div class="line"><span class="keyword">import</span> styles <span class="keyword">from</span> <span class="string">'./App.css'</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">    render () &#123;</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">        &lt;div styleName=<span class="string">'container'</span>&gt;</div><div class="line">        &lt;<span class="regexp">/div&gt;</span></div><div class="line"><span class="regexp">        );</span></div><div class="line"><span class="regexp">    &#125;</span></div><div class="line"><span class="regexp">&#125;</span></div><div class="line"><span class="regexp"></span></div><div class="line"><span class="regexp">export default CSSModules(App, styles);</span></div></pre></td></tr></table></figure>
 <p>每个组件都要加上 <code>CSSModules(App, styles)</code> 我觉得很啰嗦~<br>还好 <code>react-css-module</code> 支持 ES7（暂称 ES7 吧，虽然还是草案） 的<code>Decorators</code> 语法，然后你可以这样写：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> CSSModules <span class="keyword">from</span> <span class="string">'react-css-modules'</span>;</div><div class="line"><span class="keyword">import</span> styles <span class="keyword">from</span> <span class="string">'./App.css'</span>;</div><div class="line"></div><div class="line">@CSSModules(styles)</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">    render () &#123;</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">        <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">styleName</span>=<span class="string">'container'</span>&gt;</span></span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        );</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> App;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> CSSModules <span class="keyword">from</span> <span class="string">'react-css-modules'</span>;</div><div class="line"><span class="keyword">import</span> styles <span class="keyword">from</span> <span class="string">'./App.css'</span>;</div><div class="line"></div><div class="line">@CSSModules(styles)</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">    render () &#123;</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">        &lt;div styleName=<span class="string">'container'</span>&gt;</div><div class="line">        &lt;<span class="regexp">/div&gt;</span></div><div class="line"><span class="regexp">        );</span></div><div class="line"><span class="regexp">    &#125;</span></div><div class="line"><span class="regexp">&#125;</span></div><div class="line"><span class="regexp"></span></div><div class="line"><span class="regexp">export default App;</span></div></pre></td></tr></table></figure>
 <p>个人感觉这样感觉很好（至少有点逼格，哈哈）</p>
 <p>但是最新的 <code>Babel v6</code> 中不知道为啥居然去掉了对 <code>Decorators</code> 的支持（详情点击<a href="http://babeljs.io/docs/plugins/transform-decorators/" target="_blank" rel="external">Babel 官网</a>）查看），官方解释：</p>
 <blockquote>
@@ -626,7 +628,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">50</span>
+              <span class="site-state-item-count">51</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -634,7 +636,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -643,7 +645,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">63</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

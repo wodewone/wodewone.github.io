@@ -59,34 +59,18 @@
 
 
 
-<meta name="description" content="指令与控制器之间通信
-通过指令自身参数
-基于event传播的方式
-service的方式
-
-方式一：指令参数共享对象/方法
-首先我们必须得清楚，每一个 $scope 都是scope的一个事例，而通过绑定将数据绑定在 $scope 就能实现双向绑定。scope的层次结构跟controller相关，继承关系跟又遵循了原型继承的规则，而子controller所初始化的scope是创建一个新的变量，而不是去">
+<meta name="description" content="指令与控制器之间通信 通过指令自身参数 基于event传播的方式 service的方式  方式一：指令参数共享对象/方法 首先我们必须得清楚，每一个 $scope 都是scope的一个事例，而通过绑定将数据绑定在 $scope 就能实现双向绑定。scope的层次结构跟controller相关，继承关系跟又遵循了原型继承的规则，而子controller所初始化的scope是创建一个新的变量，而不是去">
+<meta name="keywords" content="angular,javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AngularJs开发——指令与控制器间的通信">
 <meta property="og:url" content="http://wodewone.com/2016/11/01/AngularJs开发——指令与控制器间的通信/index.html">
-<meta property="og:site_name" content="wodewone's blog">
-<meta property="og:description" content="指令与控制器之间通信
-通过指令自身参数
-基于event传播的方式
-service的方式
-
-方式一：指令参数共享对象/方法
-首先我们必须得清楚，每一个 $scope 都是scope的一个事例，而通过绑定将数据绑定在 $scope 就能实现双向绑定。scope的层次结构跟controller相关，继承关系跟又遵循了原型继承的规则，而子controller所初始化的scope是创建一个新的变量，而不是去">
+<meta property="og:site_name" content="wodewone&#39;s blog">
+<meta property="og:description" content="指令与控制器之间通信 通过指令自身参数 基于event传播的方式 service的方式  方式一：指令参数共享对象/方法 首先我们必须得清楚，每一个 $scope 都是scope的一个事例，而通过绑定将数据绑定在 $scope 就能实现双向绑定。scope的层次结构跟controller相关，继承关系跟又遵循了原型继承的规则，而子controller所初始化的scope是创建一个新的变量，而不是去">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2016-12-02T16:19:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AngularJs开发——指令与控制器间的通信">
-<meta name="twitter:description" content="指令与控制器之间通信
-通过指令自身参数
-基于event传播的方式
-service的方式
-
-方式一：指令参数共享对象/方法
-首先我们必须得清楚，每一个 $scope 都是scope的一个事例，而通过绑定将数据绑定在 $scope 就能实现双向绑定。scope的层次结构跟controller相关，继承关系跟又遵循了原型继承的规则，而子controller所初始化的scope是创建一个新的变量，而不是去">
+<meta name="twitter:description" content="指令与控制器之间通信 通过指令自身参数 基于event传播的方式 service的方式  方式一：指令参数共享对象/方法 首先我们必须得清楚，每一个 $scope 都是scope的一个事例，而通过绑定将数据绑定在 $scope 就能实现双向绑定。scope的层次结构跟controller相关，继承关系跟又遵循了原型继承的规则，而子controller所初始化的scope是创建一个新的变量，而不是去">
 
 
 
@@ -369,7 +353,7 @@ service的方式
 <li>&amp;：能够在指令内访问定义在父scope注册的函数。</li>
 <li>@：提供一个 父scope-》子指令的单向绑定的属性。</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> app = angular.module(<span class="string">'app'</span>, []);</div><div class="line"></div><div class="line">angular.element(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span> <span class="title">readyHandler</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    angular.bootstrap(<span class="built_in">document</span>, [<span class="string">'app'</span>]);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">app.controller(<span class="string">'demo'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123;</div><div class="line">  $scope.num = <span class="number">0</span>;</div><div class="line">  $scope.add = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    $scope.num++;</div><div class="line">  &#125;;</div><div class="line">&#125;);</div><div class="line">app.directive(<span class="string">'addNum'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    <span class="attr">restrict</span>: <span class="string">'EA'</span>,</div><div class="line">    <span class="attr">replace</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">scope</span> : &#123;</div><div class="line">      <span class="attr">num</span>: <span class="string">'=num'</span>,</div><div class="line">      <span class="attr">add</span>: <span class="string">'&amp;'</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">template</span>: <span class="string">'&lt;p&gt;&lt;button ng-click="add()"&gt;点我&lt;/button&gt;&#123;&#123;num&#125;&#125;&lt;/p&gt;&lt;/div&gt;'</span>,</div><div class="line">    <span class="attr">link</span>: <span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">  &#125;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> app = angular.module(<span class="string">'app'</span>, []);</div><div class="line"></div><div class="line">angular.element(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span> <span class="title">readyHandler</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    angular.bootstrap(<span class="built_in">document</span>, [<span class="string">'app'</span>]);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">app.controller(<span class="string">'demo'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123;</div><div class="line">  $scope.num = <span class="number">0</span>;</div><div class="line">  $scope.add = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    $scope.num++;</div><div class="line">  &#125;;</div><div class="line">&#125;);</div><div class="line">app.directive(<span class="string">'addNum'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    restrict: <span class="string">'EA'</span>,</div><div class="line">    replace: <span class="literal">true</span>,</div><div class="line">    scope : &#123;</div><div class="line">      num: <span class="string">'=num'</span>,</div><div class="line">      add: <span class="string">'&amp;'</span></div><div class="line">    &#125;,</div><div class="line">    template: <span class="string">'&lt;p&gt;&lt;button ng-click="add()"&gt;点我&lt;/button&gt;&#123;&#123;num&#125;&#125;&lt;/p&gt;&lt;/div&gt;'</span>,</div><div class="line">    link: <span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">  &#125;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p><a href="http://jsbin.com/xodebe/2/edit?html,js,output" target="_blank" rel="external">view JSbin</a></p>
 <h4 id="方式二：通过服务"><a href="#方式二：通过服务" class="headerlink" title="方式二：通过服务"></a>方式二：通过服务</h4><p>通过 services 实现控制器与指令双向通信，也比较简单</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> app = angular.module(<span class="string">'app'</span>, []);</div><div class="line"></div><div class="line">angular.element(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span> <span class="title">readyHandler</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    angular.bootstrap(<span class="built_in">document</span>, [<span class="string">'app'</span>]);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">app.service(<span class="string">'SettingsService'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        <span class="string">'precision'</span> : <span class="number">2</span></div><div class="line">    &#125;;</div><div class="line">&#125;);</div><div class="line">app.controller(<span class="string">'demo'</span>, [<span class="string">'$scope'</span>, <span class="string">'SettingsService'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope, settings</span>) </span>&#123;</div><div class="line">    $scope.settings = settings;</div><div class="line">&#125;]);</div><div class="line">app.directive(<span class="string">'numDisplay'</span>, [<span class="string">'SettingsService'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">settings</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        <span class="string">'restrict'</span> : <span class="string">'EA'</span>,</div><div class="line">        <span class="string">'scope'</span> : &#123;</div><div class="line">            </div><div class="line">        &#125;,</div><div class="line">        <span class="string">'template'</span> : <span class="string">'&lt;p ng-click="changePrecision()"&gt;&#123;&#123; 123456789 | number:settings.precision &#125;&#125;&#123;&#123;settings.precision&#125;&#125;&lt;/p&gt;'</span>,</div><div class="line">        <span class="string">'replace'</span> : <span class="literal">true</span>,</div><div class="line">        <span class="string">'link'</span> : <span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>) </span>&#123;</div><div class="line">            $scope.settings = settings;</div><div class="line">            $scope.changePrecision = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">              $scope.settings.precision++;</div><div class="line">            &#125;;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">&#125;]);</div></pre></td></tr></table></figure>
@@ -487,7 +471,7 @@ service的方式
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">50</span>
+              <span class="site-state-item-count">51</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -495,7 +479,7 @@ service的方式
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -504,7 +488,7 @@ service的方式
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">63</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -59,28 +59,18 @@
 
 
 
-<meta name="description" content="View JSFiddle
-view.html:
-1&amp;lt;input type=&quot;file&quot; custom-on-change=&quot;uploadFile&quot;&amp;gt;
-controller.js:
-1app.controller(&apos;myCtrl&apos;, function($scope)&amp;#123; $scope.uploadFile = function(event)&amp;#123; var files =">
+<meta name="description" content="View JSFiddle view.html: 1&amp;lt;input type=&quot;file&quot; custom-on-change=&quot;uploadFile&quot;&amp;gt; controller.js: 1app.controller(&apos;myCtrl&apos;, function($scope)&amp;#123; $scope.uploadFile = function(event)&amp;#123; var files =">
+<meta name="keywords" content="angular,javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="angular实现changeFile上传[方法三]">
 <meta property="og:url" content="http://wodewone.com/2016/08/27/angular实现changeFile上传-方法三/index.html">
-<meta property="og:site_name" content="wodewone's blog">
-<meta property="og:description" content="View JSFiddle
-view.html:
-1&amp;lt;input type=&quot;file&quot; custom-on-change=&quot;uploadFile&quot;&amp;gt;
-controller.js:
-1app.controller(&apos;myCtrl&apos;, function($scope)&amp;#123; $scope.uploadFile = function(event)&amp;#123; var files =">
+<meta property="og:site_name" content="wodewone&#39;s blog">
+<meta property="og:description" content="View JSFiddle view.html: 1&amp;lt;input type=&quot;file&quot; custom-on-change=&quot;uploadFile&quot;&amp;gt; controller.js: 1app.controller(&apos;myCtrl&apos;, function($scope)&amp;#123; $scope.uploadFile = function(event)&amp;#123; var files =">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2016-12-03T13:44:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="angular实现changeFile上传[方法三]">
-<meta name="twitter:description" content="View JSFiddle
-view.html:
-1&amp;lt;input type=&quot;file&quot; custom-on-change=&quot;uploadFile&quot;&amp;gt;
-controller.js:
-1app.controller(&apos;myCtrl&apos;, function($scope)&amp;#123; $scope.uploadFile = function(event)&amp;#123; var files =">
+<meta name="twitter:description" content="View JSFiddle view.html: 1&amp;lt;input type=&quot;file&quot; custom-on-change=&quot;uploadFile&quot;&amp;gt; controller.js: 1app.controller(&apos;myCtrl&apos;, function($scope)&amp;#123; $scope.uploadFile = function(event)&amp;#123; var files =">
 
 
 
@@ -349,7 +339,7 @@ controller.js:
 <p>controller.js:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">app.controller(<span class="string">'myCtrl'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123; $scope.uploadFile = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123; <span class="keyword">var</span> files = event.target.files; &#125;; &#125;);</div></pre></td></tr></table></figure>
 <p>directive.js:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">app.directive(<span class="string">'customOnChange'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    <span class="attr">restrict</span>: <span class="string">'A'</span>,</div><div class="line">    <span class="attr">link</span>: <span class="function"><span class="keyword">function</span> (<span class="params">scope, element, attrs</span>) </span>&#123;</div><div class="line">      <span class="keyword">var</span> onChangeHandler = scope.$<span class="built_in">eval</span>(attrs.customOnChange);</div><div class="line">      element.bind(<span class="string">'change'</span>, onChangeHandler);</div><div class="line">    &#125;</div><div class="line">  &#125;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">app.directive(<span class="string">'customOnChange'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    restrict: <span class="string">'A'</span>,</div><div class="line">    link: <span class="function"><span class="keyword">function</span> (<span class="params">scope, element, attrs</span>) </span>&#123;</div><div class="line">      <span class="keyword">var</span> onChangeHandler = scope.$<span class="built_in">eval</span>(attrs.customOnChange);</div><div class="line">      element.bind(<span class="string">'change'</span>, onChangeHandler);</div><div class="line">    &#125;</div><div class="line">  &#125;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p><a href="http://jsfiddle.net/sqren/27ugfym6/" target="_blank" rel="external">View JSFiddle</a></p>
 <p><a href="http://stackoverflow.com/questions/17922557/angularjs-how-to-check-for-changes-in-file-input-fields" target="_blank" rel="external">参考出处</a></p>
 
@@ -460,7 +450,7 @@ controller.js:
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">50</span>
+              <span class="site-state-item-count">51</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -468,7 +458,7 @@ controller.js:
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -477,7 +467,7 @@ controller.js:
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">63</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

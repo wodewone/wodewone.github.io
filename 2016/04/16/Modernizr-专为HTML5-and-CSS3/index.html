@@ -59,19 +59,18 @@
 
 
 
-<meta name="description" content="Modernizr介绍  Modernizr是一个开源的JS库，它使得那些基于访客浏览器的不同（指对新标准支持性的差异）而开发不同级别体验的设计师的工作变得更为简单。它使得设计师可以在支持HTML5和CSS3的浏览器中充分利用HTML5和CSS3的特性进行开发，同时又不会牺牲其他不支持这些新技术的浏览器的控制。
-  当你在网页中嵌入Modernizr的脚本时，它会检测当前浏览器是否支持CSS3的特">
+<meta name="description" content="Modernizr介绍  Modernizr是一个开源的JS库，它使得那些基于访客浏览器的不同（指对新标准支持性的差异）而开发不同级别体验的设计师的工作变得更为简单。它使得设计师可以在支持HTML5和CSS3的浏览器中充分利用HTML5和CSS3的特性进行开发，同时又不会牺牲其他不支持这些新技术的浏览器的控制。   当你在网页中嵌入Modernizr的脚本时，它会检测当前浏览器是否支持CSS3的特">
+<meta name="keywords" content="javascript,html,html5,css3">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Modernizr 专为HTML5 and CSS3">
 <meta property="og:url" content="http://wodewone.com/2016/04/16/Modernizr-专为HTML5-and-CSS3/index.html">
-<meta property="og:site_name" content="wodewone's blog">
-<meta property="og:description" content="Modernizr介绍  Modernizr是一个开源的JS库，它使得那些基于访客浏览器的不同（指对新标准支持性的差异）而开发不同级别体验的设计师的工作变得更为简单。它使得设计师可以在支持HTML5和CSS3的浏览器中充分利用HTML5和CSS3的特性进行开发，同时又不会牺牲其他不支持这些新技术的浏览器的控制。
-  当你在网页中嵌入Modernizr的脚本时，它会检测当前浏览器是否支持CSS3的特">
+<meta property="og:site_name" content="wodewone&#39;s blog">
+<meta property="og:description" content="Modernizr介绍  Modernizr是一个开源的JS库，它使得那些基于访客浏览器的不同（指对新标准支持性的差异）而开发不同级别体验的设计师的工作变得更为简单。它使得设计师可以在支持HTML5和CSS3的浏览器中充分利用HTML5和CSS3的特性进行开发，同时又不会牺牲其他不支持这些新技术的浏览器的控制。   当你在网页中嵌入Modernizr的脚本时，它会检测当前浏览器是否支持CSS3的特">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2016-04-28T13:26:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Modernizr 专为HTML5 and CSS3">
-<meta name="twitter:description" content="Modernizr介绍  Modernizr是一个开源的JS库，它使得那些基于访客浏览器的不同（指对新标准支持性的差异）而开发不同级别体验的设计师的工作变得更为简单。它使得设计师可以在支持HTML5和CSS3的浏览器中充分利用HTML5和CSS3的特性进行开发，同时又不会牺牲其他不支持这些新技术的浏览器的控制。
-  当你在网页中嵌入Modernizr的脚本时，它会检测当前浏览器是否支持CSS3的特">
+<meta name="twitter:description" content="Modernizr介绍  Modernizr是一个开源的JS库，它使得那些基于访客浏览器的不同（指对新标准支持性的差异）而开发不同级别体验的设计师的工作变得更为简单。它使得设计师可以在支持HTML5和CSS3的浏览器中充分利用HTML5和CSS3的特性进行开发，同时又不会牺牲其他不支持这些新技术的浏览器的控制。   当你在网页中嵌入Modernizr的脚本时，它会检测当前浏览器是否支持CSS3的特">
 
 
 
@@ -345,7 +344,7 @@
 <p>然后，向<html>元素添加“no-js”的类。</html></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">class</span>=<span class="string">"no-js"</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>当Modernizr运行的时候，它会把这个“no-js”的类变为“js”来使你知道它已经运行。Modernizr并不仅仅只做这一件事情，它还会为所有它检测过的特性添加class类，如果浏览器不支持某个特性，它就为该特性对应的类名加上“no-”的前缀。所以，你的<html>元素可能会变得看起来像下面这个样子：</html></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">class</span>=<span class="string">"js canvas canvastext no-geolocation rgba  hsla multiplebgs borderimage borderradius boxshadow opacity cssanimations csscolumns   </span></span></div><div class="line">cssgradients cssreflections csstransforms csstransforms3d csstransitions video   </div><div class="line">audio localstorage sessionstorage webworkers applicationcache fontface"&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">class</span>=<span class="string">"js canvas canvastext no-geolocation rgba  hsla multiplebgs borderimage borderradius boxshadow opacity cssanimations csscolumns   </span></span></div><div class="line"><span class="tag"><span class="string">cssgradients cssreflections csstransforms csstransforms3d csstransitions video   </span></span></div><div class="line"><span class="tag"><span class="string">audio localstorage sessionstorage webworkers applicationcache fontface"</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>Modernizr同时还会创建一个JS对象，被命名为“Modernizr”，其内容是为每一个检测完的特性给出的布尔值结果组成的列表。如果浏览器支持新的canvas元素，那么“Modernizr.canvas”的值就是true；如果浏览器不支持这个新元素，那它对应的值就是false。这个JS对象针对某些功能还会包含更为详细的信息，如“Modernizr.video.h264”会告诉你浏览器是否支持这个特殊的编解码器。“Modernizr.inputtypes.search”会告诉你当前浏览器是否支持新的search input类型，等等。</p>
 <p>我们的未加工的简单小页面看起来有点像一个准测试系统了，但它具备更好的语义性和可访问性。让我们为它添加一点基本的样式：一点文字格式、颜色和布局以使它更好看。目前位置，没什么新东西，只是为一个语义化结构的HTML页面添加表现样式，看看添加了样式后的页面。</p>
 <p>下面，我们要增强这个页面使得它更有意思。我想为头部的h1应用一个奇特的文字效果，把关于检测特性的列表分为两栏，然后将带有一张照片的关于Modernizr的部分的一切都弄到右边去。我还要把围绕页面内容的边框变美点。现在，更给力的CSS3使你可以对一条规则添加更多的属性，如果浏览器不支持这些属性，它会忽略它们。配合使用CSS的层叠（继承），你可以不必依赖Modernizr而使用像“border-radius”这样的新属性。不过，使用Modernizr可以为你提供一些既有手段提供不了的功能：根据浏览器对新东西支持的差异动态修改的<html>的类名。我会通过对我们的页面添加2条新的规则来说明这点：</html></p>
@@ -477,7 +476,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">50</span>
+              <span class="site-state-item-count">51</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -485,7 +484,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -494,7 +493,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">63</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

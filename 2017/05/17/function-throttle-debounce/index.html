@@ -59,26 +59,19 @@
 
 
 
-<meta name="description" content="什么是函数节流和函数防抖？
-国际惯例听起来高大上的名词一般都是常见的问题，哈哈通俗的来讲就是当需要进行一个连续操作的动作时，我们不希望代码连续的跑这个任务，因为人根本就区分不出来，但是计算机可以执行，虽然可以执行但我们并不需要这样我们只需要它的结果，那这个任务就是在浪费计算机的性能，这怎么能行！所以我们要解决！
-
-想象每天上班大厦底下的电梯。把电梯完成一次运送，类比为一次函数的执行和响应。假设电梯">
+<meta name="description" content="什么是函数节流和函数防抖？ 国际惯例听起来高大上的名词一般都是常见的问题，哈哈通俗的来讲就是当需要进行一个连续操作的动作时，我们不希望代码连续的跑这个任务，因为人根本就区分不出来，但是计算机可以执行，虽然可以执行但我们并不需要这样我们只需要它的结果，那这个任务就是在浪费计算机的性能，这怎么能行！所以我们要解决！  想象每天上班大厦底下的电梯。把电梯完成一次运送，类比为一次函数的执行和响应。假设电梯">
+<meta name="keywords" content="javascript,function,throttle,debounce">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js函数节流和函数防抖">
 <meta property="og:url" content="http://wodewone.com/2017/05/17/function-throttle-debounce/index.html">
-<meta property="og:site_name" content="wodewone's blog">
-<meta property="og:description" content="什么是函数节流和函数防抖？
-国际惯例听起来高大上的名词一般都是常见的问题，哈哈通俗的来讲就是当需要进行一个连续操作的动作时，我们不希望代码连续的跑这个任务，因为人根本就区分不出来，但是计算机可以执行，虽然可以执行但我们并不需要这样我们只需要它的结果，那这个任务就是在浪费计算机的性能，这怎么能行！所以我们要解决！
-
-想象每天上班大厦底下的电梯。把电梯完成一次运送，类比为一次函数的执行和响应。假设电梯">
+<meta property="og:site_name" content="wodewone&#39;s blog">
+<meta property="og:description" content="什么是函数节流和函数防抖？ 国际惯例听起来高大上的名词一般都是常见的问题，哈哈通俗的来讲就是当需要进行一个连续操作的动作时，我们不希望代码连续的跑这个任务，因为人根本就区分不出来，但是计算机可以执行，虽然可以执行但我们并不需要这样我们只需要它的结果，那这个任务就是在浪费计算机的性能，这怎么能行！所以我们要解决！  想象每天上班大厦底下的电梯。把电梯完成一次运送，类比为一次函数的执行和响应。假设电梯">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://wodewone.com/2017/05/17/function-throttle-debounce/675542-20160326150241120-393738911.png">
 <meta property="og:updated_time" content="2017-05-17T10:32:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js函数节流和函数防抖">
-<meta name="twitter:description" content="什么是函数节流和函数防抖？
-国际惯例听起来高大上的名词一般都是常见的问题，哈哈通俗的来讲就是当需要进行一个连续操作的动作时，我们不希望代码连续的跑这个任务，因为人根本就区分不出来，但是计算机可以执行，虽然可以执行但我们并不需要这样我们只需要它的结果，那这个任务就是在浪费计算机的性能，这怎么能行！所以我们要解决！
-
-想象每天上班大厦底下的电梯。把电梯完成一次运送，类比为一次函数的执行和响应。假设电梯">
+<meta name="twitter:description" content="什么是函数节流和函数防抖？ 国际惯例听起来高大上的名词一般都是常见的问题，哈哈通俗的来讲就是当需要进行一个连续操作的动作时，我们不希望代码连续的跑这个任务，因为人根本就区分不出来，但是计算机可以执行，虽然可以执行但我们并不需要这样我们只需要它的结果，那这个任务就是在浪费计算机的性能，这怎么能行！所以我们要解决！  想象每天上班大厦底下的电梯。把电梯完成一次运送，类比为一次函数的执行和响应。假设电梯">
 <meta name="twitter:image" content="http://wodewone.com/2017/05/17/function-throttle-debounce/675542-20160326150241120-393738911.png">
 
 
@@ -489,7 +482,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">50</span>
+              <span class="site-state-item-count">51</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -497,7 +490,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -506,7 +499,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">63</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

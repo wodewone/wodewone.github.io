@@ -4,6 +4,56 @@
 
     
   <url>
+    <loc>http://wodewone.com/2017/07/19/pc-dev-wechat/</loc>
+    <lastmod>2017-10-20T12:14:59.632Z</lastmod>
+    <data>
+        <display>
+        <title>pc端调试微信网址，绕过微信限制</title>
+        <pubTime>2017-07-19T08:02:33.000Z</pubTime>
+        
+        <tag>javascript</tag>
+         
+        <tag>wechat</tag>
+         
+         
+           
+             
+              <breadCrumb title="javascript" url="http://wodewone.com/categories/javascript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://wodewone.com/2017/05/06/async-and-await-used/</loc>
+    <lastmod>2017-10-20T12:14:19.122Z</lastmod>
+    <data>
+        <display>
+        <title>async和await</title>
+        <pubTime>2017-05-06T15:47:51.000Z</pubTime>
+        
+        <tag>javascript</tag>
+         
+        <tag>async</tag>
+         
+        <tag>ES6</tag>
+         
+        <tag>node</tag>
+         
+        <tag>koa</tag>
+         
+         
+           
+             
+              <breadCrumb title="javascript" url="http://wodewone.com/categories/javascript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://wodewone.com/2017/05/31/js-call-by-value-and-call-by-reference/</loc>
     <lastmod>2017-06-15T09:45:04.000Z</lastmod>
     <data>
@@ -65,34 +115,6 @@
            
              
               <breadCrumb title="javascript" url="http://wodewone.com/categories/javascript/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://wodewone.com/2017/05/06/async-and-await-used/</loc>
-    <lastmod>2017-05-09T11:17:52.000Z</lastmod>
-    <data>
-        <display>
-        <title>async和await</title>
-        <pubTime>2017-05-06T15:47:51.000Z</pubTime>
-        
-        <tag>javascript</tag>
-         
-        <tag>async</tag>
-         
-        <tag>ES6</tag>
-         
-        <tag>node</tag>
-         
-        <tag>koa</tag>
-         
-         
-           
-             
-              <breadCrumb title="javscript" url="http://wodewone.com/categories/javscript/"/>
           
         </display>
     </data>
@@ -209,9 +231,9 @@
         
         <tag>javascript</tag>
          
-        <tag>mac</tag>
-         
         <tag>css</tag>
+         
+        <tag>mac</tag>
          
         <tag>js</tag>
          
@@ -755,9 +777,9 @@
         <title>如何理解Web语义化</title>
         <pubTime>2016-10-01T07:05:57.000Z</pubTime>
         
-        <tag>web</tag>
-         
         <tag>html</tag>
+         
+        <tag>web</tag>
          
          
            

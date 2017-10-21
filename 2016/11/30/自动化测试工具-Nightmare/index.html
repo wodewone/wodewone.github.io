@@ -59,25 +59,18 @@
 
 
 
-<meta name="description" content="序今天在阮大博客上面看到的一个自动化测试库，官网上是这么说的 “A high-level browser automation library.” 
-官网提供实例：
-使用 phantomjs 代码：
-1234567891011121314151617181920phantom.create(function (ph) &amp;#123;  ph.createPage(function (page) &amp;#">
+<meta name="description" content="序今天在阮大博客上面看到的一个自动化测试库，官网上是这么说的 “A high-level browser automation library.”  官网提供实例： 使用 phantomjs 代码： 1234567891011121314151617181920phantom.create(function (ph) &amp;#123;  ph.createPage(function (page) &amp;#">
+<meta name="keywords" content="javascript,测试工具">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自动化测试工具-Nightmare">
 <meta property="og:url" content="http://wodewone.com/2016/11/30/自动化测试工具-Nightmare/index.html">
-<meta property="og:site_name" content="wodewone's blog">
-<meta property="og:description" content="序今天在阮大博客上面看到的一个自动化测试库，官网上是这么说的 “A high-level browser automation library.” 
-官网提供实例：
-使用 phantomjs 代码：
-1234567891011121314151617181920phantom.create(function (ph) &amp;#123;  ph.createPage(function (page) &amp;#">
+<meta property="og:site_name" content="wodewone&#39;s blog">
+<meta property="og:description" content="序今天在阮大博客上面看到的一个自动化测试库，官网上是这么说的 “A high-level browser automation library.”  官网提供实例： 使用 phantomjs 代码： 1234567891011121314151617181920phantom.create(function (ph) &amp;#123;  ph.createPage(function (page) &amp;#">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2016-12-03T13:35:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自动化测试工具-Nightmare">
-<meta name="twitter:description" content="序今天在阮大博客上面看到的一个自动化测试库，官网上是这么说的 “A high-level browser automation library.” 
-官网提供实例：
-使用 phantomjs 代码：
-1234567891011121314151617181920phantom.create(function (ph) &amp;#123;  ph.createPage(function (page) &amp;#">
+<meta name="twitter:description" content="序今天在阮大博客上面看到的一个自动化测试库，官网上是这么说的 “A high-level browser automation library.”  官网提供实例： 使用 phantomjs 代码： 1234567891011121314151617181920phantom.create(function (ph) &amp;#123;  ph.createPage(function (page) &amp;#">
 
 
 
@@ -350,7 +343,7 @@
 <h3 id="安装使用"><a href="#安装使用" class="headerlink" title="安装使用"></a>安装使用</h3><p>安装nightmare：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install nightmare</div></pre></td></tr></table></figure>
 <p>nightmare同时也支持插件方式抽取公用逻辑，以供复用和提高测试代码语意，如下例子：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Login to a Swiftly account.</div><div class="line"> *</div><div class="line"> * @param &#123;String&#125; email</div><div class="line"> * @param &#123;String&#125; password</div><div class="line"> */</div><div class="line"></div><div class="line">exports.login = <span class="function"><span class="keyword">function</span>(<span class="params">email, password</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">nightmare</span>) </span>&#123;</div><div class="line">    nightmare</div><div class="line">      .viewport(<span class="number">800</span>, <span class="number">1600</span>)</div><div class="line">      .goto(<span class="string">'https://swiftly.com/login'</span>)</div><div class="line">        .type(<span class="string">'#username'</span>, email)</div><div class="line">        .type(<span class="string">'#password'</span>, password)</div><div class="line">        .click(<span class="string">'.button--primary'</span>)</div><div class="line">      .wait();</div><div class="line">  &#125;;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * Login to a Swiftly account.</span></div><div class="line"><span class="comment"> *</span></div><div class="line"><span class="comment"> * @param &#123;String&#125; email</span></div><div class="line"><span class="comment"> * @param &#123;String&#125; password</span></div><div class="line"><span class="comment"> */</span></div><div class="line"></div><div class="line">exports.login = <span class="function"><span class="keyword">function</span>(<span class="params">email, password</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">nightmare</span>) </span>&#123;</div><div class="line">    nightmare</div><div class="line">      .viewport(<span class="number">800</span>, <span class="number">1600</span>)</div><div class="line">      .goto(<span class="string">'https://swiftly.com/login'</span>)</div><div class="line">        .type(<span class="string">'#username'</span>, email)</div><div class="line">        .type(<span class="string">'#password'</span>, password)</div><div class="line">        .click(<span class="string">'.button--primary'</span>)</div><div class="line">      .wait();</div><div class="line">  &#125;;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 <p>使用代码也很简单：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Swiftly = <span class="built_in">require</span>(<span class="string">'nightmare-swiftly'</span>);</div><div class="line"><span class="keyword">new</span> Nightmare()</div><div class="line">  .use(Swiftly.login(email, password))</div><div class="line">  .use(Swiftly.task(instructions, uploads, path))</div><div class="line">  .run();</div></pre></td></tr></table></figure>
 
@@ -461,7 +454,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">50</span>
+              <span class="site-state-item-count">51</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -469,7 +462,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -478,7 +471,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">63</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

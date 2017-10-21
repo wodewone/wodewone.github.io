@@ -59,22 +59,18 @@
 
 
 
-<meta name="description" content="问题一例如何在数组中间位置添加数组？
-题目很简单，无非是找到数组中间位置然后把新数组插入即可；比较容易的想到下面这段
-123456function Add(arr, newArr)&amp;#123;    arr.splice(Math.floor(arr.length / 2), 0, newArr)    return arr;&amp;#125;Add([1,2,3,4,5,6,7], [8,9,10])">
+<meta name="description" content="问题一例如何在数组中间位置添加数组？ 题目很简单，无非是找到数组中间位置然后把新数组插入即可；比较容易的想到下面这段 123456function Add(arr, newArr)&amp;#123;    arr.splice(Math.floor(arr.length / 2), 0, newArr)    return arr;&amp;#125;Add([1,2,3,4,5,6,7], [8,9,10])">
+<meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="摘录js部分算法">
 <meta property="og:url" content="http://wodewone.com/2017/05/25/js-excerpt-for-algorithm/index.html">
-<meta property="og:site_name" content="wodewone's blog">
-<meta property="og:description" content="问题一例如何在数组中间位置添加数组？
-题目很简单，无非是找到数组中间位置然后把新数组插入即可；比较容易的想到下面这段
-123456function Add(arr, newArr)&amp;#123;    arr.splice(Math.floor(arr.length / 2), 0, newArr)    return arr;&amp;#125;Add([1,2,3,4,5,6,7], [8,9,10])">
+<meta property="og:site_name" content="wodewone&#39;s blog">
+<meta property="og:description" content="问题一例如何在数组中间位置添加数组？ 题目很简单，无非是找到数组中间位置然后把新数组插入即可；比较容易的想到下面这段 123456function Add(arr, newArr)&amp;#123;    arr.splice(Math.floor(arr.length / 2), 0, newArr)    return arr;&amp;#125;Add([1,2,3,4,5,6,7], [8,9,10])">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-05-26T07:10:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="摘录js部分算法">
-<meta name="twitter:description" content="问题一例如何在数组中间位置添加数组？
-题目很简单，无非是找到数组中间位置然后把新数组插入即可；比较容易的想到下面这段
-123456function Add(arr, newArr)&amp;#123;    arr.splice(Math.floor(arr.length / 2), 0, newArr)    return arr;&amp;#125;Add([1,2,3,4,5,6,7], [8,9,10])">
+<meta name="twitter:description" content="问题一例如何在数组中间位置添加数组？ 题目很简单，无非是找到数组中间位置然后把新数组插入即可；比较容易的想到下面这段 123456function Add(arr, newArr)&amp;#123;    arr.splice(Math.floor(arr.length / 2), 0, newArr)    return arr;&amp;#125;Add([1,2,3,4,5,6,7], [8,9,10])">
 
 
 
@@ -354,7 +350,7 @@
 <p><a href="https://zh.wikipedia.org/wiki/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F#JavaScript" target="_blank" rel="external">摘自wiki百科</a></p>
 <h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Array</span>.prototype.selection_sort = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> i, j, min;</div><div class="line">	<span class="keyword">var</span> temp;</div><div class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.length - <span class="number">1</span>; i++) &#123;</div><div class="line">		min = i;</div><div class="line">		<span class="keyword">for</span> (j = i + <span class="number">1</span>; j &lt; <span class="keyword">this</span>.length; j++)</div><div class="line">			<span class="keyword">if</span> (<span class="keyword">this</span>[min] &gt; <span class="keyword">this</span>[j])</div><div class="line">				min = j;</div><div class="line">		temp = <span class="keyword">this</span>[min];</div><div class="line">		<span class="keyword">this</span>[min] = <span class="keyword">this</span>[i];</div><div class="line">		<span class="keyword">this</span>[i] = temp;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 <p><a href="https://zh.wikipedia.org/wiki/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F#JavaScript" target="_blank" rel="external">摘自wiki百科</a></p>
-<h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Array</span>.prototype.insertion_sort = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span></div><div class="line"> 2 &#123;</div><div class="line"> <span class="number">3</span>   <span class="keyword">var</span> i,j;</div><div class="line"> <span class="number">4</span>   <span class="keyword">for</span>(i = <span class="number">1</span>;i &lt; <span class="keyword">this</span>.length; i++)&#123;</div><div class="line"> <span class="number">5</span>     <span class="keyword">for</span>(j = <span class="number">0</span>;j&lt;i;j++)&#123;</div><div class="line"> <span class="number">6</span>       <span class="keyword">if</span>(<span class="keyword">this</span>[j]&gt;<span class="keyword">this</span>[i])&#123;</div><div class="line"> <span class="number">7</span>         <span class="keyword">this</span>.splice(j,<span class="number">0</span>,<span class="keyword">this</span>[i]);</div><div class="line"> <span class="number">8</span>         <span class="keyword">this</span>.splice(i+<span class="number">1</span>,<span class="number">1</span>);</div><div class="line"> <span class="number">9</span>       &#125;</div><div class="line"><span class="number">10</span>     &#125;</div><div class="line"><span class="number">11</span>   &#125;</div><div class="line"><span class="number">12</span>   <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line"><span class="number">13</span> &#125;;</div></pre></td></tr></table></figure>
+<h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Array</span>.prototype.insertion_sort = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span></div><div class="line"><span class="function"> 2 </span>&#123;</div><div class="line"> <span class="number">3</span>   <span class="keyword">var</span> i,j;</div><div class="line"> <span class="number">4</span>   <span class="keyword">for</span>(i = <span class="number">1</span>;i &lt; <span class="keyword">this</span>.length; i++)&#123;</div><div class="line"> <span class="number">5</span>     <span class="keyword">for</span>(j = <span class="number">0</span>;j&lt;i;j++)&#123;</div><div class="line"> <span class="number">6</span>       <span class="keyword">if</span>(<span class="keyword">this</span>[j]&gt;<span class="keyword">this</span>[i])&#123;</div><div class="line"> <span class="number">7</span>         <span class="keyword">this</span>.splice(j,<span class="number">0</span>,<span class="keyword">this</span>[i]);</div><div class="line"> <span class="number">8</span>         <span class="keyword">this</span>.splice(i+<span class="number">1</span>,<span class="number">1</span>);</div><div class="line"> <span class="number">9</span>       &#125;</div><div class="line"><span class="number">10</span>     &#125;</div><div class="line"><span class="number">11</span>   &#125;</div><div class="line"><span class="number">12</span>   <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line"><span class="number">13</span> &#125;;</div></pre></td></tr></table></figure>
 <p><a href="https://zh.wikipedia.org/wiki/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F#JavaScript" target="_blank" rel="external">摘自wiki百科</a></p>
 <h2 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">Array.prototype.shell_sort = function() &#123;</div><div class="line">	var gap, i, j;</div><div class="line">	var temp;</div><div class="line">	for (gap = this.length &gt;&gt; 1; gap &gt; 0; gap &gt;&gt;= 1)</div><div class="line">		for (i = gap; i &lt; this.length; i++) &#123;</div><div class="line">			temp = this[i];</div><div class="line">			for (j = i - gap; j &gt;= 0 &amp;&amp; this[j] &gt; temp; j -= gap)</div><div class="line">				this[j + gap] = this[j];</div><div class="line">			this[j + gap] = temp;</div><div class="line">		&#125;</div><div class="line">	return this</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 <p><a href="https://zh.wikipedia.org/wiki/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F#JavaScript" target="_blank" rel="external">摘自wiki百科</a></p>
@@ -466,7 +462,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">50</span>
+              <span class="site-state-item-count">51</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -474,7 +470,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -483,7 +479,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">63</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
