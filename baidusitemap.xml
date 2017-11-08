@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://wodewone.com/2017/11/08/git-multiple-account-in-mac/</loc>
+    <lastmod>2017-11-08T06:59:50.098Z</lastmod>
+    <data>
+        <display>
+        <title>同一设备维护不同git项目</title>
+        <pubTime>2017-11-08T06:16:44.000Z</pubTime>
+        
+        <tag>git</tag>
+         
+        <tag>git config</tag>
+         
+         
+           
+             
+              <breadCrumb title="git" url="http://wodewone.com/categories/git/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://wodewone.com/2017/07/19/pc-dev-wechat/</loc>
     <lastmod>2017-10-20T12:14:59.632Z</lastmod>
     <data>
@@ -231,9 +253,9 @@
         
         <tag>javascript</tag>
          
-        <tag>css</tag>
-         
         <tag>mac</tag>
+         
+        <tag>css</tag>
          
         <tag>js</tag>
          
@@ -777,9 +799,9 @@
         <title>如何理解Web语义化</title>
         <pubTime>2016-10-01T07:05:57.000Z</pubTime>
         
-        <tag>html</tag>
-         
         <tag>web</tag>
+         
+        <tag>html</tag>
          
          
            
