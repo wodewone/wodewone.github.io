@@ -19,22 +19,25 @@ Github： [http://github.com/wodewone](http://github.com/wodewone)
 
 ### 工作经历
 * 火币集团 （2017.06 - 至今）
+	
 	Web开发
 
-	在职期间负责公司网站运营维护以及技术优化等；
+	期间主要负责公司网站运营维护以及技术优化等；
 
-	工作内容包括运营活动，行情数据，杠杆交易以及用户资产等业务模块；
+	主要内容包括运营活动，行情数据，杠杆交易以及用户资产等业务模块；
 	
-	技术架构主要由 vue/nuxt
+	主要使用 vue 全家桶做快速开发，
 
 * 52toys （2016.04 - 2017.06）
+	
 	H5开发
 	
 	在职期间主要负责“玩蛋趣”项目的开发
 	
 	该项目使用angular框架进行开发
 	
-	体验地址：[http://gacha.52toys.com](http://gacha.52toys.com)
+	体验地址：[http://gacha.52toys.com](http://gacha.52toys.com)[微信浏览]
+	
 	
 	技术栈：
 	
@@ -44,6 +47,7 @@ Github： [http://github.com/wodewone](http://github.com/wodewone)
 
 
 * 拓维集团（2014.11 - 2016.01）
+	
 	前端开发 & 网页设计
 	
 	在职期间主要负责公司网页设计部分交互设计以及和和后端(java)人员的开发协作
@@ -56,39 +60,20 @@ Github： [http://github.com/wodewone](http://github.com/wodewone)
 	
 
 * 济南普联软件公司 （2014.4 - 2014.11）
+	
 	前端开发
 	
 	负责公司业务逻辑的维护更新，主要使用jquery开发，chrome/firebug调试工具。
 
 ### 个人项目
 
-* 个人博客
-
-	> 通过 Hexo + GithubPages 搭建的个人静态博客
 	
-	地址：[http://wodewone.github.io](http://wodewone.github.io)
-	
-	Github地址：[https://github.com/wodewone/wodewone.github.io](https://github.com/wodewone/wodewone.github.io)
-	
-
-* Keep For Mac
-
-	> 主要使用 Electron + React 构建的Mac桌面应用
-	
-	图片预览：[http://wodewone.github.io/app/keep/](http://wodewone.github.io/app/keep/)
-	
-	公开文章：[知乎](https://zhuanlan.zhihu.com/p/25415725)
-	
-	安装体验：[https://pan.baidu.com/s/1geS7qVL](https://pan.baidu.com/s/1geS7qVL)
-	
-	项目地址：[https://github.com/wodewone/keepForMac](https://github.com/wodewone/keepForMac)
-	
-
 * 点点生活（微信小程序）
 
 	> 服务端：koa + nginx + mongodb + pm2
 	
-	通过JWT做用户登录态，nosql数据管理(cloud.mongodb.com), 图片存储使用七牛云
+	用 koa2 做框架开发了一套简单的后台系统，为前端提供一些自定义接口，没有很深入的做系统优化；
+	通过 JWT 做权限管理，使用 nosql 数据管理(cloud.mongodb), 图片存储使用七牛云
 	
 	pm2 做进程守护以及监控分析
 	
@@ -103,6 +88,28 @@ Github： [http://github.com/wodewone](http://github.com/wodewone)
 	
 	ps: 因个人开发资质未公开发布，暂未公开发布
 
+
+* Keep For Mac
+
+	> 主要使用 Electron + React 构建的Mac桌面应用
+	
+	图片预览：[http://wodewone.github.io/app/keep/](http://wodewone.github.io/app/keep/)
+	
+	公开文章：[知乎](https://zhuanlan.zhihu.com/p/25415725)
+	
+	安装体验：[https://pan.baidu.com/s/1geS7qVL](https://pan.baidu.com/s/1geS7qVL)
+	
+	项目地址：[https://github.com/wodewone/keepForMac](https://github.com/wodewone/keepForMac)
+	
+
+* 个人博客
+
+	> 通过 Hexo + GithubPages 搭建的个人静态博客
+	
+	地址：[http://wodewone.github.io](http://wodewone.github.io)
+	
+	Github地址：[https://github.com/wodewone/wodewone.github.io](https://github.com/wodewone/wodewone.github.io)
+	
 
 ### 自我评价
 
@@ -128,7 +135,8 @@ Github： [http://github.com/wodewone](http://github.com/wodewone)
 
 * 在团队工作中更希望大家共同交流学习，促进工作技能的提高。
 
-* 同时在校期间获得山东齐鲁软件大赛第十一届二等奖
+* 在校期间获得山东齐鲁软件大赛第十一届二等奖
+
 * 班级奖学金三等奖
 
 ### 教育经历
@@ -137,7 +145,7 @@ Github： [http://github.com/wodewone](http://github.com/wodewone)
 
 ### 求职意向
 
-期望工作：Web前端开发，移动端H5开发，或node相关
+期望工作：Web前端开发，H5开发，或node相关
 
 期望薪资：面议
 
