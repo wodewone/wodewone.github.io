@@ -1,4 +1,4 @@
-# wodewone
+# Resumes
 
 ### 基本信息
 
@@ -12,27 +12,32 @@
 
 Github： [http://github.com/wodewone](http://github.com/wodewone)
 
-知乎主页：[https://www.zhihu.com/people/wodewone/activities](https://www.zhihu.com/people/wodewone/activities)
-
-个人博客：[http://wodewone.github.io](http://wodewone.github.io)
 
 
 ### 工作经历
 * 火币集团 （2017.06 - 至今）
 	
-	Web开发
+	高级前端开发
 
 	期间主要负责公司网站运营维护以及技术优化等；
-
-	主要内容包括运营活动，行情数据，杠杆交易以及用户资产等业务模块；
 	
-	主要使用 vue 全家桶做快速开发，
+	主要开发和设计网站主要功能，包括杠杆交易，资产账户及子账户和分账户内容，行情信息，法币及相关；
+	
+	配合业务方完成集团策略活动，Prime，运营拉新，推广相关及资产清退等；
+	
+	参与新项目的架构设计，内部组件库的开发，内部私有库的开发；
+	
+	优化拆分资产相关业务，主导资产业务重构优化用户体验，重新设计项目结构、推动接口聚合、梳理业务流程等优化前端开发维护及减少新人入手难度；
+	
+	指导新人快速介入业务支援其他团队开发以及多团队快速开发；
+	
+	主要负责项目包括 Web主站（原生 + vue），PC客户端（Electron），M站，后台管理系统，App和H5通信，项目Nginx配置；
 
 * 52toys （2016.04 - 2017.06）
 	
 	H5开发
 	
-	在职期间主要负责“玩蛋趣”项目的开发
+	在职期间主要负责“玩蛋趣”项目的开发，包括项目组建，技术选型，以及主代码输出；
 	
 	该项目使用angular框架进行开发
 	
@@ -86,7 +91,7 @@ Github： [http://github.com/wodewone](http://github.com/wodewone)
 	项目地址：[https://github.com/wodewone/diandian](https://github.com/wodewone/diandian)
 	
 	
-	ps: 因个人开发资质未公开发布，暂未公开发布
+	ps: 暂未公开发布
 
 
 * Keep For Mac
@@ -126,6 +131,8 @@ Github： [http://github.com/wodewone](http://github.com/wodewone)
 * 熟悉 MVC 开发，熟练使用代码版本管理工具(svn/git)；
 
 * 熟悉 java 开发环境，环境配置，tomcat配置；
+
+* 有组建项目和重构优化项目的经验，可以快速入手项目开发，独立解决项目卡点问题，异常问题；
  
 ### 自我解析
 
